@@ -14,12 +14,11 @@
         Zig
       </p>
       <h1 class="mt-6 text-4xl font-semibold tracking-tight text-white md:text-5xl">
-        Ship production-grade Zig docs with LLM-ready context baked in
+        Zig Standard Library docs.
       </h1>
       <p class="mt-6 text-lg leading-relaxed text-slate-200">
-        Zigbook fuses curated Zig standard library references, and automated
-        <code class="rounded bg-white/10 px-2 py-1 font-mono text-sm text-emerald-200">llms.txt</code> feeds so your
-        engineers and AI agents stay perfectly in sync.
+        Zigbook demystifies the
+        <code class="rounded bg-white/10 px-2 py-1 font-mono text-sm text-emerald-200">Zig Standard Library</code>
       </p>
 
       <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -31,37 +30,6 @@
         >
           Browse the standard library
         </UButton>
-        <UButton
-          size="xl"
-          variant="ghost"
-          color="white"
-          to="/getting-started/installation"
-          icon="i-lucide-rocket"
-          class="font-semibold text-slate-100"
-        >
-          Get the docs running
-        </UButton>
-      </div>
-
-      <div class="mt-12 grid grid-cols-1 gap-6 text-left sm:grid-cols-3">
-        <article class="flex items-start gap-3">
-          <span class="mt-1 flex h-10 w-10 items-center justify-center rounded-full border border-emerald-400/40 bg-emerald-400/10 text-emerald-200">
-            <span class="i-lucide-book-open text-xl" />
-          </span>
-          <div>
-            <p class="text-sm font-semibold tracking-wide text-emerald-200/80">Library Reference</p>
-            <p class="text-sm text-slate-200/80">Latest Zig 0.15.1 std docs mirrored and categorized for fast lookup.</p>
-          </div>
-        </article>
-        <article class="flex items-start gap-3">
-          <span class="mt-1 flex h-10 w-10 items-center justify-center rounded-full border border-indigo-400/40 bg-indigo-400/10 text-indigo-200">
-            <span class="i-lucide-bot text-xl" />
-          </span>
-          <div>
-            <p class="text-sm font-semibold tracking-wide text-indigo-200/80">LLM Ops Ready</p>
-            <p class="text-sm text-slate-200/80">Automated llms.txt + og assets to keep AI copilots context-aware.</p>
-          </div>
-        </article>
       </div>
     </div>
   </section>

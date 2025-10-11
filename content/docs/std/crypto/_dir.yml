@@ -1,0 +1,6 @@
+title: "Cryptography & Hashing"
+navigation:
+  title: "Crypto & Hashing"
+  icon: i-lucide-shield-check
+  order: 4
+description: "Cryptographic primitives, hashing utilities, and secure random helpers."

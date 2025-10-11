@@ -1,0 +1,6 @@
+title: "Collections & Containers"
+navigation:
+  title: "Collections"
+  icon: i-lucide-layers
+  order: 1
+description: "Data structures, buffer managers, and container abstractions for high-performance Zig code."

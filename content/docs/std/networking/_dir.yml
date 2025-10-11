@@ -1,0 +1,6 @@
+title: "Networking & Protocols"
+navigation:
+  title: "Networking"
+  icon: i-lucide-globe
+  order: 8
+description: "Transport stacks, HTTP client utilities, and URI helpers for networked applications."

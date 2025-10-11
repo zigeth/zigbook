@@ -1,0 +1,6 @@
+title: "Testing & Quality"
+navigation:
+  title: "Testing"
+  icon: i-lucide-flask-round
+  order: 11
+description: "Testing harnesses, assertions, and quality-of-life helpers for validation."

@@ -1,0 +1,6 @@
+title: "Core Systems"
+navigation:
+  title: "Systems"
+  icon: i-lucide-cpu
+  order: 5
+description: "Low-level concurrency, metaprogramming, memory, and language runtime building blocks."

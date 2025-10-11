@@ -1,0 +1,6 @@
+title: "Algorithms & Numerics"
+navigation:
+  title: "Algorithms"
+  icon: i-lucide-function-square
+  order: 2
+description: "Sorting, randomization, math helpers, and SIMD acceleration primitives."

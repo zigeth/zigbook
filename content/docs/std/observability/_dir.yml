@@ -1,0 +1,6 @@
+title: "Diagnostics & Observability"
+navigation:
+  title: "Observability"
+  icon: i-lucide-activity
+  order: 7
+description: "Logging, debugging, tracing, and progress reporting utilities."

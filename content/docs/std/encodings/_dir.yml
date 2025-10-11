@@ -1,0 +1,6 @@
+title: "Text & Encoding"
+navigation:
+  title: "Text & Encoding"
+  icon: i-lucide-binary
+  order: 3
+description: "Formatting, serialization, and text-processing helpers for structured data."

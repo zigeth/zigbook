@@ -1,0 +1,6 @@
+title: "Binary & Archive Formats"
+navigation:
+  title: "Formats"
+  icon: i-lucide-package
+  order: 10
+description: "Utilities for structured file formats, archives, and semantic versioning."

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 32" role="img" aria-labelledby="title desc">
+  <title id="title">Zigbook Logo Light</title>
+  <desc id="desc">Stylized zigbook logotype for light backgrounds.</desc>
+  <rect width="120" height="32" rx="8" fill="rgba(15,23,42,0.06)" />
+  <path d="M18 8h12l-8 8h8l-12 12" fill="none" stroke="#047857" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <text x="44" y="21" font-family="'Inter Tight', sans-serif" font-size="16" font-weight="600" fill="#0f172a">zigbook</text>
+</svg>

@@ -1,0 +1,6 @@
+title: "Platform & Runtime"
+navigation:
+  title: "Platform"
+  icon: i-lucide-server-cog
+  order: 6
+description: "Operating system bindings, filesystem helpers, timers, and IO abstractions."

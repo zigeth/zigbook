@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    color-scheme: light dark;
+}
+
+.prose pre {
+    @apply rounded-xl border border-slate-900/5 bg-slate-950/90 text-slate-100 shadow-lg dark:border-slate-100/10 dark:bg-slate-900;
+}
+
+.prose code {
+    @apply rounded bg-slate-900/5 px-1 py-0.5 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-200;
+}
+
+.prose table {
+    @apply w-full overflow-hidden rounded-lg border border-slate-900/5 bg-white/80 shadow-sm dark:border-slate-100/10 dark:bg-slate-900/60;
+}
+
+body {
+    @apply bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100;
+}

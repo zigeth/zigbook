@@ -1,0 +1,6 @@
+title: "Reference"
+navigation:
+  title: "Reference"
+  icon: i-lucide-book-open
+  order: 3
+description: "Reference documentation for Zigbook, including the synchronized Zig standard library pages."

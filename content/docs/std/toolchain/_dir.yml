@@ -1,0 +1,6 @@
+title: "Toolchain & Binaries"
+navigation:
+  title: "Toolchain"
+  icon: i-lucide-hammer
+  order: 9
+description: "Build orchestration, target metadata, dynamic libraries, and binary format tooling."

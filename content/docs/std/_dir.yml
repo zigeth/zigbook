@@ -1,0 +1,6 @@
+title: "Standard Library"
+navigation:
+  title: "Standard Library"
+  icon: i-lucide-library
+  order: 3
+description: "Zig 0.15.1 standard library reference grouped by domain."

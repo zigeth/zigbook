@@ -10,7 +10,7 @@ export default defineAppConfig({
   docus: {
     title: 'Zigbook',
     description:
-      'Authoritative documentation for the Zig programming language, Ethereum integration, and the Zigbook ecosystem.',
+      'Authoritative documentation for the Zig programming language Standard Library.',
     image: {
       src: '/og/zigbook-default.svg',
       alt: 'Zigbook documentation preview',
@@ -42,7 +42,7 @@ export default defineAppConfig({
     footer: {
       credits: {
         icon: 'i-lucide-sparkles',
-        text: 'Curated with ❤️ by the Zigbook maintainers.'
+        text: 'Made with ❤️ by zigeth.'
       },
       textLinks: [
         {

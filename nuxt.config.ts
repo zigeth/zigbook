@@ -14,8 +14,8 @@ export default defineNuxtConfig({
   ],
   postcss: {
     plugins: {
-      tailwindcss: {},
-      autoprefixer: {}
+  'postcss-import': {},
+  'autoprefixer': {}
     }
   },
   content: {
@@ -56,7 +56,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     site: {
       title: 'Zigbook',
-      tagline: 'Beautiful documentation for Zig and the EVM'
+      tagline: 'Comprehensive documentation for the Zig Standard Library',
     },
     ai: {
       openaiApiKey: process.env.NUXT_OPENAI_API_KEY
@@ -100,7 +100,7 @@ export default defineNuxtConfig({
     domain: process.env.NUXT_PUBLIC_SITE_URL || 'https://zigbook.net',
     title: 'Zigbook Documentation',
     description:
-      'Authoritative references for the Zig standard library, Ethereum Virtual Machine integration, and the Zigbook developer experience.',
+      'Authoritative references for the Zig standard library.',
     sections: [
       {
         title: 'Getting Started',
@@ -144,31 +144,10 @@ export default defineNuxtConfig({
           }
         ]
       },
-      {
-        title: 'EVM Integration Guides',
-        description: 'Step-by-step guides that connect Zig applications to the Ethereum Virtual Machine and Erigon.',
-        links: [
-          {
-            title: 'Zig ↔ EVM bridge',
-            description: 'Learn how Zigbook structures FFI bindings and transaction execution flows.',
-            href: '/guides/evm/bridge'
-          },
-          {
-            title: 'State management',
-            description: 'Patterns for state snapshots, rollbacks, and deterministic execution.',
-            href: '/guides/evm/state-management'
-          },
-          {
-            title: 'Security hardening',
-            description: 'Best practices for constant-time operations and audit readiness.',
-            href: '/guides/security/hardening'
-          }
-        ]
-      }
     ],
     notes: [
       'Documentation is sourced directly from the Zig 0.15.1 standard library Markdown references stored in the repository.',
-      'Guides cover practical integrations with Erigon and other Ethereum clients, focusing on deterministic execution and performance.'
+      'Guides cover practical use cases and patterns for using Zig in real-world applications.',
     ]
   },
   app: {

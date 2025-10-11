@@ -1,33 +1,77 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
     color-scheme: light dark;
 }
 
 .prose pre {
-    @apply rounded-xl border border-slate-900/5 bg-slate-950/90 text-slate-100 shadow-lg dark:border-slate-100/10 dark:bg-slate-900;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(15, 23, 42, 0.05);
+    background-color: rgba(2, 6, 23, 0.9);
+    color: #f1f5f9;
+    box-shadow: 0 20px 45px -15px rgba(15, 23, 42, 0.45);
+}
+
+html.dark .prose pre {
+    border-color: rgba(241, 245, 249, 0.1);
+    background-color: #0f172a;
 }
 
 .prose code {
-    @apply rounded bg-slate-900/5 px-1 py-0.5 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-200;
+    border-radius: 0.25rem;
+    background-color: rgba(15, 23, 42, 0.05);
+    padding: 0.125rem 0.25rem;
+    color: #059669;
+}
+
+html.dark .prose code {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #bbf7d0;
 }
 
 .prose table {
-    @apply w-full overflow-hidden rounded-lg border border-slate-900/5 bg-white/80 shadow-sm dark:border-slate-100/10 dark:bg-slate-900/60;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(15, 23, 42, 0.05);
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1), 0 2px 4px -2px rgba(15, 23, 42, 0.1);
+}
+
+html.dark .prose table {
+    border-color: rgba(241, 245, 249, 0.1);
+    background-color: rgba(15, 23, 42, 0.6);
 }
 
 body {
-    @apply bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100;
+    background-color: #f8fafc;
+    color: #0f172a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html.dark body {
+    background-color: #020617;
+    color: #f1f5f9;
 }
 
 ::selection {
-    @apply bg-emerald-400/70 text-slate-950;
+    background-color: rgba(52, 211, 153, 0.7);
+    color: #020617;
 }
 
 .glass-panel {
-    @apply rounded-3xl border border-white/10 bg-white/5 shadow-[0_25px_70px_-20px_rgba(15, 23, 42, 0.45)] backdrop-blur-xl dark:border-white/5 dark:bg-white/5;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 25px 70px -20px rgba(15, 23, 42, 0.45);
+    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(24px);
+}
+
+html.dark .glass-panel {
+    border-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .page-gradient {

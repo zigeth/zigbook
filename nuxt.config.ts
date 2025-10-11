@@ -1,10 +1,10 @@
 import { defineNuxtConfig } from 'nuxt/config'
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
   extends: ['docus'],
   compatibilityDate: '2024-09-30',
   modules: [
-    '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
@@ -14,8 +14,8 @@ export default defineNuxtConfig({
   ],
   postcss: {
     plugins: {
-  'postcss-import': {},
-  'autoprefixer': {}
+      '@tailwindcss/postcss': {},
+      autoprefixer: {}
     }
   },
   content: {
@@ -46,12 +46,6 @@ export default defineNuxtConfig({
     display: 'swap',
     download: true,
     preload: true
-  },
-  tailwindcss: {
-    cssPath: '@/assets/css/tailwind.css',
-    configPath: 'tailwind.config.ts',
-    exposeConfig: true,
-    viewer: false
   },
   runtimeConfig: {
     site: {
@@ -159,5 +153,8 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'alternate icon', href: '/favicon.ico' }]
     }
+  },
+  vite: {
+    plugins: [tailwindcss()]
   }
 })

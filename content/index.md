@@ -1,123 +1,57 @@
 ---
+title: "Zigbook Documentation"
+description: "Production-ready Zig documentation with curated standard library references, and automated llms.txt outputs."
+navigation:
+  title: "Overview"
 seo:
-  title: Write beautiful docs with Markdown
-  description: Ship fast, flexible, and SEO-optimized documentation with beautiful
-    design out of the box. Docus brings together the best of the Nuxt ecosystem.
-    Powered by Nuxt UI.
+  title: "Zigbook · Zig Std Lib documentation hub"
+  description: "Explore the Zig standard library and LLM-friendly artifacts maintained by Zigbook."
 ---
 
-::u-page-hero
-#title
-Write beautiful docs with Markdown
-
-#description
-Ship fast, flexible, and SEO-optimized documentation with beautiful design out of the box.
-
-Docus brings the best of the Nuxt ecosystem into one CLI.
-
-#links
-  :::u-button
-  ---
-  color: neutral
-  size: xl
-  to: /getting-started/installation
-  trailing-icon: i-lucide-arrow-right
-  ---
-  Get started
-  :::
-
-  :::u-button
-  ---
-  color: neutral
-  icon: simple-icons-github
-  size: xl
-  to: https://github.com/nuxt-content/docus
-  variant: outline
-  ---
-  Star on GitHub
-  :::
-::
+<MarketingHeroSpotlight />
 
 ::u-page-section
 #title
-Shipped with many features
+Everything you need to ship trustworthy systems docs
 
-#features
-  :::u-page-feature
-  ---
-  icon: i-simple-icons-nuxt
-  target: _blank
-  to: https://nuxt.com
-  ---
-  #title
-  Built with [Nuxt 4]{.text-primary}
-  
-  #description
-  Optimized by the most famous Vue framework. Docus gives you everything you need to build fast, performant, and SEO-friendly websites.
-  :::
-
-  :::u-page-feature
-  ---
-  icon: i-simple-icons-nuxt
-  target: _blank
-  to: https://ui.nuxt.com/
-  ---
-  #title
-  Powered by [Nuxt UI]{.text-primary}
-  
-  #description
-  Beautiful out of the box, minimal by design but highly customizable. Docus leverages Nuxt UI to give you the best docs writing experience with zero boilerplate, just focus on your content.
-  :::
-
-  :::u-page-feature
-  ---
-  icon: i-simple-icons-nuxt
-  target: _blank
-  to: https://content.nuxt.com
-  ---
-  #title
-  Enhanced Markdown syntax by [Nuxt Content]{.text-primary}
-  
-  #description
-  The only thing you need to take care about is writing your content. Write your pages in Markdown and extend with MDC syntax to embed Nuxt UI or custom Vue components. Structure, routing, and rendering are handled for you.
-  :::
-
-  :::u-page-feature
-  ---
-  icon: i-simple-icons-nuxt
-  target: _blank
-  to: https://nuxt.com/docs/guide/directory-structure/app-config
-  ---
-  #title
-  Customize with [Nuxt App Config]{.text-primary}
-  
-  #description
-  Update colors, social links, header logos and component styles globally using the `app.config.ts`, no direct code modifications required.
-  :::
-
-  :::u-page-feature
-  ---
-  icon: i-simple-icons-nuxt
-  target: _blank
-  to: https://content.nuxt.com/studio
-  ---
-  #title
-  Collaborate on [Nuxt Studio]{.text-primary}
-  
-  #description
-  Write and manage your content visually, with zero Markdown knowledge required. Let your non technical colleagues collaborate on the documentation and integrate Vue components without code skills.
-  :::
-
-  :::u-page-feature
-  ---
-  icon: i-simple-icons-nuxt
-  target: _blank
-  to: https://ui.nuxt.com/components/content-search
-  ---
-  #title
-  Built-in navigation and [full-text search]{.text-primary}
-  
-  #description
-  Only focus on ordering your content, Docus handles the search modal and auto-generates the side navigation for you.
-  :::
+#description
+Zigbook wraps the entire documentation stack—from Markdown syncing to LLM-ready exports—so your team ships updates fast without sacrificing rigor.
 ::
+
+<MarketingFeatureGrid class="mt-12" />
+
+::u-page-section
+#title
+Zig standard library, curated
+
+#description
+Fresh copies of the Zig 0.15.1 `std/` Markdown are mirrored into the site automatically. Browse categories or deep-link to module details.
+::
+
+<ReferenceCategoryShowcase class="mt-12" />
+
+::u-page-section
+#title
+Workflows that stay in sync with AI copilots
+
+#description
+Each deployment generates `/llms.txt` and `/llms-full.txt`. Share them with internal agents or plug into automated QA pipelines.
+::
+
+<div class="relative mx-auto mt-10 max-w-4xl overflow-hidden rounded-3xl border border-emerald-400/30 bg-emerald-400/5 p-8 text-slate-900 shadow-lg dark:border-emerald-400/40 dark:bg-emerald-400/10 dark:text-emerald-50">
+  <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.18),_transparent_70%)]" />
+  <div class="relative space-y-4">
+    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-500 dark:text-emerald-200">Automation tips</p>
+    <h3 class="text-2xl font-semibold">Keep llms.txt fresh on every merge</h3>
+    <ol class="list-decimal space-y-2 pl-5 text-sm">
+      <li>Update docs under <code>std/</code> or any Markdown section.</li>
+      <li>Run <code>npm run sync:std</code> to regenerate categorized pages and notes.</li>
+      <li>Deploy—`nuxt-llms` will emit `llms.txt` and `llms-full.txt` automatically.</li>
+    </ol>
+    <p class="text-sm text-slate-700 dark:text-emerald-100/80">
+      Looking to wire Zigbook into an internal assistant? Use the quick launcher in the corner to fetch the latest exports and sample prompts.
+    </p>
+  </div>
+</div>
+
+<LLMAssistantLauncher />

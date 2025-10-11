@@ -12,6 +12,12 @@ export default defineNuxtConfig({
     'nuxt-og-image',
     'nuxt-llms'
   ],
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {}
+    }
+  },
   content: {
     documentDriven: true,
     navigation: {
@@ -67,7 +73,6 @@ export default defineNuxtConfig({
     }
   },
   sitemap: {
-    strictNuxtContentPaths: true,
     inferStaticPagesAsRoutes: true,
     autoLastmod: true,
     xslColumns: ['loc', 'lastmod']

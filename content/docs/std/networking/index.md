@@ -1,8 +1,7 @@
 ---
 title: "Networking & Protocols"
 description: "Transport stacks, HTTP client utilities, and URI helpers for networked applications."
-navigation:
-  title: "Overview"
+navigation: false
 seo:
   title: "Networking & Protocols · Zig 0.15.1 standard library reference"
   description: "Transport stacks, HTTP client utilities, and URI helpers for networked applications."

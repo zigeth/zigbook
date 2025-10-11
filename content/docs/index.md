@@ -1,8 +1,6 @@
 ---
 title: "Reference Home"
 description: "Central hub for Zigbook reference materials, including the Zig 0.15.1 standard library and forthcoming integration guides."
-navigation:
-  title: "Overview"
 seo:
   title: "Zigbook Reference Overview"
   description: "Jump into the Zigbook reference library, starting with the curated Zig standard library documentation."

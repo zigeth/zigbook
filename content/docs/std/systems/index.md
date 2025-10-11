@@ -1,8 +1,7 @@
 ---
 title: "Core Systems"
 description: "Low-level concurrency, metaprogramming, memory, and language runtime building blocks."
-navigation:
-  title: "Overview"
+navigation: false
 seo:
   title: "Core Systems · Zig 0.15.1 standard library reference"
   description: "Low-level concurrency, metaprogramming, memory, and language runtime building blocks."

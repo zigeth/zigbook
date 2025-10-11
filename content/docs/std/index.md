@@ -1,8 +1,7 @@
 ---
 title: "Zig 0.15.1 Standard Library"
 description: "Explore the Zig standard library modules grouped by domain and kept in sync with the upstream documentation."
-navigation:
-  title: "Overview"
+navigation: false
 seo:
   title: "Zig 0.15.1 Standard Library · Zigbook"
   description: "Explore curated categories for the Zig 0.15.1 standard library reference."

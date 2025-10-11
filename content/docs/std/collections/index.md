@@ -1,8 +1,7 @@
 ---
 title: "Collections & Containers"
 description: "Data structures, buffer managers, and container abstractions for high-performance Zig code."
-navigation:
-  title: "Overview"
+navigation: false
 seo:
   title: "Collections & Containers · Zig 0.15.1 standard library reference"
   description: "Data structures, buffer managers, and container abstractions for high-performance Zig code."

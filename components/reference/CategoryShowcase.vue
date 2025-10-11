@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import categoriesSource from '~/data/std-categories.json' assert { type: 'json' }
+import categoriesSource from '~/data/std-categories.json' with { type: 'json' }
 
 interface Category {
   key: string

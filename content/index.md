@@ -2,7 +2,7 @@
 title: "Zigbook Documentation"
 description: "Production-ready Zig documentation with curated standard library references, and automated llms.txt outputs."
 navigation:
-  title: "Overview"
+  title: "Home"
 seo:
   title: "Zigbook · Zig Std Lib documentation hub"
   description: "Explore the Zig standard library and LLM-friendly artifacts maintained by Zigbook."

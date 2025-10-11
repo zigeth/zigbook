@@ -1,8 +1,7 @@
 ---
 title: "Cryptography & Hashing"
 description: "Cryptographic primitives, hashing utilities, and secure random helpers."
-navigation:
-  title: "Overview"
+navigation: false
 seo:
   title: "Cryptography & Hashing · Zig 0.15.1 standard library reference"
   description: "Cryptographic primitives, hashing utilities, and secure random helpers."

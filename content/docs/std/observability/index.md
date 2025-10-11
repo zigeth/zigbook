@@ -1,8 +1,7 @@
 ---
 title: "Diagnostics & Observability"
 description: "Logging, debugging, tracing, and progress reporting utilities."
-navigation:
-  title: "Overview"
+navigation: false
 seo:
   title: "Diagnostics & Observability · Zig 0.15.1 standard library reference"
   description: "Logging, debugging, tracing, and progress reporting utilities."

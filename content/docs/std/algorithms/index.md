@@ -1,8 +1,7 @@
 ---
 title: "Algorithms & Numerics"
 description: "Sorting, randomization, math helpers, and SIMD acceleration primitives."
-navigation:
-  title: "Overview"
+navigation: false
 seo:
   title: "Algorithms & Numerics · Zig 0.15.1 standard library reference"
   description: "Sorting, randomization, math helpers, and SIMD acceleration primitives."

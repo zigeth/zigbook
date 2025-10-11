@@ -1,8 +1,7 @@
 ---
 title: "Binary & Archive Formats"
 description: "Utilities for structured file formats, archives, and semantic versioning."
-navigation:
-  title: "Overview"
+navigation: false
 seo:
   title: "Binary & Archive Formats · Zig 0.15.1 standard library reference"
   description: "Utilities for structured file formats, archives, and semantic versioning."

@@ -1,8 +1,7 @@
 ---
 title: "Platform & Runtime"
 description: "Operating system bindings, filesystem helpers, timers, and IO abstractions."
-navigation:
-  title: "Overview"
+navigation: false
 seo:
   title: "Platform & Runtime · Zig 0.15.1 standard library reference"
   description: "Operating system bindings, filesystem helpers, timers, and IO abstractions."

@@ -1,8 +1,7 @@
 ---
 title: "Text & Encoding"
 description: "Formatting, serialization, and text-processing helpers for structured data."
-navigation:
-  title: "Overview"
+navigation: false
 seo:
   title: "Text & Encoding · Zig 0.15.1 standard library reference"
   description: "Formatting, serialization, and text-processing helpers for structured data."

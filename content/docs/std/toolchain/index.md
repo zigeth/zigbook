@@ -1,8 +1,7 @@
 ---
 title: "Toolchain & Binaries"
 description: "Build orchestration, target metadata, dynamic libraries, and binary format tooling."
-navigation:
-  title: "Overview"
+navigation: false
 seo:
   title: "Toolchain & Binaries · Zig 0.15.1 standard library reference"
   description: "Build orchestration, target metadata, dynamic libraries, and binary format tooling."

@@ -1,8 +1,7 @@
 ---
 title: "Testing & Quality"
 description: "Testing harnesses, assertions, and quality-of-life helpers for validation."
-navigation:
-  title: "Overview"
+navigation: false
 seo:
   title: "Testing & Quality · Zig 0.15.1 standard library reference"
   description: "Testing harnesses, assertions, and quality-of-life helpers for validation."

@@ -13,13 +13,13 @@ tags:
   - "platform"
 source: "std/posix.md"
 githubPath: "std/posix.md"
-lastUpdated: "2025-10-11T02:43:50.349Z"
+lastUpdated: "2025-10-18T12:44:21.945Z"
 seo:
   title: "std.posix · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.posix module covering operating system, filesystem, and runtime services."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/posix.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/posix.md`.
 ::
 
 *Zig Standard Library Documentation*

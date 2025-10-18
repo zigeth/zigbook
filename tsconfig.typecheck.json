@@ -1,0 +1,15 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "noEmit": true
+    },
+    "include": [
+        "app.config.ts",
+        "nuxt.config.ts",
+        "tailwind.config.ts",
+        "components/**/*.vue",
+        "scripts/**/*.mjs",
+        "types/**/*.d.ts",
+        ".nuxt/**/*.d.ts"
+    ]
+}

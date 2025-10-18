@@ -13,13 +13,13 @@ tags:
   - "systems"
 source: "std/Thread.md"
 githubPath: "std/Thread.md"
-lastUpdated: "2025-10-11T02:43:50.338Z"
+lastUpdated: "2025-10-18T12:44:21.938Z"
 seo:
   title: "std.Thread · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.Thread module covering low-level systems primitives and metaprogramming utilities."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/Thread.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/Thread.md`.
 ::
 
 *Zig Standard Library Documentation*

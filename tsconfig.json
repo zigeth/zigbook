@@ -4,17 +4,10 @@
         "strict": true,
         "module": "preserve",
         "moduleResolution": "bundler",
+        "skipLibCheck": true,
         "types": [
             "node",
             "nuxt-llms"
-        ],
-        "paths": {
-            "~/*": [
-                "./*"
-            ],
-            "@/*": [
-                "./*"
-            ]
-        }
+        ]
     }
 }

@@ -13,13 +13,13 @@ tags:
   - "collections"
 source: "std/MultiArrayList.md"
 githubPath: "std/MultiArrayList.md"
-lastUpdated: "2025-10-11T02:43:50.337Z"
+lastUpdated: "2025-10-18T12:44:21.937Z"
 seo:
   title: "std.MultiArrayList · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.MultiArrayList module covering collections and data-structure utilities."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/MultiArrayList.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/MultiArrayList.md`.
 ::
 
 *Zig Standard Library Documentation*

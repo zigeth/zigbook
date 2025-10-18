@@ -13,13 +13,13 @@ tags:
   - "platform"
 source: "std/os.md"
 githubPath: "std/os.md"
-lastUpdated: "2025-10-11T02:43:50.347Z"
+lastUpdated: "2025-10-18T12:44:21.944Z"
 seo:
   title: "std.os · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.os module covering operating system, filesystem, and runtime services."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/os.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/os.md`.
 ::
 
 *Zig Standard Library Documentation*

@@ -13,13 +13,13 @@ tags:
   - "collections"
 source: "std/array_list.md"
 githubPath: "std/array_list.md"
-lastUpdated: "2025-10-11T02:43:50.339Z"
+lastUpdated: "2025-10-18T12:44:21.939Z"
 seo:
   title: "std.array_list · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.array_list module covering collections and data-structure utilities."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/array_list.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/array_list.md`.
 ::
 
 *Zig Standard Library Documentation*

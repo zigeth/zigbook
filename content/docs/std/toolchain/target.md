@@ -13,13 +13,13 @@ tags:
   - "toolchain"
 source: "std/Target.md"
 githubPath: "std/Target.md"
-lastUpdated: "2025-10-11T02:43:50.338Z"
+lastUpdated: "2025-10-18T12:44:21.938Z"
 seo:
   title: "std.Target · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.Target module covering build coordination, targets, and binary tooling."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/Target.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/Target.md`.
 ::
 
 *Zig Standard Library Documentation*

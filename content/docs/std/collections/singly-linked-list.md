@@ -13,13 +13,13 @@ tags:
   - "collections"
 source: "std/SinglyLinkedList.md"
 githubPath: "std/SinglyLinkedList.md"
-lastUpdated: "2025-10-11T02:43:50.338Z"
+lastUpdated: "2025-10-18T12:44:21.938Z"
 seo:
   title: "std.SinglyLinkedList · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.SinglyLinkedList module covering collections and data-structure utilities."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/SinglyLinkedList.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/SinglyLinkedList.md`.
 ::
 
 *Zig Standard Library Documentation*

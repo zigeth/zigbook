@@ -13,13 +13,13 @@ tags:
   - "platform"
 source: "std/Io.md"
 githubPath: "std/Io.md"
-lastUpdated: "2025-10-11T02:43:50.337Z"
+lastUpdated: "2025-10-18T12:44:21.937Z"
 seo:
   title: "std.Io · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.Io module covering operating system, filesystem, and runtime services."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/Io.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/Io.md`.
 ::
 
 *Zig Standard Library Documentation*

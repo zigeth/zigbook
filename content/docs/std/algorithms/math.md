@@ -13,13 +13,13 @@ tags:
   - "algorithms"
 source: "std/math.md"
 githubPath: "std/math.md"
-lastUpdated: "2025-10-11T02:43:50.346Z"
+lastUpdated: "2025-10-18T12:44:21.944Z"
 seo:
   title: "std.math · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.math module covering algorithms, numerics, and performance primitives."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/math.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/math.md`.
 ::
 
 *Zig Standard Library Documentation*

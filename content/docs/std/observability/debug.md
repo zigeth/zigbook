@@ -13,13 +13,13 @@ tags:
   - "observability"
 source: "std/debug.md"
 githubPath: "std/debug.md"
-lastUpdated: "2025-10-11T02:43:50.343Z"
+lastUpdated: "2025-10-18T12:44:21.941Z"
 seo:
   title: "std.debug · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.debug module covering logging, debugging, and instrumentation helpers."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/debug.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/debug.md`.
 ::
 
 *Zig Standard Library Documentation*

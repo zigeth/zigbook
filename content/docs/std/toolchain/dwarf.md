@@ -13,13 +13,13 @@ tags:
   - "toolchain"
 source: "std/dwarf.md"
 githubPath: "std/dwarf.md"
-lastUpdated: "2025-10-11T02:43:50.343Z"
+lastUpdated: "2025-10-18T12:44:21.942Z"
 seo:
   title: "std.dwarf · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.dwarf module covering build coordination, targets, and binary tooling."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/dwarf.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/dwarf.md`.
 ::
 
 *Zig Standard Library Documentation*

@@ -13,13 +13,13 @@ tags:
   - "toolchain"
 source: "std/pdb.md"
 githubPath: "std/pdb.md"
-lastUpdated: "2025-10-11T02:43:50.347Z"
+lastUpdated: "2025-10-18T12:44:21.944Z"
 seo:
   title: "std.pdb · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.pdb module covering build coordination, targets, and binary tooling."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/pdb.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/pdb.md`.
 ::
 
 *Zig Standard Library Documentation*

@@ -13,13 +13,13 @@ tags:
   - "formats"
 source: "std/compress.md"
 githubPath: "std/compress.md"
-lastUpdated: "2025-10-11T02:43:50.342Z"
+lastUpdated: "2025-10-18T12:44:21.941Z"
 seo:
   title: "std.compress · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.compress module covering binary parsing, archive handling, and structured formats."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/compress.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/compress.md`.
 ::
 
 *Zig Standard Library Documentation*

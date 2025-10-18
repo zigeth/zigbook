@@ -13,13 +13,13 @@ tags:
   - "encodings"
 source: "std/base64.md"
 githubPath: "std/base64.md"
-lastUpdated: "2025-10-11T02:43:50.340Z"
+lastUpdated: "2025-10-18T12:44:21.939Z"
 seo:
   title: "std.base64 · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.base64 module covering formatting, serialization, and text-processing helpers."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/base64.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/base64.md`.
 ::
 
 *Zig Standard Library Documentation*

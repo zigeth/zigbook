@@ -1,9 +1,17 @@
 import { defineNuxtConfig } from 'nuxt/config'
 import tailwindcss from '@tailwindcss/vite'
 
+const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'https://zigbook.net'
+const siteName = 'Zigbook'
+
 export default defineNuxtConfig({
+  // @ts-expect-error -- Nuxt 4.1.3 type definitions do not yet expose the "extends" layer property.
   extends: ['docus'],
   compatibilityDate: '2024-09-30',
+  site: {
+    url: siteUrl,
+    name: siteName,
+  },
   modules: [
     '@nuxtjs/google-fonts',
     '@nuxtjs/robots',
@@ -19,15 +27,14 @@ export default defineNuxtConfig({
     }
   },
   content: {
-    documentDriven: true,
-    navigation: {
-      fields: ['navigation', 'category', 'tags', 'badge', 'githubPath']
-    },
     highlight: {
       theme: {
         default: 'github-light',
         dark: 'github-dark'
       }
+    },
+    experimental: {
+      sqliteConnector: 'native'
     }
   },
   css: ['@/assets/css/tailwind.css'],
@@ -49,14 +56,14 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     site: {
-      title: 'Zigbook',
+      title: siteName,
       tagline: 'Comprehensive documentation for the Zig Standard Library',
     },
     ai: {
       openaiApiKey: process.env.NUXT_OPENAI_API_KEY
     },
     public: {
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://zigbook.net',
+      siteUrl,
       docSearchAppId: process.env.NUXT_PUBLIC_DOCSEARCH_APP_ID || '',
       docSearchApiKey: process.env.NUXT_PUBLIC_DOCSEARCH_API_KEY || '',
       docSearchIndexName: process.env.NUXT_PUBLIC_DOCSEARCH_INDEX_NAME || '',
@@ -67,18 +74,18 @@ export default defineNuxtConfig({
     }
   },
   sitemap: {
-    inferStaticPagesAsRoutes: true,
     autoLastmod: true,
-    xslColumns: ['loc', 'lastmod']
+    xslColumns: [
+      { label: 'Location', select: 'loc', width: '70%' },
+      { label: 'Last Modified', select: 'lastmod', width: '30%' }
+    ],
+    siteUrl,
   },
   robots: {
     sitemap: [
-      `${process.env.NUXT_PUBLIC_SITE_URL || 'https://zigbook.net'}/sitemap.xml`
+      `${siteUrl}/sitemap.xml`
     ],
-    rules: [{ userAgent: '*', allow: '/' }]
-  },
-  schemaOrg: {
-    canonicalHost: process.env.NUXT_PUBLIC_SITE_URL || 'https://zigbook.net'
+    allow: ['/']
   },
   ogImage: {
     defaults: {

@@ -13,13 +13,13 @@ tags:
   - "toolchain"
 source: "std/pie.md"
 githubPath: "std/pie.md"
-lastUpdated: "2025-10-11T02:43:50.347Z"
+lastUpdated: "2025-10-18T12:44:21.944Z"
 seo:
   title: "std.pie · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.pie module covering build coordination, targets, and binary tooling."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/pie.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/pie.md`.
 ::
 
 *Zig Standard Library Documentation*

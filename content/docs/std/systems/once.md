@@ -13,13 +13,13 @@ tags:
   - "systems"
 source: "std/once.md"
 githubPath: "std/once.md"
-lastUpdated: "2025-10-11T02:43:50.347Z"
+lastUpdated: "2025-10-18T12:44:21.944Z"
 seo:
   title: "std.once · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.once module covering low-level systems primitives and metaprogramming utilities."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/once.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/once.md`.
 ::
 
 *Zig Standard Library Documentation*

@@ -13,13 +13,13 @@ tags:
   - "collections"
 source: "std/PriorityDequeue.md"
 githubPath: "std/PriorityDequeue.md"
-lastUpdated: "2025-10-11T02:43:50.337Z"
+lastUpdated: "2025-10-18T12:44:21.937Z"
 seo:
   title: "std.PriorityDequeue · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.PriorityDequeue module covering collections and data-structure utilities."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/PriorityDequeue.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/PriorityDequeue.md`.
 ::
 
 *Zig Standard Library Documentation*

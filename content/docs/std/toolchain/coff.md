@@ -13,13 +13,13 @@ tags:
   - "toolchain"
 source: "std/coff.md"
 githubPath: "std/coff.md"
-lastUpdated: "2025-10-11T02:43:50.342Z"
+lastUpdated: "2025-10-18T12:44:21.941Z"
 seo:
   title: "std.coff · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.coff module covering build coordination, targets, and binary tooling."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/coff.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/coff.md`.
 ::
 
 *Zig Standard Library Documentation*

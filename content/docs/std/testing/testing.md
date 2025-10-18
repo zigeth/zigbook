@@ -13,13 +13,13 @@ tags:
   - "testing"
 source: "std/testing.md"
 githubPath: "std/testing.md"
-lastUpdated: "2025-10-11T02:43:50.350Z"
+lastUpdated: "2025-10-18T12:44:21.946Z"
 seo:
   title: "std.testing · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.testing module covering testing utilities and validation helpers."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/testing.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/testing.md`.
 ::
 
 *Zig Standard Library Documentation*

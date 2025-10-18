@@ -13,13 +13,13 @@ tags:
   - "encodings"
 source: "std/fmt.md"
 githubPath: "std/fmt.md"
-lastUpdated: "2025-10-11T02:43:50.344Z"
+lastUpdated: "2025-10-18T12:44:21.942Z"
 seo:
   title: "std.fmt · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.fmt module covering formatting, serialization, and text-processing helpers."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/fmt.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/fmt.md`.
 ::
 
 *Zig Standard Library Documentation*

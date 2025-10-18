@@ -13,13 +13,13 @@ tags:
   - "toolchain"
 source: "std/elf.md"
 githubPath: "std/elf.md"
-lastUpdated: "2025-10-11T02:43:50.343Z"
+lastUpdated: "2025-10-18T12:44:21.942Z"
 seo:
   title: "std.elf · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.elf module covering build coordination, targets, and binary tooling."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/elf.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/elf.md`.
 ::
 
 *Zig Standard Library Documentation*

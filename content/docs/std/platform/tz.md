@@ -13,13 +13,13 @@ tags:
   - "platform"
 source: "std/tz.md"
 githubPath: "std/tz.md"
-lastUpdated: "2025-10-11T02:43:50.350Z"
+lastUpdated: "2025-10-18T12:44:21.946Z"
 seo:
   title: "std.tz · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.tz module covering operating system, filesystem, and runtime services."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/tz.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/tz.md`.
 ::
 
 *Zig Standard Library Documentation*

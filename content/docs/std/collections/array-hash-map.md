@@ -13,13 +13,13 @@ tags:
   - "collections"
 source: "std/array_hash_map.md"
 githubPath: "std/array_hash_map.md"
-lastUpdated: "2025-10-11T02:43:50.339Z"
+lastUpdated: "2025-10-18T12:44:21.939Z"
 seo:
   title: "std.array_hash_map · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.array_hash_map module covering collections and data-structure utilities."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/array_hash_map.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/array_hash_map.md`.
 ::
 
 *Zig Standard Library Documentation*

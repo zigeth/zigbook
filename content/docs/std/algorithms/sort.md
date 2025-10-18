@@ -13,13 +13,13 @@ tags:
   - "algorithms"
 source: "std/sort.md"
 githubPath: "std/sort.md"
-lastUpdated: "2025-10-11T02:43:50.349Z"
+lastUpdated: "2025-10-18T12:44:21.946Z"
 seo:
   title: "std.sort · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.sort module covering algorithms, numerics, and performance primitives."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/sort.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/sort.md`.
 ::
 
 *Zig Standard Library Documentation*

@@ -13,13 +13,13 @@ tags:
   - "collections"
 source: "std/bit_set.md"
 githubPath: "std/bit_set.md"
-lastUpdated: "2025-10-11T02:43:50.340Z"
+lastUpdated: "2025-10-18T12:44:21.940Z"
 seo:
   title: "std.bit_set · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.bit_set module covering collections and data-structure utilities."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/bit_set.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/bit_set.md`.
 ::
 
 *Zig Standard Library Documentation*

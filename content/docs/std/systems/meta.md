@@ -13,13 +13,13 @@ tags:
   - "systems"
 source: "std/meta.md"
 githubPath: "std/meta.md"
-lastUpdated: "2025-10-11T02:43:50.347Z"
+lastUpdated: "2025-10-18T12:44:21.944Z"
 seo:
   title: "std.meta · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.meta module covering low-level systems primitives and metaprogramming utilities."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/meta.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/meta.md`.
 ::
 
 *Zig Standard Library Documentation*

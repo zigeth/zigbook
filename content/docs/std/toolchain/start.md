@@ -13,13 +13,13 @@ tags:
   - "toolchain"
 source: "std/start.md"
 githubPath: "std/start.md"
-lastUpdated: "2025-10-11T02:43:50.350Z"
+lastUpdated: "2025-10-18T12:44:21.946Z"
 seo:
   title: "std.start · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.start module covering build coordination, targets, and binary tooling."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/start.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/start.md`.
 ::
 
 *Zig Standard Library Documentation*

@@ -13,13 +13,13 @@ tags:
   - "networking"
 source: "std/http.md"
 githubPath: "std/http.md"
-lastUpdated: "2025-10-11T02:43:50.345Z"
+lastUpdated: "2025-10-18T12:44:21.943Z"
 seo:
   title: "std.http · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.http module covering networking protocols and transport abstractions."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/http.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/http.md`.
 ::
 
 *Zig Standard Library Documentation*

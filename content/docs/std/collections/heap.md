@@ -13,13 +13,13 @@ tags:
   - "collections"
 source: "std/heap.md"
 githubPath: "std/heap.md"
-lastUpdated: "2025-10-11T02:43:50.345Z"
+lastUpdated: "2025-10-18T12:44:21.943Z"
 seo:
   title: "std.heap · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.heap module covering collections and data-structure utilities."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/heap.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/heap.md`.
 ::
 
 *Zig Standard Library Documentation*

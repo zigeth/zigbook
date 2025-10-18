@@ -13,13 +13,13 @@ tags:
   - "collections"
 source: "std/SegmentedList.md"
 githubPath: "std/SegmentedList.md"
-lastUpdated: "2025-10-11T02:43:50.338Z"
+lastUpdated: "2025-10-18T12:44:21.938Z"
 seo:
   title: "std.SegmentedList · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.SegmentedList module covering collections and data-structure utilities."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/SegmentedList.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/SegmentedList.md`.
 ::
 
 *Zig Standard Library Documentation*

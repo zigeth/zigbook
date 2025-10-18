@@ -13,13 +13,13 @@ tags:
   - "observability"
 source: "std/log.md"
 githubPath: "std/log.md"
-lastUpdated: "2025-10-11T02:43:50.346Z"
+lastUpdated: "2025-10-18T12:44:21.943Z"
 seo:
   title: "std.log · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.log module covering logging, debugging, and instrumentation helpers."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/log.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/log.md`.
 ::
 
 *Zig Standard Library Documentation*

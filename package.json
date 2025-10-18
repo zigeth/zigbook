@@ -9,32 +9,43 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "lint": "eslint .",
+    "typecheck": "node ./scripts/typecheck.mjs",
+    "prepare": "husky install",
     "sync:std": "node ./scripts/sync-std-docs.mjs"
   },
   "dependencies": {
-    "@nuxtjs/google-fonts": "latest",
-    "@nuxtjs/robots": "latest",
-    "@nuxtjs/sitemap": "latest",
-    "better-sqlite3": "^12.4.1",
-    "docus": "latest",
-    "nuxt": "^4.1.2",
-    "nuxt-llms": "latest",
-    "nuxt-og-image": "latest",
-    "nuxt-schema-org": "latest",
-    "tailwindcss": "^4.1.0"
+    "@nuxtjs/google-fonts": "3.2.0",
+    "@nuxtjs/robots": "5.5.5",
+    "@nuxtjs/sitemap": "7.4.7",
+    "docus": "5.2.0",
+    "fuse.js": "6.6.2",
+    "nuxt": "4.1.3",
+    "nuxt-llms": "0.1.3",
+    "nuxt-og-image": "5.1.11",
+    "nuxt-schema-org": "5.0.9",
+    "tailwindcss": "4.1.14"
   },
   "devDependencies": {
-    "@nuxt/eslint-config": "latest",
-    "@tailwindcss/postcss": "^4.1.0",
-    "@tailwindcss/vite": "^4.1.0",
-    "@types/node": "latest",
-    "autoprefixer": "latest",
-    "eslint": "latest",
-    "eslint-plugin-vue": "latest",
-    "postcss": "latest",
-    "postcss-import": "latest",
-    "prettier": "latest",
-    "typescript": "latest",
-    "vue-tsc": "latest"
+    "@nuxt/eslint-config": "1.9.0",
+    "@tailwindcss/postcss": "4.1.14",
+    "@tailwindcss/vite": "4.1.14",
+    "@types/node": "24.7.1",
+    "autoprefixer": "10.4.21",
+    "eslint": "9.37.0",
+    "eslint-plugin-vue": "10.5.0",
+    "husky": "9.1.4",
+    "lint-staged": "15.2.8",
+    "postcss": "8.5.6",
+    "postcss-import": "15.1.0",
+    "prettier": "3.6.2",
+    "typescript": "5.9.3",
+    "vue-tsc": "3.1.1"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue,mjs,cjs,cts,mts,jsx,tsx}": "eslint --max-warnings=0",
+    "*.{json,md,css,scss}": "prettier --check"
+  },
+  "engines": {
+    "node": ">=22.6.0"
   }
 }

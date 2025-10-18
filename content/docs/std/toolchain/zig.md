@@ -13,13 +13,13 @@ tags:
   - "toolchain"
 source: "std/zig.md"
 githubPath: "std/zig.md"
-lastUpdated: "2025-10-11T02:43:50.351Z"
+lastUpdated: "2025-10-18T12:44:21.946Z"
 seo:
   title: "std.zig · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.zig module covering build coordination, targets, and binary tooling."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/zig.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/zig.md`.
 ::
 
 *Zig Standard Library Documentation*

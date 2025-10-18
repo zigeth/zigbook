@@ -13,13 +13,13 @@ tags:
   - "crypto"
 source: "std/hash.md"
 githubPath: "std/hash.md"
-lastUpdated: "2025-10-11T02:43:50.344Z"
+lastUpdated: "2025-10-18T12:44:21.943Z"
 seo:
   title: "std.hash · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.hash module covering cryptographic primitives and hashing utilities."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/hash.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/hash.md`.
 ::
 
 *Zig Standard Library Documentation*

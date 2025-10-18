@@ -13,13 +13,13 @@ tags:
   - "encodings"
 source: "std/ascii.md"
 githubPath: "std/ascii.md"
-lastUpdated: "2025-10-11T02:43:50.339Z"
+lastUpdated: "2025-10-18T12:44:21.939Z"
 seo:
   title: "std.ascii · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.ascii module covering formatting, serialization, and text-processing helpers."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/ascii.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/ascii.md`.
 ::
 
 *Zig Standard Library Documentation*

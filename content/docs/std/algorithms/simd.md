@@ -13,13 +13,13 @@ tags:
   - "algorithms"
 source: "std/simd.md"
 githubPath: "std/simd.md"
-lastUpdated: "2025-10-11T02:43:50.349Z"
+lastUpdated: "2025-10-18T12:44:21.946Z"
 seo:
   title: "std.simd · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.simd module covering algorithms, numerics, and performance primitives."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/simd.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/simd.md`.
 ::
 
 *Zig Standard Library Documentation*

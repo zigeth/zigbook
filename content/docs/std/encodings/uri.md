@@ -13,13 +13,13 @@ tags:
   - "encodings"
 source: "std/Uri.md"
 githubPath: "std/Uri.md"
-lastUpdated: "2025-10-11T02:43:50.339Z"
+lastUpdated: "2025-10-18T12:44:21.939Z"
 seo:
   title: "std.Uri · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.Uri module covering formatting, serialization, and text-processing helpers."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/Uri.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/Uri.md`.
 ::
 
 *Zig Standard Library Documentation*

@@ -19,9 +19,6 @@ export default defineAppConfig({
     },
     socials: {
       github: 'zigeth/zigbook',
-      x: 'zig_eth',
-      mastodon: 'https://fosstodon.org/@zig',
-      youtube: 'https://www.youtube.com/@ziglang'
     },
     header: {
       logo: {

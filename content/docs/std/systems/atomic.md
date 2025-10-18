@@ -13,13 +13,13 @@ tags:
   - "systems"
 source: "std/atomic.md"
 githubPath: "std/atomic.md"
-lastUpdated: "2025-10-11T02:43:50.339Z"
+lastUpdated: "2025-10-18T12:44:21.939Z"
 seo:
   title: "std.atomic · Zig 0.15.1 standard library reference"
   description: "Comprehensive reference for Zig's std.atomic module covering low-level systems primitives and metaprogramming utilities."
 ---
 ::callout{type="info" icon="i-lucide-book-open-check"}
-This page syncs automatically from `std/atomic.md` in the repository. Edit the source file to update this reference.
+This page syncs automatically from Zig's source: `std/atomic.md`.
 ::
 
 *Zig Standard Library Documentation*

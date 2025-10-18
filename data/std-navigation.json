@@ -1,0 +1,824 @@
+[
+  {
+    "key": "collections",
+    "label": "Collections & Containers",
+    "navTitle": "Collections",
+    "badge": "Collections",
+    "icon": "i-lucide-layers",
+    "description": "Data structures, buffer managers, and container abstractions for high-performance Zig code.",
+    "weight": 10,
+    "path": "/docs/std/collections/",
+    "modules": [
+      {
+        "key": "array_hash_map",
+        "title": "std.array_hash_map",
+        "navTitle": "Array Hash Map",
+        "slug": "array-hash-map",
+        "description": "Comprehensive reference for Zig's std.array_hash_map module covering collections and data-structure utilities.",
+        "path": "/docs/std/collections/array-hash-map",
+        "source": "std/array_hash_map.md",
+        "lastUpdated": "2025-10-18T12:44:21.939Z"
+      },
+      {
+        "key": "array_list",
+        "title": "std.array_list",
+        "navTitle": "Array List",
+        "slug": "array-list",
+        "description": "Comprehensive reference for Zig's std.array_list module covering collections and data-structure utilities.",
+        "path": "/docs/std/collections/array-list",
+        "source": "std/array_list.md",
+        "lastUpdated": "2025-10-18T12:44:21.939Z"
+      },
+      {
+        "key": "bit_set",
+        "title": "std.bit_set",
+        "navTitle": "Bit Set",
+        "slug": "bit-set",
+        "description": "Comprehensive reference for Zig's std.bit_set module covering collections and data-structure utilities.",
+        "path": "/docs/std/collections/bit-set",
+        "source": "std/bit_set.md",
+        "lastUpdated": "2025-10-18T12:44:21.940Z"
+      },
+      {
+        "key": "BitStack",
+        "title": "std.BitStack",
+        "navTitle": "Bit Stack",
+        "slug": "bit-stack",
+        "description": "Comprehensive reference for Zig's std.BitStack module covering collections and data-structure utilities.",
+        "path": "/docs/std/collections/bit-stack",
+        "source": "std/BitStack.md",
+        "lastUpdated": "2025-10-18T12:44:21.936Z"
+      },
+      {
+        "key": "BufMap",
+        "title": "std.BufMap",
+        "navTitle": "Buf Map",
+        "slug": "buf-map",
+        "description": "Comprehensive reference for Zig's std.BufMap module covering collections and data-structure utilities.",
+        "path": "/docs/std/collections/buf-map",
+        "source": "std/BufMap.md",
+        "lastUpdated": "2025-10-18T12:44:21.937Z"
+      },
+      {
+        "key": "BufSet",
+        "title": "std.BufSet",
+        "navTitle": "Buf Set",
+        "slug": "buf-set",
+        "description": "Comprehensive reference for Zig's std.BufSet module covering collections and data-structure utilities.",
+        "path": "/docs/std/collections/buf-set",
+        "source": "std/BufSet.md",
+        "lastUpdated": "2025-10-18T12:44:21.937Z"
+      },
+      {
+        "key": "DoublyLinkedList",
+        "title": "std.DoublyLinkedList",
+        "navTitle": "Doubly Linked List",
+        "slug": "doubly-linked-list",
+        "description": "Comprehensive reference for Zig's std.DoublyLinkedList module covering collections and data-structure utilities.",
+        "path": "/docs/std/collections/doubly-linked-list",
+        "source": "std/DoublyLinkedList.md",
+        "lastUpdated": "2025-10-18T12:44:21.937Z"
+      },
+      {
+        "key": "hash_map",
+        "title": "std.hash_map",
+        "navTitle": "Hash Map",
+        "slug": "hash-map",
+        "description": "Comprehensive reference for Zig's std.hash_map module covering collections and data-structure utilities.",
+        "path": "/docs/std/collections/hash-map",
+        "source": "std/hash_map.md",
+        "lastUpdated": "2025-10-18T12:44:21.943Z"
+      },
+      {
+        "key": "heap",
+        "title": "std.heap",
+        "navTitle": "Heap",
+        "slug": "heap",
+        "description": "Comprehensive reference for Zig's std.heap module covering collections and data-structure utilities.",
+        "path": "/docs/std/collections/heap",
+        "source": "std/heap.md",
+        "lastUpdated": "2025-10-18T12:44:21.943Z"
+      },
+      {
+        "key": "MultiArrayList",
+        "title": "std.MultiArrayList",
+        "navTitle": "Multi Array List",
+        "slug": "multi-array-list",
+        "description": "Comprehensive reference for Zig's std.MultiArrayList module covering collections and data-structure utilities.",
+        "path": "/docs/std/collections/multi-array-list",
+        "source": "std/MultiArrayList.md",
+        "lastUpdated": "2025-10-18T12:44:21.937Z"
+      },
+      {
+        "key": "PriorityDequeue",
+        "title": "std.PriorityDequeue",
+        "navTitle": "Priority Dequeue",
+        "slug": "priority-dequeue",
+        "description": "Comprehensive reference for Zig's std.PriorityDequeue module covering collections and data-structure utilities.",
+        "path": "/docs/std/collections/priority-dequeue",
+        "source": "std/PriorityDequeue.md",
+        "lastUpdated": "2025-10-18T12:44:21.937Z"
+      },
+      {
+        "key": "PriorityQueue",
+        "title": "std.PriorityQueue",
+        "navTitle": "Priority Queue",
+        "slug": "priority-queue",
+        "description": "Comprehensive reference for Zig's std.PriorityQueue module covering collections and data-structure utilities.",
+        "path": "/docs/std/collections/priority-queue",
+        "source": "std/PriorityQueue.md",
+        "lastUpdated": "2025-10-18T12:44:21.937Z"
+      },
+      {
+        "key": "SegmentedList",
+        "title": "std.SegmentedList",
+        "navTitle": "Segmented List",
+        "slug": "segmented-list",
+        "description": "Comprehensive reference for Zig's std.SegmentedList module covering collections and data-structure utilities.",
+        "path": "/docs/std/collections/segmented-list",
+        "source": "std/SegmentedList.md",
+        "lastUpdated": "2025-10-18T12:44:21.938Z"
+      },
+      {
+        "key": "SinglyLinkedList",
+        "title": "std.SinglyLinkedList",
+        "navTitle": "Singly Linked List",
+        "slug": "singly-linked-list",
+        "description": "Comprehensive reference for Zig's std.SinglyLinkedList module covering collections and data-structure utilities.",
+        "path": "/docs/std/collections/singly-linked-list",
+        "source": "std/SinglyLinkedList.md",
+        "lastUpdated": "2025-10-18T12:44:21.938Z"
+      },
+      {
+        "key": "static_string_map",
+        "title": "std.static_string_map",
+        "navTitle": "Static String Map",
+        "slug": "static-string-map",
+        "description": "Comprehensive reference for Zig's std.static_string_map module covering collections and data-structure utilities.",
+        "path": "/docs/std/collections/static-string-map",
+        "source": "std/static_string_map.md",
+        "lastUpdated": "2025-10-18T12:44:21.946Z"
+      },
+      {
+        "key": "Treap",
+        "title": "std.Treap",
+        "navTitle": "Treap",
+        "slug": "treap",
+        "description": "Comprehensive reference for Zig's std.Treap module covering collections and data-structure utilities.",
+        "path": "/docs/std/collections/treap",
+        "source": "std/Treap.md",
+        "lastUpdated": "2025-10-18T12:44:21.938Z"
+      }
+    ]
+  },
+  {
+    "key": "algorithms",
+    "label": "Algorithms & Numerics",
+    "navTitle": "Algorithms",
+    "badge": "Algorithms",
+    "icon": "i-lucide-function-square",
+    "description": "Sorting, randomization, math helpers, and SIMD acceleration primitives.",
+    "weight": 9,
+    "path": "/docs/std/algorithms/",
+    "modules": [
+      {
+        "key": "math",
+        "title": "std.math",
+        "navTitle": "Math",
+        "slug": "math",
+        "description": "Comprehensive reference for Zig's std.math module covering algorithms, numerics, and performance primitives.",
+        "path": "/docs/std/algorithms/math",
+        "source": "std/math.md",
+        "lastUpdated": "2025-10-18T12:44:21.944Z"
+      },
+      {
+        "key": "Random",
+        "title": "std.Random",
+        "navTitle": "Random",
+        "slug": "random",
+        "description": "Comprehensive reference for Zig's std.Random module covering algorithms, numerics, and performance primitives.",
+        "weight": 8,
+        "path": "/docs/std/algorithms/random",
+        "source": "std/Random.md",
+        "lastUpdated": "2025-10-18T12:44:21.938Z"
+      },
+      {
+        "key": "simd",
+        "title": "std.simd",
+        "navTitle": "Simd",
+        "slug": "simd",
+        "description": "Comprehensive reference for Zig's std.simd module covering algorithms, numerics, and performance primitives.",
+        "weight": 7,
+        "path": "/docs/std/algorithms/simd",
+        "source": "std/simd.md",
+        "lastUpdated": "2025-10-18T12:44:21.946Z"
+      },
+      {
+        "key": "sort",
+        "title": "std.sort",
+        "navTitle": "Sort",
+        "slug": "sort",
+        "description": "Comprehensive reference for Zig's std.sort module covering algorithms, numerics, and performance primitives.",
+        "weight": 10,
+        "path": "/docs/std/algorithms/sort",
+        "source": "std/sort.md",
+        "lastUpdated": "2025-10-18T12:44:21.946Z"
+      }
+    ]
+  },
+  {
+    "key": "encodings",
+    "label": "Text & Encoding",
+    "navTitle": "Text & Encoding",
+    "badge": "Encoding",
+    "icon": "i-lucide-binary",
+    "weight": 9,
+    "description": "Formatting, serialization, and text-processing helpers for structured data.",
+    "path": "/docs/std/encodings/",
+    "modules": [
+      {
+        "key": "ascii",
+        "title": "std.ascii",
+        "navTitle": "Ascii",
+        "slug": "ascii",
+        "description": "Comprehensive reference for Zig's std.ascii module covering formatting, serialization, and text-processing helpers.",
+        "path": "/docs/std/encodings/ascii",
+        "source": "std/ascii.md",
+        "lastUpdated": "2025-10-18T12:44:21.939Z"
+      },
+      {
+        "key": "base64",
+        "title": "std.base64",
+        "navTitle": "Base64",
+        "slug": "base64",
+        "description": "Comprehensive reference for Zig's std.base64 module covering formatting, serialization, and text-processing helpers.",
+        "weight": 6,
+        "path": "/docs/std/encodings/base64",
+        "source": "std/base64.md",
+        "lastUpdated": "2025-10-18T12:44:21.939Z"
+      },
+      {
+        "key": "fmt",
+        "title": "std.fmt",
+        "navTitle": "Fmt",
+        "slug": "fmt",
+        "description": "Comprehensive reference for Zig's std.fmt module covering formatting, serialization, and text-processing helpers.",
+        "weight": 8,
+        "path": "/docs/std/encodings/fmt",
+        "source": "std/fmt.md",
+        "lastUpdated": "2025-10-18T12:44:21.942Z"
+      },
+      {
+        "key": "json",
+        "title": "std.json",
+        "navTitle": "Json",
+        "slug": "json",
+        "description": "Comprehensive reference for Zig's std.json module covering formatting, serialization, and text-processing helpers.",
+        "weight": 7,
+        "path": "/docs/std/encodings/json",
+        "source": "std/json.md",
+        "lastUpdated": "2025-10-18T12:44:21.943Z"
+      },
+      {
+        "key": "unicode",
+        "title": "std.unicode",
+        "navTitle": "Unicode",
+        "slug": "unicode",
+        "description": "Comprehensive reference for Zig's std.unicode module covering formatting, serialization, and text-processing helpers.",
+        "weight": 6,
+        "path": "/docs/std/encodings/unicode",
+        "source": "std/unicode.md",
+        "lastUpdated": "2025-10-18T12:44:21.946Z"
+      },
+      {
+        "key": "Uri",
+        "title": "std.Uri",
+        "navTitle": "Uri",
+        "slug": "uri",
+        "description": "Comprehensive reference for Zig's std.Uri module covering formatting, serialization, and text-processing helpers.",
+        "weight": 5,
+        "path": "/docs/std/encodings/uri",
+        "source": "std/Uri.md",
+        "lastUpdated": "2025-10-18T12:44:21.939Z"
+      }
+    ]
+  },
+  {
+    "key": "crypto",
+    "label": "Cryptography & Hashing",
+    "navTitle": "Crypto & Hashing",
+    "badge": "Crypto",
+    "icon": "i-lucide-shield-check",
+    "description": "Cryptographic primitives, hashing utilities, and secure random helpers.",
+    "path": "/docs/std/crypto/",
+    "modules": [
+      {
+        "key": "crypto",
+        "title": "std.crypto",
+        "navTitle": "Crypto",
+        "slug": "crypto",
+        "description": "Comprehensive reference for Zig's std.crypto module covering cryptographic primitives and hashing utilities.",
+        "path": "/docs/std/crypto/crypto",
+        "source": "std/crypto.md",
+        "lastUpdated": "2025-10-18T12:44:21.941Z"
+      },
+      {
+        "key": "hash",
+        "title": "std.hash",
+        "navTitle": "Hash",
+        "slug": "hash",
+        "description": "Comprehensive reference for Zig's std.hash module covering cryptographic primitives and hashing utilities.",
+        "path": "/docs/std/crypto/hash",
+        "source": "std/hash.md",
+        "lastUpdated": "2025-10-18T12:44:21.943Z"
+      }
+    ]
+  },
+  {
+    "key": "systems",
+    "label": "Core Systems",
+    "navTitle": "Systems",
+    "badge": "Systems",
+    "icon": "i-lucide-cpu",
+    "description": "Low-level concurrency, metaprogramming, memory, and language runtime building blocks.",
+    "path": "/docs/std/systems/",
+    "modules": [
+      {
+        "key": "atomic",
+        "title": "std.atomic",
+        "navTitle": "Atomic",
+        "slug": "atomic",
+        "description": "Comprehensive reference for Zig's std.atomic module covering low-level systems primitives and metaprogramming utilities.",
+        "path": "/docs/std/systems/atomic",
+        "source": "std/atomic.md",
+        "lastUpdated": "2025-10-18T12:44:21.939Z"
+      },
+      {
+        "key": "builtin",
+        "title": "std.builtin",
+        "navTitle": "Builtin",
+        "slug": "builtin",
+        "description": "Comprehensive reference for Zig's std.builtin module covering low-level systems primitives and metaprogramming utilities.",
+        "path": "/docs/std/systems/builtin",
+        "source": "std/builtin.md",
+        "lastUpdated": "2025-10-18T12:44:21.940Z"
+      },
+      {
+        "key": "enums",
+        "title": "std.enums",
+        "navTitle": "Enums",
+        "slug": "enums",
+        "description": "Comprehensive reference for Zig's std.enums module covering low-level systems primitives and metaprogramming utilities.",
+        "path": "/docs/std/systems/enums",
+        "source": "std/enums.md",
+        "lastUpdated": "2025-10-18T12:44:21.942Z"
+      },
+      {
+        "key": "mem",
+        "title": "std.mem",
+        "navTitle": "Mem",
+        "slug": "mem",
+        "description": "Comprehensive reference for Zig's std.mem module covering low-level systems primitives and metaprogramming utilities.",
+        "path": "/docs/std/systems/mem",
+        "source": "std/mem.md",
+        "lastUpdated": "2025-10-18T12:44:21.944Z"
+      },
+      {
+        "key": "meta",
+        "title": "std.meta",
+        "navTitle": "Meta",
+        "slug": "meta",
+        "description": "Comprehensive reference for Zig's std.meta module covering low-level systems primitives and metaprogramming utilities.",
+        "path": "/docs/std/systems/meta",
+        "source": "std/meta.md",
+        "lastUpdated": "2025-10-18T12:44:21.944Z"
+      },
+      {
+        "key": "once",
+        "title": "std.once",
+        "navTitle": "Once",
+        "slug": "once",
+        "description": "Comprehensive reference for Zig's std.once module covering low-level systems primitives and metaprogramming utilities.",
+        "path": "/docs/std/systems/once",
+        "source": "std/once.md",
+        "lastUpdated": "2025-10-18T12:44:21.944Z"
+      },
+      {
+        "key": "Thread",
+        "title": "std.Thread",
+        "navTitle": "Thread",
+        "slug": "thread",
+        "description": "Comprehensive reference for Zig's std.Thread module covering low-level systems primitives and metaprogramming utilities.",
+        "path": "/docs/std/systems/thread",
+        "source": "std/Thread.md",
+        "lastUpdated": "2025-10-18T12:44:21.938Z"
+      }
+    ]
+  },
+  {
+    "key": "platform",
+    "label": "Platform & Runtime",
+    "navTitle": "Platform",
+    "badge": "Platform",
+    "icon": "i-lucide-server-cog",
+    "description": "Operating system bindings, filesystem helpers, timers, and IO abstractions.",
+    "path": "/docs/std/platform/",
+    "modules": [
+      {
+        "key": "fs",
+        "title": "std.fs",
+        "navTitle": "Fs",
+        "slug": "fs",
+        "description": "Comprehensive reference for Zig's std.fs module covering operating system, filesystem, and runtime services.",
+        "path": "/docs/std/platform/fs",
+        "source": "std/fs.md",
+        "lastUpdated": "2025-10-18T12:44:21.942Z"
+      },
+      {
+        "key": "gpu",
+        "title": "std.gpu",
+        "navTitle": "Gpu",
+        "slug": "gpu",
+        "description": "Comprehensive reference for Zig's std.gpu module covering operating system, filesystem, and runtime services.",
+        "path": "/docs/std/platform/gpu",
+        "source": "std/gpu.md",
+        "lastUpdated": "2025-10-18T12:44:21.942Z"
+      },
+      {
+        "key": "Io",
+        "title": "std.Io",
+        "navTitle": "Io",
+        "slug": "io",
+        "description": "Comprehensive reference for Zig's std.Io module covering operating system, filesystem, and runtime services.",
+        "path": "/docs/std/platform/io",
+        "source": "std/Io.md",
+        "lastUpdated": "2025-10-18T12:44:21.937Z"
+      },
+      {
+        "key": "os",
+        "title": "std.os",
+        "navTitle": "Os",
+        "slug": "os",
+        "description": "Comprehensive reference for Zig's std.os module covering operating system, filesystem, and runtime services.",
+        "path": "/docs/std/platform/os",
+        "source": "std/os.md",
+        "lastUpdated": "2025-10-18T12:44:21.944Z"
+      },
+      {
+        "key": "posix",
+        "title": "std.posix",
+        "navTitle": "Posix",
+        "slug": "posix",
+        "description": "Comprehensive reference for Zig's std.posix module covering operating system, filesystem, and runtime services.",
+        "path": "/docs/std/platform/posix",
+        "source": "std/posix.md",
+        "lastUpdated": "2025-10-18T12:44:21.945Z"
+      },
+      {
+        "key": "process",
+        "title": "std.process",
+        "navTitle": "Process",
+        "slug": "process",
+        "description": "Comprehensive reference for Zig's std.process module covering operating system, filesystem, and runtime services.",
+        "path": "/docs/std/platform/process",
+        "source": "std/process.md",
+        "lastUpdated": "2025-10-18T12:44:21.946Z"
+      },
+      {
+        "key": "time",
+        "title": "std.time",
+        "navTitle": "Time",
+        "slug": "time",
+        "description": "Comprehensive reference for Zig's std.time module covering operating system, filesystem, and runtime services.",
+        "path": "/docs/std/platform/time",
+        "source": "std/time.md",
+        "lastUpdated": "2025-10-18T12:44:21.946Z"
+      },
+      {
+        "key": "tz",
+        "title": "std.tz",
+        "navTitle": "Tz",
+        "slug": "tz",
+        "description": "Comprehensive reference for Zig's std.tz module covering operating system, filesystem, and runtime services.",
+        "path": "/docs/std/platform/tz",
+        "source": "std/tz.md",
+        "lastUpdated": "2025-10-18T12:44:21.946Z"
+      }
+    ]
+  },
+  {
+    "key": "observability",
+    "label": "Diagnostics & Observability",
+    "navTitle": "Observability",
+    "badge": "Observability",
+    "icon": "i-lucide-activity",
+    "description": "Logging, debugging, tracing, and progress reporting utilities.",
+    "path": "/docs/std/observability/",
+    "modules": [
+      {
+        "key": "debug",
+        "title": "std.debug",
+        "navTitle": "Debug",
+        "slug": "debug",
+        "description": "Comprehensive reference for Zig's std.debug module covering logging, debugging, and instrumentation helpers.",
+        "path": "/docs/std/observability/debug",
+        "source": "std/debug.md",
+        "lastUpdated": "2025-10-18T12:44:21.941Z"
+      },
+      {
+        "key": "log",
+        "title": "std.log",
+        "navTitle": "Log",
+        "slug": "log",
+        "description": "Comprehensive reference for Zig's std.log module covering logging, debugging, and instrumentation helpers.",
+        "path": "/docs/std/observability/log",
+        "source": "std/log.md",
+        "lastUpdated": "2025-10-18T12:44:21.943Z"
+      },
+      {
+        "key": "Progress",
+        "title": "std.Progress",
+        "navTitle": "Progress",
+        "slug": "progress",
+        "description": "Comprehensive reference for Zig's std.Progress module covering logging, debugging, and instrumentation helpers.",
+        "path": "/docs/std/observability/progress",
+        "source": "std/Progress.md",
+        "lastUpdated": "2025-10-18T12:44:21.937Z"
+      }
+    ]
+  },
+  {
+    "key": "networking",
+    "label": "Networking & Protocols",
+    "navTitle": "Networking",
+    "badge": "Networking",
+    "icon": "i-lucide-globe",
+    "description": "Transport stacks, HTTP client utilities, and URI helpers for networked applications.",
+    "path": "/docs/std/networking/",
+    "modules": [
+      {
+        "key": "http",
+        "title": "std.http",
+        "navTitle": "Http",
+        "slug": "http",
+        "description": "Comprehensive reference for Zig's std.http module covering networking protocols and transport abstractions.",
+        "path": "/docs/std/networking/http",
+        "source": "std/http.md",
+        "lastUpdated": "2025-10-18T12:44:21.943Z"
+      },
+      {
+        "key": "net",
+        "title": "std.net",
+        "navTitle": "Net",
+        "slug": "net",
+        "description": "Comprehensive reference for Zig's std.net module covering networking protocols and transport abstractions.",
+        "path": "/docs/std/networking/net",
+        "source": "std/net.md",
+        "lastUpdated": "2025-10-18T12:44:21.944Z"
+      }
+    ]
+  },
+  {
+    "key": "toolchain",
+    "label": "Toolchain & Binaries",
+    "navTitle": "Toolchain",
+    "badge": "Toolchain",
+    "icon": "i-lucide-hammer",
+    "description": "Build orchestration, target metadata, dynamic libraries, and binary format tooling.",
+    "path": "/docs/std/toolchain/",
+    "modules": [
+      {
+        "key": "Build",
+        "title": "std.Build",
+        "navTitle": "Build",
+        "slug": "build",
+        "description": "Comprehensive reference for Zig's std.Build module covering build coordination, targets, and binary tooling.",
+        "path": "/docs/std/toolchain/build",
+        "source": "std/Build.md",
+        "lastUpdated": "2025-10-18T12:44:21.937Z"
+      },
+      {
+        "key": "c",
+        "title": "std.c",
+        "navTitle": "C",
+        "slug": "c",
+        "description": "Comprehensive reference for Zig's std.c module covering build coordination, targets, and binary tooling.",
+        "path": "/docs/std/toolchain/c",
+        "source": "std/c.md",
+        "lastUpdated": "2025-10-18T12:44:21.941Z"
+      },
+      {
+        "key": "coff",
+        "title": "std.coff",
+        "navTitle": "Coff",
+        "slug": "coff",
+        "description": "Comprehensive reference for Zig's std.coff module covering build coordination, targets, and binary tooling.",
+        "path": "/docs/std/toolchain/coff",
+        "source": "std/coff.md",
+        "lastUpdated": "2025-10-18T12:44:21.941Z"
+      },
+      {
+        "key": "dwarf",
+        "title": "std.dwarf",
+        "navTitle": "Dwarf",
+        "slug": "dwarf",
+        "description": "Comprehensive reference for Zig's std.dwarf module covering build coordination, targets, and binary tooling.",
+        "path": "/docs/std/toolchain/dwarf",
+        "source": "std/dwarf.md",
+        "lastUpdated": "2025-10-18T12:44:21.942Z"
+      },
+      {
+        "key": "DynLib",
+        "title": "std.DynLib",
+        "navTitle": "Dyn Lib",
+        "slug": "dyn-lib",
+        "description": "Comprehensive reference for Zig's std.DynLib module covering build coordination, targets, and binary tooling.",
+        "path": "/docs/std/toolchain/dyn-lib",
+        "source": "std/DynLib.md",
+        "lastUpdated": "2025-10-18T12:44:21.937Z"
+      },
+      {
+        "key": "elf",
+        "title": "std.elf",
+        "navTitle": "Elf",
+        "slug": "elf",
+        "description": "Comprehensive reference for Zig's std.elf module covering build coordination, targets, and binary tooling.",
+        "path": "/docs/std/toolchain/elf",
+        "source": "std/elf.md",
+        "lastUpdated": "2025-10-18T12:44:21.942Z"
+      },
+      {
+        "key": "macho",
+        "title": "std.macho",
+        "navTitle": "Macho",
+        "slug": "macho",
+        "description": "Comprehensive reference for Zig's std.macho module covering build coordination, targets, and binary tooling.",
+        "path": "/docs/std/toolchain/macho",
+        "source": "std/macho.md",
+        "lastUpdated": "2025-10-18T12:44:21.944Z"
+      },
+      {
+        "key": "pdb",
+        "title": "std.pdb",
+        "navTitle": "Pdb",
+        "slug": "pdb",
+        "description": "Comprehensive reference for Zig's std.pdb module covering build coordination, targets, and binary tooling.",
+        "path": "/docs/std/toolchain/pdb",
+        "source": "std/pdb.md",
+        "lastUpdated": "2025-10-18T12:44:21.944Z"
+      },
+      {
+        "key": "pie",
+        "title": "std.pie",
+        "navTitle": "Pie",
+        "slug": "pie",
+        "description": "Comprehensive reference for Zig's std.pie module covering build coordination, targets, and binary tooling.",
+        "path": "/docs/std/toolchain/pie",
+        "source": "std/pie.md",
+        "lastUpdated": "2025-10-18T12:44:21.944Z"
+      },
+      {
+        "key": "start",
+        "title": "std.start",
+        "navTitle": "Start",
+        "slug": "start",
+        "description": "Comprehensive reference for Zig's std.start module covering build coordination, targets, and binary tooling.",
+        "path": "/docs/std/toolchain/start",
+        "source": "std/start.md",
+        "lastUpdated": "2025-10-18T12:44:21.946Z"
+      },
+      {
+        "key": "Target",
+        "title": "std.Target",
+        "navTitle": "Target",
+        "slug": "target",
+        "description": "Comprehensive reference for Zig's std.Target module covering build coordination, targets, and binary tooling.",
+        "path": "/docs/std/toolchain/target",
+        "source": "std/Target.md",
+        "lastUpdated": "2025-10-18T12:44:21.938Z"
+      },
+      {
+        "key": "valgrind",
+        "title": "std.valgrind",
+        "navTitle": "Valgrind",
+        "slug": "valgrind",
+        "description": "Comprehensive reference for Zig's std.valgrind module covering build coordination, targets, and binary tooling.",
+        "path": "/docs/std/toolchain/valgrind",
+        "source": "std/valgrind.md",
+        "lastUpdated": "2025-10-18T12:44:21.946Z"
+      },
+      {
+        "key": "wasm",
+        "title": "std.wasm",
+        "navTitle": "Wasm",
+        "slug": "wasm",
+        "description": "Comprehensive reference for Zig's std.wasm module covering build coordination, targets, and binary tooling.",
+        "path": "/docs/std/toolchain/wasm",
+        "source": "std/wasm.md",
+        "lastUpdated": "2025-10-18T12:44:21.946Z"
+      },
+      {
+        "key": "zig",
+        "title": "std.zig",
+        "navTitle": "Zig",
+        "slug": "zig",
+        "description": "Comprehensive reference for Zig's std.zig module covering build coordination, targets, and binary tooling.",
+        "path": "/docs/std/toolchain/zig",
+        "source": "std/zig.md",
+        "lastUpdated": "2025-10-18T12:44:21.946Z"
+      }
+    ]
+  },
+  {
+    "key": "formats",
+    "label": "Binary & Archive Formats",
+    "navTitle": "Formats",
+    "badge": "Formats",
+    "icon": "i-lucide-package",
+    "description": "Utilities for structured file formats, archives, and semantic versioning.",
+    "path": "/docs/std/formats/",
+    "modules": [
+      {
+        "key": "compress",
+        "title": "std.compress",
+        "navTitle": "Compress",
+        "slug": "compress",
+        "description": "Comprehensive reference for Zig's std.compress module covering binary parsing, archive handling, and structured formats.",
+        "path": "/docs/std/formats/compress",
+        "source": "std/compress.md",
+        "lastUpdated": "2025-10-18T12:44:21.941Z"
+      },
+      {
+        "key": "leb",
+        "title": "std.leb",
+        "navTitle": "Leb",
+        "slug": "leb",
+        "description": "Comprehensive reference for Zig's std.leb module covering binary parsing, archive handling, and structured formats.",
+        "path": "/docs/std/formats/leb",
+        "source": "std/leb.md",
+        "lastUpdated": "2025-10-18T12:44:21.943Z"
+      },
+      {
+        "key": "SemanticVersion",
+        "title": "std.SemanticVersion",
+        "navTitle": "Semantic Version",
+        "slug": "semantic-version",
+        "description": "Comprehensive reference for Zig's std.SemanticVersion module covering binary parsing, archive handling, and structured formats.",
+        "path": "/docs/std/formats/semantic-version",
+        "source": "std/SemanticVersion.md",
+        "lastUpdated": "2025-10-18T12:44:21.938Z"
+      },
+      {
+        "key": "tar",
+        "title": "std.tar",
+        "navTitle": "Tar",
+        "slug": "tar",
+        "description": "Comprehensive reference for Zig's std.tar module covering binary parsing, archive handling, and structured formats.",
+        "path": "/docs/std/formats/tar",
+        "source": "std/tar.md",
+        "lastUpdated": "2025-10-18T12:44:21.946Z"
+      },
+      {
+        "key": "zip",
+        "title": "std.zip",
+        "navTitle": "Zip",
+        "slug": "zip",
+        "description": "Comprehensive reference for Zig's std.zip module covering binary parsing, archive handling, and structured formats.",
+        "path": "/docs/std/formats/zip",
+        "source": "std/zip.md",
+        "lastUpdated": "2025-10-18T12:44:21.946Z"
+      },
+      {
+        "key": "zon",
+        "title": "std.zon",
+        "navTitle": "Zon",
+        "slug": "zon",
+        "description": "Comprehensive reference for Zig's std.zon module covering binary parsing, archive handling, and structured formats.",
+        "path": "/docs/std/formats/zon",
+        "source": "std/zon.md",
+        "lastUpdated": "2025-10-18T12:44:21.947Z"
+      }
+    ]
+  },
+  {
+    "key": "testing",
+    "label": "Testing & Quality",
+    "navTitle": "Testing",
+    "badge": "Testing",
+    "icon": "i-lucide-flask-round",
+    "description": "Testing harnesses, assertions, and quality-of-life helpers for validation.",
+    "path": "/docs/std/testing/",
+    "modules": [
+      {
+        "key": "testing",
+        "title": "std.testing",
+        "navTitle": "Testing",
+        "slug": "testing",
+        "description": "Comprehensive reference for Zig's std.testing module covering testing utilities and validation helpers.",
+        "path": "/docs/std/testing/testing",
+        "source": "std/testing.md",
+        "lastUpdated": "2025-10-18T12:44:21.946Z"
+      }
+    ]
+  }
+]

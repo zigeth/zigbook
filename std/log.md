@@ -30,7 +30,7 @@ log messages.
 
 An example `logFn` might look something like this:
 
-```
+\`\`\`
 const std = @import("std");
 
 pub const std_options: std.Options = .{
@@ -80,12 +80,12 @@ pub fn main() void {
     nice_library_log.warn("Something went very wrong, sorry", .{});
     verbose_lib_log.warn("Added 1 + 1: {}", .{1 + 1}); // Won't be printed as it gets filtered out by our log function
 }
-```
+\`\`\`
 Which produces the following output:
-```
+\`\`\`
 [info] (default): Flux capacitor is starting to overheat
 [warning] (nice_library): Something went very wrong, sorry
-```
+\`\`\`
 
 ---
 
@@ -119,7 +119,7 @@ Which produces the following output:
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Level = enum {
     /// Error: something has gone wrong. This might be recoverable or might
     /// be followed by the program exiting.
@@ -142,7 +142,7 @@ pub const Level = enum {
         };
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -162,12 +162,12 @@ pub const Level = enum {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const ScopeLevel = struct {
     scope: @Type(.enum_literal),
     level: Level,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -189,12 +189,12 @@ pub const ScopeLevel = struct {
 
 The default log level is based on build mode.
 
-```zig
+\`\`\`zig
 pub const default_level: Level = switch (builtin.mode) {
     .Debug => .debug,
     .ReleaseSafe, .ReleaseFast, .ReleaseSmall => .info,
 }
-```
+\`\`\`
 
 </details>
 
@@ -205,9 +205,9 @@ pub const default_level: Level = switch (builtin.mode) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const default_log_scope = .default
-```
+\`\`\`
 
 </details>
 
@@ -220,9 +220,9 @@ pub const default_log_scope = .default
 
 The default scoped logging namespace.
 
-```zig
+\`\`\`zig
 pub const default = scoped(default_log_scope)
-```
+\`\`\`
 
 </details>
 
@@ -237,9 +237,9 @@ Log an error message using the default scope. This log level is intended to
 be used when something has gone wrong. This might be recoverable or might
 be followed by the program exiting.
 
-```zig
+\`\`\`zig
 pub const err = default.err
-```
+\`\`\`
 
 </details>
 
@@ -254,9 +254,9 @@ Log a warning message using the default scope. This log level is intended
 to be used if it is uncertain whether something has gone wrong or not, but
 the circumstances would be worth investigating.
 
-```zig
+\`\`\`zig
 pub const warn = default.warn
-```
+\`\`\`
 
 </details>
 
@@ -270,9 +270,9 @@ pub const warn = default.warn
 Log an info message using the default scope. This log level is intended to
 be used for general messages about the state of the program.
 
-```zig
+\`\`\`zig
 pub const info = default.info
-```
+\`\`\`
 
 </details>
 
@@ -286,9 +286,9 @@ pub const info = default.info
 Log a debug message using the default scope. This log level is intended to
 be used for messages which are only useful for debugging.
 
-```zig
+\`\`\`zig
 pub const debug = default.debug
-```
+\`\`\`
 
 </details>
 
@@ -303,14 +303,14 @@ pub const debug = default.debug
 
 Determine if a specific log message level and scope combination are enabled for logging.
 
-```zig
+\`\`\`zig
 pub fn logEnabled(comptime message_level: Level, comptime scope: @Type(.enum_literal)) bool {
     inline for (scope_levels) |scope_level| {
         if (scope_level.scope == scope) return @intFromEnum(message_level) <= @intFromEnum(scope_level.level);
     }
     return @intFromEnum(message_level) <= @intFromEnum(level);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -331,11 +331,11 @@ pub fn logEnabled(comptime message_level: Level, comptime scope: @Type(.enum_lit
 
 Determine if a specific log message level using the default log scope is enabled for logging.
 
-```zig
+\`\`\`zig
 pub fn defaultLogEnabled(comptime message_level: Level) bool {
     return comptime logEnabled(message_level, default_log_scope);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -359,7 +359,7 @@ forward log messages to this function.
 Uses a 64-byte buffer for formatted printing which is flushed before this
 function returns.
 
-```zig
+\`\`\`zig
 pub fn defaultLog(
     comptime message_level: Level,
     comptime scope: @Type(.enum_literal),
@@ -373,7 +373,7 @@ pub fn defaultLog(
     defer std.debug.unlockStderrWriter();
     nosuspend stderr.print(level_txt ++ prefix2 ++ format ++ "\n", args) catch return;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -397,7 +397,7 @@ pub fn defaultLog(
 Returns a scoped logging namespace that logs all messages using the scope
 provided here.
 
-```zig
+\`\`\`zig
 pub fn scoped(comptime scope: @Type(.enum_literal)) type {
     return struct {
         /// Log an error message. This log level is intended to be used
@@ -440,7 +440,7 @@ pub fn scoped(comptime scope: @Type(.enum_literal)) type {
         }
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -452,4 +452,3 @@ pub fn scoped(comptime scope: @Type(.enum_literal)) type {
 </details>
 
 ---
-

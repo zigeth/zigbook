@@ -56,7 +56,7 @@ This page syncs automatically from `std/leb.md` in the repository. Edit the sour
 Read a single unsigned LEB128 value from the given reader as type T,
 or error.Overflow if the value cannot fit.
 
-```zig
+\`\`\`zig
 pub fn readUleb128(comptime T: type, reader: anytype) !T {
     const U = if (@typeInfo(T).int.bits < 8) u8 else T;
     const ShiftT = std.math.Log2Int(U);
@@ -85,7 +85,7 @@ pub fn readUleb128(comptime T: type, reader: anytype) !T {
 
     return @as(T, @truncate(value));
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -106,7 +106,7 @@ pub fn readUleb128(comptime T: type, reader: anytype) !T {
 
 Write a single unsigned integer as unsigned LEB128 to the given writer.
 
-```zig
+\`\`\`zig
 pub fn writeUleb128(writer: anytype, arg: anytype) !void {
     const Arg = @TypeOf(arg);
     const Int = switch (Arg) {
@@ -127,7 +127,7 @@ pub fn writeUleb128(writer: anytype, arg: anytype) !void {
         }
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -149,7 +149,7 @@ pub fn writeUleb128(writer: anytype, arg: anytype) !void {
 Read a single signed LEB128 value from the given reader as type T,
 or error.Overflow if the value cannot fit.
 
-```zig
+\`\`\`zig
 pub fn readIleb128(comptime T: type, reader: anytype) !T {
     const S = if (@typeInfo(T).int.bits < 8) i8 else T;
     const U = std.meta.Int(.unsigned, @typeInfo(S).int.bits);
@@ -205,7 +205,7 @@ pub fn readIleb128(comptime T: type, reader: anytype) !T {
 
     return @as(T, @truncate(result));
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -226,7 +226,7 @@ pub fn readIleb128(comptime T: type, reader: anytype) !T {
 
 Write a single signed integer as signed LEB128 to the given writer.
 
-```zig
+\`\`\`zig
 pub fn writeIleb128(writer: anytype, arg: anytype) !void {
     const Arg = @TypeOf(arg);
     const Int = switch (Arg) {
@@ -250,7 +250,7 @@ pub fn writeIleb128(writer: anytype, arg: anytype) !void {
         }
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -277,11 +277,11 @@ An example use case of this is in emitting DWARF info where one wants to make a 
 "relocatable", meaning that it becomes possible to later go back and patch the number to be a
 different value without shifting all the following code.
 
-```zig
+\`\`\`zig
 pub fn writeUnsignedFixed(comptime l: usize, ptr: *[l]u8, int: std.meta.Int(.unsigned, l * 7)) void {
     writeUnsignedExtended(ptr, int);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -304,7 +304,7 @@ pub fn writeUnsignedFixed(comptime l: usize, ptr: *[l]u8, int: std.meta.Int(.uns
 Same as `writeUnsignedFixed` but with a runtime-known length.
 Asserts `slice.len > 0`.
 
-```zig
+\`\`\`zig
 pub fn writeUnsignedExtended(slice: []u8, arg: anytype) void {
     const Arg = @TypeOf(arg);
     const Int = switch (Arg) {
@@ -320,7 +320,7 @@ pub fn writeUnsignedExtended(slice: []u8, arg: anytype) void {
     }
     slice[slice.len - 1] = @as(u7, @intCast(value));
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -347,7 +347,7 @@ An example use case of this is in emitting DWARF info where one wants to make a 
 "relocatable", meaning that it becomes possible to later go back and patch the number to be a
 different value without shifting all the following code.
 
-```zig
+\`\`\`zig
 pub fn writeSignedFixed(comptime l: usize, ptr: *[l]u8, int: std.meta.Int(.signed, l * 7)) void {
     const T = @TypeOf(int);
     const U = if (@typeInfo(T).int.bits < 8) u8 else T;
@@ -361,7 +361,7 @@ pub fn writeSignedFixed(comptime l: usize, ptr: *[l]u8, int: std.meta.Int(.signe
     }
     ptr[i] = @as(u7, @bitCast(@as(i7, @truncate(value))));
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -375,5 +375,3 @@ pub fn writeSignedFixed(comptime l: usize, ptr: *[l]u8, int: std.meta.Int(.signe
 </details>
 
 ---
-
-

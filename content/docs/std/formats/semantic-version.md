@@ -58,7 +58,7 @@ See: https://semver.org
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Range = struct {
     min: Version,
     max: Version,
@@ -77,7 +77,7 @@ pub const Range = struct {
         return null;
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -97,7 +97,7 @@ pub const Range = struct {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn order(lhs: Version, rhs: Version) std.math.Order {
     if (lhs.major < rhs.major) return .lt;
     if (lhs.major > rhs.major) return .gt;
@@ -149,7 +149,7 @@ pub fn order(lhs: Version, rhs: Version) std.math.Order {
         }
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -168,7 +168,7 @@ pub fn order(lhs: Version, rhs: Version) std.math.Order {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn parse(text: []const u8) !Version {
     // Parse the required major, minor, and patch numbers.
     const extra_index = std.mem.indexOfAny(u8, text, "-+");
@@ -226,7 +226,7 @@ pub fn parse(text: []const u8) !Version {
 
     return ver;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -244,13 +244,13 @@ pub fn parse(text: []const u8) !Version {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn format(self: Version, w: *std.io.Writer) std.io.Writer.Error!void {
     try w.print("{d}.{d}.{d}", .{ self.major, self.minor, self.patch });
     if (self.pre) |pre| try w.print("-{s}", .{pre});
     if (self.build) |build| try w.print("+{s}", .{build});
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -263,5 +263,3 @@ pub fn format(self: Version, w: *std.io.Writer) std.io.Writer.Error!void {
 </details>
 
 ---
-
-

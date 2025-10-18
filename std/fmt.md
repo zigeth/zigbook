@@ -76,13 +76,13 @@ String formatting and parsing.
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Alignment = enum {
     left,
     center,
     right,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -101,9 +101,9 @@ pub const Alignment = enum {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Case = enum { lower, upper }
-```
+\`\`\`
 
 **Fields:**
 
@@ -121,7 +121,7 @@ pub const Case = enum { lower, upper }
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Options = struct {
     precision: ?usize = null,
     width: ?usize = null,
@@ -139,7 +139,7 @@ pub const Options = struct {
         };
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -159,7 +159,7 @@ pub const Options = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Number = struct {
     mode: Mode = .decimal,
     /// Affects hex digits as well as floating point "inf"/"INF".
@@ -187,7 +187,7 @@ pub const Number = struct {
         }
     };
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -209,7 +209,7 @@ pub const Number = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Placeholder = struct {
     specifier_arg: []const u8,
     fill: u8,
@@ -285,7 +285,7 @@ pub const Placeholder = struct {
         };
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -312,7 +312,7 @@ A stream based parser for format strings.
 Allows to implement formatters compatible with std.fmt without replicating
 the standard library behavior.
 
-```zig
+\`\`\`zig
 pub const Parser = struct {
     bytes: []const u8,
     i: usize,
@@ -370,7 +370,7 @@ pub const Parser = struct {
         return self.bytes[peek_index];
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -388,7 +388,7 @@ pub const Parser = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const ArgState = struct {
     next_arg: usize = 0,
     used_args: ArgSetType = 0,
@@ -414,7 +414,7 @@ pub const ArgState = struct {
         return next_index;
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -435,9 +435,9 @@ pub const ArgState = struct {
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const float = @import("fmt/float.zig")
-```
+\`\`\`
 
 > **Module:** `fmt/float.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/fmt/float.zig)
 
@@ -452,9 +452,9 @@ pub const float = @import("fmt/float.zig")
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const default_max_depth = 3
-```
+\`\`\`
 
 </details>
 
@@ -471,9 +471,9 @@ pub const default_max_depth = 3
 
 Deprecated in favor of `Options`.
 
-```zig
+\`\`\`zig
 pub const FormatOptions = Options
-```
+\`\`\`
 
 </details>
 
@@ -484,13 +484,13 @@ pub const FormatOptions = Options
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const Specifier = union(enum) {
     none,
     number: usize,
     named: []const u8,
 }
-```
+\`\`\`
 
 </details>
 
@@ -501,9 +501,9 @@ pub const Specifier = union(enum) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const ArgSetType = u32
-```
+\`\`\`
 
 </details>
 
@@ -520,9 +520,9 @@ pub const ArgSetType = u32
 
 Deprecated in favor of `Alt`.
 
-```zig
+\`\`\`zig
 pub const Formatter = Alt
-```
+\`\`\`
 
 </details>
 
@@ -533,9 +533,9 @@ pub const Formatter = Alt
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const parseFloat = @import("fmt/parse_float.zig").parseFloat
-```
+\`\`\`
 
 </details>
 
@@ -546,9 +546,9 @@ pub const parseFloat = @import("fmt/parse_float.zig").parseFloat
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const ParseFloatError = @import("fmt/parse_float.zig").ParseFloatError
-```
+\`\`\`
 
 </details>
 
@@ -559,9 +559,9 @@ pub const ParseFloatError = @import("fmt/parse_float.zig").ParseFloatError
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const hex_charset = "0123456789abcdef"
-```
+\`\`\`
 
 </details>
 
@@ -580,14 +580,14 @@ pub const hex_charset = "0123456789abcdef"
 
 Deprecated in favor of `Writer.print`.
 
-```zig
+\`\`\`zig
 pub fn format(writer: anytype, comptime fmt: []const u8, args: anytype) !void {
     var adapter = writer.adaptToNewApi(&.{});
     return adapter.new_interface.print(fmt, args) catch |err| switch (err) {
         error.WriteFailed => return adapter.err.?,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -610,13 +610,13 @@ pub fn format(writer: anytype, comptime fmt: []const u8, args: anytype) !void {
 Asserts the rendered integer value fits in `buffer`.
 Returns the end index within `buffer`.
 
-```zig
+\`\`\`zig
 pub fn printInt(buffer: []u8, value: anytype, base: u8, case: Case, options: Options) usize {
     var w: Writer = .fixed(buffer);
     w.printInt(value, base, case, options) catch unreachable;
     return w.end;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -640,7 +640,7 @@ pub fn printInt(buffer: []u8, value: anytype, base: u8, case: Case, options: Opt
 
 Converts values in the range [0, 100) to a base 10 string.
 
-```zig
+\`\`\`zig
 pub fn digits2(value: u8) [2]u8 {
     if (builtin.mode == .ReleaseSmall) {
         return .{ @intCast('0' + value / 10), @intCast('0' + value % 10) };
@@ -648,7 +648,7 @@ pub fn digits2(value: u8) [2]u8 {
         return "00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899"[value * 2 ..][0..2].*;
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -668,7 +668,7 @@ pub fn digits2(value: u8) [2]u8 {
 
 Creates a type suitable for instantiating and passing to a "{f}" placeholder.
 
-```zig
+\`\`\`zig
 pub fn Alt(
     comptime Data: type,
     comptime formatFn: fn (data: Data, writer: *Writer) Writer.Error!void,
@@ -680,7 +680,7 @@ pub fn Alt(
         }
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -701,14 +701,14 @@ pub fn Alt(
 
 Helper for calling alternate format methods besides one named "format".
 
-```zig
+\`\`\`zig
 pub fn alt(
     context: anytype,
     comptime func_name: @TypeOf(.enum_literal),
 ) Formatter(@TypeOf(context), @field(@TypeOf(context), @tagName(func_name))) {
     return .{ .data = context };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -722,9 +722,9 @@ pub fn alt(
 [^fn-alt-1-return-0]:
     Return type for `alt`:
 
-    ```zig
+    \`\`\`zig
     Formatter(@TypeOf(context), @field(@TypeOf(context), @tagName(func_name)))
-    ```
+    \`\`\`
 
 </details>
 
@@ -747,11 +747,11 @@ When `base` is zero the string prefix is examined to detect the true base:
 Ignores '_' character in `buf`.
 See also `parseUnsigned`.
 
-```zig
+\`\`\`zig
 pub fn parseInt(comptime T: type, buf: []const u8, base: u8) ParseIntError!T {
     return parseIntWithGenericCharacter(T, u8, buf, base);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -773,7 +773,7 @@ pub fn parseInt(comptime T: type, buf: []const u8, base: u8) ParseIntError!T {
 
 Like `parseInt`, but with a generic `Character` type.
 
-```zig
+\`\`\`zig
 pub fn parseIntWithGenericCharacter(
     comptime Result: type,
     comptime Character: type,
@@ -785,7 +785,7 @@ pub fn parseIntWithGenericCharacter(
     if (buf[0] == '-') return parseIntWithSign(Result, Character, buf[1..], base, .neg);
     return parseIntWithSign(Result, Character, buf, base, .pos);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -818,11 +818,11 @@ When `base` is zero the string prefix is examined to detect the true base:
 Ignores '_' character in `buf`.
 See also `parseInt`.
 
-```zig
+\`\`\`zig
 pub fn parseUnsigned(comptime T: type, buf: []const u8, base: u8) ParseIntError!T {
     return parseIntWithSign(T, u8, buf, base, .pos);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -844,7 +844,7 @@ pub fn parseUnsigned(comptime T: type, buf: []const u8, base: u8) ParseIntError!
 
 Parses a number like '2G', '2Gi', or '2GiB'.
 
-```zig
+\`\`\`zig
 pub fn parseIntSizeSuffix(buf: []const u8, digit_base: u8) ParseIntError!usize {
     var without_B = buf;
     if (mem.endsWith(u8, buf, "B")) without_B.len -= 1;
@@ -881,7 +881,7 @@ pub fn parseIntSizeSuffix(buf: []const u8, digit_base: u8) ParseIntError!usize {
     const number = try std.fmt.parseInt(usize, without_suffix, digit_base);
     return math.mul(usize, number, multiplier);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -900,7 +900,7 @@ pub fn parseIntSizeSuffix(buf: []const u8, digit_base: u8) ParseIntError!usize {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn charToDigit(c: u8, base: u8) (error{InvalidCharacter}!u8) {
     const value = switch (c) {
         '0'...'9' => c - '0',
@@ -913,7 +913,7 @@ pub fn charToDigit(c: u8, base: u8) (error{InvalidCharacter}!u8) {
 
     return value;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -936,7 +936,7 @@ pub fn charToDigit(c: u8, base: u8) (error{InvalidCharacter}!u8) {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn digitToChar(digit: u8, case: Case) u8 {
     return switch (digit) {
         0...9 => digit + '0',
@@ -944,7 +944,7 @@ pub fn digitToChar(digit: u8, case: Case) u8 {
         else => unreachable,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -965,7 +965,7 @@ pub fn digitToChar(digit: u8, case: Case) u8 {
 
 Print a Formatter string into `buf`. Returns a slice of the bytes printed.
 
-```zig
+\`\`\`zig
 pub fn bufPrint(buf: []u8, comptime fmt: []const u8, args: anytype) BufPrintError![]u8 {
     var w: Writer = .fixed(buf);
     w.print(fmt, args) catch |err| switch (err) {
@@ -973,7 +973,7 @@ pub fn bufPrint(buf: []u8, comptime fmt: []const u8, args: anytype) BufPrintErro
     };
     return w.buffered();
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -993,12 +993,12 @@ pub fn bufPrint(buf: []u8, comptime fmt: []const u8, args: anytype) BufPrintErro
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn bufPrintZ(buf: []u8, comptime fmt: []const u8, args: anytype) BufPrintError![:0]u8 {
     const result = try bufPrint(buf, fmt ++ "\x00", args);
     return result[0 .. result.len - 1 :0];
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1020,7 +1020,7 @@ pub fn bufPrintZ(buf: []u8, comptime fmt: []const u8, args: anytype) BufPrintErr
 
 Count the characters needed for format.
 
-```zig
+\`\`\`zig
 pub fn count(comptime fmt: []const u8, args: anytype) usize {
     var trash_buffer: [64]u8 = undefined;
     var dw: Writer.Discarding = .init(&trash_buffer);
@@ -1029,7 +1029,7 @@ pub fn count(comptime fmt: []const u8, args: anytype) usize {
     };
     return @intCast(dw.count + dw.writer.end);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1048,7 +1048,7 @@ pub fn count(comptime fmt: []const u8, args: anytype) usize {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn allocPrint(gpa: Allocator, comptime fmt: []const u8, args: anytype) Allocator.Error![]u8 {
     var aw = try Writer.Allocating.initCapacity(gpa, fmt.len);
     defer aw.deinit();
@@ -1057,7 +1057,7 @@ pub fn allocPrint(gpa: Allocator, comptime fmt: []const u8, args: anytype) Alloc
     };
     return aw.toOwnedSlice();
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1077,7 +1077,7 @@ pub fn allocPrint(gpa: Allocator, comptime fmt: []const u8, args: anytype) Alloc
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn allocPrintSentinel(
     gpa: Allocator,
     comptime fmt: []const u8,
@@ -1091,7 +1091,7 @@ pub fn allocPrintSentinel(
     };
     return aw.toOwnedSliceSentinel(sentinel);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1112,7 +1112,7 @@ pub fn allocPrintSentinel(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub inline fn comptimePrint(comptime fmt: []const u8, args: anytype) *const [count(fmt, args):0]u8 {
     comptime {
         var buf: [count(fmt, args):0]u8 = undefined;
@@ -1122,7 +1122,7 @@ pub inline fn comptimePrint(comptime fmt: []const u8, args: anytype) *const [cou
         return &final;
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1144,7 +1144,7 @@ pub inline fn comptimePrint(comptime fmt: []const u8, args: anytype) *const [cou
 Encodes a sequence of bytes as hexadecimal digits.
 Returns an array containing the encoded bytes.
 
-```zig
+\`\`\`zig
 pub fn bytesToHex(input: anytype, case: Case) [input.len * 2]u8 {
     if (input.len == 0) return [_]u8{};
     comptime assert(@TypeOf(input[0]) == u8); // elements to encode must be unsigned bytes
@@ -1157,7 +1157,7 @@ pub fn bytesToHex(input: anytype, case: Case) [input.len * 2]u8 {
     }
     return result;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1180,7 +1180,7 @@ Decodes the sequence of bytes represented by the specified string of
 hexadecimal characters.
 Returns a slice of the output buffer containing the decoded bytes.
 
-```zig
+\`\`\`zig
 pub fn hexToBytes(out: []u8, input: []const u8) ![]u8 {
     // Expect 0 or n pairs of hexadecimal digits.
     if (input.len & 1 != 0)
@@ -1197,7 +1197,7 @@ pub fn hexToBytes(out: []u8, input: []const u8) ![]u8 {
 
     return out[0 .. in_i / 2];
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1219,7 +1219,7 @@ pub fn hexToBytes(out: []u8, input: []const u8) ![]u8 {
 Converts an unsigned integer of any multiple of u8 to an array of lowercase
 hex bytes, little endian.
 
-```zig
+\`\`\`zig
 pub fn hex(x: anytype) [@sizeOf(@TypeOf(x)) * 2]u8 {
     comptime assert(@typeInfo(@TypeOf(x)).int.signedness == .unsigned);
     var result: [@sizeOf(@TypeOf(x)) * 2]u8 = undefined;
@@ -1231,7 +1231,7 @@ pub fn hex(x: anytype) [@sizeOf(@TypeOf(x)) * 2]u8 {
     }
     return result;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1251,14 +1251,14 @@ pub fn hex(x: anytype) [@sizeOf(@TypeOf(x)) * 2]u8 {
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-```zig
+\`\`\`zig
 pub const ParseIntError = error{
     /// The result cannot fit in the type specified.
     Overflow,
     /// The input was empty or contained an invalid character.
     InvalidCharacter,
 }
-```
+\`\`\`
 
 **Errors:**
 
@@ -1274,12 +1274,12 @@ pub const ParseIntError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-```zig
+\`\`\`zig
 pub const BufPrintError = error{
     /// As much as possible was written to the buffer, but it was too small to fit all the printed bytes.
     NoSpaceLeft,
 }
-```
+\`\`\`
 
 **Errors:**
 
@@ -1288,4 +1288,3 @@ pub const BufPrintError = error{
 </details>
 
 ---
-

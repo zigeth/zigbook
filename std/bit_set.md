@@ -72,7 +72,7 @@ DynamicBitSetUnmanaged:
 A bit set with runtime-known size, backed by an allocated slice
 of usize.  The allocator must be tracked externally by the user.
 
-```zig
+\`\`\`zig
 pub const DynamicBitSetUnmanaged = struct {
     const Self = @This();
 
@@ -473,7 +473,7 @@ pub const DynamicBitSetUnmanaged = struct {
         return (bit_length + (@bitSizeOf(MaskInt) - 1)) / @bitSizeOf(MaskInt);
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -495,7 +495,7 @@ A bit set with runtime-known size, backed by an allocated slice
 of usize.  Thin wrapper around DynamicBitSetUnmanaged which keeps
 track of the allocator instance.
 
-```zig
+\`\`\`zig
 pub const DynamicBitSet = struct {
     const Self = @This();
 
@@ -651,7 +651,7 @@ pub const DynamicBitSet = struct {
 
     pub const Iterator = DynamicBitSetUnmanaged.Iterator;
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -671,7 +671,7 @@ pub const DynamicBitSet = struct {
 
 Options for configuring an iterator over a bit set
 
-```zig
+\`\`\`zig
 pub const IteratorOptions = struct {
     /// determines which bits should be visited
     kind: Type = .set,
@@ -693,7 +693,7 @@ pub const IteratorOptions = struct {
         reverse,
     };
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -713,14 +713,14 @@ pub const IteratorOptions = struct {
 
 A range of indices within a bitset.
 
-```zig
+\`\`\`zig
 pub const Range = struct {
     /// The index of the first bit of interest.
     start: usize,
     /// The index immediately after the last bit of interest.
     end: usize,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -746,7 +746,7 @@ both of which fulfill the same interface.
 The returned type will perform no allocations,
 can be copied by value, and does not require deinitialization.
 
-```zig
+\`\`\`zig
 pub fn StaticBitSet(comptime size: usize) type {
     if (size <= @bitSizeOf(usize)) {
         return IntegerBitSet(size);
@@ -754,7 +754,7 @@ pub fn StaticBitSet(comptime size: usize) type {
         return ArrayBitSet(usize, size);
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -776,7 +776,7 @@ A bit set with static size, which is backed by a single integer.
 This set is good for sets with a small size, but may generate
 inefficient code for larger sets, especially in debug mode.
 
-```zig
+\`\`\`zig
 pub fn IntegerBitSet(comptime size: u16) type {
     return packed struct {
         const Self = @This();
@@ -1045,7 +1045,7 @@ pub fn IntegerBitSet(comptime size: u16) type {
         }
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1067,7 +1067,7 @@ A bit set with static size, which is backed by an array of usize.
 This set is good for sets with a larger size, but may use
 more bytes than necessary if your set is small.
 
-```zig
+\`\`\`zig
 pub fn ArrayBitSet(comptime MaskIntType: type, comptime size: usize) type {
     const mask_info: std.builtin.Type = @typeInfo(MaskIntType);
 
@@ -1416,7 +1416,7 @@ pub fn ArrayBitSet(comptime MaskIntType: type, comptime size: usize) type {
         }
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1429,4 +1429,3 @@ pub fn ArrayBitSet(comptime MaskIntType: type, comptime size: usize) type {
 </details>
 
 ---
-

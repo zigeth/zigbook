@@ -131,7 +131,7 @@
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const ReleaseMode = enum {
     off,
     any,
@@ -139,7 +139,7 @@ pub const ReleaseMode = enum {
     safe,
     small,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -163,7 +163,7 @@ pub const ReleaseMode = enum {
 Shared state among all Build instances.
 Settings that are here rather than in Build are not configurable per-package.
 
-```zig
+\`\`\`zig
 pub const Graph = struct {
     arena: Allocator,
     system_library_options: std.StringArrayHashMapUnmanaged(SystemLibraryMode) = .empty,
@@ -183,7 +183,7 @@ pub const Graph = struct {
     allow_so_scripts: ?bool = null,
     time_report: bool,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -215,12 +215,12 @@ pub const Graph = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const PkgConfigPkg = struct {
     name: []const u8,
     desc: []const u8,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -238,13 +238,13 @@ pub const PkgConfigPkg = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const DirList = struct {
     lib_dir: ?[]const u8 = null,
     exe_dir: ?[]const u8 = null,
     include_dir: ?[]const u8 = null,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -263,7 +263,7 @@ pub const DirList = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const ExecutableOptions = struct {
     name: []const u8,
     root_module: *Module,
@@ -280,7 +280,7 @@ pub const ExecutableOptions = struct {
     /// if the target object format does not support embedded manifests.
     win32_manifest: ?LazyPath = null,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -305,7 +305,7 @@ pub const ExecutableOptions = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const ObjectOptions = struct {
     name: []const u8,
     root_module: *Module,
@@ -314,7 +314,7 @@ pub const ObjectOptions = struct {
     use_lld: ?bool = null,
     zig_lib_dir: ?LazyPath = null,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -336,7 +336,7 @@ pub const ObjectOptions = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const LibraryOptions = struct {
     linkage: std.builtin.LinkMode = .static,
     name: []const u8,
@@ -353,7 +353,7 @@ pub const LibraryOptions = struct {
     /// if the target object format does not support embedded manifests.
     win32_manifest: ?LazyPath = null,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -378,7 +378,7 @@ pub const LibraryOptions = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const TestOptions = struct {
     name: []const u8 = "test",
     root_module: *Module,
@@ -393,7 +393,7 @@ pub const TestOptions = struct {
     /// Usually used in conjunction with a custom `test_runner`.
     emit_object: bool = false,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -418,7 +418,7 @@ pub const TestOptions = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const AssemblyOptions = struct {
     name: []const u8,
     source_file: LazyPath,
@@ -429,7 +429,7 @@ pub const AssemblyOptions = struct {
     max_rss: usize = 0,
     zig_lib_dir: ?LazyPath = null,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -451,11 +451,11 @@ pub const AssemblyOptions = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const StandardOptimizeOptionOptions = struct {
     preferred_optimize_mode: ?std.builtin.OptimizeMode = null,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -472,12 +472,12 @@ pub const StandardOptimizeOptionOptions = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const StandardTargetOptionsArgs = struct {
     whitelist: ?[]const Target.Query = null,
     default_target: Target.Query = .{},
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -495,7 +495,7 @@ pub const StandardTargetOptionsArgs = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Dependency = struct {
     builder: *Build,
 
@@ -544,7 +544,7 @@ pub const Dependency = struct {
         };
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -564,7 +564,7 @@ pub const Dependency = struct {
 A file that is generated by a build step.
 This struct is an interface that is meant to be used with `@fieldParentPtr` to implement the actual path logic.
 
-```zig
+\`\`\`zig
 pub const GeneratedFile = struct {
     /// The step that generates the file
     step: *Step,
@@ -590,7 +590,7 @@ pub const GeneratedFile = struct {
         };
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -613,12 +613,12 @@ This type is generally required by build system API that need to be given a
 target. The query is kept because the Zig toolchain needs to know which parts
 of the target are "native". This can apply to the CPU, the OS, or even the ABI.
 
-```zig
+\`\`\`zig
 pub const ResolvedTarget = struct {
     query: Target.Query,
     result: Target,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -636,12 +636,12 @@ pub const ResolvedTarget = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const SystemIntegrationOptionConfig = struct {
     /// If left as null, then the default will depend on system_package_mode.
     default: ?bool = null,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -660,9 +660,9 @@ pub const SystemIntegrationOptionConfig = struct {
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Cache = @import("Build/Cache.zig")
-```
+\`\`\`
 
 > **Module:** `Build/Cache.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Build/Cache.zig)
 
@@ -675,9 +675,9 @@ pub const Cache = @import("Build/Cache.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Step = @import("Build/Step.zig")
-```
+\`\`\`
 
 > **Module:** `Build/Step.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Build/Step.zig)
 
@@ -690,9 +690,9 @@ pub const Step = @import("Build/Step.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Module = @import("Build/Module.zig")
-```
+\`\`\`
 
 > **Module:** `Build/Module.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Build/Module.zig)
 
@@ -705,9 +705,9 @@ pub const Module = @import("Build/Module.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Watch = @import("Build/Watch.zig")
-```
+\`\`\`
 
 > **Module:** `Build/Watch.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Build/Watch.zig)
 
@@ -720,9 +720,9 @@ pub const Watch = @import("Build/Watch.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Fuzz = @import("Build/Fuzz.zig")
-```
+\`\`\`
 
 > **Module:** `Build/Fuzz.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Build/Fuzz.zig)
 
@@ -735,9 +735,9 @@ pub const Fuzz = @import("Build/Fuzz.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const WebServer = @import("Build/WebServer.zig")
-```
+\`\`\`
 
 > **Module:** `Build/WebServer.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Build/WebServer.zig)
 
@@ -750,9 +750,9 @@ pub const WebServer = @import("Build/WebServer.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const abi = @import("Build/abi.zig")
-```
+\`\`\`
 
 > **Module:** `Build/abi.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Build/abi.zig)
 
@@ -769,7 +769,7 @@ pub const abi = @import("Build/abi.zig")
 
 A reference to an existing or future path.
 
-```zig
+\`\`\`zig
 pub const LazyPath = union(enum) {
     /// A source file path relative to build root.
     src_path: struct {
@@ -1022,7 +1022,7 @@ pub const LazyPath = union(enum) {
         };
     }
 }
-```
+\`\`\`
 
 </details>
 
@@ -1033,7 +1033,7 @@ pub const LazyPath = union(enum) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const InstallDir = union(enum) {
     prefix: void,
     lib: void,
@@ -1051,7 +1051,7 @@ pub const InstallDir = union(enum) {
         }
     }
 }
-```
+\`\`\`
 
 </details>
 
@@ -1064,7 +1064,7 @@ pub const InstallDir = union(enum) {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn create(
     graph: *Graph,
     build_root: Cache.Directory,
@@ -1130,7 +1130,7 @@ pub fn create(
     b.default_step = &b.install_tls.step;
     return b;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1157,7 +1157,7 @@ pub fn create(
 
 This function is intended to be called by lib/build_runner.zig, not a build.zig file.
 
-```zig
+\`\`\`zig
 pub fn resolveInstallPrefix(b: *Build, install_prefix: ?[]const u8, dir_list: DirList) void {
     if (b.dest_dir) |dest_dir| {
         b.install_prefix = install_prefix orelse "/usr";
@@ -1191,7 +1191,7 @@ pub fn resolveInstallPrefix(b: *Build, install_prefix: ?[]const u8, dir_list: Di
     b.exe_dir = b.pathJoin(&exe_list);
     b.h_dir = b.pathJoin(&h_list);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1217,11 +1217,11 @@ In other words, this provides a way to expose build.zig values to Zig
 source code with `@import`.
 Related: `Module.addOptions`.
 
-```zig
+\`\`\`zig
 pub fn addOptions(b: *Build) *Step.Options {
     return Step.Options.create(b);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1239,7 +1239,7 @@ pub fn addOptions(b: *Build) *Step.Options {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn addExecutable(b: *Build, options: ExecutableOptions) *Step.Compile {
     return .create(b, .{
         .name = options.name,
@@ -1254,7 +1254,7 @@ pub fn addExecutable(b: *Build, options: ExecutableOptions) *Step.Compile {
         .win32_manifest = options.win32_manifest,
     });
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1273,7 +1273,7 @@ pub fn addExecutable(b: *Build, options: ExecutableOptions) *Step.Compile {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn addObject(b: *Build, options: ObjectOptions) *Step.Compile {
     return .create(b, .{
         .name = options.name,
@@ -1285,7 +1285,7 @@ pub fn addObject(b: *Build, options: ObjectOptions) *Step.Compile {
         .zig_lib_dir = options.zig_lib_dir,
     });
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1304,7 +1304,7 @@ pub fn addObject(b: *Build, options: ObjectOptions) *Step.Compile {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn addLibrary(b: *Build, options: LibraryOptions) *Step.Compile {
     return .create(b, .{
         .name = options.name,
@@ -1319,7 +1319,7 @@ pub fn addLibrary(b: *Build, options: LibraryOptions) *Step.Compile {
         .win32_manifest = options.win32_manifest,
     });
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1347,7 +1347,7 @@ function will be passed to `addRunArtifact`, creating a `Step.Run`. These
 two steps are separated because they are independently configured and
 cached.
 
-```zig
+\`\`\`zig
 pub fn addTest(b: *Build, options: TestOptions) *Step.Compile {
     return .create(b, .{
         .name = options.name,
@@ -1361,7 +1361,7 @@ pub fn addTest(b: *Build, options: TestOptions) *Step.Compile {
         .zig_lib_dir = options.zig_lib_dir,
     });
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1384,13 +1384,13 @@ This function creates a module and adds it to the package's module set, making
 it available to other packages which depend on this one.
 `createModule` can be used instead to create a private module.
 
-```zig
+\`\`\`zig
 pub fn addModule(b: *Build, name: []const u8, options: Module.CreateOptions) *Module {
     const module = Module.create(b, options);
     b.modules.put(b.dupe(name), module) catch @panic("OOM");
     return module;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1414,11 +1414,11 @@ This function creates a private module, to be used by the current package,
 but not exposed to other packages depending on this one.
 `addModule` can be used instead to create a public module.
 
-```zig
+\`\`\`zig
 pub fn createModule(b: *Build, options: Module.CreateOptions) *Module {
     return Module.create(b, options);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1443,14 +1443,14 @@ executable. More command line arguments can be added with `addArg`,
 Be careful using this function, as it introduces a system dependency.
 To run an executable built with zig build, see `Step.Compile.run`.
 
-```zig
+\`\`\`zig
 pub fn addSystemCommand(b: *Build, argv: []const []const u8) *Step.Run {
     assert(argv.len >= 1);
     const run_step = Step.Run.create(b, b.fmt("run {s}", .{argv[0]}));
     run_step.addArgs(argv);
     return run_step;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1472,7 +1472,7 @@ pub fn addSystemCommand(b: *Build, argv: []const []const u8) *Step.Run {
 Creates a `Step.Run` with an executable built with `addExecutable`.
 Add command line arguments with methods of `Step.Run`.
 
-```zig
+\`\`\`zig
 pub fn addRunArtifact(b: *Build, exe: *Step.Compile) *Step.Run {
     // It doesn't have to be native. We catch that if you actually try to run it.
     // Consider that this is declarative; the run step may not be run unless a user
@@ -1507,7 +1507,7 @@ pub fn addRunArtifact(b: *Build, exe: *Step.Compile) *Step.Run {
 
     return run_step;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1532,7 +1532,7 @@ When an input template file is provided, this function will fail the build
 when an option not found in the input file is provided in `values`, and
 when an option found in the input file is missing from `values`.
 
-```zig
+\`\`\`zig
 pub fn addConfigHeader(
     b: *Build,
     options: Step.ConfigHeader.Options,
@@ -1546,7 +1546,7 @@ pub fn addConfigHeader(
     config_header_step.addValues(values);
     return config_header_step;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1568,11 +1568,11 @@ pub fn addConfigHeader(
 
 Allocator.dupe without the need to handle out of memory.
 
-```zig
+\`\`\`zig
 pub fn dupe(b: *Build, bytes: []const u8) []u8 {
     return dupeInner(b.allocator, bytes);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1591,11 +1591,11 @@ pub fn dupe(b: *Build, bytes: []const u8) []u8 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn dupeInner(allocator: std.mem.Allocator, bytes: []const u8) []u8 {
     return allocator.dupe(u8, bytes) catch @panic("OOM");
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1616,13 +1616,13 @@ pub fn dupeInner(allocator: std.mem.Allocator, bytes: []const u8) []u8 {
 
 Duplicates an array of strings without the need to handle out of memory.
 
-```zig
+\`\`\`zig
 pub fn dupeStrings(b: *Build, strings: []const []const u8) [][]u8 {
     const array = b.allocator.alloc([]u8, strings.len) catch @panic("OOM");
     for (array, strings) |*dest, source| dest.* = b.dupe(source);
     return array;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1643,11 +1643,11 @@ pub fn dupeStrings(b: *Build, strings: []const []const u8) [][]u8 {
 
 Duplicates a path and converts all slashes to the OS's canonical path separator.
 
-```zig
+\`\`\`zig
 pub fn dupePath(b: *Build, bytes: []const u8) []u8 {
     return dupePathInner(b.allocator, bytes);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1666,13 +1666,13 @@ pub fn dupePath(b: *Build, bytes: []const u8) []u8 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn addWriteFile(b: *Build, file_path: []const u8, data: []const u8) *Step.WriteFile {
     const write_file_step = b.addWriteFiles();
     _ = write_file_step.add(file_path, data);
     return write_file_step;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1692,13 +1692,13 @@ pub fn addWriteFile(b: *Build, file_path: []const u8, data: []const u8) *Step.Wr
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn addNamedWriteFiles(b: *Build, name: []const u8) *Step.WriteFile {
     const wf = Step.WriteFile.create(b);
     b.named_writefiles.put(b.dupe(name), wf) catch @panic("OOM");
     return wf;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1717,11 +1717,11 @@ pub fn addNamedWriteFiles(b: *Build, name: []const u8) *Step.WriteFile {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn addNamedLazyPath(b: *Build, name: []const u8, lp: LazyPath) void {
     b.named_lazy_paths.put(b.dupe(name), lp.dupe(b)) catch @panic("OOM");
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1741,11 +1741,11 @@ pub fn addNamedLazyPath(b: *Build, name: []const u8, lp: LazyPath) void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn addWriteFiles(b: *Build) *Step.WriteFile {
     return Step.WriteFile.create(b);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1763,11 +1763,11 @@ pub fn addWriteFiles(b: *Build) *Step.WriteFile {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn addUpdateSourceFiles(b: *Build) *Step.UpdateSourceFiles {
     return Step.UpdateSourceFiles.create(b);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1785,11 +1785,11 @@ pub fn addUpdateSourceFiles(b: *Build) *Step.UpdateSourceFiles {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn addRemoveDirTree(b: *Build, dir_path: LazyPath) *Step.RemoveDir {
     return Step.RemoveDir.create(b, dir_path);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1808,11 +1808,11 @@ pub fn addRemoveDirTree(b: *Build, dir_path: LazyPath) *Step.RemoveDir {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn addFail(b: *Build, error_msg: []const u8) *Step.Fail {
     return Step.Fail.create(b, error_msg);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1831,11 +1831,11 @@ pub fn addFail(b: *Build, error_msg: []const u8) *Step.Fail {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn addFmt(b: *Build, options: Step.Fmt.Options) *Step.Fmt {
     return Step.Fmt.create(b, options);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1854,11 +1854,11 @@ pub fn addFmt(b: *Build, options: Step.Fmt.Options) *Step.Fmt {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn addTranslateC(b: *Build, options: Step.TranslateC.Options) *Step.TranslateC {
     return Step.TranslateC.create(b, options);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1877,11 +1877,11 @@ pub fn addTranslateC(b: *Build, options: Step.TranslateC.Options) *Step.Translat
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn getInstallStep(b: *Build) *Step {
     return &b.install_tls.step;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1899,11 +1899,11 @@ pub fn getInstallStep(b: *Build) *Step {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn getUninstallStep(b: *Build) *Step {
     return &b.uninstall_tls.step;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1927,7 +1927,7 @@ When a project depends on a Zig package as a dependency, it programmatically set
 these options when calling the dependency's build.zig script as a function.
 `null` is returned when an option is left to default.
 
-```zig
+\`\`\`zig
 pub fn option(b: *Build, comptime T: type, name_raw: []const u8, description_raw: []const u8) ?T {
     const name = b.dupe(name_raw);
     const description = b.dupe(description_raw);
@@ -2141,7 +2141,7 @@ pub fn option(b: *Build, comptime T: type, name_raw: []const u8, description_raw
         },
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2162,7 +2162,7 @@ pub fn option(b: *Build, comptime T: type, name_raw: []const u8, description_raw
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn step(b: *Build, name: []const u8, description: []const u8) *Step {
     const step_info = b.allocator.create(TopLevelStep) catch @panic("OOM");
     step_info.* = .{
@@ -2181,7 +2181,7 @@ pub fn step(b: *Build, name: []const u8, description: []const u8) *Step {
 
     return &step_info.step;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2201,7 +2201,7 @@ pub fn step(b: *Build, name: []const u8, description: []const u8) *Step {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn standardOptimizeOption(b: *Build, options: StandardOptimizeOptionOptions) std.builtin.OptimizeMode {
     if (options.preferred_optimize_mode) |mode| {
         if (b.option(bool, "release", "optimize for end users") orelse (b.release_mode != .off)) {
@@ -2230,7 +2230,7 @@ pub fn standardOptimizeOption(b: *Build, options: StandardOptimizeOptionOptions)
         .small => .ReleaseSmall,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2252,12 +2252,12 @@ pub fn standardOptimizeOption(b: *Build, options: StandardOptimizeOptionOptions)
 Exposes standard `zig build` options for choosing a target and additionally
 resolves the target query.
 
-```zig
+\`\`\`zig
 pub fn standardTargetOptions(b: *Build, args: StandardTargetOptionsArgs) ResolvedTarget {
     const query = b.standardTargetOptionsQueryOnly(args);
     return b.resolveTargetQuery(query);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2281,7 +2281,7 @@ parsing failed.
 Asserts that the `diagnostics` field of `options` is `null`. This use case
 is handled instead by calling `std.Target.Query.parse` directly.
 
-```zig
+\`\`\`zig
 pub fn parseTargetQuery(options: std.Target.Query.ParseOptions) error{ParseFailed}!std.Target.Query {
     assert(options.diagnostics == null);
     var diags: Target.Query.ParseOptions.Diagnostics = .{};
@@ -2330,7 +2330,7 @@ pub fn parseTargetQuery(options: std.Target.Query.ParseOptions) error{ParseFaile
         },
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2354,7 +2354,7 @@ pub fn parseTargetQuery(options: std.Target.Query.ParseOptions) error{ParseFaile
 
 Exposes standard `zig build` options for choosing a target.
 
-```zig
+\`\`\`zig
 pub fn standardTargetOptionsQueryOnly(b: *Build, args: StandardTargetOptionsArgs) Target.Query {
     const maybe_triple = b.option(
         []const u8,
@@ -2414,7 +2414,7 @@ pub fn standardTargetOptionsQueryOnly(b: *Build, args: StandardTargetOptionsArgs
     b.markInvalidUserInput();
     return args.default_target;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2433,7 +2433,7 @@ pub fn standardTargetOptionsQueryOnly(b: *Build, args: StandardTargetOptionsArgs
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn addUserInputOption(b: *Build, name_raw: []const u8, value_raw: []const u8) error{OutOfMemory}!bool {
     const name = b.dupe(name_raw);
     const value = b.dupe(value_raw);
@@ -2485,7 +2485,7 @@ pub fn addUserInputOption(b: *Build, name_raw: []const u8, value_raw: []const u8
     }
     return false;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2509,7 +2509,7 @@ pub fn addUserInputOption(b: *Build, name_raw: []const u8, value_raw: []const u8
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn addUserInputFlag(b: *Build, name_raw: []const u8) error{OutOfMemory}!bool {
     const name = b.dupe(name_raw);
     const gop = try b.user_input_options.getOrPut(name);
@@ -2541,7 +2541,7 @@ pub fn addUserInputFlag(b: *Build, name_raw: []const u8) error{OutOfMemory}!bool
     }
     return false;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2564,7 +2564,7 @@ pub fn addUserInputFlag(b: *Build, name_raw: []const u8) error{OutOfMemory}!bool
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn validateUserInputDidItFail(b: *Build) bool {
     // Make sure all args are used.
     var it = b.user_input_options.iterator();
@@ -2577,7 +2577,7 @@ pub fn validateUserInputDidItFail(b: *Build) bool {
 
     return b.invalid_user_input;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2599,11 +2599,11 @@ This creates the install step and adds it to the dependencies of the
 top-level install step, using all the default options.
 See `addInstallArtifact` for a more flexible function.
 
-```zig
+\`\`\`zig
 pub fn installArtifact(b: *Build, artifact: *Step.Compile) void {
     b.getInstallStep().dependOn(&b.addInstallArtifact(artifact, .{}).step);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2625,7 +2625,7 @@ pub fn installArtifact(b: *Build, artifact: *Step.Compile) void {
 This merely creates the step; it does not add it to the dependencies of the
 top-level install step.
 
-```zig
+\`\`\`zig
 pub fn addInstallArtifact(
     b: *Build,
     artifact: *Step.Compile,
@@ -2633,7 +2633,7 @@ pub fn addInstallArtifact(
 ) *Step.InstallArtifact {
     return Step.InstallArtifact.create(b, artifact, options);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2655,11 +2655,11 @@ pub fn addInstallArtifact(
 
 `dest_rel_path` is relative to prefix path
 
-```zig
+\`\`\`zig
 pub fn installFile(b: *Build, src_path: []const u8, dest_rel_path: []const u8) void {
     b.getInstallStep().dependOn(&b.addInstallFileWithDir(b.path(src_path), .prefix, dest_rel_path).step);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2679,11 +2679,11 @@ pub fn installFile(b: *Build, src_path: []const u8, dest_rel_path: []const u8) v
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn installDirectory(b: *Build, options: Step.InstallDir.Options) void {
     b.getInstallStep().dependOn(&b.addInstallDirectory(options).step);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2704,11 +2704,11 @@ pub fn installDirectory(b: *Build, options: Step.InstallDir.Options) void {
 
 `dest_rel_path` is relative to bin path
 
-```zig
+\`\`\`zig
 pub fn installBinFile(b: *Build, src_path: []const u8, dest_rel_path: []const u8) void {
     b.getInstallStep().dependOn(&b.addInstallFileWithDir(b.path(src_path), .bin, dest_rel_path).step);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2730,11 +2730,11 @@ pub fn installBinFile(b: *Build, src_path: []const u8, dest_rel_path: []const u8
 
 `dest_rel_path` is relative to lib path
 
-```zig
+\`\`\`zig
 pub fn installLibFile(b: *Build, src_path: []const u8, dest_rel_path: []const u8) void {
     b.getInstallStep().dependOn(&b.addInstallFileWithDir(b.path(src_path), .lib, dest_rel_path).step);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2754,11 +2754,11 @@ pub fn installLibFile(b: *Build, src_path: []const u8, dest_rel_path: []const u8
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn addObjCopy(b: *Build, source: LazyPath, options: Step.ObjCopy.Options) *Step.ObjCopy {
     return Step.ObjCopy.create(b, source, options);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2780,11 +2780,11 @@ pub fn addObjCopy(b: *Build, source: LazyPath, options: Step.ObjCopy.Options) *S
 
 `dest_rel_path` is relative to install prefix path
 
-```zig
+\`\`\`zig
 pub fn addInstallFile(b: *Build, source: LazyPath, dest_rel_path: []const u8) *Step.InstallFile {
     return b.addInstallFileWithDir(source, .prefix, dest_rel_path);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2806,11 +2806,11 @@ pub fn addInstallFile(b: *Build, source: LazyPath, dest_rel_path: []const u8) *S
 
 `dest_rel_path` is relative to bin path
 
-```zig
+\`\`\`zig
 pub fn addInstallBinFile(b: *Build, source: LazyPath, dest_rel_path: []const u8) *Step.InstallFile {
     return b.addInstallFileWithDir(source, .bin, dest_rel_path);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2832,11 +2832,11 @@ pub fn addInstallBinFile(b: *Build, source: LazyPath, dest_rel_path: []const u8)
 
 `dest_rel_path` is relative to lib path
 
-```zig
+\`\`\`zig
 pub fn addInstallLibFile(b: *Build, source: LazyPath, dest_rel_path: []const u8) *Step.InstallFile {
     return b.addInstallFileWithDir(source, .lib, dest_rel_path);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2858,11 +2858,11 @@ pub fn addInstallLibFile(b: *Build, source: LazyPath, dest_rel_path: []const u8)
 
 `dest_rel_path` is relative to header path
 
-```zig
+\`\`\`zig
 pub fn addInstallHeaderFile(b: *Build, source: LazyPath, dest_rel_path: []const u8) *Step.InstallFile {
     return b.addInstallFileWithDir(source, .header, dest_rel_path);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2882,7 +2882,7 @@ pub fn addInstallHeaderFile(b: *Build, source: LazyPath, dest_rel_path: []const 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn addInstallFileWithDir(
     b: *Build,
     source: LazyPath,
@@ -2891,7 +2891,7 @@ pub fn addInstallFileWithDir(
 ) *Step.InstallFile {
     return Step.InstallFile.create(b, source, install_dir, dest_rel_path);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2912,11 +2912,11 @@ pub fn addInstallFileWithDir(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn addInstallDirectory(b: *Build, options: Step.InstallDir.Options) *Step.InstallDir {
     return Step.InstallDir.create(b, options);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2935,7 +2935,7 @@ pub fn addInstallDirectory(b: *Build, options: Step.InstallDir.Options) *Step.In
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn addCheckFile(
     b: *Build,
     file_source: LazyPath,
@@ -2943,7 +2943,7 @@ pub fn addCheckFile(
 ) *Step.CheckFile {
     return Step.CheckFile.create(b, file_source, options);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2963,7 +2963,7 @@ pub fn addCheckFile(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn truncateFile(b: *Build, dest_path: []const u8) (fs.Dir.MakeError || fs.Dir.StatFileError)!void {
     if (b.verbose) {
         log.info("truncate {s}", .{dest_path});
@@ -2980,7 +2980,7 @@ pub fn truncateFile(b: *Build, dest_path: []const u8) (fs.Dir.MakeError || fs.Di
     };
     src_file.close();
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3001,7 +3001,7 @@ pub fn truncateFile(b: *Build, dest_path: []const u8) (fs.Dir.MakeError || fs.Di
 
 References a file or directory relative to the source root.
 
-```zig
+\`\`\`zig
 pub fn path(b: *Build, sub_path: []const u8) LazyPath {
     if (fs.path.isAbsolute(sub_path)) {
         std.debug.panic("sub_path is expected to be relative to the build root, but was this absolute path: '{s}'. It is best avoid absolute paths, but if you must, it is supported by LazyPath.cwd_relative", .{
@@ -3013,7 +3013,7 @@ pub fn path(b: *Build, sub_path: []const u8) LazyPath {
         .sub_path = sub_path,
     } };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3036,11 +3036,11 @@ This is low-level implementation details of the build system, not meant to
 be called by users' build scripts. Even in the build system itself it is a
 code smell to call this function.
 
-```zig
+\`\`\`zig
 pub fn pathFromRoot(b: *Build, sub_path: []const u8) []u8 {
     return b.pathResolve(&.{ b.build_root.path orelse ".", sub_path });
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3059,11 +3059,11 @@ pub fn pathFromRoot(b: *Build, sub_path: []const u8) []u8 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn pathJoin(b: *Build, paths: []const []const u8) []u8 {
     return fs.path.join(b.allocator, paths) catch @panic("OOM");
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3082,11 +3082,11 @@ pub fn pathJoin(b: *Build, paths: []const []const u8) []u8 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn pathResolve(b: *Build, paths: []const []const u8) []u8 {
     return fs.path.resolve(b.allocator, paths) catch @panic("OOM");
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3105,11 +3105,11 @@ pub fn pathResolve(b: *Build, paths: []const []const u8) []u8 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn fmt(b: *Build, comptime format: []const u8, args: anytype) []u8 {
     return std.fmt.allocPrint(b.allocator, format, args) catch @panic("OOM");
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3129,7 +3129,7 @@ pub fn fmt(b: *Build, comptime format: []const u8, args: anytype) []u8 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn findProgram(b: *Build, names: []const []const u8, paths: []const []const u8) error{FileNotFound}![]const u8 {
     // TODO report error for ambiguous situations
     for (b.search_prefixes.items) |search_prefix| {
@@ -3161,7 +3161,7 @@ pub fn findProgram(b: *Build, names: []const []const u8, paths: []const []const 
     }
     return error.FileNotFound;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3185,7 +3185,7 @@ pub fn findProgram(b: *Build, names: []const []const u8, paths: []const []const 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn runAllowFail(
     b: *Build,
     argv: []const []const u8,
@@ -3227,7 +3227,7 @@ pub fn runAllowFail(
         },
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3252,7 +3252,7 @@ This is a helper function to be called from build.zig scripts, *not* from
 inside step make() functions. If any errors occur, it fails the build with
 a helpful message.
 
-```zig
+\`\`\`zig
 pub fn run(b: *Build, argv: []const []const u8) []u8 {
     if (!process.can_spawn) {
         std.debug.print("unable to spawn the following command: cannot spawn child process\n{s}\n", .{
@@ -3270,7 +3270,7 @@ pub fn run(b: *Build, argv: []const []const u8) []u8 {
         process.exit(1);
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3289,11 +3289,11 @@ pub fn run(b: *Build, argv: []const []const u8) []u8 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn addSearchPrefix(b: *Build, search_prefix: []const u8) void {
     b.search_prefixes.append(b.allocator, b.dupePath(search_prefix)) catch @panic("OOM");
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3312,7 +3312,7 @@ pub fn addSearchPrefix(b: *Build, search_prefix: []const u8) void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn getInstallPath(b: *Build, dir: InstallDir, dest_rel_path: []const u8) []const u8 {
     assert(!fs.path.isAbsolute(dest_rel_path)); // Install paths must be relative to the prefix
     const base_dir = switch (dir) {
@@ -3324,7 +3324,7 @@ pub fn getInstallPath(b: *Build, dir: InstallDir, dest_rel_path: []const u8) []c
     };
     return b.pathResolve(&.{ base_dir, dest_rel_path });
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3358,7 +3358,7 @@ It is allowed to use this function for non-lazy dependencies, in which case
 it will never return `null`. This allows toggling laziness via
 build.zig.zon without changing build.zig logic.
 
-```zig
+\`\`\`zig
 pub fn lazyDependency(b: *Build, name: []const u8, args: anytype) ?*Dependency {
     const build_runner = @import("root");
     const deps = build_runner.dependencies;
@@ -3378,7 +3378,7 @@ pub fn lazyDependency(b: *Build, name: []const u8, args: anytype) ?*Dependency {
 
     unreachable; // Bad @dependencies source
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3398,7 +3398,7 @@ pub fn lazyDependency(b: *Build, name: []const u8, args: anytype) ?*Dependency {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn dependency(b: *Build, name: []const u8, args: anytype) *Dependency {
     const build_runner = @import("root");
     const deps = build_runner.dependencies;
@@ -3416,7 +3416,7 @@ pub fn dependency(b: *Build, name: []const u8, args: anytype) *Dependency {
 
     unreachable; // Bad @dependencies source
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3442,7 +3442,7 @@ that dependency after the build script has finished running, then returns `null`
 If the dependency is lazy but has already been fetched, or if it is eager, it returns
 the build.zig struct of that dependency, just like a regular `@import`.
 
-```zig
+\`\`\`zig
 pub inline fn lazyImport(
     b: *Build,
     /// The build.zig struct of the package importing the dependency.
@@ -3472,7 +3472,7 @@ pub inline fn lazyImport(
 
     comptime unreachable; // Bad @dependencies source
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3492,7 +3492,7 @@ pub inline fn lazyImport(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn dependencyFromBuildZig(
     b: *Build,
     /// The build.zig struct of the dependency, normally obtained by `@import` of the dependency.
@@ -3518,7 +3518,7 @@ pub fn dependencyFromBuildZig(
     const full_path = b.pathFromRoot("build.zig.zon");
     debug.panic("'{}' is not a build.zig struct of a dependency in '{s}'", .{ build_zig, full_path });
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3538,7 +3538,7 @@ pub fn dependencyFromBuildZig(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn runBuild(b: *Build, build_zig: anytype) anyerror!void {
     switch (@typeInfo(@typeInfo(@TypeOf(build_zig.build)).@"fn".return_type.?)) {
         .void => build_zig.build(b),
@@ -3546,7 +3546,7 @@ pub fn runBuild(b: *Build, build_zig: anytype) anyerror!void {
         else => @compileError("expected return type of build to be 'void' or '!void'"),
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3567,7 +3567,7 @@ pub fn runBuild(b: *Build, build_zig: anytype) anyerror!void {
 
 In this function the stderr mutex has already been locked.
 
-```zig
+\`\`\`zig
 pub fn dumpBadGetPathHelp(
     s: *Step,
     w: *std.io.Writer,
@@ -3601,7 +3601,7 @@ pub fn dumpBadGetPathHelp(
     try w.writeAll("    Hope that helps. Proceeding to panic.\n");
     tty_config.setColor(w, .reset) catch {};
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3628,7 +3628,7 @@ It returns an absolute directory path, which is potentially going to be a
 source of API breakage in the future, so keep that in mind when using this
 function.
 
-```zig
+\`\`\`zig
 pub fn makeTempPath(b: *Build) []const u8 {
     const rand_int = std.crypto.random.int(u64);
     const tmp_dir_sub_path = "tmp" ++ fs.path.sep_str ++ std.fmt.hex(rand_int);
@@ -3640,7 +3640,7 @@ pub fn makeTempPath(b: *Build) []const u8 {
     };
     return result_path;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3661,7 +3661,7 @@ pub fn makeTempPath(b: *Build) []const u8 {
 Converts a target query into a fully resolved target that can be passed to
 various parts of the API.
 
-```zig
+\`\`\`zig
 pub fn resolveTargetQuery(b: *Build, query: Target.Query) ResolvedTarget {
     if (query.isNative()) {
         // Hot path. This is faster than querying the native CPU and OS again.
@@ -3673,7 +3673,7 @@ pub fn resolveTargetQuery(b: *Build, query: Target.Query) ResolvedTarget {
             @panic("unable to resolve target query"),
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3692,11 +3692,11 @@ pub fn resolveTargetQuery(b: *Build, query: Target.Query) ResolvedTarget {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn wantSharedLibSymLinks(target: Target) bool {
     return target.os.tag != .windows;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3714,7 +3714,7 @@ pub fn wantSharedLibSymLinks(target: Target) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn systemIntegrationOption(
     b: *Build,
     name: []const u8,
@@ -3743,7 +3743,7 @@ pub fn systemIntegrationOption(
         }
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3765,14 +3765,14 @@ pub fn systemIntegrationOption(
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-```zig
+\`\`\`zig
 pub const RunError = error{
     ReadFailure,
     ExitCodeFailure,
     ProcessTerminated,
     ExecNotSupported,
 } || std.process.Child.SpawnError
-```
+\`\`\`
 
 **Errors:**
 
@@ -3790,14 +3790,14 @@ pub const RunError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-```zig
+\`\`\`zig
 pub const PkgConfigError = error{
     PkgConfigCrashed,
     PkgConfigFailed,
     PkgConfigNotInstalled,
     PkgConfigInvalidOutput,
 }
-```
+\`\`\`
 
 **Errors:**
 
@@ -3809,4 +3809,3 @@ pub const PkgConfigError = error{
 </details>
 
 ---
-

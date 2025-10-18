@@ -96,14 +96,14 @@
 
 Utf8View iterates the code points of a utf-8 encoded string.
 
-```
+\`\`\`
 var utf8 = (try std.unicode.Utf8View.init("hi there")).iterator();
 while (utf8.nextCodepointSlice()) |codepoint| {
   std.debug.print("got codepoint {s}\n", .{codepoint});
 }
-```
+\`\`\`
 
-```zig
+\`\`\`zig
 pub const Utf8View = struct {
     bytes: []const u8,
 
@@ -134,7 +134,7 @@ pub const Utf8View = struct {
         };
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -148,12 +148,12 @@ pub const Utf8View = struct {
 
 This example illustrates typical usage patterns for `Utf8View`.
 
-```zig
+\`\`\`zig
 var utf8 = (try std.unicode.Utf8View.init("hi there")).iterator();
 while (utf8.nextCodepointSlice()) |codepoint| {
 std.debug.print("got codepoint {s}\n", .{codepoint});
 }
-```
+\`\`\`
 
 </details>
 
@@ -164,7 +164,7 @@ std.debug.print("got codepoint {s}\n", .{codepoint});
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Utf8Iterator = struct {
     bytes: []const u8,
     i: usize,
@@ -200,7 +200,7 @@ pub const Utf8Iterator = struct {
         return it.bytes[original_i..end_ix];
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -218,7 +218,7 @@ pub const Utf8Iterator = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Utf16LeIterator = struct {
     bytes: []const u8,
     i: usize,
@@ -252,7 +252,7 @@ pub const Utf16LeIterator = struct {
         }
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -273,15 +273,15 @@ pub const Utf16LeIterator = struct {
 Wtf8View iterates the code points of a WTF-8 encoded string,
 including surrogate halves.
 
-```
+\`\`\`
 var wtf8 = (try std.unicode.Wtf8View.init("hi there")).iterator();
 while (wtf8.nextCodepointSlice()) |codepoint| {
   // note: codepoint could be a surrogate half which is invalid
   // UTF-8, avoid printing or otherwise sending/emitting this directly
 }
-```
+\`\`\`
 
-```zig
+\`\`\`zig
 pub const Wtf8View = struct {
     bytes: []const u8,
 
@@ -312,7 +312,7 @@ pub const Wtf8View = struct {
         };
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -326,13 +326,13 @@ pub const Wtf8View = struct {
 
 This example illustrates typical usage patterns for `Wtf8View`.
 
-```zig
+\`\`\`zig
 var wtf8 = (try std.unicode.Wtf8View.init("hi there")).iterator();
 while (wtf8.nextCodepointSlice()) |codepoint| {
 // note: codepoint could be a surrogate half which is invalid
 // UTF-8, avoid printing or otherwise sending/emitting this directly
 }
-```
+\`\`\`
 
 </details>
 
@@ -345,7 +345,7 @@ while (wtf8.nextCodepointSlice()) |codepoint| {
 
 Asserts that `bytes` is valid WTF-8
 
-```zig
+\`\`\`zig
 pub const Wtf8Iterator = struct {
     bytes: []const u8,
     i: usize,
@@ -381,7 +381,7 @@ pub const Wtf8Iterator = struct {
         return it.bytes[original_i..end_ix];
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -399,7 +399,7 @@ pub const Wtf8Iterator = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Wtf16LeIterator = struct {
     bytes: []const u8,
     i: usize,
@@ -433,7 +433,7 @@ pub const Wtf16LeIterator = struct {
         return code_units[0];
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -457,9 +457,9 @@ Use this to replace an unknown, unrecognized, or unrepresentable character.
 
 See also: https://en.wikipedia.org/wiki/Specials_(Unicode_block)#Replacement_character
 
-```zig
+\`\`\`zig
 pub const replacement_character: u21 = 0xFFFD
-```
+\`\`\`
 
 </details>
 
@@ -470,9 +470,9 @@ pub const replacement_character: u21 = 0xFFFD
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const replacement_character_utf8: [3]u8 = utf8EncodeComptime(replacement_character)
-```
+\`\`\`
 
 </details>
 
@@ -483,9 +483,9 @@ pub const replacement_character_utf8: [3]u8 = utf8EncodeComptime(replacement_cha
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const Utf16LeToUtf8Error = Utf16LeIterator.NextCodepointError
-```
+\`\`\`
 
 </details>
 
@@ -501,7 +501,7 @@ pub const Utf16LeToUtf8Error = Utf16LeIterator.NextCodepointError
 Returns how many bytes the UTF-8 representation would require
 for the given codepoint.
 
-```zig
+\`\`\`zig
 pub fn utf8CodepointSequenceLength(c: u21) !u3 {
     if (c < 0x80) return @as(u3, 1);
     if (c < 0x800) return @as(u3, 2);
@@ -509,7 +509,7 @@ pub fn utf8CodepointSequenceLength(c: u21) !u3 {
     if (c < 0x110000) return @as(u3, 4);
     return error.CodepointTooLarge;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -531,7 +531,7 @@ Given the first byte of a UTF-8 codepoint,
 returns a number 1-4 indicating the total length of the codepoint in bytes.
 If this byte does not match the form of a UTF-8 start byte, returns Utf8InvalidStartByte.
 
-```zig
+\`\`\`zig
 pub fn utf8ByteSequenceLength(first_byte: u8) !u3 {
     // The switch is optimized much better than a "smart" approach using @clz
     return switch (first_byte) {
@@ -542,7 +542,7 @@ pub fn utf8ByteSequenceLength(first_byte: u8) !u3 {
         else => error.Utf8InvalidStartByte,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -566,11 +566,11 @@ out: the out buffer to write to. Must have a len >= utf8CodepointSequenceLength(
 Errors: if c cannot be encoded in UTF-8.
 Returns: the number of bytes written to out.
 
-```zig
+\`\`\`zig
 pub fn utf8Encode(c: u21, out: []u8) error{ Utf8CannotEncodeSurrogateHalf, CodepointTooLarge }!u3 {
     return utf8EncodeImpl(c, out, .cannot_encode_surrogate_half);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -594,7 +594,7 @@ pub fn utf8Encode(c: u21, out: []u8) error{ Utf8CannotEncodeSurrogateHalf, Codep
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub inline fn utf8EncodeComptime(comptime c: u21) [
     utf8CodepointSequenceLength(c) catch |err|
         @compileError(@errorName(err))
@@ -607,7 +607,7 @@ pub inline fn utf8EncodeComptime(comptime c: u21) [
         @compileError(@errorName(err))) == result.len);
     return result;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -620,12 +620,12 @@ pub inline fn utf8EncodeComptime(comptime c: u21) [
 [^fn-utf8encodecomptime-return-0]:
     Return type for `utf8EncodeComptime`:
 
-    ```zig
+    \`\`\`zig
     [
         utf8CodepointSequenceLength(c) catch |err|
             @compileError(@errorName(err))
     ]u8
-    ```
+    \`\`\`
 
 </details>
 
@@ -638,7 +638,7 @@ pub inline fn utf8EncodeComptime(comptime c: u21) [
 
 Deprecated. This function has an awkward API that is too easy to use incorrectly.
 
-```zig
+\`\`\`zig
 pub fn utf8Decode(bytes: []const u8) Utf8DecodeError!u21 {
     return switch (bytes.len) {
         1 => bytes[0],
@@ -648,7 +648,7 @@ pub fn utf8Decode(bytes: []const u8) Utf8DecodeError!u21 {
         else => unreachable,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -666,7 +666,7 @@ pub fn utf8Decode(bytes: []const u8) Utf8DecodeError!u21 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn utf8Decode2(bytes: [2]u8) Utf8Decode2Error!u21 {
     assert(bytes[0] & 0b11100000 == 0b11000000);
     var value: u21 = bytes[0] & 0b00011111;
@@ -679,7 +679,7 @@ pub fn utf8Decode2(bytes: [2]u8) Utf8Decode2Error!u21 {
 
     return value;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -697,7 +697,7 @@ pub fn utf8Decode2(bytes: [2]u8) Utf8Decode2Error!u21 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn utf8Decode3(bytes: [3]u8) Utf8Decode3Error!u21 {
     const value = try utf8Decode3AllowSurrogateHalf(bytes);
 
@@ -705,7 +705,7 @@ pub fn utf8Decode3(bytes: [3]u8) Utf8Decode3Error!u21 {
 
     return value;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -723,7 +723,7 @@ pub fn utf8Decode3(bytes: [3]u8) Utf8Decode3Error!u21 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn utf8Decode3AllowSurrogateHalf(bytes: [3]u8) Utf8Decode3AllowSurrogateHalfError!u21 {
     assert(bytes[0] & 0b11110000 == 0b11100000);
     var value: u21 = bytes[0] & 0b00001111;
@@ -740,7 +740,7 @@ pub fn utf8Decode3AllowSurrogateHalf(bytes: [3]u8) Utf8Decode3AllowSurrogateHalf
 
     return value;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -758,7 +758,7 @@ pub fn utf8Decode3AllowSurrogateHalf(bytes: [3]u8) Utf8Decode3AllowSurrogateHalf
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn utf8Decode4(bytes: [4]u8) Utf8Decode4Error!u21 {
     assert(bytes[0] & 0b11111000 == 0b11110000);
     var value: u21 = bytes[0] & 0b00000111;
@@ -780,7 +780,7 @@ pub fn utf8Decode4(bytes: [4]u8) Utf8Decode4Error!u21 {
 
     return value;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -800,7 +800,7 @@ pub fn utf8Decode4(bytes: [4]u8) Utf8Decode4Error!u21 {
 
 Returns true if the given unicode codepoint can be encoded in UTF-8.
 
-```zig
+\`\`\`zig
 pub fn utf8ValidCodepoint(value: u21) bool {
     return switch (value) {
         0xD800...0xDFFF => false, // Surrogates range
@@ -808,7 +808,7 @@ pub fn utf8ValidCodepoint(value: u21) bool {
         else => true,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -829,7 +829,7 @@ pub fn utf8ValidCodepoint(value: u21) bool {
 Returns the length of a supplied UTF-8 string literal in terms of unicode
 codepoints.
 
-```zig
+\`\`\`zig
 pub fn utf8CountCodepoints(s: []const u8) !usize {
     var len: usize = 0;
 
@@ -861,7 +861,7 @@ pub fn utf8CountCodepoints(s: []const u8) !usize {
 
     return len;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -881,11 +881,11 @@ pub fn utf8CountCodepoints(s: []const u8) !usize {
 
 Returns true if the input consists entirely of UTF-8 codepoints
 
-```zig
+\`\`\`zig
 pub fn utf8ValidateSlice(input: []const u8) bool {
     return utf8ValidateSliceImpl(input, .cannot_encode_surrogate_half);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -903,11 +903,11 @@ pub fn utf8ValidateSlice(input: []const u8) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn utf16IsHighSurrogate(c: u16) bool {
     return c & ~@as(u16, 0x03ff) == 0xd800;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -925,11 +925,11 @@ pub fn utf16IsHighSurrogate(c: u16) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn utf16IsLowSurrogate(c: u16) bool {
     return c & ~@as(u16, 0x03ff) == 0xdc00;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -950,13 +950,13 @@ pub fn utf16IsLowSurrogate(c: u16) bool {
 Returns how many code units the UTF-16 representation would require
 for the given codepoint.
 
-```zig
+\`\`\`zig
 pub fn utf16CodepointSequenceLength(c: u21) !u2 {
     if (c <= 0xFFFF) return 1;
     if (c <= 0x10FFFF) return 2;
     return error.CodepointTooLarge;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -978,13 +978,13 @@ Given the first code unit of a UTF-16 codepoint, returns a number 1-2
 indicating the total length of the codepoint in UTF-16 code units.
 If this code unit does not match the form of a UTF-16 start code unit, returns Utf16InvalidStartCodeUnit.
 
-```zig
+\`\`\`zig
 pub fn utf16CodeUnitSequenceLength(first_code_unit: u16) !u2 {
     if (utf16IsHighSurrogate(first_code_unit)) return 2;
     if (utf16IsLowSurrogate(first_code_unit)) return error.Utf16InvalidStartCodeUnit;
     return 1;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1006,7 +1006,7 @@ Decodes the codepoint encoded in the given pair of UTF-16 code units.
 Asserts that `surrogate_pair.len >= 2` and that the first code unit is a high surrogate.
 If the second code unit is not a low surrogate, error.ExpectedSecondSurrogateHalf is returned.
 
-```zig
+\`\`\`zig
 pub fn utf16DecodeSurrogatePair(surrogate_pair: []const u16) !u21 {
     assert(surrogate_pair.len >= 2);
     assert(utf16IsHighSurrogate(surrogate_pair[0]));
@@ -1015,7 +1015,7 @@ pub fn utf16DecodeSurrogatePair(surrogate_pair: []const u16) !u21 {
     if (!utf16IsLowSurrogate(low_half)) return error.ExpectedSecondSurrogateHalf;
     return 0x10000 + ((high_half & 0x03ff) << 10) | (low_half & 0x03ff);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1036,14 +1036,14 @@ pub fn utf16DecodeSurrogatePair(surrogate_pair: []const u16) !u21 {
 Returns the length of a supplied UTF-16 string literal in terms of unicode
 codepoints.
 
-```zig
+\`\`\`zig
 pub fn utf16CountCodepoints(utf16le: []const u16) !usize {
     var len: usize = 0;
     var it = Utf16LeIterator.init(utf16le);
     while (try it.nextCodepoint()) |_| len += 1;
     return len;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1066,11 +1066,11 @@ Ill-formed UTF-8 byte sequences are replaced by the replacement character (U+FFF
 according to "U+FFFD Substitution of Maximal Subparts" from Chapter 3 of
 the Unicode standard, and as specified by https://encoding.spec.whatwg.org/#utf-8-decoder
 
-```zig
+\`\`\`zig
 pub fn fmtUtf8(utf8: []const u8) std.fmt.Formatter([]const u8, formatUtf8) {
     return .{ .data = utf8 };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1088,12 +1088,12 @@ pub fn fmtUtf8(utf8: []const u8) std.fmt.Formatter([]const u8, formatUtf8) {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn utf16LeToUtf8ArrayList(result: *std.array_list.Managed(u8), utf16le: []const u16) Utf16LeToUtf8AllocError!void {
     try result.ensureUnusedCapacity(utf16le.len);
     return utf16LeToUtf8ArrayListImpl(result, utf16le, .cannot_encode_surrogate_half);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1114,7 +1114,7 @@ pub fn utf16LeToUtf8ArrayList(result: *std.array_list.Managed(u8), utf16le: []co
 
 Caller owns returned memory.
 
-```zig
+\`\`\`zig
 pub fn utf16LeToUtf8Alloc(allocator: Allocator, utf16le: []const u16) Utf16LeToUtf8AllocError![]u8 {
     // optimistically guess that it will all be ascii.
     var result = try std.array_list.Managed(u8).initCapacity(allocator, utf16le.len);
@@ -1123,7 +1123,7 @@ pub fn utf16LeToUtf8Alloc(allocator: Allocator, utf16le: []const u16) Utf16LeToU
     try utf16LeToUtf8ArrayListImpl(&result, utf16le, .cannot_encode_surrogate_half);
     return result.toOwnedSlice();
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1144,7 +1144,7 @@ pub fn utf16LeToUtf8Alloc(allocator: Allocator, utf16le: []const u16) Utf16LeToU
 
 Caller owns returned memory.
 
-```zig
+\`\`\`zig
 pub fn utf16LeToUtf8AllocZ(allocator: Allocator, utf16le: []const u16) Utf16LeToUtf8AllocError![:0]u8 {
     // optimistically guess that it will all be ascii (and allocate space for the null terminator)
     var result = try std.array_list.Managed(u8).initCapacity(allocator, utf16le.len + 1);
@@ -1153,7 +1153,7 @@ pub fn utf16LeToUtf8AllocZ(allocator: Allocator, utf16le: []const u16) Utf16LeTo
     try utf16LeToUtf8ArrayListImpl(&result, utf16le, .cannot_encode_surrogate_half);
     return result.toOwnedSliceSentinel(0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1172,11 +1172,11 @@ pub fn utf16LeToUtf8AllocZ(allocator: Allocator, utf16le: []const u16) Utf16LeTo
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn utf16LeToUtf8(utf8: []u8, utf16le: []const u16) Utf16LeToUtf8Error!usize {
     return utf16LeToUtf8Impl(utf8, utf16le, .cannot_encode_surrogate_half);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1195,12 +1195,12 @@ pub fn utf16LeToUtf8(utf8: []u8, utf16le: []const u16) Utf16LeToUtf8Error!usize 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn utf8ToUtf16LeArrayList(result: *std.array_list.Managed(u16), utf8: []const u8) error{ InvalidUtf8, OutOfMemory }!void {
     try result.ensureUnusedCapacity(utf8.len);
     return utf8ToUtf16LeArrayListImpl(result, utf8, .cannot_encode_surrogate_half);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1224,7 +1224,7 @@ pub fn utf8ToUtf16LeArrayList(result: *std.array_list.Managed(u16), utf8: []cons
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn utf8ToUtf16LeAlloc(allocator: Allocator, utf8: []const u8) error{ InvalidUtf8, OutOfMemory }![]u16 {
     // optimistically guess that it will not require surrogate pairs
     var result = try std.array_list.Managed(u16).initCapacity(allocator, utf8.len);
@@ -1233,7 +1233,7 @@ pub fn utf8ToUtf16LeAlloc(allocator: Allocator, utf8: []const u8) error{ Invalid
     try utf8ToUtf16LeArrayListImpl(&result, utf8, .cannot_encode_surrogate_half);
     return result.toOwnedSlice();
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1257,7 +1257,7 @@ pub fn utf8ToUtf16LeAlloc(allocator: Allocator, utf8: []const u8) error{ Invalid
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn utf8ToUtf16LeAllocZ(allocator: Allocator, utf8: []const u8) error{ InvalidUtf8, OutOfMemory }![:0]u16 {
     // optimistically guess that it will not require surrogate pairs
     var result = try std.array_list.Managed(u16).initCapacity(allocator, utf8.len + 1);
@@ -1266,7 +1266,7 @@ pub fn utf8ToUtf16LeAllocZ(allocator: Allocator, utf8: []const u8) error{ Invali
     try utf8ToUtf16LeArrayListImpl(&result, utf8, .cannot_encode_surrogate_half);
     return result.toOwnedSliceSentinel(0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1293,11 +1293,11 @@ pub fn utf8ToUtf16LeAllocZ(allocator: Allocator, utf8: []const u8) error{ Invali
 Returns index of next character. If exact fit, returned index equals output slice length.
 Assumes there is enough space for the output.
 
-```zig
+\`\`\`zig
 pub fn utf8ToUtf16Le(utf16le: []u16, utf8: []const u8) error{InvalidUtf8}!usize {
     return utf8ToUtf16LeImpl(utf16le, utf8, .cannot_encode_surrogate_half);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1320,7 +1320,7 @@ pub fn utf8ToUtf16Le(utf16le: []u16, utf8: []const u8) error{InvalidUtf8}!usize 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn utf8ToUtf16LeImpl(utf16le: []u16, utf8: []const u8, comptime surrogates: Surrogates) !usize {
     var dest_index: usize = 0;
 
@@ -1362,7 +1362,7 @@ pub fn utf8ToUtf16LeImpl(utf16le: []u16, utf8: []const u8, comptime surrogates: 
     }
     return dest_index;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1384,11 +1384,11 @@ pub fn utf8ToUtf16LeImpl(utf16le: []u16, utf8: []const u8, comptime surrogates: 
 
 Converts a UTF-8 string literal into a UTF-16LE string literal.
 
-```zig
+\`\`\`zig
 pub fn utf8ToUtf16LeStringLiteral(comptime utf8: []const u8) *const [calcUtf16LeLen(utf8) catch |err| @compileError(err):0]u16 {
     return utf8ToUtf16LeStringLiteralImpl(utf8, .cannot_encode_surrogate_half);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1401,9 +1401,9 @@ pub fn utf8ToUtf16LeStringLiteral(comptime utf8: []const u8) *const [calcUtf16Le
 [^fn-utf8toutf16lestringliteral-return-0]:
     Return type for `utf8ToUtf16LeStringLiteral`:
 
-    ```zig
+    \`\`\`zig
     *const [calcUtf16LeLen(utf8) catch |err| @compileError(err):0]u16
-    ```
+    \`\`\`
 
 </details>
 
@@ -1416,11 +1416,11 @@ pub fn utf8ToUtf16LeStringLiteral(comptime utf8: []const u8) *const [calcUtf16Le
 
 Converts a WTF-8 string literal into a WTF-16LE string literal.
 
-```zig
+\`\`\`zig
 pub fn wtf8ToWtf16LeStringLiteral(comptime wtf8: []const u8) *const [calcWtf16LeLen(wtf8) catch |err| @compileError(err):0]u16 {
     return utf8ToUtf16LeStringLiteralImpl(wtf8, .can_encode_surrogate_half);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1433,9 +1433,9 @@ pub fn wtf8ToWtf16LeStringLiteral(comptime wtf8: []const u8) *const [calcWtf16Le
 [^fn-wtf8towtf16lestringliteral-return-0]:
     Return type for `wtf8ToWtf16LeStringLiteral`:
 
-    ```zig
+    \`\`\`zig
     *const [calcWtf16LeLen(wtf8) catch |err| @compileError(err):0]u16
-    ```
+    \`\`\`
 
 </details>
 
@@ -1446,7 +1446,7 @@ pub fn wtf8ToWtf16LeStringLiteral(comptime wtf8: []const u8) *const [calcWtf16Le
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn calcUtf16LeLenImpl(utf8: []const u8, comptime surrogates: Surrogates) !usize {
     const utf8DecodeImpl = switch (surrogates) {
         .cannot_encode_surrogate_half => utf8Decode,
@@ -1467,7 +1467,7 @@ pub fn calcUtf16LeLenImpl(utf8: []const u8, comptime surrogates: Surrogates) !us
     }
     return dest_len;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1489,11 +1489,11 @@ pub fn calcUtf16LeLenImpl(utf8: []const u8, comptime surrogates: Surrogates) !us
 Returns length in UTF-16LE of UTF-8 slice as length of []u16.
 Length in []u8 is 2*len16.
 
-```zig
+\`\`\`zig
 pub fn calcUtf16LeLen(utf8: []const u8) CalcUtf16LeLenError!usize {
     return calcUtf16LeLenImpl(utf8, .cannot_encode_surrogate_half);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1514,11 +1514,11 @@ pub fn calcUtf16LeLen(utf8: []const u8) CalcUtf16LeLenError!usize {
 Returns length in WTF-16LE of WTF-8 slice as length of []u16.
 Length in []u8 is 2*len16.
 
-```zig
+\`\`\`zig
 pub fn calcWtf16LeLen(wtf8: []const u8) CalcWtf16LeLenError!usize {
     return calcUtf16LeLenImpl(wtf8, .can_encode_surrogate_half);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1540,11 +1540,11 @@ Return a Formatter for a (potentially ill-formed) UTF-16 LE string,
 which will be converted to UTF-8 during formatting.
 Unpaired surrogates are replaced by the replacement character (U+FFFD).
 
-```zig
+\`\`\`zig
 pub fn fmtUtf16Le(utf16le: []const u16) std.fmt.Formatter([]const u16, formatUtf16Le) {
     return .{ .data = utf16le };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1564,14 +1564,14 @@ pub fn fmtUtf16Le(utf16le: []const u16) std.fmt.Formatter([]const u16, formatUtf
 
 Returns true if the codepoint is a surrogate (U+DC00 to U+DFFF)
 
-```zig
+\`\`\`zig
 pub fn isSurrogateCodepoint(c: u21) bool {
     return switch (c) {
         0xD800...0xDFFF => true,
         else => false,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1595,11 +1595,11 @@ out: the out buffer to write to. Must have a len >= utf8CodepointSequenceLength(
 Errors: if c cannot be encoded in WTF-8.
 Returns: the number of bytes written to out.
 
-```zig
+\`\`\`zig
 pub fn wtf8Encode(c: u21, out: []u8) error{CodepointTooLarge}!u3 {
     return utf8EncodeImpl(c, out, .can_encode_surrogate_half);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1624,7 +1624,7 @@ pub fn wtf8Encode(c: u21, out: []u8) error{CodepointTooLarge}!u3 {
 
 Deprecated. This function has an awkward API that is too easy to use incorrectly.
 
-```zig
+\`\`\`zig
 pub fn wtf8Decode(bytes: []const u8) Wtf8DecodeError!u21 {
     return switch (bytes.len) {
         1 => bytes[0],
@@ -1634,7 +1634,7 @@ pub fn wtf8Decode(bytes: []const u8) Wtf8DecodeError!u21 {
         else => unreachable,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1658,11 +1658,11 @@ U+D800 to U+DFFF).
 Does not check for well-formed WTF-8, meaning that this function
 does not check that all surrogate halves are unpaired.
 
-```zig
+\`\`\`zig
 pub fn wtf8ValidateSlice(input: []const u8) bool {
     return utf8ValidateSliceImpl(input, .can_encode_surrogate_half);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1680,12 +1680,12 @@ pub fn wtf8ValidateSlice(input: []const u8) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn wtf16LeToWtf8ArrayList(result: *std.array_list.Managed(u8), utf16le: []const u16) Allocator.Error!void {
     try result.ensureUnusedCapacity(utf16le.len);
     return utf16LeToUtf8ArrayListImpl(result, utf16le, .can_encode_surrogate_half);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1706,7 +1706,7 @@ pub fn wtf16LeToWtf8ArrayList(result: *std.array_list.Managed(u8), utf16le: []co
 
 Caller must free returned memory.
 
-```zig
+\`\`\`zig
 pub fn wtf16LeToWtf8Alloc(allocator: Allocator, wtf16le: []const u16) Allocator.Error![]u8 {
     // optimistically guess that it will all be ascii.
     var result = try std.array_list.Managed(u8).initCapacity(allocator, wtf16le.len);
@@ -1715,7 +1715,7 @@ pub fn wtf16LeToWtf8Alloc(allocator: Allocator, wtf16le: []const u16) Allocator.
     try utf16LeToUtf8ArrayListImpl(&result, wtf16le, .can_encode_surrogate_half);
     return result.toOwnedSlice();
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1736,7 +1736,7 @@ pub fn wtf16LeToWtf8Alloc(allocator: Allocator, wtf16le: []const u16) Allocator.
 
 Caller must free returned memory.
 
-```zig
+\`\`\`zig
 pub fn wtf16LeToWtf8AllocZ(allocator: Allocator, wtf16le: []const u16) Allocator.Error![:0]u8 {
     // optimistically guess that it will all be ascii (and allocate space for the null terminator)
     var result = try std.array_list.Managed(u8).initCapacity(allocator, wtf16le.len + 1);
@@ -1745,7 +1745,7 @@ pub fn wtf16LeToWtf8AllocZ(allocator: Allocator, wtf16le: []const u16) Allocator
     try utf16LeToUtf8ArrayListImpl(&result, wtf16le, .can_encode_surrogate_half);
     return result.toOwnedSliceSentinel(0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1764,11 +1764,11 @@ pub fn wtf16LeToWtf8AllocZ(allocator: Allocator, wtf16le: []const u16) Allocator
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn wtf16LeToWtf8(wtf8: []u8, wtf16le: []const u16) usize {
     return utf16LeToUtf8Impl(wtf8, wtf16le, .can_encode_surrogate_half) catch |err| switch (err) {};
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1787,12 +1787,12 @@ pub fn wtf16LeToWtf8(wtf8: []u8, wtf16le: []const u16) usize {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn wtf8ToWtf16LeArrayList(result: *std.array_list.Managed(u16), wtf8: []const u8) error{ InvalidWtf8, OutOfMemory }!void {
     try result.ensureUnusedCapacity(wtf8.len);
     return utf8ToUtf16LeArrayListImpl(result, wtf8, .can_encode_surrogate_half);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1816,7 +1816,7 @@ pub fn wtf8ToWtf16LeArrayList(result: *std.array_list.Managed(u16), wtf8: []cons
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn wtf8ToWtf16LeAlloc(allocator: Allocator, wtf8: []const u8) error{ InvalidWtf8, OutOfMemory }![]u16 {
     // optimistically guess that it will not require surrogate pairs
     var result = try std.array_list.Managed(u16).initCapacity(allocator, wtf8.len);
@@ -1825,7 +1825,7 @@ pub fn wtf8ToWtf16LeAlloc(allocator: Allocator, wtf8: []const u8) error{ Invalid
     try utf8ToUtf16LeArrayListImpl(&result, wtf8, .can_encode_surrogate_half);
     return result.toOwnedSlice();
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1849,7 +1849,7 @@ pub fn wtf8ToWtf16LeAlloc(allocator: Allocator, wtf8: []const u8) error{ Invalid
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn wtf8ToWtf16LeAllocZ(allocator: Allocator, wtf8: []const u8) error{ InvalidWtf8, OutOfMemory }![:0]u16 {
     // optimistically guess that it will not require surrogate pairs
     var result = try std.array_list.Managed(u16).initCapacity(allocator, wtf8.len + 1);
@@ -1858,7 +1858,7 @@ pub fn wtf8ToWtf16LeAllocZ(allocator: Allocator, wtf8: []const u8) error{ Invali
     try utf8ToUtf16LeArrayListImpl(&result, wtf8, .can_encode_surrogate_half);
     return result.toOwnedSliceSentinel(0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1885,11 +1885,11 @@ pub fn wtf8ToWtf16LeAllocZ(allocator: Allocator, wtf8: []const u8) error{ Invali
 Returns index of next character. If exact fit, returned index equals output slice length.
 Assumes there is enough space for the output.
 
-```zig
+\`\`\`zig
 pub fn wtf8ToWtf16Le(wtf16le: []u16, wtf8: []const u8) error{InvalidWtf8}!usize {
     return utf8ToUtf16LeImpl(wtf16le, wtf8, .can_encode_surrogate_half);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1915,11 +1915,11 @@ pub fn wtf8ToWtf16Le(wtf16le: []u16, wtf8: []const u8) error{InvalidWtf8}!usize 
 Checks if calling `utf8ToUtf16Le` would overflow. Might fail if utf8 is not
 valid UTF-8.
 
-```zig
+\`\`\`zig
 pub fn checkUtf8ToUtf16LeOverflow(utf8: []const u8, utf16le: []const u16) error{InvalidUtf8}!bool {
     return checkUtf8ToUtf16LeOverflowImpl(utf8, utf16le, .cannot_encode_surrogate_half);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1945,11 +1945,11 @@ pub fn checkUtf8ToUtf16LeOverflow(utf8: []const u8, utf16le: []const u16) error{
 Checks if calling `utf8ToUtf16Le` would overflow. Might fail if wtf8 is not
 valid WTF-8.
 
-```zig
+\`\`\`zig
 pub fn checkWtf8ToWtf16LeOverflow(wtf8: []const u8, wtf16le: []const u16) error{InvalidWtf8}!bool {
     return checkUtf8ToUtf16LeOverflowImpl(wtf8, wtf16le, .can_encode_surrogate_half);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1981,7 +1981,7 @@ Note: If `wtf8` is entirely composed of well-formed UTF-8, then no conversion is
       `utf8ValidateSlice` can be used to check if lossy conversion is worthwhile.
 If `wtf8` is not valid WTF-8, then `error.InvalidWtf8` is returned.
 
-```zig
+\`\`\`zig
 pub fn wtf8ToUtf8Lossy(utf8: []u8, wtf8: []const u8) error{InvalidWtf8}!void {
     assert(utf8.len >= wtf8.len);
 
@@ -2011,7 +2011,7 @@ pub fn wtf8ToUtf8Lossy(utf8: []u8, wtf8: []const u8) error{InvalidWtf8}!void {
         dest_i += codepoint_slice.len;
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2034,7 +2034,7 @@ pub fn wtf8ToUtf8Lossy(utf8: []u8, wtf8: []const u8) error{InvalidWtf8}!void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn wtf8ToUtf8LossyAlloc(allocator: Allocator, wtf8: []const u8) error{ InvalidWtf8, OutOfMemory }![]u8 {
     const utf8 = try allocator.alloc(u8, wtf8.len);
     errdefer allocator.free(utf8);
@@ -2043,7 +2043,7 @@ pub fn wtf8ToUtf8LossyAlloc(allocator: Allocator, wtf8: []const u8) error{ Inval
 
     return utf8;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2067,7 +2067,7 @@ pub fn wtf8ToUtf8LossyAlloc(allocator: Allocator, wtf8: []const u8) error{ Inval
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn wtf8ToUtf8LossyAllocZ(allocator: Allocator, wtf8: []const u8) error{ InvalidWtf8, OutOfMemory }![:0]u8 {
     const utf8 = try allocator.allocSentinel(u8, wtf8.len, 0);
     errdefer allocator.free(utf8);
@@ -2076,7 +2076,7 @@ pub fn wtf8ToUtf8LossyAllocZ(allocator: Allocator, wtf8: []const u8) error{ Inva
 
     return utf8;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2103,7 +2103,7 @@ pub fn wtf8ToUtf8LossyAllocZ(allocator: Allocator, wtf8: []const u8) error{ Inva
 Returns the length, in bytes, that would be necessary to encode the
 given WTF-16 LE slice as WTF-8.
 
-```zig
+\`\`\`zig
 pub fn calcWtf8Len(wtf16le: []const u16) usize {
     var it = Wtf16LeIterator.init(wtf16le);
     var num_wtf8_bytes: usize = 0;
@@ -2116,7 +2116,7 @@ pub fn calcWtf8Len(wtf16le: []const u16) usize {
     }
     return num_wtf8_bytes;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2136,11 +2136,10 @@ pub fn calcWtf8Len(wtf16le: []const u16) usize {
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-```zig
+\`\`\`zig
 pub const Utf16LeToUtf8AllocError = Allocator.Error || Utf16LeToUtf8Error
-```
+\`\`\`
 
 </details>
 
 ---
-

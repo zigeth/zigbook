@@ -31,11 +31,11 @@
 
 Deprecated.
 
-```zig
+\`\`\`zig
 pub fn Managed(comptime T: type) type {
     return AlignedManaged(T, null);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -55,7 +55,7 @@ pub fn Managed(comptime T: type) type {
 
 Deprecated.
 
-```zig
+\`\`\`zig
 pub fn AlignedManaged(comptime T: type, comptime alignment: ?mem.Alignment) type {
     if (alignment) |a| {
         if (a.toByteUnits() == @alignOf(T)) {
@@ -630,7 +630,7 @@ pub fn AlignedManaged(comptime T: type, comptime alignment: ?mem.Alignment) type
         }
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -663,7 +663,7 @@ or use `toOwnedSlice`.
 
 Default initialization of this struct is deprecated; use `.empty` instead.
 
-```zig
+\`\`\`zig
 pub fn Aligned(comptime T: type, comptime alignment: ?mem.Alignment) type {
     if (alignment) |a| {
         if (a.toByteUnits() == @alignOf(T)) {
@@ -1484,7 +1484,7 @@ pub fn Aligned(comptime T: type, comptime alignment: ?mem.Alignment) type {
         }
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1501,4 +1501,3 @@ pub fn Aligned(comptime T: type, comptime alignment: ?mem.Alignment) type {
 </details>
 
 ---
-

@@ -37,9 +37,9 @@ Compression algorithms.
 
 gzip and zlib are here.
 
-```zig
+\`\`\`zig
 pub const flate = @import("compress/flate.zig")
-```
+\`\`\`
 
 > **Module:** `compress/flate.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/compress/flate.zig)
 
@@ -52,9 +52,9 @@ pub const flate = @import("compress/flate.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const lzma = @import("compress/lzma.zig")
-```
+\`\`\`
 
 > **Module:** `compress/lzma.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/compress/lzma.zig)
 
@@ -67,9 +67,9 @@ pub const lzma = @import("compress/lzma.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const lzma2 = @import("compress/lzma2.zig")
-```
+\`\`\`
 
 > **Module:** `compress/lzma2.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/compress/lzma2.zig)
 
@@ -82,9 +82,9 @@ pub const lzma2 = @import("compress/lzma2.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const xz = @import("compress/xz.zig")
-```
+\`\`\`
 
 > **Module:** `compress/xz.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/compress/xz.zig)
 
@@ -97,13 +97,12 @@ pub const xz = @import("compress/xz.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const zstd = @import("compress/zstd.zig")
-```
+\`\`\`
 
 > **Module:** `compress/zstd.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/compress/zstd.zig)
 
 </details>
 
 ---
-

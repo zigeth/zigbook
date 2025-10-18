@@ -72,7 +72,7 @@ Wasm instruction opcodes
 All instructions are defined as per spec:
 https://webassembly.github.io/spec/core/appendix/index-instructions.html
 
-```zig
+\`\`\`zig
 pub const Opcode = enum(u8) {
     @"unreachable" = 0x00,
     nop = 0x01,
@@ -257,7 +257,7 @@ pub const Opcode = enum(u8) {
     atomics_prefix = 0xFE,
     _,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -458,7 +458,7 @@ Opcodes that require a prefix `0xFC`.
 Each opcode represents a varuint32, meaning
 they are encoded as leb128 in binary.
 
-```zig
+\`\`\`zig
 pub const MiscOpcode = enum(u32) {
     i32_trunc_sat_f32_s = 0x00,
     i32_trunc_sat_f32_u = 0x01,
@@ -480,7 +480,7 @@ pub const MiscOpcode = enum(u32) {
     table_fill = 0x11,
     _,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -519,7 +519,7 @@ Simd opcodes that require a prefix `0xFD`.
 Each opcode represents a varuint32, meaning
 they are encoded as leb128 in binary.
 
-```zig
+\`\`\`zig
 pub const SimdOpcode = enum(u32) {
     v128_load = 0x00,
     v128_load8x8_s = 0x01,
@@ -781,7 +781,7 @@ pub const SimdOpcode = enum(u32) {
     i32x4_relaxed_dot_i8x16_i7x16_add_s = 0x113,
     f32x4_relaxed_dot_bf16x8_add_f32x4 = 0x114,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -1058,7 +1058,7 @@ Atomic opcodes that require a prefix `0xFE`.
 Each opcode represents a varuint32, meaning
 they are encoded as leb128 in binary.
 
-```zig
+\`\`\`zig
 pub const AtomicsOpcode = enum(u32) {
     memory_atomic_notify = 0x00,
     memory_atomic_wait32 = 0x01,
@@ -1129,7 +1129,7 @@ pub const AtomicsOpcode = enum(u32) {
     i64_atomic_rmw16_cmpxchg_u = 0x4D,
     i64_atomic_rmw32_cmpxchg_u = 0x4E,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -1215,7 +1215,7 @@ pub const AtomicsOpcode = enum(u32) {
 Enum representing all Wasm value types as per spec:
 https://webassembly.github.io/spec/core/binary/types.html
 
-```zig
+\`\`\`zig
 pub const Valtype = enum(u8) {
     i32 = 0x7F,
     i64 = 0x7E,
@@ -1223,7 +1223,7 @@ pub const Valtype = enum(u8) {
     f64 = 0x7C,
     v128 = 0x7B,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -1247,12 +1247,12 @@ pub const Valtype = enum(u8) {
 Reference types, where the funcref references to a function regardless of its type
 and ref references an object from the embedder.
 
-```zig
+\`\`\`zig
 pub const RefType = enum(u8) {
     funcref = 0x70,
     externref = 0x6F,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -1272,7 +1272,7 @@ pub const RefType = enum(u8) {
 
 Limits classify the size range of resizeable storage associated with memory types and table types.
 
-```zig
+\`\`\`zig
 pub const Limits = struct {
     flags: Flags,
     min: u32,
@@ -1284,7 +1284,7 @@ pub const Limits = struct {
         reserved: u6 = 0,
     };
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -1308,11 +1308,11 @@ the minimal amount of pages, and the optional `max` represents
 the max pages. When `null` will allow the host to determine the
 amount of pages.
 
-```zig
+\`\`\`zig
 pub const Memory = struct {
     limits: Limits,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -1332,7 +1332,7 @@ pub const Memory = struct {
 Wasm module sections as per spec:
 https://webassembly.github.io/spec/core/binary/modules.html
 
-```zig
+\`\`\`zig
 pub const Section = enum(u8) {
     custom,
     type,
@@ -1349,7 +1349,7 @@ pub const Section = enum(u8) {
     data_count,
     _,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -1382,14 +1382,14 @@ pub const Section = enum(u8) {
 The kind of the type when importing or exporting to/from the host environment.
 https://webassembly.github.io/spec/core/syntax/modules.html
 
-```zig
+\`\`\`zig
 pub const ExternalKind = enum(u8) {
     function,
     table,
     memory,
     global,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -1413,7 +1413,7 @@ Defines the enum values for each subsection id for the "Names" custom section
 as described by:
 https://webassembly.github.io/spec/core/appendix/custom.html?highlight=name#name-section
 
-```zig
+\`\`\`zig
 pub const NameSubsection = enum(u8) {
     module,
     function,
@@ -1426,7 +1426,7 @@ pub const NameSubsection = enum(u8) {
     elem_segment,
     data_segment,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -1454,7 +1454,7 @@ pub const NameSubsection = enum(u8) {
 
 Represents a block which will not return a value
 
-```zig
+\`\`\`zig
 pub const BlockType = enum(u8) {
     empty = 0x40,
     i32 = 0x7F,
@@ -1467,7 +1467,7 @@ pub const BlockType = enum(u8) {
         return @enumFromInt(@intFromEnum(valtype));
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -1494,7 +1494,7 @@ pub const BlockType = enum(u8) {
 Initialization expressions are used to set the initial value on an object
 when a wasm module is being loaded.
 
-```zig
+\`\`\`zig
 pub const InitExpression = union(enum) {
     i32_const: i32,
     i64_const: i64,
@@ -1502,7 +1502,7 @@ pub const InitExpression = union(enum) {
     f64_const: f64,
     global_get: u32,
 }
-```
+\`\`\`
 
 </details>
 
@@ -1513,9 +1513,9 @@ pub const InitExpression = union(enum) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const element_type: u8 = 0x70
-```
+\`\`\`
 
 </details>
 
@@ -1526,9 +1526,9 @@ pub const element_type: u8 = 0x70
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const function_type: u8 = 0x60
-```
+\`\`\`
 
 </details>
 
@@ -1539,9 +1539,9 @@ pub const function_type: u8 = 0x60
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const result_type: u8 = 0x40
-```
+\`\`\`
 
 </details>
 
@@ -1552,9 +1552,9 @@ pub const result_type: u8 = 0x40
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const magic = [_]u8{ 0x00, 0x61, 0x73, 0x6D }
-```
+\`\`\`
 
 </details>
 
@@ -1565,9 +1565,9 @@ pub const magic = [_]u8{ 0x00, 0x61, 0x73, 0x6D }
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const version = [_]u8{ 0x01, 0x00, 0x00, 0x00 }
-```
+\`\`\`
 
 </details>
 
@@ -1578,12 +1578,10 @@ pub const version = [_]u8{ 0x01, 0x00, 0x00, 0x00 }
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const page_size = 64 * 1024
-```
+\`\`\`
 
 </details>
 
 ---
-
-

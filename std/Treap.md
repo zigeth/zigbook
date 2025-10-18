@@ -27,7 +27,7 @@
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn Treap(comptime Key: type, comptime compareFn: anytype) type {
     return struct {
         const Self = @This();
@@ -333,7 +333,7 @@ pub fn Treap(comptime Key: type, comptime compareFn: anytype) type {
         }
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -346,4 +346,3 @@ pub fn Treap(comptime Key: type, comptime compareFn: anytype) type {
 </details>
 
 ---
-

@@ -59,7 +59,7 @@ Some functions are known to not work on MIPS.
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn suggestVectorLengthForCpu(comptime T: type, comptime cpu: std.Target.Cpu) ?comptime_int {
     @setEvalBranchQuota(2_000);
 
@@ -127,7 +127,7 @@ pub fn suggestVectorLengthForCpu(comptime T: type, comptime cpu: std.Target.Cpu)
 
     return @divExact(vector_bit_size, element_bit_size);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -149,11 +149,11 @@ pub fn suggestVectorLengthForCpu(comptime T: type, comptime cpu: std.Target.Cpu)
 Suggests a target-dependant vector length for a given type, or null if scalars are recommended.
 Not yet implemented for every CPU architecture.
 
-```zig
+\`\`\`zig
 pub fn suggestVectorLength(comptime T: type) ?comptime_int {
     return suggestVectorLengthForCpu(T, builtin.cpu);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -173,11 +173,11 @@ pub fn suggestVectorLength(comptime T: type) ?comptime_int {
 
 Returns the smallest type of unsigned ints capable of indexing any element within the given vector type.
 
-```zig
+\`\`\`zig
 pub fn VectorIndex(comptime VectorType: type) type {
     return std.math.IntFittingRange(0, vectorLength(VectorType) - 1);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -197,11 +197,11 @@ pub fn VectorIndex(comptime VectorType: type) type {
 
 Returns the smallest type of unsigned ints capable of holding the length of the given vector type.
 
-```zig
+\`\`\`zig
 pub fn VectorCount(comptime VectorType: type) type {
     return std.math.IntFittingRange(0, vectorLength(VectorType));
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -222,7 +222,7 @@ pub fn VectorCount(comptime VectorType: type) type {
 Returns a vector containing the first `len` integers in order from 0 to `len`-1.
 For example, `iota(i32, 8)` will return a vector containing `.{0, 1, 2, 3, 4, 5, 6, 7}`.
 
-```zig
+\`\`\`zig
 pub inline fn iota(comptime T: type, comptime len: usize) @Vector(len, T) {
     comptime {
         var out: [len]T = undefined;
@@ -236,7 +236,7 @@ pub inline fn iota(comptime T: type, comptime len: usize) @Vector(len, T) {
         return @as(@Vector(len, T), out);
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -258,13 +258,13 @@ pub inline fn iota(comptime T: type, comptime len: usize) @Vector(len, T) {
 Returns a vector containing the same elements as the input, but repeated until the desired length is reached.
 For example, `repeat(8, [_]u32{1, 2, 3})` will return a vector containing `.{1, 2, 3, 1, 2, 3, 1, 2}`.
 
-```zig
+\`\`\`zig
 pub fn repeat(comptime len: usize, vec: anytype) @Vector(len, std.meta.Child(@TypeOf(vec))) {
     const Child = std.meta.Child(@TypeOf(vec));
 
     return @shuffle(Child, vec, undefined, iota(i32, len) % @as(@Vector(len, i32), @splat(@intCast(vectorLength(@TypeOf(vec))))));
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -286,7 +286,7 @@ pub fn repeat(comptime len: usize, vec: anytype) @Vector(len, std.meta.Child(@Ty
 Returns a vector containing all elements of the first vector at the lower indices followed by all elements of the second vector
 at the higher indices.
 
-```zig
+\`\`\`zig
 pub fn join(a: anytype, b: anytype) @Vector(vectorLength(@TypeOf(a)) + vectorLength(@TypeOf(b)), std.meta.Child(@TypeOf(a))) {
     const Child = std.meta.Child(@TypeOf(a));
     const a_len = vectorLength(@TypeOf(a));
@@ -294,7 +294,7 @@ pub fn join(a: anytype, b: anytype) @Vector(vectorLength(@TypeOf(a)) + vectorLen
 
     return @shuffle(Child, a, b, @as([a_len]i32, iota(i32, a_len)) ++ @as([b_len]i32, ~iota(i32, b_len)));
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -308,9 +308,9 @@ pub fn join(a: anytype, b: anytype) @Vector(vectorLength(@TypeOf(a)) + vectorLen
 [^fn-join-return-0]:
     Return type for `join`:
 
-    ```zig
+    \`\`\`zig
     @Vector(vectorLength(@TypeOf(a)) + vectorLength(@TypeOf(b)), std.meta.Child(@TypeOf(a)))
-    ```
+    \`\`\`
 
 </details>
 
@@ -324,7 +324,7 @@ pub fn join(a: anytype, b: anytype) @Vector(vectorLength(@TypeOf(a)) + vectorLen
 Returns a vector whose elements alternates between those of each input vector.
 For example, `interlace(.{[4]u32{11, 12, 13, 14}, [4]u32{21, 22, 23, 24}})` returns a vector containing `.{11, 21, 12, 22, 13, 23, 14, 24}`.
 
-```zig
+\`\`\`zig
 pub fn interlace(vecs: anytype) @Vector(vectorLength(@TypeOf(vecs[0])) * vecs.len, std.meta.Child(@TypeOf(vecs[0]))) {
     // interlace doesn't work on MIPS, for some reason.
     // Notes from earlier debug attempt:
@@ -361,7 +361,7 @@ pub fn interlace(vecs: anytype) @Vector(vectorLength(@TypeOf(vecs[0])) * vecs.le
 
     return @shuffle(Child, a, b, indices);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -374,9 +374,9 @@ pub fn interlace(vecs: anytype) @Vector(vectorLength(@TypeOf(vecs[0])) * vecs.le
 [^fn-interlace-return-0]:
     Return type for `interlace`:
 
-    ```zig
+    \`\`\`zig
     @Vector(vectorLength(@TypeOf(vecs[0])) * vecs.len, std.meta.Child(@TypeOf(vecs[0])))
-    ```
+    \`\`\`
 
 </details>
 
@@ -390,7 +390,7 @@ pub fn interlace(vecs: anytype) @Vector(vectorLength(@TypeOf(vecs[0])) * vecs.le
 The contents of `interlaced` is evenly split between vec_count vectors that are returned as an array. They "take turns",
 receiving one element from `interlaced` at a time.
 
-```zig
+\`\`\`zig
 pub fn deinterlace(
     comptime vec_count: usize,
     interlaced: anytype,
@@ -411,7 +411,7 @@ pub fn deinterlace(
 
     return out;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -425,12 +425,12 @@ pub fn deinterlace(
 [^fn-deinterlace-return-0]:
     Return type for `deinterlace`:
 
-    ```zig
+    \`\`\`zig
     [vec_count]@Vector(
         vectorLength(@TypeOf(interlaced)) / vec_count,
         std.meta.Child(@TypeOf(interlaced)),
     )
-    ```
+    \`\`\`
 
 </details>
 
@@ -441,7 +441,7 @@ pub fn deinterlace(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn extract(
     vec: anytype,
     comptime first: VectorIndex(@TypeOf(vec)),
@@ -454,7 +454,7 @@ pub fn extract(
 
     return @shuffle(Child, vec, undefined, iota(i32, count) + @as(@Vector(count, i32), @splat(@intCast(first))));
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -476,13 +476,13 @@ pub fn extract(
 
 Joins two vectors, shifts them leftwards (towards lower indices) and extracts the leftmost elements into a vector the length of a and b.
 
-```zig
+\`\`\`zig
 pub fn mergeShift(a: anytype, b: anytype, comptime shift: VectorCount(@TypeOf(a, b))) @TypeOf(a, b) {
     const len = vectorLength(@TypeOf(a, b));
 
     return extract(join(a, b), shift, len);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -505,7 +505,7 @@ pub fn mergeShift(a: anytype, b: anytype, comptime shift: VectorCount(@TypeOf(a,
 Elements are shifted rightwards (towards higher indices). New elements are added to the left, and the rightmost elements are cut off
 so that the length of the vector stays the same.
 
-```zig
+\`\`\`zig
 pub fn shiftElementsRight(vec: anytype, comptime amount: VectorCount(@TypeOf(vec)), shift_in: std.meta.Child(@TypeOf(vec))) @TypeOf(vec) {
     // It may be possible to implement shifts and rotates with a runtime-friendly slice of two joined vectors, as the length of the
     // slice would be comptime-known. This would permit vector shifts and rotates by a non-comptime-known amount.
@@ -515,7 +515,7 @@ pub fn shiftElementsRight(vec: anytype, comptime amount: VectorCount(@TypeOf(vec
 
     return mergeShift(@as(V, @splat(shift_in)), vec, len - amount);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -538,13 +538,13 @@ pub fn shiftElementsRight(vec: anytype, comptime amount: VectorCount(@TypeOf(vec
 Elements are shifted leftwards (towards lower indices). New elements are added to the right, and the leftmost elements are cut off
 so that no elements with indices below 0 remain.
 
-```zig
+\`\`\`zig
 pub fn shiftElementsLeft(vec: anytype, comptime amount: VectorCount(@TypeOf(vec)), shift_in: std.meta.Child(@TypeOf(vec))) @TypeOf(vec) {
     const V = @TypeOf(vec);
 
     return mergeShift(vec, @as(V, @splat(shift_in)), amount);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -566,11 +566,11 @@ pub fn shiftElementsLeft(vec: anytype, comptime amount: VectorCount(@TypeOf(vec)
 
 Elements are shifted leftwards (towards lower indices). Elements that leave to the left will reappear to the right in the same order.
 
-```zig
+\`\`\`zig
 pub fn rotateElementsLeft(vec: anytype, comptime amount: VectorCount(@TypeOf(vec))) @TypeOf(vec) {
     return mergeShift(vec, vec, amount);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -591,11 +591,11 @@ pub fn rotateElementsLeft(vec: anytype, comptime amount: VectorCount(@TypeOf(vec
 
 Elements are shifted rightwards (towards higher indices). Elements that leave to the right will reappear to the left in the same order.
 
-```zig
+\`\`\`zig
 pub fn rotateElementsRight(vec: anytype, comptime amount: VectorCount(@TypeOf(vec))) @TypeOf(vec) {
     return rotateElementsLeft(vec, vectorLength(@TypeOf(vec)) - amount);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -614,14 +614,14 @@ pub fn rotateElementsRight(vec: anytype, comptime amount: VectorCount(@TypeOf(ve
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn reverseOrder(vec: anytype) @TypeOf(vec) {
     const Child = std.meta.Child(@TypeOf(vec));
     const len = vectorLength(@TypeOf(vec));
 
     return @shuffle(Child, vec, undefined, @as(@Vector(len, i32), @splat(@as(i32, @intCast(len)) - 1)) - iota(i32, len));
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -639,7 +639,7 @@ pub fn reverseOrder(vec: anytype) @TypeOf(vec) {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn firstTrue(vec: anytype) ?VectorIndex(@TypeOf(vec)) {
     const len = vectorLength(@TypeOf(vec));
     const IndexInt = VectorIndex(@TypeOf(vec));
@@ -651,7 +651,7 @@ pub fn firstTrue(vec: anytype) ?VectorIndex(@TypeOf(vec)) {
     const indices = @select(IndexInt, vec, iota(IndexInt, len), all_max);
     return @reduce(.Min, indices);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -669,7 +669,7 @@ pub fn firstTrue(vec: anytype) ?VectorIndex(@TypeOf(vec)) {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn lastTrue(vec: anytype) ?VectorIndex(@TypeOf(vec)) {
     const len = vectorLength(@TypeOf(vec));
     const IndexInt = VectorIndex(@TypeOf(vec));
@@ -682,7 +682,7 @@ pub fn lastTrue(vec: anytype) ?VectorIndex(@TypeOf(vec)) {
     const indices = @select(IndexInt, vec, iota(IndexInt, len), all_zeroes);
     return @reduce(.Max, indices);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -700,7 +700,7 @@ pub fn lastTrue(vec: anytype) ?VectorIndex(@TypeOf(vec)) {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn countTrues(vec: anytype) VectorCount(@TypeOf(vec)) {
     const len = vectorLength(@TypeOf(vec));
     const CountIntType = VectorCount(@TypeOf(vec));
@@ -711,7 +711,7 @@ pub fn countTrues(vec: anytype) VectorCount(@TypeOf(vec)) {
     const one_if_true = @select(CountIntType, vec, all_ones, all_zeroes);
     return @reduce(.Add, one_if_true);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -729,13 +729,13 @@ pub fn countTrues(vec: anytype) VectorCount(@TypeOf(vec)) {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn firstIndexOfValue(vec: anytype, value: std.meta.Child(@TypeOf(vec))) ?VectorIndex(@TypeOf(vec)) {
     const V = @TypeOf(vec);
 
     return firstTrue(vec == @as(V, @splat(value)));
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -754,13 +754,13 @@ pub fn firstIndexOfValue(vec: anytype, value: std.meta.Child(@TypeOf(vec))) ?Vec
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn lastIndexOfValue(vec: anytype, value: std.meta.Child(@TypeOf(vec))) ?VectorIndex(@TypeOf(vec)) {
     const V = @TypeOf(vec);
 
     return lastTrue(vec == @as(V, @splat(value)));
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -779,13 +779,13 @@ pub fn lastIndexOfValue(vec: anytype, value: std.meta.Child(@TypeOf(vec))) ?Vect
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn countElementsWithValue(vec: anytype, value: std.meta.Child(@TypeOf(vec))) VectorCount(@TypeOf(vec)) {
     const V = @TypeOf(vec);
 
     return countTrues(vec == @as(V, @splat(value)));
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -806,7 +806,7 @@ pub fn countElementsWithValue(vec: anytype, value: std.meta.Child(@TypeOf(vec)))
 
 Same as prefixScan, but with a user-provided, mathematically associative function.
 
-```zig
+\`\`\`zig
 pub fn prefixScanWithFunc(
     comptime hop: isize,
     vec: anytype,
@@ -834,7 +834,7 @@ pub fn prefixScanWithFunc(
     }
     return acc;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -851,16 +851,16 @@ pub fn prefixScanWithFunc(
 [^fn-prefixscanwithfunc-func-type-0]:
     Type for parameter `func` of `prefixScanWithFunc`:
 
-    ```zig
+    \`\`\`zig
     fn (@TypeOf(vec), @TypeOf(vec)) if (ErrorType == void) @TypeOf(vec) else ErrorType!@TypeOf(vec)
-    ```
+    \`\`\`
 
 [^fn-prefixscanwithfunc-return-1]:
     Return type for `prefixScanWithFunc`:
 
-    ```zig
+    \`\`\`zig
     if (ErrorType == void) @TypeOf(vec) else ErrorType!@TypeOf(vec)
-    ```
+    \`\`\`
 
 </details>
 
@@ -877,7 +877,7 @@ Supports the same operations as the @reduce() builtin. Takes O(logN) to compute.
 The scan is not linear, which may affect floating point errors. This may affect the determinism of
 algorithms that use this function.
 
-```zig
+\`\`\`zig
 pub fn prefixScan(comptime op: std.builtin.ReduceOp, comptime hop: isize, vec: anytype) @TypeOf(vec) {
     const VecType = @TypeOf(vec);
     const Child = std.meta.Child(VecType);
@@ -925,7 +925,7 @@ pub fn prefixScan(comptime op: std.builtin.ReduceOp, comptime hop: isize, vec: a
 
     return prefixScanWithFunc(hop, vec, void, fn_container.opFn, identity);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -939,4 +939,3 @@ pub fn prefixScan(comptime op: std.builtin.ReduceOp, comptime hop: isize, vec: a
 </details>
 
 ---
-

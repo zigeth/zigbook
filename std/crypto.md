@@ -61,7 +61,7 @@ Cryptography.
 
 Authenticated Encryption with Associated Data
 
-```zig
+\`\`\`zig
 pub const aead = struct {
     pub const aegis = struct {
         const variants = @import("crypto/aegis.zig");
@@ -108,7 +108,7 @@ pub const aead = struct {
         pub const XSalsa20Poly1305 = @import("crypto/salsa20.zig").XSalsa20Poly1305;
     };
 }
-```
+\`\`\`
 
 </details>
 
@@ -121,7 +121,7 @@ pub const aead = struct {
 
 Authentication (MAC) functions.
 
-```zig
+\`\`\`zig
 pub const auth = struct {
     pub const hmac = @import("crypto/hmac.zig");
     pub const siphash = @import("crypto/siphash.zig");
@@ -145,7 +145,7 @@ pub const auth = struct {
     };
     pub const cmac = @import("crypto/cmac.zig");
 }
-```
+\`\`\`
 
 </details>
 
@@ -158,7 +158,7 @@ pub const auth = struct {
 
 Core functions, that should rarely be used directly by applications.
 
-```zig
+\`\`\`zig
 pub const core = struct {
     pub const aes = @import("crypto/aes.zig");
     pub const keccak = @import("crypto/keccak_p.zig");
@@ -172,7 +172,7 @@ pub const core = struct {
     /// Most applications may want to use AEADs instead.
     pub const modes = @import("crypto/modes.zig");
 }
-```
+\`\`\`
 
 </details>
 
@@ -185,11 +185,11 @@ pub const core = struct {
 
 Diffie-Hellman key exchange functions.
 
-```zig
+\`\`\`zig
 pub const dh = struct {
     pub const X25519 = @import("crypto/25519/x25519.zig").X25519;
 }
-```
+\`\`\`
 
 </details>
 
@@ -202,12 +202,12 @@ pub const dh = struct {
 
 Key Encapsulation Mechanisms.
 
-```zig
+\`\`\`zig
 pub const kem = struct {
     pub const kyber_d00 = @import("crypto/ml_kem.zig").d00;
     pub const ml_kem = @import("crypto/ml_kem.zig").nist;
 }
-```
+\`\`\`
 
 </details>
 
@@ -220,7 +220,7 @@ pub const kem = struct {
 
 Elliptic-curve arithmetic.
 
-```zig
+\`\`\`zig
 pub const ecc = struct {
     pub const Curve25519 = @import("crypto/25519/curve25519.zig").Curve25519;
     pub const Edwards25519 = @import("crypto/25519/edwards25519.zig").Edwards25519;
@@ -229,7 +229,7 @@ pub const ecc = struct {
     pub const Ristretto255 = @import("crypto/25519/ristretto255.zig").Ristretto255;
     pub const Secp256k1 = @import("crypto/pcurves/secp256k1.zig").Secp256k1;
 }
-```
+\`\`\`
 
 </details>
 
@@ -242,7 +242,7 @@ pub const ecc = struct {
 
 Hash functions.
 
-```zig
+\`\`\`zig
 pub const hash = struct {
     pub const blake2 = @import("crypto/blake2.zig");
     pub const Blake3 = @import("crypto/blake3.zig").Blake3;
@@ -252,7 +252,7 @@ pub const hash = struct {
     pub const sha3 = @import("crypto/sha3.zig");
     pub const composition = @import("crypto/hash_composition.zig");
 }
-```
+\`\`\`
 
 </details>
 
@@ -265,11 +265,11 @@ pub const hash = struct {
 
 Key derivation functions.
 
-```zig
+\`\`\`zig
 pub const kdf = struct {
     pub const hkdf = @import("crypto/hkdf.zig");
 }
-```
+\`\`\`
 
 </details>
 
@@ -282,13 +282,13 @@ pub const kdf = struct {
 
 MAC functions requiring single-use secret keys.
 
-```zig
+\`\`\`zig
 pub const onetimeauth = struct {
     pub const Ghash = @import("crypto/ghash_polyval.zig").Ghash;
     pub const Polyval = @import("crypto/ghash_polyval.zig").Polyval;
     pub const Poly1305 = @import("crypto/poly1305.zig").Poly1305;
 }
-```
+\`\`\`
 
 </details>
 
@@ -316,7 +316,7 @@ Password hashing functions make exhaustive searches way slower or way more expen
 
 Password hashing functions must be used whenever sensitive data has to be directly derived from a password.
 
-```zig
+\`\`\`zig
 pub const pwhash = struct {
     pub const Encoding = enum {
         phc,
@@ -334,7 +334,7 @@ pub const pwhash = struct {
 
     pub const phc_format = @import("crypto/phc_encoding.zig");
 }
-```
+\`\`\`
 
 </details>
 
@@ -347,12 +347,12 @@ pub const pwhash = struct {
 
 Digital signature functions.
 
-```zig
+\`\`\`zig
 pub const sign = struct {
     pub const Ed25519 = @import("crypto/25519/ed25519.zig").Ed25519;
     pub const ecdsa = @import("crypto/ecdsa.zig");
 }
-```
+\`\`\`
 
 </details>
 
@@ -366,7 +366,7 @@ pub const sign = struct {
 Stream ciphers. These do not provide any kind of authentication.
 Most applications should be using AEAD constructions instead of stream ciphers directly.
 
-```zig
+\`\`\`zig
 pub const stream = struct {
     pub const chacha = struct {
         pub const ChaCha20IETF = @import("crypto/chacha20.zig").ChaCha20IETF;
@@ -387,7 +387,7 @@ pub const stream = struct {
         pub const XSalsa20 = @import("crypto/salsa20.zig").XSalsa20;
     };
 }
-```
+\`\`\`
 
 </details>
 
@@ -398,7 +398,7 @@ pub const stream = struct {
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-```zig
+\`\`\`zig
 pub const nacl = struct {
     const salsa20 = @import("crypto/salsa20.zig");
 
@@ -406,7 +406,7 @@ pub const nacl = struct {
     pub const SecretBox = salsa20.SecretBox;
     pub const SealedBox = salsa20.SealedBox;
 }
-```
+\`\`\`
 
 </details>
 
@@ -419,7 +419,7 @@ pub const nacl = struct {
 
 Side-channels mitigations.
 
-```zig
+\`\`\`zig
 pub const SideChannelsMitigations = enum {
     /// No additional side-channel mitigations are applied.
     /// This is the fastest mode.
@@ -437,7 +437,7 @@ pub const SideChannelsMitigations = enum {
     /// thread-local attacks such as cachebleed), and that the performance impact is significant.
     full,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -459,9 +459,9 @@ pub const SideChannelsMitigations = enum {
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const timing_safe = @import("crypto/timing_safe.zig")
-```
+\`\`\`
 
 > **Module:** `crypto/timing_safe.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/crypto/timing_safe.zig)
 
@@ -476,9 +476,9 @@ pub const timing_safe = @import("crypto/timing_safe.zig")
 
 Finite-field arithmetic.
 
-```zig
+\`\`\`zig
 pub const ff = @import("crypto/ff.zig")
-```
+\`\`\`
 
 > **Module:** `crypto/ff.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/crypto/ff.zig)
 
@@ -493,9 +493,9 @@ pub const ff = @import("crypto/ff.zig")
 
 Encoding and decoding
 
-```zig
+\`\`\`zig
 pub const codecs = @import("crypto/codecs.zig")
-```
+\`\`\`
 
 > **Module:** `crypto/codecs.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/crypto/codecs.zig)
 
@@ -508,9 +508,9 @@ pub const codecs = @import("crypto/codecs.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const errors = @import("crypto/errors.zig")
-```
+\`\`\`
 
 > **Module:** `crypto/errors.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/crypto/errors.zig)
 
@@ -523,9 +523,9 @@ pub const errors = @import("crypto/errors.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const tls = @import("crypto/tls.zig")
-```
+\`\`\`
 
 > **Module:** `crypto/tls.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/crypto/tls.zig)
 
@@ -538,9 +538,9 @@ pub const tls = @import("crypto/tls.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Certificate = @import("crypto/Certificate.zig")
-```
+\`\`\`
 
 > **Module:** `crypto/Certificate.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/crypto/Certificate.zig)
 
@@ -557,9 +557,9 @@ pub const Certificate = @import("crypto/Certificate.zig")
 
 This is a thread-local, cryptographically secure pseudo random number generator.
 
-```zig
+\`\`\`zig
 pub const random = @import("crypto/tlcsprng.zig").interface
-```
+\`\`\`
 
 </details>
 
@@ -570,9 +570,9 @@ pub const random = @import("crypto/tlcsprng.zig").interface
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const default_side_channels_mitigations = .medium
-```
+\`\`\`
 
 </details>
 
@@ -588,11 +588,11 @@ pub const default_side_channels_mitigations = .medium
 Sets a slice to zeroes.
 Prevents the store from being optimized out.
 
-```zig
+\`\`\`zig
 pub fn secureZero(comptime T: type, s: []volatile T) void {
     @memset(s, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -605,4 +605,3 @@ pub fn secureZero(comptime T: type, s: []volatile T) void {
 </details>
 
 ---
-

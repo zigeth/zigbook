@@ -60,9 +60,9 @@ specific goals in mind:
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const linux = @import("os/linux.zig")
-```
+\`\`\`
 
 > **Module:** `os/linux.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/os/linux.zig)
 
@@ -75,9 +75,9 @@ pub const linux = @import("os/linux.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const plan9 = @import("os/plan9.zig")
-```
+\`\`\`
 
 > **Module:** `os/plan9.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/os/plan9.zig)
 
@@ -90,9 +90,9 @@ pub const plan9 = @import("os/plan9.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const uefi = @import("os/uefi.zig")
-```
+\`\`\`
 
 > **Module:** `os/uefi.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/os/uefi.zig)
 
@@ -105,9 +105,9 @@ pub const uefi = @import("os/uefi.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const wasi = @import("os/wasi.zig")
-```
+\`\`\`
 
 > **Module:** `os/wasi.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/os/wasi.zig)
 
@@ -120,9 +120,9 @@ pub const wasi = @import("os/wasi.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const emscripten = @import("os/emscripten.zig")
-```
+\`\`\`
 
 > **Module:** `os/emscripten.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/os/emscripten.zig)
 
@@ -135,9 +135,9 @@ pub const emscripten = @import("os/emscripten.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const windows = @import("os/windows.zig")
-```
+\`\`\`
 
 > **Module:** `os/windows.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/os/windows.zig)
 
@@ -150,9 +150,9 @@ pub const windows = @import("os/windows.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const freebsd = @import("os/freebsd.zig")
-```
+\`\`\`
 
 > **Module:** `os/freebsd.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/os/freebsd.zig)
 
@@ -171,9 +171,9 @@ See also `getenv`. Populated by startup code before main().
 TODO this is a footgun because the value will be undefined when using `zig build-lib`.
 https://github.com/ziglang/zig/issues/4524
 
-```zig
+\`\`\`zig
 pub var environ: [][*:0]u8 = undefined
-```
+\`\`\`
 
 </details>
 
@@ -188,13 +188,13 @@ Populated by startup code before main().
 Not available on WASI or Windows without libc. See `std.process.argsAlloc`
 or `std.process.argsWithAllocator` for a cross-platform alternative.
 
-```zig
+\`\`\`zig
 pub var argv: [][*:0]u8 = if (builtin.link_libc) undefined else switch (native_os) {
     .windows => @compileError("argv isn't supported on Windows: use std.process.argsAlloc instead"),
     .wasi => @compileError("argv isn't supported on WASI: use std.process.argsAlloc instead"),
     else => undefined,
 }
-```
+\`\`\`
 
 </details>
 
@@ -210,7 +210,7 @@ pub var argv: [][*:0]u8 = if (builtin.link_libc) undefined else switch (native_o
 Call from Windows-specific code if you already have a WTF-16LE encoded, null terminated string.
 Otherwise use `access` or `accessZ`.
 
-```zig
+\`\`\`zig
 pub fn accessW(path: [*:0]const u16) windows.GetFileAttributesError!void {
     const ret = try windows.GetFileAttributesW(path);
     if (ret != windows.INVALID_FILE_ATTRIBUTES) {
@@ -223,7 +223,7 @@ pub fn accessW(path: [*:0]const u16) windows.GetFileAttributesError!void {
         else => |err| return windows.unexpectedError(err),
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -241,7 +241,7 @@ pub fn accessW(path: [*:0]const u16) windows.GetFileAttributesError!void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn isGetFdPathSupportedOnTarget(os: std.Target.Os) bool {
     return switch (os.tag) {
         .windows,
@@ -262,7 +262,7 @@ pub fn isGetFdPathSupportedOnTarget(os: std.Target.Os) bool {
         else => false,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -291,7 +291,7 @@ unsupported on WASI.
 
 Calling this function is usually a bug.
 
-```zig
+\`\`\`zig
 pub fn getFdPath(fd: std.posix.fd_t, out_buffer: *[max_path_bytes]u8) std.posix.RealPathError![]u8 {
     if (!comptime isGetFdPathSupportedOnTarget(builtin.os)) {
         @compileError("querying for canonical path of a handle is unsupported on this host");
@@ -391,7 +391,7 @@ pub fn getFdPath(fd: std.posix.fd_t, out_buffer: *[max_path_bytes]u8) std.posix.
         else => unreachable, // made unreachable by isGetFdPathSupportedOnTarget above
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -414,7 +414,7 @@ WASI-only. Same as `fstatat` but targeting WASI.
 `pathname` should be encoded as valid UTF-8.
 See also `fstatat`.
 
-```zig
+\`\`\`zig
 pub fn fstatat_wasi(dirfd: posix.fd_t, pathname: []const u8, flags: wasi.lookupflags_t) posix.FStatAtError!wasi.filestat_t {
     var stat: wasi.filestat_t = undefined;
     switch (wasi.path_filestat_get(dirfd, flags, pathname.ptr, pathname.len, &stat)) {
@@ -432,7 +432,7 @@ pub fn fstatat_wasi(dirfd: posix.fd_t, pathname: []const u8, flags: wasi.lookupf
         else => |err| return posix.unexpectedErrno(err),
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -452,7 +452,7 @@ pub fn fstatat_wasi(dirfd: posix.fd_t, pathname: []const u8, flags: wasi.lookupf
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn fstat_wasi(fd: posix.fd_t) posix.FStatError!wasi.filestat_t {
     var stat: wasi.filestat_t = undefined;
     switch (wasi.fd_filestat_get(fd, &stat)) {
@@ -465,7 +465,7 @@ pub fn fstat_wasi(fd: posix.fd_t) posix.FStatError!wasi.filestat_t {
         else => |err| return posix.unexpectedErrno(err),
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -477,4 +477,3 @@ pub fn fstat_wasi(fd: posix.fd_t) posix.FStatError!wasi.filestat_t {
 </details>
 
 ---
-

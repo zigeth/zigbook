@@ -73,9 +73,9 @@ The high-level `stringify` serializes a Zig or `Value` type into JSON.
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Scanner = @import("json/Scanner.zig")
-```
+\`\`\`
 
 > **Module:** `json/Scanner.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/json/Scanner.zig)
 
@@ -88,9 +88,9 @@ pub const Scanner = @import("json/Scanner.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Stringify = @import("json/Stringify.zig")
-```
+\`\`\`
 
 > **Module:** `json/Stringify.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/json/Stringify.zig)
 
@@ -105,9 +105,9 @@ pub const Stringify = @import("json/Stringify.zig")
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const ObjectMap = @import("json/dynamic.zig").ObjectMap
-```
+\`\`\`
 
 </details>
 
@@ -118,9 +118,9 @@ pub const ObjectMap = @import("json/dynamic.zig").ObjectMap
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const Array = @import("json/dynamic.zig").Array
-```
+\`\`\`
 
 </details>
 
@@ -131,9 +131,9 @@ pub const Array = @import("json/dynamic.zig").Array
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const Value = @import("json/dynamic.zig").Value
-```
+\`\`\`
 
 </details>
 
@@ -144,9 +144,9 @@ pub const Value = @import("json/dynamic.zig").Value
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const ArrayHashMap = @import("json/hashmap.zig").ArrayHashMap
-```
+\`\`\`
 
 </details>
 
@@ -157,9 +157,9 @@ pub const ArrayHashMap = @import("json/hashmap.zig").ArrayHashMap
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const validate = Scanner.validate
-```
+\`\`\`
 
 </details>
 
@@ -170,9 +170,9 @@ pub const validate = Scanner.validate
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const Error = Scanner.Error
-```
+\`\`\`
 
 </details>
 
@@ -183,9 +183,9 @@ pub const Error = Scanner.Error
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const default_buffer_size = Scanner.default_buffer_size
-```
+\`\`\`
 
 </details>
 
@@ -196,9 +196,9 @@ pub const default_buffer_size = Scanner.default_buffer_size
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const Token = Scanner.Token
-```
+\`\`\`
 
 </details>
 
@@ -209,9 +209,9 @@ pub const Token = Scanner.Token
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const TokenType = Scanner.TokenType
-```
+\`\`\`
 
 </details>
 
@@ -222,9 +222,9 @@ pub const TokenType = Scanner.TokenType
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const Diagnostics = Scanner.Diagnostics
-```
+\`\`\`
 
 </details>
 
@@ -235,9 +235,9 @@ pub const Diagnostics = Scanner.Diagnostics
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const AllocWhen = Scanner.AllocWhen
-```
+\`\`\`
 
 </details>
 
@@ -248,9 +248,9 @@ pub const AllocWhen = Scanner.AllocWhen
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const default_max_value_len = Scanner.default_max_value_len
-```
+\`\`\`
 
 </details>
 
@@ -261,9 +261,9 @@ pub const default_max_value_len = Scanner.default_max_value_len
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const Reader = Scanner.Reader
-```
+\`\`\`
 
 </details>
 
@@ -274,9 +274,9 @@ pub const Reader = Scanner.Reader
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const isNumberFormattedLikeAnInteger = Scanner.isNumberFormattedLikeAnInteger
-```
+\`\`\`
 
 </details>
 
@@ -287,9 +287,9 @@ pub const isNumberFormattedLikeAnInteger = Scanner.isNumberFormattedLikeAnIntege
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const ParseOptions = @import("json/static.zig").ParseOptions
-```
+\`\`\`
 
 </details>
 
@@ -300,9 +300,9 @@ pub const ParseOptions = @import("json/static.zig").ParseOptions
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const Parsed = @import("json/static.zig").Parsed
-```
+\`\`\`
 
 </details>
 
@@ -313,9 +313,9 @@ pub const Parsed = @import("json/static.zig").Parsed
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const parseFromSlice = @import("json/static.zig").parseFromSlice
-```
+\`\`\`
 
 </details>
 
@@ -326,9 +326,9 @@ pub const parseFromSlice = @import("json/static.zig").parseFromSlice
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const parseFromSliceLeaky = @import("json/static.zig").parseFromSliceLeaky
-```
+\`\`\`
 
 </details>
 
@@ -339,9 +339,9 @@ pub const parseFromSliceLeaky = @import("json/static.zig").parseFromSliceLeaky
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const parseFromTokenSource = @import("json/static.zig").parseFromTokenSource
-```
+\`\`\`
 
 </details>
 
@@ -352,9 +352,9 @@ pub const parseFromTokenSource = @import("json/static.zig").parseFromTokenSource
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const parseFromTokenSourceLeaky = @import("json/static.zig").parseFromTokenSourceLeaky
-```
+\`\`\`
 
 </details>
 
@@ -365,9 +365,9 @@ pub const parseFromTokenSourceLeaky = @import("json/static.zig").parseFromTokenS
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const innerParse = @import("json/static.zig").innerParse
-```
+\`\`\`
 
 </details>
 
@@ -378,9 +378,9 @@ pub const innerParse = @import("json/static.zig").innerParse
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const parseFromValue = @import("json/static.zig").parseFromValue
-```
+\`\`\`
 
 </details>
 
@@ -391,9 +391,9 @@ pub const parseFromValue = @import("json/static.zig").parseFromValue
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const parseFromValueLeaky = @import("json/static.zig").parseFromValueLeaky
-```
+\`\`\`
 
 </details>
 
@@ -404,9 +404,9 @@ pub const parseFromValueLeaky = @import("json/static.zig").parseFromValueLeaky
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const innerParseFromValue = @import("json/static.zig").innerParseFromValue
-```
+\`\`\`
 
 </details>
 
@@ -417,9 +417,9 @@ pub const innerParseFromValue = @import("json/static.zig").innerParseFromValue
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const ParseError = @import("json/static.zig").ParseError
-```
+\`\`\`
 
 </details>
 
@@ -430,9 +430,9 @@ pub const ParseError = @import("json/static.zig").ParseError
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const ParseFromValueError = @import("json/static.zig").ParseFromValueError
-```
+\`\`\`
 
 </details>
 
@@ -447,11 +447,11 @@ pub const ParseFromValueError = @import("json/static.zig").ParseFromValueError
 
 Returns a formatter that formats the given value using stringify.
 
-```zig
+\`\`\`zig
 pub fn fmt(value: anytype, options: Stringify.Options) Formatter(@TypeOf(value)) {
     return Formatter(@TypeOf(value)){ .value = value, .options = options };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -472,7 +472,7 @@ pub fn fmt(value: anytype, options: Stringify.Options) Formatter(@TypeOf(value))
 
 Formats the given value using stringify.
 
-```zig
+\`\`\`zig
 pub fn Formatter(comptime T: type) type {
     return struct {
         value: T,
@@ -483,7 +483,7 @@ pub fn Formatter(comptime T: type) type {
         }
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -495,4 +495,3 @@ pub fn Formatter(comptime T: type) type {
 </details>
 
 ---
-

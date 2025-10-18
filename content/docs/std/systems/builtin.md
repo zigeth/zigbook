@@ -97,7 +97,7 @@ Types and values provided by the Zig language.
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const StackTrace = struct {
     index: usize,
     instruction_addresses: []usize,
@@ -118,7 +118,7 @@ pub const StackTrace = struct {
         };
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -139,14 +139,14 @@ pub const StackTrace = struct {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const GlobalLinkage = enum(u2) {
     internal,
     strong,
     weak,
     link_once,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -169,13 +169,13 @@ pub const GlobalLinkage = enum(u2) {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const SymbolVisibility = enum(u2) {
     default,
     hidden,
     protected,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -197,7 +197,7 @@ pub const SymbolVisibility = enum(u2) {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const AtomicOrder = enum {
     unordered,
     monotonic,
@@ -206,7 +206,7 @@ pub const AtomicOrder = enum {
     acq_rel,
     seq_cst,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -231,7 +231,7 @@ pub const AtomicOrder = enum {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const ReduceOp = enum {
     And,
     Or,
@@ -241,7 +241,7 @@ pub const ReduceOp = enum {
     Add,
     Mul,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -267,7 +267,7 @@ pub const ReduceOp = enum {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const AtomicRmwOp = enum {
     /// Exchange - store the operand unmodified.
     /// Supports enums, integers, and floats.
@@ -299,7 +299,7 @@ pub const AtomicRmwOp = enum {
     /// Supports integers and floats.
     Min,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -331,7 +331,7 @@ A slightly more detailed explanation can be found in (for example) the [System V
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const CodeModel = enum {
     default,
     extreme,
@@ -345,7 +345,7 @@ pub const CodeModel = enum {
     small,
     tiny,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -375,14 +375,14 @@ pub const CodeModel = enum {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const OptimizeMode = enum {
     Debug,
     ReleaseSafe,
     ReleaseFast,
     ReleaseSmall,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -405,7 +405,7 @@ pub const OptimizeMode = enum {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const AddressSpace = enum(u5) {
     /// The places where a user can specify an address space attribute
     pub const Context = enum {
@@ -460,7 +460,7 @@ pub const AddressSpace = enum(u5) {
     /// This address space only addresses the "lookup" ram
     lut,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -503,7 +503,7 @@ pub const AddressSpace = enum(u5) {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const SourceLocation = struct {
     /// The name chosen when compiling. Not a file path.
     module: [:0]const u8,
@@ -513,7 +513,7 @@ pub const SourceLocation = struct {
     line: u32,
     column: u32,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -537,12 +537,12 @@ pub const SourceLocation = struct {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const FloatMode = enum {
     strict,
     optimized,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -563,12 +563,12 @@ pub const FloatMode = enum {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const Endian = enum {
     big,
     little,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -589,12 +589,12 @@ pub const Endian = enum {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const Signedness = enum(u1) {
     signed,
     unsigned,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -615,13 +615,13 @@ pub const Signedness = enum(u1) {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const OutputMode = enum {
     Exe,
     Lib,
     Obj,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -643,12 +643,12 @@ pub const OutputMode = enum {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const LinkMode = enum {
     static,
     dynamic,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -669,13 +669,13 @@ pub const LinkMode = enum {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const UnwindTables = enum {
     none,
     sync,
     async,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -697,12 +697,12 @@ pub const UnwindTables = enum {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const WasiExecModel = enum {
     command,
     reactor,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -723,7 +723,7 @@ pub const WasiExecModel = enum {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const CallModifier = enum {
     /// Equivalent to function call syntax.
     auto,
@@ -748,7 +748,7 @@ pub const CallModifier = enum {
     /// compile-time, a compile error is emitted instead.
     compile_time,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -774,7 +774,7 @@ pub const CallModifier = enum {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const VaListAarch64 = extern struct {
     __stack: *anyopaque,
     __gr_top: *anyopaque,
@@ -782,7 +782,7 @@ pub const VaListAarch64 = extern struct {
     __gr_offs: c_int,
     __vr_offs: c_int,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -806,14 +806,14 @@ pub const VaListAarch64 = extern struct {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const VaListHexagon = extern struct {
     __gpr: c_long,
     __fpr: c_long,
     __overflow_arg_area: *anyopaque,
     __reg_save_area: *anyopaque,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -836,7 +836,7 @@ pub const VaListHexagon = extern struct {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const VaListPowerPc = extern struct {
     gpr: u8,
     fpr: u8,
@@ -844,7 +844,7 @@ pub const VaListPowerPc = extern struct {
     overflow_arg_area: *anyopaque,
     reg_save_area: *anyopaque,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -868,13 +868,13 @@ pub const VaListPowerPc = extern struct {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const VaListS390x = extern struct {
     __current_saved_reg_area_pointer: *anyopaque,
     __saved_reg_area_end_pointer: *anyopaque,
     __overflow_area_pointer: *anyopaque,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -896,14 +896,14 @@ pub const VaListS390x = extern struct {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const VaListX86_64 = extern struct {
     gp_offset: c_uint,
     fp_offset: c_uint,
     overflow_arg_area: *anyopaque,
     reg_save_area: *anyopaque,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -926,13 +926,13 @@ pub const VaListX86_64 = extern struct {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const VaListXtensa = extern struct {
     __va_stk: *c_int,
     __va_reg: *c_int,
     __va_ndx: c_int,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -954,7 +954,7 @@ pub const VaListXtensa = extern struct {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const PrefetchOptions = struct {
     /// Whether the prefetch should prepare for a read or a write.
     rw: Rw = .read,
@@ -979,7 +979,7 @@ pub const PrefetchOptions = struct {
         data,
     };
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -1001,14 +1001,14 @@ pub const PrefetchOptions = struct {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const ExportOptions = struct {
     name: []const u8,
     linkage: GlobalLinkage = .strong,
     section: ?[]const u8 = null,
     visibility: SymbolVisibility = .default,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -1031,7 +1031,7 @@ pub const ExportOptions = struct {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const ExternOptions = struct {
     name: []const u8,
     library_name: ?[]const u8 = null,
@@ -1050,7 +1050,7 @@ pub const ExternOptions = struct {
         pcrel,
     };
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -1076,7 +1076,7 @@ pub const ExternOptions = struct {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const BranchHint = enum(u3) {
     /// Equivalent to no hint given.
     none,
@@ -1093,7 +1093,7 @@ pub const BranchHint = enum(u3) {
     /// The optimizer should avoid branching behavior with expensive mispredictions.
     unpredictable,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -1132,7 +1132,7 @@ is happy to accept pull requests to add Zig implementations to this enum.
 
 This data structure is part of the Zig language specification.
 
-```zig
+\`\`\`zig
 pub const CompilerBackend = enum(u64) {
     /// It is allowed for a compiler implementation to not reveal its identity,
     /// in which case this value is appropriate. Be cool and make sure your
@@ -1180,7 +1180,7 @@ pub const CompilerBackend = enum(u64) {
 
     _,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -1213,12 +1213,12 @@ pub const CompilerBackend = enum(u64) {
 This function type is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const TestFn = struct {
     name: []const u8,
     func: *const fn () anyerror!void,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -1238,9 +1238,9 @@ pub const TestFn = struct {
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const assembly = @import("builtin/assembly.zig")
-```
+\`\`\`
 
 > **Module:** `builtin/assembly.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/builtin/assembly.zig)
 
@@ -1260,7 +1260,7 @@ so Zig standard library has the subsystem detection logic here. This should gene
 used rather than `explicit_subsystem`.
 On non-Windows targets, this is `null`.
 
-```zig
+\`\`\`zig
 pub const subsystem: ?std.Target.SubSystem = blk: {
     if (@hasDecl(builtin, "explicit_subsystem")) break :blk builtin.explicit_subsystem;
     switch (builtin.os.tag) {
@@ -1282,7 +1282,7 @@ pub const subsystem: ?std.Target.SubSystem = blk: {
         else => break :blk null,
     }
 }
-```
+\`\`\`
 
 </details>
 
@@ -1300,7 +1300,7 @@ and stack alignment.
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const CallingConvention = union(enum(u8)) {
     pub const Tag = @typeInfo(CallingConvention).@"union".tag_type.?;
 
@@ -1578,7 +1578,7 @@ pub const CallingConvention = union(enum(u8)) {
         return result;
     }
 }
-```
+\`\`\`
 
 </details>
 
@@ -1589,9 +1589,9 @@ pub const CallingConvention = union(enum(u8)) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const TypeId = std.meta.Tag(Type)
-```
+\`\`\`
 
 </details>
 
@@ -1605,7 +1605,7 @@ pub const TypeId = std.meta.Tag(Type)
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const Type = union(enum) {
     type: void,
     void: void,
@@ -1846,7 +1846,7 @@ pub const Type = union(enum) {
         name: [:0]const u8,
     };
 }
-```
+\`\`\`
 
 </details>
 
@@ -1860,7 +1860,7 @@ pub const Type = union(enum) {
 This data structure is used by the Zig language code generation and
 therefore must be kept in sync with the compiler implementation.
 
-```zig
+\`\`\`zig
 pub const VaList = switch (builtin.cpu.arch) {
     .aarch64, .aarch64_be => switch (builtin.os.tag) {
         .windows => *u8,
@@ -1901,7 +1901,7 @@ pub const VaList = switch (builtin.cpu.arch) {
     .xtensa => VaListXtensa,
     else => @compileError("VaList not supported for this target yet"),
 }
-```
+\`\`\`
 
 </details>
 
@@ -1916,7 +1916,7 @@ This namespace is used by the Zig compiler to emit various kinds of safety
 panics. These can be overridden by making a public `panic` namespace in the
 root source file.
 
-```zig
+\`\`\`zig
 pub const panic: type = p: {
     if (@hasDecl(root, "panic")) {
         if (@TypeOf(root.panic) != type) {
@@ -1936,7 +1936,7 @@ pub const panic: type = p: {
         else => std.debug.FullPanic(std.debug.defaultPanic),
     };
 }
-```
+\`\`\`
 
 </details>
 
@@ -1949,7 +1949,7 @@ pub const panic: type = p: {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub noinline fn returnError() void {
     @branchHint(.unlikely);
     @setRuntimeSafety(false);
@@ -1958,7 +1958,7 @@ pub noinline fn returnError() void {
         st.instruction_addresses[st.index] = @returnAddress();
     st.index += 1;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1969,5 +1969,3 @@ pub noinline fn returnError() void {
 </details>
 
 ---
-
-

@@ -178,7 +178,7 @@ This page syncs automatically from `std/mem.md` in the repository. Edit the sour
 
 Stored as a power-of-two.
 
-```zig
+\`\`\`zig
 pub const Alignment = enum(math.Log2Int(usize)) {
     @"1" = 0,
     @"2" = 1,
@@ -235,7 +235,7 @@ pub const Alignment = enum(math.Log2Int(usize)) {
         return @ctz(address) >= @intFromEnum(a);
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -259,9 +259,9 @@ pub const Alignment = enum(math.Log2Int(usize)) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const DelimiterType = enum { sequence, any, scalar }
-```
+\`\`\`
 
 **Fields:**
 
@@ -282,9 +282,9 @@ pub const DelimiterType = enum { sequence, any, scalar }
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Allocator = @import("mem/Allocator.zig")
-```
+\`\`\`
 
 > **Module:** `mem/Allocator.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/mem/Allocator.zig)
 
@@ -306,9 +306,9 @@ declaration.  If we ever try to port the standard library to a
 non-8-bit-byte platform, this will allow us to search for things
 which need to be updated.
 
-```zig
+\`\`\`zig
 pub const byte_size_in_bits = 8
-```
+\`\`\`
 
 </details>
 
@@ -325,9 +325,9 @@ pub const byte_size_in_bits = 8
 
 Deprecated: use `trimStart` instead.
 
-```zig
+\`\`\`zig
 pub const trimLeft = trimStart
-```
+\`\`\`
 
 </details>
 
@@ -344,9 +344,9 @@ pub const trimLeft = trimStart
 
 Deprecated: use `trimEnd` instead.
 
-```zig
+\`\`\`zig
 pub const trimRight = trimEnd
-```
+\`\`\`
 
 </details>
 
@@ -357,12 +357,12 @@ pub const trimRight = trimEnd
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const readPackedIntNative = switch (native_endian) {
     .little => readPackedIntLittle,
     .big => readPackedIntBig,
 }
-```
+\`\`\`
 
 </details>
 
@@ -373,12 +373,12 @@ pub const readPackedIntNative = switch (native_endian) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const readPackedIntForeign = switch (native_endian) {
     .little => readPackedIntBig,
     .big => readPackedIntLittle,
 }
-```
+\`\`\`
 
 </details>
 
@@ -389,12 +389,12 @@ pub const readPackedIntForeign = switch (native_endian) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const writePackedIntNative = switch (native_endian) {
     .little => writePackedIntLittle,
     .big => writePackedIntBig,
 }
-```
+\`\`\`
 
 </details>
 
@@ -405,12 +405,12 @@ pub const writePackedIntNative = switch (native_endian) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const writePackedIntForeign = switch (native_endian) {
     .little => writePackedIntBig,
     .big => writePackedIntLittle,
 }
-```
+\`\`\`
 
 </details>
 
@@ -426,7 +426,7 @@ pub const writePackedIntForeign = switch (native_endian) {
 Detects and asserts if the std.mem.Allocator interface is violated by the caller
 or the allocator.
 
-```zig
+\`\`\`zig
 pub fn ValidationAllocator(comptime T: type) type {
     return struct {
         const Self = @This();
@@ -514,7 +514,7 @@ pub fn ValidationAllocator(comptime T: type) type {
         }
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -532,11 +532,11 @@ pub fn ValidationAllocator(comptime T: type) type {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn validationWrap(allocator: anytype) ValidationAllocator(@TypeOf(allocator)) {
     return ValidationAllocator(@TypeOf(allocator)).init(allocator);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -559,11 +559,11 @@ dest.len must be >= source.len.
 If the slices overlap, dest.ptr must be <= src.ptr.
 This function is deprecated; use @memmove instead.
 
-```zig
+\`\`\`zig
 pub fn copyForwards(comptime T: type, dest: []T, source: []const T) void {
     for (dest[0..source.len], source) |*d, s| d.* = s;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -588,7 +588,7 @@ dest.len must be >= source.len.
 If the slices overlap, dest.ptr must be >= src.ptr.
 This function is deprecated; use @memmove instead.
 
-```zig
+\`\`\`zig
 pub fn copyBackwards(comptime T: type, dest: []T, source: []const T) void {
     // TODO instead of manually doing this check for the whole array
     // and turning off runtime safety, the compiler should detect loops like
@@ -601,7 +601,7 @@ pub fn copyBackwards(comptime T: type, dest: []T, source: []const T) void {
         dest[i] = source[i];
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -628,7 +628,7 @@ function used, examine closely - it may be a code smell.
 Zero initializes the type.
 This can be used to zero-initialize any type for which it makes sense. Structs will be initialized recursively.
 
-```zig
+\`\`\`zig
 pub fn zeroes(comptime T: type) T {
     switch (@typeInfo(T)) {
         .comptime_int, .int, .comptime_float, .float => {
@@ -712,7 +712,7 @@ pub fn zeroes(comptime T: type) T {
         },
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -734,7 +734,7 @@ Initializes all fields of the struct with their default value, or zero values if
 If the field is present in the provided initial values, it will have that value instead.
 Structs are initialized recursively.
 
-```zig
+\`\`\`zig
 pub fn zeroInit(comptime T: type, init: anytype) T {
     const Init = @TypeOf(init);
 
@@ -798,7 +798,7 @@ pub fn zeroInit(comptime T: type, init: anytype) T {
         },
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -817,7 +817,7 @@ pub fn zeroInit(comptime T: type, init: anytype) T {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn sort(
     comptime T: type,
     items: []T,
@@ -826,7 +826,7 @@ pub fn sort(
 ) void {
     std.sort.block(T, items, context, lessThanFn);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -847,7 +847,7 @@ pub fn sort(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn sortUnstable(
     comptime T: type,
     items: []T,
@@ -856,7 +856,7 @@ pub fn sortUnstable(
 ) void {
     std.sort.pdq(T, items, context, lessThanFn);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -880,11 +880,11 @@ pub fn sortUnstable(
 TODO: currently this just calls `insertionSortContext`. The block sort implementation
 in this file needs to be adapted to use the sort context.
 
-```zig
+\`\`\`zig
 pub fn sortContext(a: usize, b: usize, context: anytype) void {
     std.sort.insertionContext(a, b, context);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -904,11 +904,11 @@ pub fn sortContext(a: usize, b: usize, context: anytype) void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn sortUnstableContext(a: usize, b: usize, context: anytype) void {
     std.sort.pdqContext(a, b, context);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -930,7 +930,7 @@ pub fn sortUnstableContext(a: usize, b: usize, context: anytype) void {
 
 Compares two slices of numbers lexicographically. O(n).
 
-```zig
+\`\`\`zig
 pub fn order(comptime T: type, lhs: []const T, rhs: []const T) math.Order {
     const n = @min(lhs.len, rhs.len);
     for (lhs[0..n], rhs[0..n]) |lhs_elem, rhs_elem| {
@@ -942,7 +942,7 @@ pub fn order(comptime T: type, lhs: []const T, rhs: []const T) math.Order {
     }
     return math.order(lhs.len, rhs.len);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -964,13 +964,13 @@ pub fn order(comptime T: type, lhs: []const T, rhs: []const T) math.Order {
 
 Compares two many-item pointers with NUL-termination lexicographically.
 
-```zig
+\`\`\`zig
 pub fn orderZ(comptime T: type, lhs: [*:0]const T, rhs: [*:0]const T) math.Order {
     var i: usize = 0;
     while (lhs[i] == rhs[i] and lhs[i] != 0) : (i += 1) {}
     return math.order(lhs[i], rhs[i]);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -992,11 +992,11 @@ pub fn orderZ(comptime T: type, lhs: [*:0]const T, rhs: [*:0]const T) math.Order
 
 Returns true if lhs < rhs, false otherwise
 
-```zig
+\`\`\`zig
 pub fn lessThan(comptime T: type, lhs: []const T, rhs: []const T) bool {
     return order(T, lhs, rhs) == .lt;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1019,7 +1019,7 @@ pub fn lessThan(comptime T: type, lhs: []const T, rhs: []const T) bool {
 Returns true if and only if the slices have the same length and all elements
 compare true using equality operator.
 
-```zig
+\`\`\`zig
 pub fn eql(comptime T: type, a: []const T, b: []const T) bool {
     if (!@inComptime() and @sizeOf(T) != 0 and std.meta.hasUniqueRepresentation(T) and
         use_vectors_for_comparison)
@@ -1035,7 +1035,7 @@ pub fn eql(comptime T: type, a: []const T, b: []const T) bool {
     }
     return true;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1058,7 +1058,7 @@ pub fn eql(comptime T: type, a: []const T, b: []const T) bool {
 Compares two slices and returns the index of the first inequality.
 Returns null if the slices are equal.
 
-```zig
+\`\`\`zig
 pub fn indexOfDiff(comptime T: type, a: []const T, b: []const T) ?usize {
     const shortest = @min(a.len, b.len);
     if (a.ptr == b.ptr)
@@ -1067,7 +1067,7 @@ pub fn indexOfDiff(comptime T: type, a: []const T, b: []const T) ?usize {
     while (index < shortest) : (index += 1) if (a[index] != b[index]) return index;
     return if (a.len == b.len) null else shortest;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1092,7 +1092,7 @@ memory to find the sentinel and determine the length.
 Pointer attributes such as const are preserved.
 `[*c]` pointers are assumed to be non-null and 0-terminated.
 
-```zig
+\`\`\`zig
 pub fn span(ptr: anytype) Span(@TypeOf(ptr)) {
     if (@typeInfo(@TypeOf(ptr)) == .optional) {
         if (ptr) |non_null| {
@@ -1110,7 +1110,7 @@ pub fn span(ptr: anytype) Span(@TypeOf(ptr)) {
         return ptr[0..l];
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1136,7 +1136,7 @@ resulting slice is also sentinel terminated.
 Pointer properties such as mutability and alignment are preserved.
 C pointers are assumed to be non-null.
 
-```zig
+\`\`\`zig
 pub fn sliceTo(ptr: anytype, comptime end: std.meta.Elem(@TypeOf(ptr))) SliceTo(@TypeOf(ptr), end) {
     if (@typeInfo(@TypeOf(ptr)) == .optional) {
         const non_null = ptr orelse return null;
@@ -1151,7 +1151,7 @@ pub fn sliceTo(ptr: anytype, comptime end: std.meta.Elem(@TypeOf(ptr))) SliceTo(
         return ptr[0..length];
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1174,7 +1174,7 @@ Takes a sentinel-terminated pointer and iterates over the memory to find the
 sentinel and determine the length.
 `[*c]` pointers are assumed to be non-null and 0-terminated.
 
-```zig
+\`\`\`zig
 pub fn len(value: anytype) usize {
     switch (@typeInfo(@TypeOf(value))) {
         .pointer => |info| switch (info.size) {
@@ -1192,7 +1192,7 @@ pub fn len(value: anytype) usize {
         else => @compileError("invalid type given to std.mem.len: " ++ @typeName(@TypeOf(value))),
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1210,7 +1210,7 @@ pub fn len(value: anytype) usize {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn indexOfSentinel(comptime T: type, comptime sentinel: T, p: [*:sentinel]const T) usize {
     var i: usize = 0;
 
@@ -1275,7 +1275,7 @@ pub fn indexOfSentinel(comptime T: type, comptime sentinel: T, p: [*:sentinel]co
     }
     return i;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1297,14 +1297,14 @@ pub fn indexOfSentinel(comptime T: type, comptime sentinel: T, p: [*:sentinel]co
 
 Returns true if all elements in a slice are equal to the scalar value provided
 
-```zig
+\`\`\`zig
 pub fn allEqual(comptime T: type, slice: []const T, scalar: T) bool {
     for (slice) |item| {
         if (item != scalar) return false;
     }
     return true;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1326,13 +1326,13 @@ pub fn allEqual(comptime T: type, slice: []const T, scalar: T) bool {
 
 Remove a set of values from the beginning of a slice.
 
-```zig
+\`\`\`zig
 pub fn trimStart(comptime T: type, slice: []const T, values_to_strip: []const T) []const T {
     var begin: usize = 0;
     while (begin < slice.len and indexOfScalar(T, values_to_strip, slice[begin]) != null) : (begin += 1) {}
     return slice[begin..];
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1354,13 +1354,13 @@ pub fn trimStart(comptime T: type, slice: []const T, values_to_strip: []const T)
 
 Remove a set of values from the end of a slice.
 
-```zig
+\`\`\`zig
 pub fn trimEnd(comptime T: type, slice: []const T, values_to_strip: []const T) []const T {
     var end: usize = slice.len;
     while (end > 0 and indexOfScalar(T, values_to_strip, slice[end - 1]) != null) : (end -= 1) {}
     return slice[0..end];
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1382,7 +1382,7 @@ pub fn trimEnd(comptime T: type, slice: []const T, values_to_strip: []const T) [
 
 Remove a set of values from the beginning and end of a slice.
 
-```zig
+\`\`\`zig
 pub fn trim(comptime T: type, slice: []const T, values_to_strip: []const T) []const T {
     var begin: usize = 0;
     var end: usize = slice.len;
@@ -1390,7 +1390,7 @@ pub fn trim(comptime T: type, slice: []const T, values_to_strip: []const T) []co
     while (end > begin and indexOfScalar(T, values_to_strip, slice[end - 1]) != null) : (end -= 1) {}
     return slice[begin..end];
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1412,11 +1412,11 @@ pub fn trim(comptime T: type, slice: []const T, values_to_strip: []const T) []co
 
 Linear search for the index of a scalar value inside a slice.
 
-```zig
+\`\`\`zig
 pub fn indexOfScalar(comptime T: type, slice: []const T, value: T) ?usize {
     return indexOfScalarPos(T, slice, 0, value);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1438,7 +1438,7 @@ pub fn indexOfScalar(comptime T: type, slice: []const T, value: T) ?usize {
 
 Linear search for the last index of a scalar value inside a slice.
 
-```zig
+\`\`\`zig
 pub fn lastIndexOfScalar(comptime T: type, slice: []const T, value: T) ?usize {
     var i: usize = slice.len;
     while (i != 0) {
@@ -1447,7 +1447,7 @@ pub fn lastIndexOfScalar(comptime T: type, slice: []const T, value: T) ?usize {
     }
     return null;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1467,7 +1467,7 @@ pub fn lastIndexOfScalar(comptime T: type, slice: []const T, value: T) ?usize {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn indexOfScalarPos(comptime T: type, slice: []const T, start_index: usize, value: T) ?usize {
     if (start_index >= slice.len) return null;
 
@@ -1529,7 +1529,7 @@ pub fn indexOfScalarPos(comptime T: type, slice: []const T, start_index: usize, 
     }
     return null;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1550,11 +1550,11 @@ pub fn indexOfScalarPos(comptime T: type, slice: []const T, start_index: usize, 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn indexOfAny(comptime T: type, slice: []const T, values: []const T) ?usize {
     return indexOfAnyPos(T, slice, 0, values);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1574,7 +1574,7 @@ pub fn indexOfAny(comptime T: type, slice: []const T, values: []const T) ?usize 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn lastIndexOfAny(comptime T: type, slice: []const T, values: []const T) ?usize {
     var i: usize = slice.len;
     while (i != 0) {
@@ -1585,7 +1585,7 @@ pub fn lastIndexOfAny(comptime T: type, slice: []const T, values: []const T) ?us
     }
     return null;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1605,7 +1605,7 @@ pub fn lastIndexOfAny(comptime T: type, slice: []const T, values: []const T) ?us
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn indexOfAnyPos(comptime T: type, slice: []const T, start_index: usize, values: []const T) ?usize {
     if (start_index >= slice.len) return null;
     for (slice[start_index..], start_index..) |c, i| {
@@ -1615,7 +1615,7 @@ pub fn indexOfAnyPos(comptime T: type, slice: []const T, start_index: usize, val
     }
     return null;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1640,11 +1640,11 @@ Find the first item in `slice` which is not contained in `values`.
 
 Comparable to `strspn` in the C standard library.
 
-```zig
+\`\`\`zig
 pub fn indexOfNone(comptime T: type, slice: []const T, values: []const T) ?usize {
     return indexOfNonePos(T, slice, 0, values);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1668,7 +1668,7 @@ Find the last item in `slice` which is not contained in `values`.
 
 Like `strspn` in the C standard library, but searches from the end.
 
-```zig
+\`\`\`zig
 pub fn lastIndexOfNone(comptime T: type, slice: []const T, values: []const T) ?usize {
     var i: usize = slice.len;
     outer: while (i != 0) {
@@ -1680,7 +1680,7 @@ pub fn lastIndexOfNone(comptime T: type, slice: []const T, values: []const T) ?u
     }
     return null;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1705,7 +1705,7 @@ The returned index will be relative to the start of `slice`, and never less than
 
 Comparable to `strspn` in the C standard library.
 
-```zig
+\`\`\`zig
 pub fn indexOfNonePos(comptime T: type, slice: []const T, start_index: usize, values: []const T) ?usize {
     if (start_index >= slice.len) return null;
     outer: for (slice[start_index..], start_index..) |c, i| {
@@ -1716,7 +1716,7 @@ pub fn indexOfNonePos(comptime T: type, slice: []const T, start_index: usize, va
     }
     return null;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1737,11 +1737,11 @@ pub fn indexOfNonePos(comptime T: type, slice: []const T, start_index: usize, va
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn indexOf(comptime T: type, haystack: []const T, needle: []const T) ?usize {
     return indexOfPos(T, haystack, 0, needle);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1766,7 +1766,7 @@ To start looking at a different index, slice the haystack first.
 Consider using `lastIndexOf` instead of this, which will automatically use a
 more sophisticated algorithm on larger inputs.
 
-```zig
+\`\`\`zig
 pub fn lastIndexOfLinear(comptime T: type, haystack: []const T, needle: []const T) ?usize {
     if (needle.len > haystack.len) return null;
     var i: usize = haystack.len - needle.len;
@@ -1775,7 +1775,7 @@ pub fn lastIndexOfLinear(comptime T: type, haystack: []const T, needle: []const 
         if (i == 0) return null;
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1798,7 +1798,7 @@ pub fn lastIndexOfLinear(comptime T: type, haystack: []const T, needle: []const 
 Consider using `indexOfPos` instead of this, which will automatically use a
 more sophisticated algorithm on larger inputs.
 
-```zig
+\`\`\`zig
 pub fn indexOfPosLinear(comptime T: type, haystack: []const T, start_index: usize, needle: []const T) ?usize {
     if (needle.len > haystack.len) return null;
     var i: usize = start_index;
@@ -1808,7 +1808,7 @@ pub fn indexOfPosLinear(comptime T: type, haystack: []const T, start_index: usiz
     }
     return null;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1834,7 +1834,7 @@ To start looking at a different index, slice the haystack first.
 Uses the Reverse Boyer-Moore-Horspool algorithm on large inputs;
 `lastIndexOfLinear` on small inputs.
 
-```zig
+\`\`\`zig
 pub fn lastIndexOf(comptime T: type, haystack: []const T, needle: []const T) ?usize {
     if (needle.len > haystack.len) return null;
     if (needle.len == 0) return haystack.len;
@@ -1860,7 +1860,7 @@ pub fn lastIndexOf(comptime T: type, haystack: []const T, needle: []const T) ?us
 
     return null;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1882,7 +1882,7 @@ pub fn lastIndexOf(comptime T: type, haystack: []const T, needle: []const T) ?us
 
 Uses Boyer-Moore-Horspool algorithm on large inputs; `indexOfPosLinear` on small inputs.
 
-```zig
+\`\`\`zig
 pub fn indexOfPos(comptime T: type, haystack: []const T, start_index: usize, needle: []const T) ?usize {
     if (needle.len > haystack.len) return null;
     if (needle.len < 2) {
@@ -1910,7 +1910,7 @@ pub fn indexOfPos(comptime T: type, haystack: []const T, start_index: usize, nee
 
     return null;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1935,7 +1935,7 @@ Returns the number of needles inside the haystack
 needle.len must be > 0
 does not count overlapping needles
 
-```zig
+\`\`\`zig
 pub fn count(comptime T: type, haystack: []const T, needle: []const T) usize {
     assert(needle.len > 0);
     var i: usize = 0;
@@ -1948,7 +1948,7 @@ pub fn count(comptime T: type, haystack: []const T, needle: []const T) usize {
 
     return found;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1974,7 +1974,7 @@ does not count overlapping needles
 //
 See also: `containsAtLeastScalar`
 
-```zig
+\`\`\`zig
 pub fn containsAtLeast(comptime T: type, haystack: []const T, expected_count: usize, needle: []const T) bool {
     assert(needle.len > 0);
     if (expected_count == 0) return true;
@@ -1989,7 +1989,7 @@ pub fn containsAtLeast(comptime T: type, haystack: []const T, expected_count: us
     }
     return false;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2014,7 +2014,7 @@ Returns true if the haystack contains expected_count or more needles
 //
 See also: `containsAtLeast`
 
-```zig
+\`\`\`zig
 pub fn containsAtLeastScalar(comptime T: type, haystack: []const T, expected_count: usize, needle: T) bool {
     if (expected_count == 0) return true;
 
@@ -2029,7 +2029,7 @@ pub fn containsAtLeastScalar(comptime T: type, haystack: []const T, expected_cou
 
     return false;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2054,7 +2054,7 @@ Reads an integer from memory with size equal to bytes.len.
 T specifies the return type, which must be large enough to store
 the result.
 
-```zig
+\`\`\`zig
 pub fn readVarInt(comptime ReturnType: type, bytes: []const u8, endian: Endian) ReturnType {
     assert(@typeInfo(ReturnType).int.bits >= bytes.len * 8);
     const bits = @typeInfo(ReturnType).int.bits;
@@ -2076,7 +2076,7 @@ pub fn readVarInt(comptime ReturnType: type, bytes: []const u8, endian: Endian) 
     }
     return @truncate(result);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2099,7 +2099,7 @@ pub fn readVarInt(comptime ReturnType: type, bytes: []const u8, endian: Endian) 
 Loads an integer from packed memory with provided bit_count, bit_offset, and signedness.
 Asserts that T is large enough to store the read value.
 
-```zig
+\`\`\`zig
 pub fn readVarPackedInt(
     comptime T: type,
     bytes: []const u8,
@@ -2161,7 +2161,7 @@ pub fn readVarPackedInt(
         .unsigned => return @as(T, @intCast((@as(uN, @bitCast(int)) << pad) >> pad)),
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2188,12 +2188,12 @@ Reads an integer from memory with bit count specified by T.
 The bit count of T must be evenly divisible by 8.
 This function cannot fail and cannot cause undefined behavior.
 
-```zig
+\`\`\`zig
 pub inline fn readInt(comptime T: type, buffer: *const [@divExact(@typeInfo(T).int.bits, 8)]u8, endian: Endian) T {
     const value: T = @bitCast(buffer.*);
     return if (endian == native_endian) value else @byteSwap(value);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2216,14 +2216,14 @@ pub inline fn readInt(comptime T: type, buffer: *const [@divExact(@typeInfo(T).i
 Loads an integer from packed memory.
 Asserts that buffer contains at least bit_offset + @bitSizeOf(T) bits.
 
-```zig
+\`\`\`zig
 pub fn readPackedInt(comptime T: type, bytes: []const u8, bit_offset: usize, endian: Endian) T {
     switch (endian) {
         .little => return readPackedIntLittle(T, bytes, bit_offset),
         .big => return readPackedIntBig(T, bytes, bit_offset),
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2248,11 +2248,11 @@ Writes an integer to memory, storing it in twos-complement.
 This function always succeeds, has defined behavior for all inputs, but
 the integer bit width must be divisible by 8.
 
-```zig
+\`\`\`zig
 pub inline fn writeInt(comptime T: type, buffer: *[@divExact(@typeInfo(T).int.bits, 8)]u8, value: T, endian: Endian) void {
     buffer.* = @bitCast(if (endian == native_endian) value else @byteSwap(value));
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2276,14 +2276,14 @@ pub inline fn writeInt(comptime T: type, buffer: *[@divExact(@typeInfo(T).int.bi
 Stores an integer to packed memory.
 Asserts that buffer contains at least bit_offset + @bitSizeOf(T) bits.
 
-```zig
+\`\`\`zig
 pub fn writePackedInt(comptime T: type, bytes: []u8, bit_offset: usize, value: T, endian: Endian) void {
     switch (endian) {
         .little => writePackedIntLittle(T, bytes, bit_offset, value),
         .big => writePackedIntBig(T, bytes, bit_offset, value),
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2308,7 +2308,7 @@ pub fn writePackedInt(comptime T: type, bytes: []u8, bit_offset: usize, value: T
 Stores an integer to packed memory with provided bit_offset, bit_count, and signedness.
 If negative, the written value is sign-extended.
 
-```zig
+\`\`\`zig
 pub fn writeVarPackedInt(bytes: []u8, bit_offset: usize, bit_count: usize, value: anytype, endian: std.builtin.Endian) void {
     const T = @TypeOf(value);
     const uN = std.meta.Int(.unsigned, @bitSizeOf(T));
@@ -2362,7 +2362,7 @@ pub fn writeVarPackedInt(bytes: []u8, bit_offset: usize, bit_count: usize, value
     write_bytes[@as(usize, @intCast(i))] &= ~tail_mask;
     write_bytes[@as(usize, @intCast(i))] |= @as(u8, @intCast(@as(uN, @bitCast(remaining)) & tail_mask));
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2387,7 +2387,7 @@ pub fn writeVarPackedInt(bytes: []u8, bit_offset: usize, bit_count: usize, value
 Swap the byte order of all the members of the fields of a struct
 (Changing their endianness)
 
-```zig
+\`\`\`zig
 pub fn byteSwapAllFields(comptime S: type, ptr: *S) void {
     switch (@typeInfo(S)) {
         .@"struct" => {
@@ -2435,7 +2435,7 @@ pub fn byteSwapAllFields(comptime S: type, ptr: *S) void {
         },
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2454,7 +2454,7 @@ pub fn byteSwapAllFields(comptime S: type, ptr: *S) void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn byteSwapAllElements(comptime Elem: type, slice: []Elem) void {
     for (slice) |*elem| {
         switch (@typeInfo(@TypeOf(elem.*))) {
@@ -2472,7 +2472,7 @@ pub fn byteSwapAllElements(comptime Elem: type, slice: []Elem) void {
         }
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2505,7 +2505,7 @@ See also: `tokenizeSequence`, `tokenizeScalar`,
           `splitSequence`,`splitAny`, `splitScalar`,
           `splitBackwardsSequence`, `splitBackwardsAny`, and `splitBackwardsScalar`
 
-```zig
+\`\`\`zig
 pub fn tokenizeAny(comptime T: type, buffer: []const T, delimiters: []const T) TokenIterator(T, .any) {
     return .{
         .index = 0,
@@ -2513,7 +2513,7 @@ pub fn tokenizeAny(comptime T: type, buffer: []const T, delimiters: []const T) T
         .delimiter = delimiters,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2548,7 +2548,7 @@ See also: `tokenizeAny`, `tokenizeScalar`,
           `splitSequence`,`splitAny`, and `splitScalar`
           `splitBackwardsSequence`, `splitBackwardsAny`, and `splitBackwardsScalar`
 
-```zig
+\`\`\`zig
 pub fn tokenizeSequence(comptime T: type, buffer: []const T, delimiter: []const T) TokenIterator(T, .sequence) {
     assert(delimiter.len != 0);
     return .{
@@ -2557,7 +2557,7 @@ pub fn tokenizeSequence(comptime T: type, buffer: []const T, delimiter: []const 
         .delimiter = delimiter,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2591,7 +2591,7 @@ See also: `tokenizeAny`, `tokenizeSequence`,
           `splitSequence`,`splitAny`, and `splitScalar`
           `splitBackwardsSequence`, `splitBackwardsAny`, and `splitBackwardsScalar`
 
-```zig
+\`\`\`zig
 pub fn tokenizeScalar(comptime T: type, buffer: []const T, delimiter: T) TokenIterator(T, .scalar) {
     return .{
         .index = 0,
@@ -2599,7 +2599,7 @@ pub fn tokenizeScalar(comptime T: type, buffer: []const T, delimiter: T) TokenIt
         .delimiter = delimiter,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2633,7 +2633,7 @@ See also: `splitAny`, `splitScalar`, `splitBackwardsSequence`,
           `splitBackwardsAny`,`splitBackwardsScalar`,
           `tokenizeAny`, `tokenizeSequence`, and `tokenizeScalar`.
 
-```zig
+\`\`\`zig
 pub fn splitSequence(comptime T: type, buffer: []const T, delimiter: []const T) SplitIterator(T, .sequence) {
     assert(delimiter.len != 0);
     return .{
@@ -2642,7 +2642,7 @@ pub fn splitSequence(comptime T: type, buffer: []const T, delimiter: []const T) 
         .delimiter = delimiter,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2675,7 +2675,7 @@ See also: `splitSequence`, `splitScalar`, `splitBackwardsSequence`,
           `splitBackwardsAny`,`splitBackwardsScalar`,
           `tokenizeAny`, `tokenizeSequence`, and `tokenizeScalar`.
 
-```zig
+\`\`\`zig
 pub fn splitAny(comptime T: type, buffer: []const T, delimiters: []const T) SplitIterator(T, .any) {
     return .{
         .index = 0,
@@ -2683,7 +2683,7 @@ pub fn splitAny(comptime T: type, buffer: []const T, delimiters: []const T) Spli
         .delimiter = delimiters,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2716,7 +2716,7 @@ See also: `splitSequence`, `splitAny`, `splitBackwardsSequence`,
           `splitBackwardsAny`,`splitBackwardsScalar`,
           `tokenizeAny`, `tokenizeSequence`, and `tokenizeScalar`.
 
-```zig
+\`\`\`zig
 pub fn splitScalar(comptime T: type, buffer: []const T, delimiter: T) SplitIterator(T, .scalar) {
     return .{
         .index = 0,
@@ -2724,7 +2724,7 @@ pub fn splitScalar(comptime T: type, buffer: []const T, delimiter: T) SplitItera
         .delimiter = delimiter,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2758,7 +2758,7 @@ See also: `splitBackwardsAny`, `splitBackwardsScalar`,
           `splitSequence`, `splitAny`,`splitScalar`,
           `tokenizeAny`, `tokenizeSequence`, and `tokenizeScalar`.
 
-```zig
+\`\`\`zig
 pub fn splitBackwardsSequence(comptime T: type, buffer: []const T, delimiter: []const T) SplitBackwardsIterator(T, .sequence) {
     assert(delimiter.len != 0);
     return .{
@@ -2767,7 +2767,7 @@ pub fn splitBackwardsSequence(comptime T: type, buffer: []const T, delimiter: []
         .delimiter = delimiter,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2800,7 +2800,7 @@ See also: `splitBackwardsSequence`, `splitBackwardsScalar`,
           `splitSequence`, `splitAny`,`splitScalar`,
           `tokenizeAny`, `tokenizeSequence`, and `tokenizeScalar`.
 
-```zig
+\`\`\`zig
 pub fn splitBackwardsAny(comptime T: type, buffer: []const T, delimiters: []const T) SplitBackwardsIterator(T, .any) {
     return .{
         .index = buffer.len,
@@ -2808,7 +2808,7 @@ pub fn splitBackwardsAny(comptime T: type, buffer: []const T, delimiters: []cons
         .delimiter = delimiters,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2841,7 +2841,7 @@ See also: `splitBackwardsSequence`, `splitBackwardsAny`,
           `splitSequence`, `splitAny`,`splitScalar`,
           `tokenizeAny`, `tokenizeSequence`, and `tokenizeScalar`.
 
-```zig
+\`\`\`zig
 pub fn splitBackwardsScalar(comptime T: type, buffer: []const T, delimiter: T) SplitBackwardsIterator(T, .scalar) {
     return .{
         .index = buffer.len,
@@ -2849,7 +2849,7 @@ pub fn splitBackwardsScalar(comptime T: type, buffer: []const T, delimiter: T) S
         .delimiter = delimiter,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2887,7 +2887,7 @@ Pick every even index with:
 
 The `size` and `advance` must be not be zero.
 
-```zig
+\`\`\`zig
 pub fn window(comptime T: type, buffer: []const T, size: usize, advance: usize) WindowIterator(T) {
     assert(size != 0);
     assert(advance != 0);
@@ -2898,7 +2898,7 @@ pub fn window(comptime T: type, buffer: []const T, size: usize, advance: usize) 
         .advance = advance,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2919,7 +2919,7 @@ pub fn window(comptime T: type, buffer: []const T, size: usize, advance: usize) 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn WindowIterator(comptime T: type) type {
     return struct {
         buffer: []const T,
@@ -2959,7 +2959,7 @@ pub fn WindowIterator(comptime T: type) type {
         }
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2977,11 +2977,11 @@ pub fn WindowIterator(comptime T: type) type {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn startsWith(comptime T: type, haystack: []const T, needle: []const T) bool {
     return if (needle.len > haystack.len) false else eql(T, haystack[0..needle.len], needle);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3001,11 +3001,11 @@ pub fn startsWith(comptime T: type, haystack: []const T, needle: []const T) bool
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn endsWith(comptime T: type, haystack: []const T, needle: []const T) bool {
     return if (needle.len > haystack.len) false else eql(T, haystack[haystack.len - needle.len ..], needle);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3025,7 +3025,7 @@ pub fn endsWith(comptime T: type, haystack: []const T, needle: []const T) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn TokenIterator(comptime T: type, comptime delimiter_type: DelimiterType) type {
     return struct {
         buffer: []const T,
@@ -3098,7 +3098,7 @@ pub fn TokenIterator(comptime T: type, comptime delimiter_type: DelimiterType) t
         }
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3117,7 +3117,7 @@ pub fn TokenIterator(comptime T: type, comptime delimiter_type: DelimiterType) t
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn SplitIterator(comptime T: type, comptime delimiter_type: DelimiterType) type {
     return struct {
         buffer: []const T,
@@ -3182,7 +3182,7 @@ pub fn SplitIterator(comptime T: type, comptime delimiter_type: DelimiterType) t
         }
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3201,7 +3201,7 @@ pub fn SplitIterator(comptime T: type, comptime delimiter_type: DelimiterType) t
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn SplitBackwardsIterator(comptime T: type, comptime delimiter_type: DelimiterType) type {
     return struct {
         buffer: []const T,
@@ -3253,7 +3253,7 @@ pub fn SplitBackwardsIterator(comptime T: type, comptime delimiter_type: Delimit
         }
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3275,11 +3275,11 @@ pub fn SplitBackwardsIterator(comptime T: type, comptime delimiter_type: Delimit
 Naively combines a series of slices with a separator.
 Allocates memory for the result, which must be freed by the caller.
 
-```zig
+\`\`\`zig
 pub fn join(allocator: Allocator, separator: []const u8, slices: []const []const u8) Allocator.Error![]u8 {
     return joinMaybeZ(allocator, separator, slices, false);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3302,12 +3302,12 @@ pub fn join(allocator: Allocator, separator: []const u8, slices: []const []const
 Naively combines a series of slices with a separator and null terminator.
 Allocates memory for the result, which must be freed by the caller.
 
-```zig
+\`\`\`zig
 pub fn joinZ(allocator: Allocator, separator: []const u8, slices: []const []const u8) Allocator.Error![:0]u8 {
     const out = try joinMaybeZ(allocator, separator, slices, true);
     return out[0 .. out.len - 1 :0];
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3329,11 +3329,11 @@ pub fn joinZ(allocator: Allocator, separator: []const u8, slices: []const []cons
 
 Copies each T from slices into a new slice that exactly holds all the elements.
 
-```zig
+\`\`\`zig
 pub fn concat(allocator: Allocator, comptime T: type, slices: []const []const T) Allocator.Error![]T {
     return concatMaybeSentinel(allocator, T, slices, null);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3355,12 +3355,12 @@ pub fn concat(allocator: Allocator, comptime T: type, slices: []const []const T)
 
 Copies each T from slices into a new slice that exactly holds all the elements.
 
-```zig
+\`\`\`zig
 pub fn concatWithSentinel(allocator: Allocator, comptime T: type, slices: []const []const T, comptime s: T) Allocator.Error![:s]T {
     const ret = try concatMaybeSentinel(allocator, T, slices, s);
     return ret[0 .. ret.len - 1 :s];
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3383,7 +3383,7 @@ pub fn concatWithSentinel(allocator: Allocator, comptime T: type, slices: []cons
 
 Copies each T from slices into a new slice that exactly holds all the elements as well as the sentinel.
 
-```zig
+\`\`\`zig
 pub fn concatMaybeSentinel(allocator: Allocator, comptime T: type, slices: []const []const T, comptime s: ?T) Allocator.Error![]T {
     if (slices.len == 0) return if (s) |sentinel| try allocator.dupe(T, &[1]T{sentinel}) else &[0]T{};
 
@@ -3416,7 +3416,7 @@ pub fn concatMaybeSentinel(allocator: Allocator, comptime T: type, slices: []con
     // No need for shrink since buf is exactly the correct size.
     return buf;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3440,7 +3440,7 @@ pub fn concatMaybeSentinel(allocator: Allocator, comptime T: type, slices: []con
 Returns the smallest number in a slice. O(n).
 `slice` must not be empty.
 
-```zig
+\`\`\`zig
 pub fn min(comptime T: type, slice: []const T) T {
     assert(slice.len > 0);
     var best = slice[0];
@@ -3449,7 +3449,7 @@ pub fn min(comptime T: type, slice: []const T) T {
     }
     return best;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3471,7 +3471,7 @@ pub fn min(comptime T: type, slice: []const T) T {
 Returns the largest number in a slice. O(n).
 `slice` must not be empty.
 
-```zig
+\`\`\`zig
 pub fn max(comptime T: type, slice: []const T) T {
     assert(slice.len > 0);
     var best = slice[0];
@@ -3480,7 +3480,7 @@ pub fn max(comptime T: type, slice: []const T) T {
     }
     return best;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3503,7 +3503,7 @@ Finds the smallest and largest number in a slice. O(n).
 Returns an anonymous struct with the fields `min` and `max`.
 `slice` must not be empty.
 
-```zig
+\`\`\`zig
 pub fn minMax(comptime T: type, slice: []const T) struct { T, T } {
     assert(slice.len > 0);
     var running_minimum = slice[0];
@@ -3514,7 +3514,7 @@ pub fn minMax(comptime T: type, slice: []const T) struct { T, T } {
     }
     return .{ running_minimum, running_maximum };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3536,7 +3536,7 @@ pub fn minMax(comptime T: type, slice: []const T) struct { T, T } {
 Returns the index of the smallest number in a slice. O(n).
 `slice` must not be empty.
 
-```zig
+\`\`\`zig
 pub fn indexOfMin(comptime T: type, slice: []const T) usize {
     assert(slice.len > 0);
     var best = slice[0];
@@ -3549,7 +3549,7 @@ pub fn indexOfMin(comptime T: type, slice: []const T) usize {
     }
     return index;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3571,7 +3571,7 @@ pub fn indexOfMin(comptime T: type, slice: []const T) usize {
 Returns the index of the largest number in a slice. O(n).
 `slice` must not be empty.
 
-```zig
+\`\`\`zig
 pub fn indexOfMax(comptime T: type, slice: []const T) usize {
     assert(slice.len > 0);
     var best = slice[0];
@@ -3584,7 +3584,7 @@ pub fn indexOfMax(comptime T: type, slice: []const T) usize {
     }
     return index;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3607,7 +3607,7 @@ Finds the indices of the smallest and largest number in a slice. O(n).
 Returns the indices of the smallest and largest numbers in that order.
 `slice` must not be empty.
 
-```zig
+\`\`\`zig
 pub fn indexOfMinMax(comptime T: type, slice: []const T) struct { usize, usize } {
     assert(slice.len > 0);
     var minVal = slice[0];
@@ -3626,7 +3626,7 @@ pub fn indexOfMinMax(comptime T: type, slice: []const T) struct { usize, usize }
     }
     return .{ minIdx, maxIdx };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3645,13 +3645,13 @@ pub fn indexOfMinMax(comptime T: type, slice: []const T) struct { usize, usize }
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn swap(comptime T: type, a: *T, b: *T) void {
     const tmp = a.*;
     a.* = b.*;
     b.* = tmp;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3673,7 +3673,7 @@ pub fn swap(comptime T: type, a: *T, b: *T) void {
 
 In-place order reversal of a slice
 
-```zig
+\`\`\`zig
 pub fn reverse(comptime T: type, items: []T) void {
     var i: usize = 0;
     const end = items.len / 2;
@@ -3703,7 +3703,7 @@ pub fn reverse(comptime T: type, items: []T) void {
         swap(T, &items[i], &items[items.len - i - 1]);
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3724,11 +3724,11 @@ pub fn reverse(comptime T: type, items: []T) void {
 
 Iterates over a slice in reverse.
 
-```zig
+\`\`\`zig
 pub fn reverseIterator(slice: anytype) ReverseIterator(@TypeOf(slice)) {
     return .{ .ptr = slice.ptr, .index = slice.len };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3749,13 +3749,13 @@ pub fn reverseIterator(slice: anytype) ReverseIterator(@TypeOf(slice)) {
 In-place rotation of the values in an array ([0 1 2 3] becomes [1 2 3 0] if we rotate by 1)
 Assumes 0 <= amount <= items.len
 
-```zig
+\`\`\`zig
 pub fn rotate(comptime T: type, items: []T, amount: usize) void {
     reverse(T, items[0..amount]);
     reverse(T, items[amount..]);
     reverse(T, items);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3780,7 +3780,7 @@ appropriate size. Use replacementSize to calculate an appropriate buffer size.
 The needle must not be empty.
 Returns the number of replacements made.
 
-```zig
+\`\`\`zig
 pub fn replace(comptime T: type, input: []const T, needle: []const T, replacement: []const T, output: []T) usize {
     // Empty needle will loop until output buffer overflows.
     assert(needle.len > 0);
@@ -3803,7 +3803,7 @@ pub fn replace(comptime T: type, input: []const T, needle: []const T, replacemen
 
     return replacements;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3827,14 +3827,14 @@ pub fn replace(comptime T: type, input: []const T, needle: []const T, replacemen
 
 Replace all occurrences of `match` with `replacement`.
 
-```zig
+\`\`\`zig
 pub fn replaceScalar(comptime T: type, slice: []T, match: T, replacement: T) void {
     for (slice) |*e| {
         if (e.* == match)
             e.* = replacement;
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3857,7 +3857,7 @@ pub fn replaceScalar(comptime T: type, slice: []T, match: T, replacement: T) voi
 
 Collapse consecutive duplicate elements into one entry.
 
-```zig
+\`\`\`zig
 pub fn collapseRepeatsLen(comptime T: type, slice: []T, elem: T) usize {
     if (slice.len == 0) return 0;
     var write_idx: usize = 1;
@@ -3870,7 +3870,7 @@ pub fn collapseRepeatsLen(comptime T: type, slice: []T, elem: T) usize {
     }
     return write_idx;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3892,11 +3892,11 @@ pub fn collapseRepeatsLen(comptime T: type, slice: []T, elem: T) usize {
 
 Collapse consecutive duplicate elements into one entry.
 
-```zig
+\`\`\`zig
 pub fn collapseRepeats(comptime T: type, slice: []T, elem: T) []T {
     return slice[0..collapseRepeatsLen(T, slice, elem)];
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3919,7 +3919,7 @@ pub fn collapseRepeats(comptime T: type, slice: []T, elem: T) []T {
 Calculate the size needed in an output buffer to perform a replacement.
 The needle must not be empty.
 
-```zig
+\`\`\`zig
 pub fn replacementSize(comptime T: type, input: []const T, needle: []const T, replacement: []const T) usize {
     // Empty needle will loop forever.
     assert(needle.len > 0);
@@ -3937,7 +3937,7 @@ pub fn replacementSize(comptime T: type, input: []const T, needle: []const T, re
 
     return size;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3960,13 +3960,13 @@ pub fn replacementSize(comptime T: type, input: []const T, needle: []const T, re
 
 Perform a replacement on an allocated buffer of pre-determined size. Caller must free returned memory.
 
-```zig
+\`\`\`zig
 pub fn replaceOwned(comptime T: type, allocator: Allocator, input: []const T, needle: []const T, replacement: []const T) Allocator.Error![]T {
     const output = try allocator.alloc(T, replacementSize(T, input, needle, replacement));
     _ = replace(T, input, needle, replacement, output);
     return output;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -3990,14 +3990,14 @@ pub fn replaceOwned(comptime T: type, allocator: Allocator, input: []const T, ne
 
 Converts a little-endian integer to host endianness.
 
-```zig
+\`\`\`zig
 pub fn littleToNative(comptime T: type, x: T) T {
     return switch (native_endian) {
         .little => x,
         .big => @byteSwap(x),
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4018,14 +4018,14 @@ pub fn littleToNative(comptime T: type, x: T) T {
 
 Converts a big-endian integer to host endianness.
 
-```zig
+\`\`\`zig
 pub fn bigToNative(comptime T: type, x: T) T {
     return switch (native_endian) {
         .little => @byteSwap(x),
         .big => x,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4046,14 +4046,14 @@ pub fn bigToNative(comptime T: type, x: T) T {
 
 Converts an integer from specified endianness to host endianness.
 
-```zig
+\`\`\`zig
 pub fn toNative(comptime T: type, x: T, endianness_of_x: Endian) T {
     return switch (endianness_of_x) {
         .little => littleToNative(T, x),
         .big => bigToNative(T, x),
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4075,14 +4075,14 @@ pub fn toNative(comptime T: type, x: T, endianness_of_x: Endian) T {
 
 Converts an integer which has host endianness to the desired endianness.
 
-```zig
+\`\`\`zig
 pub fn nativeTo(comptime T: type, x: T, desired_endianness: Endian) T {
     return switch (desired_endianness) {
         .little => nativeToLittle(T, x),
         .big => nativeToBig(T, x),
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4104,14 +4104,14 @@ pub fn nativeTo(comptime T: type, x: T, desired_endianness: Endian) T {
 
 Converts an integer which has host endianness to little endian.
 
-```zig
+\`\`\`zig
 pub fn nativeToLittle(comptime T: type, x: T) T {
     return switch (native_endian) {
         .little => x,
         .big => @byteSwap(x),
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4132,14 +4132,14 @@ pub fn nativeToLittle(comptime T: type, x: T) T {
 
 Converts an integer which has host endianness to big endian.
 
-```zig
+\`\`\`zig
 pub fn nativeToBig(comptime T: type, x: T) T {
     return switch (native_endian) {
         .little => @byteSwap(x),
         .big => x,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4165,7 +4165,7 @@ conditions is met:
 - The delta required to align the pointer is not a multiple of the pointee's
   type.
 
-```zig
+\`\`\`zig
 pub fn alignPointerOffset(ptr: anytype, align_to: usize) ?usize {
     assert(isValidAlign(align_to));
 
@@ -4191,7 +4191,7 @@ pub fn alignPointerOffset(ptr: anytype, align_to: usize) ?usize {
     if (delta % pointee_size != 0) return null;
     return delta / pointee_size;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4217,13 +4217,13 @@ met:
 - The delta required to align the pointer is not a multiple of the pointee's
   type.
 
-```zig
+\`\`\`zig
 pub fn alignPointer(ptr: anytype, align_to: usize) ?@TypeOf(ptr) {
     const adjust_off = alignPointerOffset(ptr, align_to) orelse return null;
     // Avoid the use of ptrFromInt to avoid losing the pointer provenance info.
     return @alignCast(ptr + adjust_off);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4244,11 +4244,11 @@ pub fn alignPointer(ptr: anytype, align_to: usize) ?@TypeOf(ptr) {
 
 Given a pointer to a single item, returns a slice of the underlying bytes, preserving pointer attributes.
 
-```zig
+\`\`\`zig
 pub fn asBytes(ptr: anytype) AsBytesReturnType(@TypeOf(ptr)) {
     return @ptrCast(@alignCast(ptr));
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4268,11 +4268,11 @@ pub fn asBytes(ptr: anytype) AsBytesReturnType(@TypeOf(ptr)) {
 
 Given any value, returns a copy of its bytes in an array.
 
-```zig
+\`\`\`zig
 pub fn toBytes(value: anytype) [@sizeOf(@TypeOf(value))]u8 {
     return asBytes(&value).*;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4293,11 +4293,11 @@ pub fn toBytes(value: anytype) [@sizeOf(@TypeOf(value))]u8 {
 Given a pointer to an array of bytes, returns a pointer to a value of the specified type
 backed by those bytes, preserving pointer attributes.
 
-```zig
+\`\`\`zig
 pub fn bytesAsValue(comptime T: type, bytes: anytype) BytesAsValueReturnType(T, @TypeOf(bytes)) {
     return @ptrCast(bytes);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4319,11 +4319,11 @@ pub fn bytesAsValue(comptime T: type, bytes: anytype) BytesAsValueReturnType(T, 
 Given a pointer to an array of bytes, returns a value of the specified type backed by a
 copy of those bytes.
 
-```zig
+\`\`\`zig
 pub fn bytesToValue(comptime T: type, bytes: anytype) T {
     return bytesAsValue(T, bytes).*;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4346,7 +4346,7 @@ Given a slice of bytes, returns a slice of the specified type
 backed by those bytes, preserving pointer attributes.
 If `T` is zero-bytes sized, the returned slice has a len of zero.
 
-```zig
+\`\`\`zig
 pub fn bytesAsSlice(comptime T: type, bytes: anytype) BytesAsSliceReturnType(T, @TypeOf(bytes)) {
     // let's not give an undefined pointer to @ptrCast
     // it may be equal to zero and fail a null check
@@ -4358,7 +4358,7 @@ pub fn bytesAsSlice(comptime T: type, bytes: anytype) BytesAsSliceReturnType(T, 
 
     return @as(cast_target, @ptrCast(bytes))[0..@divExact(bytes.len, @sizeOf(T))];
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4379,7 +4379,7 @@ pub fn bytesAsSlice(comptime T: type, bytes: anytype) BytesAsSliceReturnType(T, 
 
 Given a slice, returns a slice of the underlying bytes, preserving pointer attributes.
 
-```zig
+\`\`\`zig
 pub fn sliceAsBytes(slice: anytype) SliceAsBytesReturnType(@TypeOf(slice)) {
     const Slice = @TypeOf(slice);
 
@@ -4394,7 +4394,7 @@ pub fn sliceAsBytes(slice: anytype) SliceAsBytesReturnType(@TypeOf(slice)) {
 
     return @as(cast_target, @ptrCast(slice))[0 .. slice.len * @sizeOf(std.meta.Elem(Slice))];
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4415,14 +4415,14 @@ pub fn sliceAsBytes(slice: anytype) SliceAsBytesReturnType(@TypeOf(slice)) {
 Round an address down to the next (or current) aligned address.
 Unlike `alignForward`, `alignment` can be any positive number, not just a power of 2.
 
-```zig
+\`\`\`zig
 pub fn alignForwardAnyAlign(comptime T: type, addr: T, alignment: T) T {
     if (isValidAlignGeneric(T, alignment))
         return alignForward(T, addr, alignment);
     assert(alignment != 0);
     return alignBackwardAnyAlign(T, addr + (alignment - 1), alignment);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4446,12 +4446,12 @@ Round an address up to the next (or current) aligned address.
 The alignment must be a power of 2 and greater than 0.
 Asserts that rounding up the address does not cause integer overflow.
 
-```zig
+\`\`\`zig
 pub fn alignForward(comptime T: type, addr: T, alignment: T) T {
     assert(isValidAlignGeneric(T, alignment));
     return alignBackward(T, addr + (alignment - 1), alignment);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4471,12 +4471,12 @@ pub fn alignForward(comptime T: type, addr: T, alignment: T) T {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn alignForwardLog2(addr: usize, log2_alignment: u8) usize {
     const alignment = @as(usize, 1) << @as(math.Log2Int(usize), @intCast(log2_alignment));
     return alignForward(usize, addr, alignment);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4499,7 +4499,7 @@ Force an evaluation of the expression; this tries to prevent
 the compiler from optimizing the computation away even if the
 result eventually gets discarded.
 
-```zig
+\`\`\`zig
 pub fn doNotOptimizeAway(val: anytype) void {
     if (@inComptime()) return;
 
@@ -4548,7 +4548,7 @@ pub fn doNotOptimizeAway(val: anytype) void {
         else => doNotOptimizeAway(&val),
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4569,14 +4569,14 @@ pub fn doNotOptimizeAway(val: anytype) void {
 Round an address down to the previous (or current) aligned address.
 Unlike `alignBackward`, `alignment` can be any positive number, not just a power of 2.
 
-```zig
+\`\`\`zig
 pub fn alignBackwardAnyAlign(comptime T: type, addr: T, alignment: T) T {
     if (isValidAlignGeneric(T, alignment))
         return alignBackward(T, addr, alignment);
     assert(alignment != 0);
     return addr - @mod(addr, alignment);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4599,7 +4599,7 @@ pub fn alignBackwardAnyAlign(comptime T: type, addr: T, alignment: T) T {
 Round an address down to the previous (or current) aligned address.
 The alignment must be a power of 2 and greater than 0.
 
-```zig
+\`\`\`zig
 pub fn alignBackward(comptime T: type, addr: T, alignment: T) T {
     assert(isValidAlignGeneric(T, alignment));
     // 000010000 // example alignment
@@ -4607,7 +4607,7 @@ pub fn alignBackward(comptime T: type, addr: T, alignment: T) T {
     // 111110000 // binary not
     return addr & ~(alignment - 1);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4630,11 +4630,11 @@ pub fn alignBackward(comptime T: type, addr: T, alignment: T) T {
 Returns whether `alignment` is a valid alignment, meaning it is
 a positive power of 2.
 
-```zig
+\`\`\`zig
 pub fn isValidAlign(alignment: usize) bool {
     return isValidAlignGeneric(usize, alignment);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4655,11 +4655,11 @@ pub fn isValidAlign(alignment: usize) bool {
 Returns whether `alignment` is a valid alignment, meaning it is
 a positive power of 2.
 
-```zig
+\`\`\`zig
 pub fn isValidAlignGeneric(comptime T: type, alignment: T) bool {
     return alignment > 0 and std.math.isPowerOfTwo(alignment);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4678,14 +4678,14 @@ pub fn isValidAlignGeneric(comptime T: type, alignment: T) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn isAlignedAnyAlign(i: usize, alignment: usize) bool {
     if (isValidAlign(alignment))
         return isAligned(i, alignment);
     assert(alignment != 0);
     return 0 == @mod(i, alignment);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4704,11 +4704,11 @@ pub fn isAlignedAnyAlign(i: usize, alignment: usize) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn isAlignedLog2(addr: usize, log2_alignment: u8) bool {
     return @ctz(addr) >= log2_alignment;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4730,11 +4730,11 @@ pub fn isAlignedLog2(addr: usize, log2_alignment: u8) bool {
 Given an address and an alignment, return true if the address is a multiple of the alignment
 The alignment must be a power of 2 and greater than 0.
 
-```zig
+\`\`\`zig
 pub fn isAligned(addr: usize, alignment: usize) bool {
     return isAlignedGeneric(u64, addr, alignment);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4753,11 +4753,11 @@ pub fn isAligned(addr: usize, alignment: usize) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn isAlignedGeneric(comptime T: type, addr: T, alignment: T) bool {
     return alignBackward(T, addr, alignment) == addr;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4780,7 +4780,7 @@ pub fn isAlignedGeneric(comptime T: type, addr: T, alignment: T) bool {
 Returns the largest slice in the given bytes that conforms to the new alignment,
 or `null` if the given bytes contain no conforming address.
 
-```zig
+\`\`\`zig
 pub fn alignInBytes(bytes: []u8, comptime new_alignment: usize) ?[]align(new_alignment) u8 {
     const begin_address = @intFromPtr(bytes.ptr);
     const end_address = begin_address + bytes.len;
@@ -4792,7 +4792,7 @@ pub fn alignInBytes(bytes: []u8, comptime new_alignment: usize) ?[]align(new_ali
     const alignment_offset = begin_address_aligned - begin_address;
     return @alignCast(bytes[alignment_offset .. alignment_offset + new_length]);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4814,7 +4814,7 @@ pub fn alignInBytes(bytes: []u8, comptime new_alignment: usize) ?[]align(new_ali
 Returns the largest sub-slice within the given slice that conforms to the new alignment,
 or `null` if the given slice contains no conforming address.
 
-```zig
+\`\`\`zig
 pub fn alignInSlice(slice: anytype, comptime new_alignment: usize) ?AlignedSlice(@TypeOf(slice), new_alignment) {
     const bytes = sliceAsBytes(slice);
     const aligned_bytes = alignInBytes(bytes, new_alignment) orelse return null;
@@ -4824,7 +4824,7 @@ pub fn alignInSlice(slice: anytype, comptime new_alignment: usize) ?AlignedSlice
     const aligned_slice = bytesAsSlice(Element, aligned_bytes[0..slice_length_bytes]);
     return @alignCast(aligned_slice);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -4837,5 +4837,3 @@ pub fn alignInSlice(slice: anytype, comptime new_alignment: usize) ?AlignedSlice
 </details>
 
 ---
-
-

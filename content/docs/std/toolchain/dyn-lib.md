@@ -57,7 +57,7 @@ This page syncs automatically from `std/DynLib.md` in the repository. Edit the s
 Cross-platform dynamic library loading and symbol lookup.
 Platform-specific functionality is available through the `inner` field.
 
-```zig
+\`\`\`zig
 pub const DynLib = struct {
     const InnerType = switch (native_os) {
         .linux => if (!builtin.link_libc or builtin.abi == .musl and builtin.link_mode == .static)
@@ -95,7 +95,7 @@ pub const DynLib = struct {
         return self.inner.lookup(T, name);
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -112,7 +112,7 @@ pub const DynLib = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const ElfDynLib = struct {
     strings: [*:0]u8,
     syms: [*]elf.Sym,
@@ -508,7 +508,7 @@ pub const ElfDynLib = struct {
         return result;
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -530,7 +530,7 @@ pub const ElfDynLib = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const WindowsDynLib = struct {
     pub const Error = WindowsDynLibError;
 
@@ -590,7 +590,7 @@ pub const WindowsDynLib = struct {
         }
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -607,7 +607,7 @@ pub const WindowsDynLib = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const DlDynLib = struct {
     pub const Error = DlDynLibError;
 
@@ -651,7 +651,7 @@ pub const DlDynLib = struct {
         return mem.span(std.c.dlerror());
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -672,7 +672,7 @@ pub const DlDynLib = struct {
 
 TODO fix comparisons of extern symbol pointers so we don't need this helper function.
 
-```zig
+\`\`\`zig
 pub fn get_DYNAMIC() ?[*]const elf.Dyn {
     return @extern([*]const elf.Dyn, .{
         .name = "_DYNAMIC",
@@ -680,7 +680,7 @@ pub fn get_DYNAMIC() ?[*]const elf.Dyn {
         .visibility = .hidden,
     });
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -697,7 +697,7 @@ pub fn get_DYNAMIC() ?[*]const elf.Dyn {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn linkmap_iterator(phdrs: []const elf.Phdr) error{InvalidExe}!LinkMap.Iterator {
     _ = phdrs;
     const _DYNAMIC = get_DYNAMIC() orelse {
@@ -733,7 +733,7 @@ pub fn linkmap_iterator(phdrs: []const elf.Phdr) error{InvalidExe}!LinkMap.Itera
 
     return .{ .current = link_map_ptr };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -749,5 +749,3 @@ pub fn linkmap_iterator(phdrs: []const elf.Phdr) error{InvalidExe}!LinkMap.Itera
 </details>
 
 ---
-
-

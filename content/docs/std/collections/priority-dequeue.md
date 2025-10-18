@@ -56,7 +56,7 @@ Popping the max element works in reverse. For example,
 to make `popMin` return the smallest number, provide
 `fn lessThan(context: void, a: T, b: T) Order { _ = context; return std.math.order(a, b); }`
 
-```zig
+\`\`\`zig
 pub fn PriorityDequeue(comptime T: type, comptime Context: type, comptime compareFn: fn (context: Context, a: T, b: T) Order) type {
     return struct {
         const Self = @This();
@@ -501,7 +501,7 @@ pub fn PriorityDequeue(comptime T: type, comptime Context: type, comptime compar
         }
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -515,5 +515,3 @@ pub fn PriorityDequeue(comptime T: type, comptime Context: type, comptime compar
 </details>
 
 ---
-
-

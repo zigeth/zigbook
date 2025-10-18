@@ -45,7 +45,7 @@ This API is non-allocating, non-fallible, thread-safe, and lock-free.
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Status = enum {
     /// Indicates the application is progressing towards completion of a task.
     /// Unless the application is interactive, this is the only status the
@@ -61,7 +61,7 @@ pub const Status = enum {
     /// more tasks.
     failure_working,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -81,7 +81,7 @@ pub const Status = enum {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Options = struct {
     /// User-provided buffer with static lifetime.
     ///
@@ -100,7 +100,7 @@ pub const Options = struct {
     root_name: []const u8 = "",
     disable_printing: bool = false,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -125,7 +125,7 @@ pub const Options = struct {
 Represents one unit of progress. Each node can have children nodes, or
 one can use integers with `update`.
 
-```zig
+\`\`\`zig
 pub const Node = struct {
     index: OptionalIndex,
 
@@ -408,7 +408,7 @@ pub const Node = struct {
         return .{ .index = free_index.toOptional() };
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -427,7 +427,7 @@ pub const Node = struct {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const TerminalMode = union(enum) {
     off,
     ansi_escape_codes,
@@ -440,7 +440,7 @@ pub const TerminalMode = union(enum) {
         code_page: windows.UINT,
     };
 }
-```
+\`\`\`
 
 </details>
 
@@ -451,12 +451,12 @@ pub const TerminalMode = union(enum) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const have_ipc = switch (builtin.os.tag) {
     .wasi, .freestanding, .windows => false,
     else => true,
 }
-```
+\`\`\`
 
 </details>
 
@@ -475,7 +475,7 @@ Asserts there is only one global Progress instance.
 
 Call `Node.end` when done.
 
-```zig
+\`\`\`zig
 pub fn start(options: Options) Node {
     // Ensure there is only 1 global Progress object.
     if (global_progress.node_end_index != 0) {
@@ -555,7 +555,7 @@ pub fn start(options: Options) Node {
 
     return root_node;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -573,12 +573,12 @@ pub fn start(options: Options) Node {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn setStatus(new_status: Status) void {
     if (noop_impl) return;
     @atomicStore(Status, &global_progress.status, new_status, .monotonic);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -602,12 +602,12 @@ During the lock, any `std.Progress` information is cleared from the terminal.
 
 The lock is recursive; the same thread may hold the lock multiple times.
 
-```zig
+\`\`\`zig
 pub fn lockStdErr() void {
     stderr_mutex.lock();
     clearWrittenWithEscapeCodes() catch {};
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -624,11 +624,11 @@ pub fn lockStdErr() void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn unlockStdErr() void {
     stderr_mutex.unlock();
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -652,7 +652,7 @@ During the lock, any `std.Progress` information is cleared from the terminal.
 
 The lock is recursive; the same thread may hold the lock multiple times.
 
-```zig
+\`\`\`zig
 pub fn lockStderrWriter(buffer: []u8) *Writer {
     stderr_mutex.lock();
     clearWrittenWithEscapeCodes() catch {};
@@ -661,7 +661,7 @@ pub fn lockStderrWriter(buffer: []u8) *Writer {
     stderr_writer.buffer = buffer;
     return stderr_writer;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -679,14 +679,14 @@ pub fn lockStderrWriter(buffer: []u8) *Writer {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn unlockStderrWriter() void {
     stderr_writer.flush() catch {};
     stderr_writer.end = 0;
     stderr_writer.buffer = &.{};
     stderr_mutex.unlock();
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -697,4 +697,3 @@ pub fn unlockStderrWriter() void {
 </details>
 
 ---
-

@@ -32,7 +32,7 @@ Supported Zig container types:
 * anonymous tuple literals
 
 Here is an example ZON object:
-```
+\`\`\`
 .{
     .a = 1.5,
     .b = "hello, world!",
@@ -40,12 +40,12 @@ Here is an example ZON object:
     .d = .{ 1, 2, 3 },
     .e = .{ .x = 13, .y = 67 },
 }
-```
+\`\`\`
 
 Individual primitives are also valid ZON, for example:
-```
+\`\`\`
 "This string is a valid ZON object."
-```
+\`\`\`
 
 ZON may not contain type names.
 
@@ -70,9 +70,9 @@ given Zig types. Similarly, the serializer will traverse pointers.
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const parse = @import("zon/parse.zig")
-```
+\`\`\`
 
 > **Module:** `zon/parse.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zon/parse.zig)
 
@@ -85,9 +85,9 @@ pub const parse = @import("zon/parse.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const stringify = @import("zon/stringify.zig")
-```
+\`\`\`
 
 > **Module:** `zon/stringify.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zon/stringify.zig)
 
@@ -100,13 +100,12 @@ pub const stringify = @import("zon/stringify.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Serializer = @import("zon/Serializer.zig")
-```
+\`\`\`
 
 > **Module:** `zon/Serializer.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zon/Serializer.zig)
 
 </details>
 
 ---
-

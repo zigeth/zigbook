@@ -71,9 +71,9 @@ This page syncs automatically from `std/gpu.md` in the repository. Edit the sour
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-```zig
+\`\`\`zig
 pub const position_in = @extern(*addrspace(.input) @Vector(4, f32), .{ .name = "position" })
-```
+\`\`\`
 
 </details>
 
@@ -84,9 +84,9 @@ pub const position_in = @extern(*addrspace(.input) @Vector(4, f32), .{ .name = "
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-```zig
+\`\`\`zig
 pub const position_out = @extern(*addrspace(.output) @Vector(4, f32), .{ .name = "position" })
-```
+\`\`\`
 
 </details>
 
@@ -97,9 +97,9 @@ pub const position_out = @extern(*addrspace(.output) @Vector(4, f32), .{ .name =
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-```zig
+\`\`\`zig
 pub const point_size_in = @extern(*addrspace(.input) f32, .{ .name = "point_size" })
-```
+\`\`\`
 
 </details>
 
@@ -110,9 +110,9 @@ pub const point_size_in = @extern(*addrspace(.input) f32, .{ .name = "point_size
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-```zig
+\`\`\`zig
 pub const point_size_out = @extern(*addrspace(.output) f32, .{ .name = "point_size" })
-```
+\`\`\`
 
 </details>
 
@@ -123,7 +123,7 @@ pub const point_size_out = @extern(*addrspace(.output) f32, .{ .name = "point_si
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const ExecutionMode = union(Tag) {
     /// Sets origin of the framebuffer to the upper-left corner
     origin_upper_left,
@@ -159,7 +159,7 @@ pub const ExecutionMode = union(Tag) {
 
     pub const LocalSize = struct { x: u32, y: u32, z: u32 };
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -184,9 +184,9 @@ pub const ExecutionMode = union(Tag) {
 <details class="declaration-card" open>
 <summary>Variable – Expand to inspect the definition and usage details.</summary>
 
-```zig
+\`\`\`zig
 pub extern var frag_depth: f32
-```
+\`\`\`
 
 </details>
 
@@ -199,9 +199,9 @@ pub extern var frag_depth: f32
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub extern const invocation_id: u32
-```
+\`\`\`
 
 </details>
 
@@ -212,9 +212,9 @@ pub extern const invocation_id: u32
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub extern const frag_coord: @Vector(4, f32)
-```
+\`\`\`
 
 </details>
 
@@ -225,9 +225,9 @@ pub extern const frag_coord: @Vector(4, f32)
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub extern const point_coord: @Vector(2, f32)
-```
+\`\`\`
 
 </details>
 
@@ -238,9 +238,9 @@ pub extern const point_coord: @Vector(2, f32)
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub extern const num_workgroups: @Vector(3, u32)
-```
+\`\`\`
 
 </details>
 
@@ -251,9 +251,9 @@ pub extern const num_workgroups: @Vector(3, u32)
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub extern const workgroup_size: @Vector(3, u32)
-```
+\`\`\`
 
 </details>
 
@@ -264,9 +264,9 @@ pub extern const workgroup_size: @Vector(3, u32)
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub extern const workgroup_id: @Vector(3, u32)
-```
+\`\`\`
 
 </details>
 
@@ -277,9 +277,9 @@ pub extern const workgroup_id: @Vector(3, u32)
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub extern const local_invocation_id: @Vector(3, u32)
-```
+\`\`\`
 
 </details>
 
@@ -290,9 +290,9 @@ pub extern const local_invocation_id: @Vector(3, u32)
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub extern const global_invocation_id: @Vector(3, u32)
-```
+\`\`\`
 
 </details>
 
@@ -303,9 +303,9 @@ pub extern const global_invocation_id: @Vector(3, u32)
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub extern const vertex_index: u32
-```
+\`\`\`
 
 </details>
 
@@ -316,9 +316,9 @@ pub extern const vertex_index: u32
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub extern const instance_index: u32
-```
+\`\`\`
 
 </details>
 
@@ -334,7 +334,7 @@ pub extern const instance_index: u32
 Forms the main linkage for `input` and `output` address spaces.
 `ptr` must be a reference to variable or struct field.
 
-```zig
+\`\`\`zig
 pub fn location(comptime ptr: anytype, comptime loc: u32) void {
     asm volatile (
         \\OpDecorate %ptr Location $loc
@@ -343,7 +343,7 @@ pub fn location(comptime ptr: anytype, comptime loc: u32) void {
           [loc] "c" (loc),
     );
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -365,7 +365,7 @@ pub fn location(comptime ptr: anytype, comptime loc: u32) void {
 Forms the main linkage for `input` and `output` address spaces.
 `ptr` must be a reference to variable or struct field.
 
-```zig
+\`\`\`zig
 pub fn binding(comptime ptr: anytype, comptime set: u32, comptime bind: u32) void {
     asm volatile (
         \\OpDecorate %ptr DescriptorSet $set
@@ -376,7 +376,7 @@ pub fn binding(comptime ptr: anytype, comptime set: u32, comptime bind: u32) voi
           [bind] "c" (bind),
     );
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -398,7 +398,7 @@ pub fn binding(comptime ptr: anytype, comptime set: u32, comptime bind: u32) voi
 
 Declare the mode entry point executes in.
 
-```zig
+\`\`\`zig
 pub fn executionMode(comptime entry_point: anytype, comptime mode: ExecutionMode) void {
     const cc = @typeInfo(@TypeOf(entry_point)).@"fn".calling_convention;
     switch (mode) {
@@ -444,7 +444,7 @@ pub fn executionMode(comptime entry_point: anytype, comptime mode: ExecutionMode
         },
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -457,5 +457,3 @@ pub fn executionMode(comptime entry_point: anytype, comptime mode: ExecutionMode
 </details>
 
 ---
-
-

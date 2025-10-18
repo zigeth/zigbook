@@ -64,7 +64,7 @@
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const ClientRequest = enum(u32) {
     RunningOnValgrind = 4097,
     DiscardTranslations = 4098,
@@ -98,7 +98,7 @@ pub const ClientRequest = enum(u32) {
     VexInitForIri = 6401,
     InnerThreads = 6402,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -147,12 +147,12 @@ pub const ClientRequest = enum(u32) {
 
 Create a memory pool.
 
-```zig
+\`\`\`zig
 pub const MempoolFlags = struct {
     pub const AutoFree = 1;
     pub const MetaPool = 2;
 }
-```
+\`\`\`
 
 </details>
 
@@ -165,9 +165,9 @@ pub const MempoolFlags = struct {
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const memcheck = @import("valgrind/memcheck.zig")
-```
+\`\`\`
 
 > **Module:** `valgrind/memcheck.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/valgrind/memcheck.zig)
 
@@ -180,9 +180,9 @@ pub const memcheck = @import("valgrind/memcheck.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const callgrind = @import("valgrind/callgrind.zig")
-```
+\`\`\`
 
 > **Module:** `valgrind/callgrind.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/valgrind/callgrind.zig)
 
@@ -195,9 +195,9 @@ pub const callgrind = @import("valgrind/callgrind.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const cachegrind = @import("valgrind/cachegrind.zig")
-```
+\`\`\`
 
 > **Module:** `valgrind/cachegrind.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/valgrind/cachegrind.zig)
 
@@ -212,7 +212,7 @@ pub const cachegrind = @import("valgrind/cachegrind.zig")
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn doClientRequest(default: usize, request: usize, a1: usize, a2: usize, a3: usize, a4: usize, a5: usize) usize {
     if (!builtin.valgrind_support) {
         return default;
@@ -313,7 +313,7 @@ pub fn doClientRequest(default: usize, request: usize, a1: usize, a2: usize, a3:
         else => default,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -337,11 +337,11 @@ pub fn doClientRequest(default: usize, request: usize, a1: usize, a2: usize, a3:
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn ToolBase(base: [2]u8) u32 {
     return (@as(u32, base[0] & 0xff) << 24) | (@as(u32, base[1] & 0xff) << 16);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -359,11 +359,11 @@ pub fn ToolBase(base: [2]u8) u32 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn IsTool(base: [2]u8, code: usize) bool {
     return ToolBase(base) == (code & 0xffff0000);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -387,11 +387,11 @@ is, 0 if running natively, 1 if running under Valgrind, 2 if
 running under Valgrind which is running under another Valgrind,
 etc.
 
-```zig
+\`\`\`zig
 pub fn runningOnValgrind() usize {
     return doClientRequestExpr(0, .RunningOnValgrind, 0, 0, 0, 0, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -412,11 +412,11 @@ Discard translation of code in the slice qzz.  Useful if you are debugging
 a JITter or some such, since it provides a way to make sure valgrind will
 retranslate the invalidated area.  Returns no value.
 
-```zig
+\`\`\`zig
 pub fn discardTranslations(qzz: []const u8) void {
     doClientRequestStmt(.DiscardTranslations, @intFromPtr(qzz.ptr), qzz.len, 0, 0, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -434,11 +434,11 @@ pub fn discardTranslations(qzz: []const u8) void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn innerThreads(qzz: [*]u8) void {
     doClientRequestStmt(.InnerThreads, @intFromPtr(qzz), 0, 0, 0, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -456,11 +456,11 @@ pub fn innerThreads(qzz: [*]u8) void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn nonSimdCall0(func: fn (usize) usize) usize {
     return doClientRequestExpr(0, .ClientCall0, @intFromPtr(func), 0, 0, 0, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -478,11 +478,11 @@ pub fn nonSimdCall0(func: fn (usize) usize) usize {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn nonSimdCall1(func: fn (usize, usize) usize, a1: usize) usize {
     return doClientRequestExpr(0, .ClientCall1, @intFromPtr(func), a1, 0, 0, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -501,11 +501,11 @@ pub fn nonSimdCall1(func: fn (usize, usize) usize, a1: usize) usize {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn nonSimdCall2(func: fn (usize, usize, usize) usize, a1: usize, a2: usize) usize {
     return doClientRequestExpr(0, .ClientCall2, @intFromPtr(func), a1, a2, 0, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -525,11 +525,11 @@ pub fn nonSimdCall2(func: fn (usize, usize, usize) usize, a1: usize, a2: usize) 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn nonSimdCall3(func: fn (usize, usize, usize, usize) usize, a1: usize, a2: usize, a3: usize) usize {
     return doClientRequestExpr(0, .ClientCall3, @intFromPtr(func), a1, a2, a3, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -554,12 +554,12 @@ Counts the number of errors that have been recorded by a tool.  Nb:
 the tool must record the errors with VG_(maybe_record_error)() or
 VG_(unique_error)() for them to be counted.
 
-```zig
+\`\`\`zig
 pub fn countErrors() usize {
     return doClientRequestExpr(0, // default return
         .CountErrors, 0, 0, 0, 0, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -576,11 +576,11 @@ pub fn countErrors() usize {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn mallocLikeBlock(mem: []u8, rzB: usize, is_zeroed: bool) void {
     doClientRequestStmt(.MalloclikeBlock, @intFromPtr(mem.ptr), mem.len, rzB, @intFromBool(is_zeroed), 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -600,11 +600,11 @@ pub fn mallocLikeBlock(mem: []u8, rzB: usize, is_zeroed: bool) void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn resizeInPlaceBlock(oldmem: []u8, newsize: usize, rzB: usize) void {
     doClientRequestStmt(.ResizeinplaceBlock, @intFromPtr(oldmem.ptr), oldmem.len, newsize, rzB, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -624,11 +624,11 @@ pub fn resizeInPlaceBlock(oldmem: []u8, newsize: usize, rzB: usize) void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn freeLikeBlock(addr: [*]u8, rzB: usize) void {
     doClientRequestStmt(.FreelikeBlock, @intFromPtr(addr), rzB, 0, 0, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -647,11 +647,11 @@ pub fn freeLikeBlock(addr: [*]u8, rzB: usize) void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn createMempool(pool: [*]u8, rzB: usize, is_zeroed: bool, flags: usize) void {
     doClientRequestStmt(.CreateMempool, @intFromPtr(pool), rzB, @intFromBool(is_zeroed), flags, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -674,11 +674,11 @@ pub fn createMempool(pool: [*]u8, rzB: usize, is_zeroed: bool, flags: usize) voi
 
 Destroy a memory pool.
 
-```zig
+\`\`\`zig
 pub fn destroyMempool(pool: [*]u8) void {
     doClientRequestStmt(.DestroyMempool, @intFromPtr(pool), 0, 0, 0, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -698,11 +698,11 @@ pub fn destroyMempool(pool: [*]u8) void {
 
 Associate a piece of memory with a memory pool.
 
-```zig
+\`\`\`zig
 pub fn mempoolAlloc(pool: [*]u8, mem: []u8) void {
     doClientRequestStmt(.MempoolAlloc, @intFromPtr(pool), @intFromPtr(mem.ptr), mem.len, 0, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -723,11 +723,11 @@ pub fn mempoolAlloc(pool: [*]u8, mem: []u8) void {
 
 Disassociate a piece of memory from a memory pool.
 
-```zig
+\`\`\`zig
 pub fn mempoolFree(pool: [*]u8, addr: [*]u8) void {
     doClientRequestStmt(.MempoolFree, @intFromPtr(pool), @intFromPtr(addr), 0, 0, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -748,11 +748,11 @@ pub fn mempoolFree(pool: [*]u8, addr: [*]u8) void {
 
 Disassociate any pieces outside a particular range.
 
-```zig
+\`\`\`zig
 pub fn mempoolTrim(pool: [*]u8, mem: []u8) void {
     doClientRequestStmt(.MempoolTrim, @intFromPtr(pool), @intFromPtr(mem.ptr), mem.len, 0, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -773,11 +773,11 @@ pub fn mempoolTrim(pool: [*]u8, mem: []u8) void {
 
 Resize and/or move a piece associated with a memory pool.
 
-```zig
+\`\`\`zig
 pub fn moveMempool(poolA: [*]u8, poolB: [*]u8) void {
     doClientRequestStmt(.MoveMempool, @intFromPtr(poolA), @intFromPtr(poolB), 0, 0, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -798,11 +798,11 @@ pub fn moveMempool(poolA: [*]u8, poolB: [*]u8) void {
 
 Resize and/or move a piece associated with a memory pool.
 
-```zig
+\`\`\`zig
 pub fn mempoolChange(pool: [*]u8, addrA: [*]u8, mem: []u8) void {
     doClientRequestStmt(.MempoolChange, @intFromPtr(pool), @intFromPtr(addrA), @intFromPtr(mem.ptr), mem.len, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -824,11 +824,11 @@ pub fn mempoolChange(pool: [*]u8, addrA: [*]u8, mem: []u8) void {
 
 Return if a mempool exists.
 
-```zig
+\`\`\`zig
 pub fn mempoolExists(pool: [*]u8) bool {
     return doClientRequestExpr(0, .MempoolExists, @intFromPtr(pool), 0, 0, 0, 0) != 0;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -850,11 +850,11 @@ Mark a piece of memory as being a stack. Returns a stack id.
 start is the lowest addressable stack byte, end is the highest
 addressable stack byte.
 
-```zig
+\`\`\`zig
 pub fn stackRegister(stack: []u8) usize {
     return doClientRequestExpr(0, .StackRegister, @intFromPtr(stack.ptr), @intFromPtr(stack.ptr) + stack.len, 0, 0, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -874,11 +874,11 @@ pub fn stackRegister(stack: []u8) usize {
 
 Unmark the piece of memory associated with a stack id as being a stack.
 
-```zig
+\`\`\`zig
 pub fn stackDeregister(id: usize) void {
     doClientRequestStmt(.StackDeregister, id, 0, 0, 0, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -900,11 +900,11 @@ Change the start and end address of the stack id.
 start is the new lowest addressable stack byte, end is the new highest
 addressable stack byte.
 
-```zig
+\`\`\`zig
 pub fn stackChange(id: usize, newstack: []u8) void {
     doClientRequestStmt(.StackChange, id, @intFromPtr(newstack.ptr), @intFromPtr(newstack.ptr) + newstack.len, 0, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -928,11 +928,11 @@ must point to a 64-byte buffer in the caller's address space. The
 result will be dumped in there and is guaranteed to be zero
 terminated.  If no info is found, the first byte is set to zero.
 
-```zig
+\`\`\`zig
 pub fn mapIpToSrcloc(addr: *const u8, buf64: [64]u8) usize {
     return doClientRequestExpr(0, .MapIpToSrcloc, @intFromPtr(addr), @intFromPtr(&buf64[0]), 0, 0, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -960,11 +960,11 @@ number of enableErrorReporting() calls needed to re-enable
 reporting.  Child threads do not inherit this setting from their
 parents -- they are always created with reporting enabled.
 
-```zig
+\`\`\`zig
 pub fn disableErrorReporting() void {
     doClientRequestStmt(.ChangeErrDisablement, 1, 0, 0, 0, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -983,11 +983,11 @@ pub fn disableErrorReporting() void {
 
 Re-enable error reporting. (see disableErrorReporting())
 
-```zig
+\`\`\`zig
 pub fn enableErrorReporting() void {
     doClientRequestStmt(.ChangeErrDisablement, math.maxInt(usize), 0, 0, 0, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1010,11 +1010,11 @@ according to the output mode set for vgdb.
 If no connection is opened, output will go to the log output.
 Returns 1 if command not recognised, 0 otherwise.
 
-```zig
+\`\`\`zig
 pub fn monitorCommand(command: [*]u8) bool {
     return doClientRequestExpr(0, .GdbMonitorCommand, @intFromPtr(command), 0, 0, 0, 0) != 0;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1026,4 +1026,3 @@ pub fn monitorCommand(command: [*]u8) bool {
 </details>
 
 ---
-

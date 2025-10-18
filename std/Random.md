@@ -71,9 +71,9 @@ be faster and use substantially less stack space.
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Ascon = @import("Random/Ascon.zig")
-```
+\`\`\`
 
 > **Module:** `Random/Ascon.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Random/Ascon.zig)
 
@@ -86,9 +86,9 @@ pub const Ascon = @import("Random/Ascon.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const ChaCha = @import("Random/ChaCha.zig")
-```
+\`\`\`
 
 > **Module:** `Random/ChaCha.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Random/ChaCha.zig)
 
@@ -101,9 +101,9 @@ pub const ChaCha = @import("Random/ChaCha.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Isaac64 = @import("Random/Isaac64.zig")
-```
+\`\`\`
 
 > **Module:** `Random/Isaac64.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Random/Isaac64.zig)
 
@@ -116,9 +116,9 @@ pub const Isaac64 = @import("Random/Isaac64.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Pcg = @import("Random/Pcg.zig")
-```
+\`\`\`
 
 > **Module:** `Random/Pcg.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Random/Pcg.zig)
 
@@ -131,9 +131,9 @@ pub const Pcg = @import("Random/Pcg.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Xoroshiro128 = @import("Random/Xoroshiro128.zig")
-```
+\`\`\`
 
 > **Module:** `Random/Xoroshiro128.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Random/Xoroshiro128.zig)
 
@@ -146,9 +146,9 @@ pub const Xoroshiro128 = @import("Random/Xoroshiro128.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Xoshiro256 = @import("Random/Xoshiro256.zig")
-```
+\`\`\`
 
 > **Module:** `Random/Xoshiro256.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Random/Xoshiro256.zig)
 
@@ -161,9 +161,9 @@ pub const Xoshiro256 = @import("Random/Xoshiro256.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Sfc64 = @import("Random/Sfc64.zig")
-```
+\`\`\`
 
 > **Module:** `Random/Sfc64.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Random/Sfc64.zig)
 
@@ -176,9 +176,9 @@ pub const Sfc64 = @import("Random/Sfc64.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const RomuTrio = @import("Random/RomuTrio.zig")
-```
+\`\`\`
 
 > **Module:** `Random/RomuTrio.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Random/RomuTrio.zig)
 
@@ -191,9 +191,9 @@ pub const RomuTrio = @import("Random/RomuTrio.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const SplitMix64 = @import("Random/SplitMix64.zig")
-```
+\`\`\`
 
 > **Module:** `Random/SplitMix64.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Random/SplitMix64.zig)
 
@@ -206,9 +206,9 @@ pub const SplitMix64 = @import("Random/SplitMix64.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const ziggurat = @import("Random/ziggurat.zig")
-```
+\`\`\`
 
 > **Module:** `Random/ziggurat.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Random/ziggurat.zig)
 
@@ -225,9 +225,9 @@ pub const ziggurat = @import("Random/ziggurat.zig")
 
 Fast unbiased random numbers.
 
-```zig
+\`\`\`zig
 pub const DefaultPrng = Xoshiro256
-```
+\`\`\`
 
 </details>
 
@@ -240,9 +240,9 @@ pub const DefaultPrng = Xoshiro256
 
 Cryptographically secure random numbers.
 
-```zig
+\`\`\`zig
 pub const DefaultCsprng = ChaCha
-```
+\`\`\`
 
 </details>
 
@@ -255,7 +255,7 @@ pub const DefaultCsprng = ChaCha
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn init(pointer: anytype, comptime fillFn: fn (ptr: @TypeOf(pointer), buf: []u8) void) Random {
     const Ptr = @TypeOf(pointer);
     assert(@typeInfo(Ptr) == .pointer); // Must be a pointer
@@ -273,7 +273,7 @@ pub fn init(pointer: anytype, comptime fillFn: fn (ptr: @TypeOf(pointer), buf: [
         .fillFn = gen.fill,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -294,11 +294,11 @@ pub fn init(pointer: anytype, comptime fillFn: fn (ptr: @TypeOf(pointer), buf: [
 
 Read random bytes into the specified buffer until full.
 
-```zig
+\`\`\`zig
 pub fn bytes(r: Random, buf: []u8) void {
     r.fillFn(r.ptr, buf);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -317,11 +317,11 @@ pub fn bytes(r: Random, buf: []u8) void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn boolean(r: Random) bool {
     return r.int(u1) != 0;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -345,11 +345,11 @@ Note that this will not yield consistent results across all targets
 due to dependence on the representation of `usize` as an index.
 See `enumValueWithIndex` for further commentary.
 
-```zig
+\`\`\`zig
 pub inline fn enumValue(r: Random, comptime EnumType: type) EnumType {
     return r.enumValueWithIndex(EnumType, usize);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -379,7 +379,7 @@ Prefer `enumValue` if this isn't important.
 See `uintLessThan`, which this function uses in most cases,
 for commentary on the runtime of this function.
 
-```zig
+\`\`\`zig
 pub fn enumValueWithIndex(r: Random, comptime EnumType: type, comptime Index: type) EnumType {
     comptime assert(@typeInfo(EnumType) == .@"enum");
 
@@ -398,7 +398,7 @@ pub fn enumValueWithIndex(r: Random, comptime EnumType: type, comptime Index: ty
     const MinInt = MinArrayIndex(Index);
     return values[@as(MinInt, @intCast(index))];
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -421,7 +421,7 @@ pub fn enumValueWithIndex(r: Random, comptime EnumType: type, comptime Index: ty
 Returns a random int `i` such that `minInt(T) <= i <= maxInt(T)`.
 `i` is evenly distributed.
 
-```zig
+\`\`\`zig
 pub fn int(r: Random, comptime T: type) T {
     const bits = @typeInfo(T).int.bits;
     const UnsignedT = std.meta.Int(.unsigned, bits);
@@ -438,7 +438,7 @@ pub fn int(r: Random, comptime T: type) T {
     const unsigned_result: UnsignedT = @truncate(byte_aligned_result);
     return @bitCast(unsigned_result);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -460,13 +460,13 @@ pub fn int(r: Random, comptime T: type) T {
 Constant-time implementation off `uintLessThan`.
 The results of this function may be biased.
 
-```zig
+\`\`\`zig
 pub fn uintLessThanBiased(r: Random, comptime T: type, less_than: T) T {
     comptime assert(@typeInfo(T).int.signedness == .unsigned);
     assert(0 < less_than);
     return limitRangeBiased(T, r.int(T), less_than);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -495,7 +495,7 @@ However, if `fillFn` is backed by any evenly distributed pseudo random number ge
 this function is guaranteed to return.
 If you need deterministic runtime bounds, use `uintLessThanBiased`.
 
-```zig
+\`\`\`zig
 pub fn uintLessThan(r: Random, comptime T: type, less_than: T) T {
     comptime assert(@typeInfo(T).int.signedness == .unsigned);
     const bits = @typeInfo(T).int.bits;
@@ -524,7 +524,7 @@ pub fn uintLessThan(r: Random, comptime T: type, less_than: T) T {
     }
     return @intCast(m >> bits);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -547,7 +547,7 @@ pub fn uintLessThan(r: Random, comptime T: type, less_than: T) T {
 Constant-time implementation off `uintAtMost`.
 The results of this function may be biased.
 
-```zig
+\`\`\`zig
 pub fn uintAtMostBiased(r: Random, comptime T: type, at_most: T) T {
     assert(@typeInfo(T).int.signedness == .unsigned);
     if (at_most == maxInt(T)) {
@@ -556,7 +556,7 @@ pub fn uintAtMostBiased(r: Random, comptime T: type, at_most: T) T {
     }
     return r.uintLessThanBiased(T, at_most + 1);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -580,7 +580,7 @@ Returns an evenly distributed random unsigned integer `0 <= i <= at_most`.
 See `uintLessThan`, which this function uses in most cases,
 for commentary on the runtime of this function.
 
-```zig
+\`\`\`zig
 pub fn uintAtMost(r: Random, comptime T: type, at_most: T) T {
     assert(@typeInfo(T).int.signedness == .unsigned);
     if (at_most == maxInt(T)) {
@@ -589,7 +589,7 @@ pub fn uintAtMost(r: Random, comptime T: type, at_most: T) T {
     }
     return r.uintLessThan(T, at_most + 1);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -612,7 +612,7 @@ pub fn uintAtMost(r: Random, comptime T: type, at_most: T) T {
 Constant-time implementation off `intRangeLessThan`.
 The results of this function may be biased.
 
-```zig
+\`\`\`zig
 pub fn intRangeLessThanBiased(r: Random, comptime T: type, at_least: T, less_than: T) T {
     assert(at_least < less_than);
     const info = @typeInfo(T).int;
@@ -628,7 +628,7 @@ pub fn intRangeLessThanBiased(r: Random, comptime T: type, at_least: T, less_tha
         return at_least + r.uintLessThanBiased(T, less_than - at_least);
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -653,7 +653,7 @@ Returns an evenly distributed random integer `at_least <= i < less_than`.
 See `uintLessThan`, which this function uses in most cases,
 for commentary on the runtime of this function.
 
-```zig
+\`\`\`zig
 pub fn intRangeLessThan(r: Random, comptime T: type, at_least: T, less_than: T) T {
     assert(at_least < less_than);
     const info = @typeInfo(T).int;
@@ -669,7 +669,7 @@ pub fn intRangeLessThan(r: Random, comptime T: type, at_least: T, less_than: T) 
         return at_least + r.uintLessThan(T, less_than - at_least);
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -693,7 +693,7 @@ pub fn intRangeLessThan(r: Random, comptime T: type, at_least: T, less_than: T) 
 Constant-time implementation off `intRangeAtMostBiased`.
 The results of this function may be biased.
 
-```zig
+\`\`\`zig
 pub fn intRangeAtMostBiased(r: Random, comptime T: type, at_least: T, at_most: T) T {
     assert(at_least <= at_most);
     const info = @typeInfo(T).int;
@@ -709,7 +709,7 @@ pub fn intRangeAtMostBiased(r: Random, comptime T: type, at_least: T, at_most: T
         return at_least + r.uintAtMostBiased(T, at_most - at_least);
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -734,7 +734,7 @@ Returns an evenly distributed random integer `at_least <= i <= at_most`.
 See `uintLessThan`, which this function uses in most cases,
 for commentary on the runtime of this function.
 
-```zig
+\`\`\`zig
 pub fn intRangeAtMost(r: Random, comptime T: type, at_least: T, at_most: T) T {
     assert(at_least <= at_most);
     const info = @typeInfo(T).int;
@@ -750,7 +750,7 @@ pub fn intRangeAtMost(r: Random, comptime T: type, at_least: T, at_most: T) T {
         return at_least + r.uintAtMost(T, at_most - at_least);
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -773,7 +773,7 @@ pub fn intRangeAtMost(r: Random, comptime T: type, at_least: T, at_most: T) T {
 
 Return a floating point value evenly distributed in the range [0, 1).
 
-```zig
+\`\`\`zig
 pub fn float(r: Random, comptime T: type) T {
     // Generate a uniformly random value for the mantissa.
     // Then generate an exponentially biased random value for the exponent.
@@ -827,7 +827,7 @@ pub fn float(r: Random, comptime T: type) T {
         else => @compileError("unknown floating point type"),
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -850,7 +850,7 @@ Return a floating point value normally distributed with mean = 0, stddev = 1.
 
 To use different parameters, use: floatNorm(...) * desiredStddev + desiredMean.
 
-```zig
+\`\`\`zig
 pub fn floatNorm(r: Random, comptime T: type) T {
     const value = ziggurat.next_f64(r, ziggurat.NormDist);
     switch (T) {
@@ -859,7 +859,7 @@ pub fn floatNorm(r: Random, comptime T: type) T {
         else => @compileError("unknown floating point type"),
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -882,7 +882,7 @@ Return an exponentially distributed float with a rate parameter of 1.
 
 To use a different rate parameter, use: floatExp(...) / desiredRate.
 
-```zig
+\`\`\`zig
 pub fn floatExp(r: Random, comptime T: type) T {
     const value = ziggurat.next_f64(r, ziggurat.ExpDist);
     switch (T) {
@@ -891,7 +891,7 @@ pub fn floatExp(r: Random, comptime T: type) T {
         else => @compileError("unknown floating point type"),
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -916,11 +916,11 @@ Note that this will not yield consistent results across all targets
 due to dependence on the representation of `usize` as an index.
 See `shuffleWithIndex` for further commentary.
 
-```zig
+\`\`\`zig
 pub inline fn shuffle(r: Random, comptime T: type, buf: []T) void {
     r.shuffleWithIndex(T, buf, usize);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -953,7 +953,7 @@ Prefer `shuffle` if this isn't important.
 See `intRangeLessThan`, which this function uses,
 for commentary on the runtime of this function.
 
-```zig
+\`\`\`zig
 pub fn shuffleWithIndex(r: Random, comptime T: type, buf: []T, comptime Index: type) void {
     const MinInt = MinArrayIndex(Index);
     if (buf.len < 2) {
@@ -968,7 +968,7 @@ pub fn shuffleWithIndex(r: Random, comptime T: type, buf: []T, comptime Index: t
         mem.swap(T, &buf[i], &buf[j]);
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -997,7 +997,7 @@ than the index of the first proportion in the slice, and vice versa.
 This is useful for selecting an item from a slice where weights are not equal.
 `T` must be a numeric type capable of holding the sum of `proportions`.
 
-```zig
+\`\`\`zig
 pub fn weightedIndex(r: Random, comptime T: type, proportions: []const T) usize {
     // This implementation works by summing the proportions and picking a
     // random point in [0, sum).  We then loop over the proportions,
@@ -1028,7 +1028,7 @@ pub fn weightedIndex(r: Random, comptime T: type, proportions: []const T) usize 
         if (point < accumulator) return index;
     } else unreachable;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1052,7 +1052,7 @@ Convert a random integer 0 <= random_int <= maxValue(T),
 into an integer 0 <= result < less_than.
 This function introduces a minor bias.
 
-```zig
+\`\`\`zig
 pub fn limitRangeBiased(comptime T: type, random_int: T, less_than: T) T {
     comptime assert(@typeInfo(T).int.signedness == .unsigned);
     const bits = @typeInfo(T).int.bits;
@@ -1063,7 +1063,7 @@ pub fn limitRangeBiased(comptime T: type, random_int: T, less_than: T) T {
     const m = math.mulWide(T, random_int, less_than);
     return @intCast(m >> bits);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1077,4 +1077,3 @@ pub fn limitRangeBiased(comptime T: type, random_int: T, less_than: T) T {
 </details>
 
 ---
-

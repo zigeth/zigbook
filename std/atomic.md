@@ -39,9 +39,9 @@ memory from forcing cache invalidations on near, but non-atomic, memory.
 https://en.wikipedia.org/wiki/False_sharing
 https://github.com/golang/go/search?q=CacheLinePadSize
 
-```zig
+\`\`\`zig
 pub const cache_line: comptime_int = cacheLineForCpu(builtin.cpu)
-```
+\`\`\`
 
 </details>
 
@@ -56,7 +56,7 @@ pub const cache_line: comptime_int = cacheLineForCpu(builtin.cpu)
 
 This is a thin wrapper around a primitive value to prevent accidental data races.
 
-```zig
+\`\`\`zig
 pub fn Value(comptime T: type) type {
     return extern struct {
         /// Care must be taken to avoid data races when interacting with this field directly.
@@ -171,7 +171,7 @@ pub fn Value(comptime T: type) type {
         }
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -191,7 +191,7 @@ pub fn Value(comptime T: type) type {
 
 Signals to the processor that the caller is inside a busy-wait spin-loop.
 
-```zig
+\`\`\`zig
 pub inline fn spinLoopHint() void {
     switch (builtin.target.cpu.arch) {
         // No-op instruction that can hint to save (or share with a hardware-thread)
@@ -241,7 +241,7 @@ pub inline fn spinLoopHint() void {
         else => {},
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -258,7 +258,7 @@ pub inline fn spinLoopHint() void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn cacheLineForCpu(cpu: std.Target.Cpu) u16 {
     return switch (cpu.arch) {
         // x86_64: Starting from Intel's Sandy Bridge, the spatial prefetcher pulls in pairs of 64-byte cache lines at a time.
@@ -326,7 +326,7 @@ pub fn cacheLineForCpu(cpu: std.Target.Cpu) u16 {
         else => 64,
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -338,4 +338,3 @@ pub fn cacheLineForCpu(cpu: std.Target.Cpu) u16 {
 </details>
 
 ---
-

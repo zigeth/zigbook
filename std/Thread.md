@@ -70,7 +70,7 @@ both evented I/O and async I/O, see the respective names in the top level std na
 
 Configuration options for hints on how to spawn threads.
 
-```zig
+\`\`\`zig
 pub const SpawnConfig = struct {
     // TODO compile-time call graph analysis to determine stack upper bound
     // https://github.com/ziglang/zig/issues/157
@@ -82,7 +82,7 @@ pub const SpawnConfig = struct {
 
     pub const default_stack_size = 16 * 1024 * 1024;
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -102,9 +102,9 @@ pub const SpawnConfig = struct {
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Futex = @import("Thread/Futex.zig")
-```
+\`\`\`
 
 > **Module:** `Thread/Futex.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Thread/Futex.zig)
 
@@ -117,9 +117,9 @@ pub const Futex = @import("Thread/Futex.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const ResetEvent = @import("Thread/ResetEvent.zig")
-```
+\`\`\`
 
 > **Module:** `Thread/ResetEvent.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Thread/ResetEvent.zig)
 
@@ -132,9 +132,9 @@ pub const ResetEvent = @import("Thread/ResetEvent.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Mutex = @import("Thread/Mutex.zig")
-```
+\`\`\`
 
 > **Module:** `Thread/Mutex.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Thread/Mutex.zig)
 
@@ -147,9 +147,9 @@ pub const Mutex = @import("Thread/Mutex.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Semaphore = @import("Thread/Semaphore.zig")
-```
+\`\`\`
 
 > **Module:** `Thread/Semaphore.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Thread/Semaphore.zig)
 
@@ -162,9 +162,9 @@ pub const Semaphore = @import("Thread/Semaphore.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Condition = @import("Thread/Condition.zig")
-```
+\`\`\`
 
 > **Module:** `Thread/Condition.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Thread/Condition.zig)
 
@@ -177,9 +177,9 @@ pub const Condition = @import("Thread/Condition.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const RwLock = @import("Thread/RwLock.zig")
-```
+\`\`\`
 
 > **Module:** `Thread/RwLock.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Thread/RwLock.zig)
 
@@ -192,9 +192,9 @@ pub const RwLock = @import("Thread/RwLock.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Pool = @import("Thread/Pool.zig")
-```
+\`\`\`
 
 > **Module:** `Thread/Pool.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Thread/Pool.zig)
 
@@ -207,9 +207,9 @@ pub const Pool = @import("Thread/Pool.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const WaitGroup = @import("Thread/WaitGroup.zig")
-```
+\`\`\`
 
 > **Module:** `Thread/WaitGroup.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Thread/WaitGroup.zig)
 
@@ -224,9 +224,9 @@ pub const WaitGroup = @import("Thread/WaitGroup.zig")
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const use_pthreads = native_os != .windows and native_os != .wasi and builtin.link_libc
-```
+\`\`\`
 
 </details>
 
@@ -237,7 +237,7 @@ pub const use_pthreads = native_os != .windows and native_os != .wasi and builti
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const max_name_len = switch (native_os) {
     .linux => 15,
     .windows => 31,
@@ -251,7 +251,7 @@ pub const max_name_len = switch (native_os) {
     .serenity => 63,
     else => 0,
 }
-```
+\`\`\`
 
 </details>
 
@@ -264,7 +264,7 @@ pub const max_name_len = switch (native_os) {
 
 Represents an ID per thread guaranteed to be unique only within a process.
 
-```zig
+\`\`\`zig
 pub const Id = switch (native_os) {
     .linux,
     .dragonfly,
@@ -279,7 +279,7 @@ pub const Id = switch (native_os) {
     .windows => windows.DWORD,
     else => usize,
 }
-```
+\`\`\`
 
 </details>
 
@@ -293,9 +293,9 @@ pub const Id = switch (native_os) {
 Represents a kernel thread handle.
 May be an integer or a pointer depending on the platform.
 
-```zig
+\`\`\`zig
 pub const Handle = Impl.ThreadHandle
-```
+\`\`\`
 
 </details>
 
@@ -310,7 +310,7 @@ pub const Handle = Impl.ThreadHandle
 
 Spurious wakeups are possible and no precision of timing is guaranteed.
 
-```zig
+\`\`\`zig
 pub fn sleep(nanoseconds: u64) void {
     if (builtin.os.tag == .windows) {
         const big_ms_from_ns = nanoseconds / std.time.ns_per_ms;
@@ -382,7 +382,7 @@ pub fn sleep(nanoseconds: u64) void {
 
     posix.nanosleep(s, ns);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -400,7 +400,7 @@ pub fn sleep(nanoseconds: u64) void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn setName(self: Thread, name: []const u8) SetNameError!void {
     if (name.len > max_name_len) return error.NameTooLong;
 
@@ -513,7 +513,7 @@ pub fn setName(self: Thread, name: []const u8) SetNameError!void {
     }
     return error.Unsupported;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -535,7 +535,7 @@ pub fn setName(self: Thread, name: []const u8) SetNameError!void {
 On Windows, the result is encoded as [WTF-8](https://simonsapin.github.io/wtf-8/).
 On other platforms, the result is an opaque sequence of bytes with no particular encoding.
 
-```zig
+\`\`\`zig
 pub fn getName(self: Thread, buffer_ptr: *[max_name_len:0]u8) GetNameError!?[]const u8 {
     buffer_ptr[max_name_len] = 0;
     var buffer: [:0]u8 = buffer_ptr;
@@ -636,7 +636,7 @@ pub fn getName(self: Thread, buffer_ptr: *[max_name_len:0]u8) GetNameError!?[]co
     }
     return error.Unsupported;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -658,11 +658,11 @@ pub fn getName(self: Thread, buffer_ptr: *[max_name_len:0]u8) GetNameError!?[]co
 Returns the platform ID of the callers thread.
 Attempts to use thread locals and avoid syscalls when possible.
 
-```zig
+\`\`\`zig
 pub fn getCurrentId() Id {
     return Impl.getCurrentId();
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -681,11 +681,11 @@ pub fn getCurrentId() Id {
 
 Returns the platforms view on the number of logical CPU cores available.
 
-```zig
+\`\`\`zig
 pub fn getCpuCount() CpuCountError!usize {
     return try Impl.getCpuCount();
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -707,7 +707,7 @@ Spawns a new thread which executes `function` using `args` and returns a handle 
 The caller must eventually either call `join()` to wait for the thread to finish and free its resources
 or call `detach()` to excuse the caller from calling `join()` and have the thread clean up its resources on completion.
 
-```zig
+\`\`\`zig
 pub fn spawn(config: SpawnConfig, comptime function: anytype, args: anytype) SpawnError!Thread {
     if (builtin.single_threaded) {
         @compileError("Cannot spawn thread when building in single-threaded mode");
@@ -716,7 +716,7 @@ pub fn spawn(config: SpawnConfig, comptime function: anytype, args: anytype) Spa
     const impl = try Impl.spawn(config, function, args);
     return Thread{ .impl = impl };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -738,11 +738,11 @@ pub fn spawn(config: SpawnConfig, comptime function: anytype, args: anytype) Spa
 
 Returns the handle of this thread
 
-```zig
+\`\`\`zig
 pub fn getHandle(self: Thread) Handle {
     return self.impl.getHandle();
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -763,11 +763,11 @@ pub fn getHandle(self: Thread) Handle {
 Release the obligation of the caller to call `join()` and have the thread clean up its own resources on completion.
 Once called, this consumes the Thread object and invoking any other functions on it is considered undefined behavior.
 
-```zig
+\`\`\`zig
 pub fn detach(self: Thread) void {
     return self.impl.detach();
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -788,11 +788,11 @@ pub fn detach(self: Thread) void {
 Waits for the thread to complete, then deallocates any resources created on `spawn()`.
 Once called, this consumes the Thread object and invoking any other functions on it is considered undefined behavior.
 
-```zig
+\`\`\`zig
 pub fn join(self: Thread) void {
     return self.impl.join();
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -812,7 +812,7 @@ pub fn join(self: Thread) void {
 
 Yields the current thread potentially allowing other threads to run.
 
-```zig
+\`\`\`zig
 pub fn yield() YieldError!void {
     if (native_os == .windows) {
         // The return value has to do with how many other threads there are; it is not
@@ -826,7 +826,7 @@ pub fn yield() YieldError!void {
         else => return error.SystemCannotYield,
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -845,13 +845,13 @@ pub fn yield() YieldError!void {
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-```zig
+\`\`\`zig
 pub const SetNameError = error{
     NameTooLong,
     Unsupported,
     Unexpected,
 } || posix.PrctlError || posix.WriteError || std.fs.File.OpenError || std.fmt.BufPrintError
-```
+\`\`\`
 
 **Errors:**
 
@@ -868,12 +868,12 @@ pub const SetNameError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-```zig
+\`\`\`zig
 pub const GetNameError = error{
     Unsupported,
     Unexpected,
 } || posix.PrctlError || posix.ReadError || std.fs.File.OpenError || std.fmt.BufPrintError
-```
+\`\`\`
 
 **Errors:**
 
@@ -889,14 +889,14 @@ pub const GetNameError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-```zig
+\`\`\`zig
 pub const CpuCountError = error{
     PermissionDenied,
     SystemResources,
     Unsupported,
     Unexpected,
 }
-```
+\`\`\`
 
 **Errors:**
 
@@ -914,7 +914,7 @@ pub const CpuCountError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-```zig
+\`\`\`zig
 pub const SpawnError = error{
     /// A system-imposed limit on the number of threads was encountered.
     /// There are a number of limits that may trigger this error:
@@ -944,7 +944,7 @@ pub const SpawnError = error{
 
     Unexpected,
 }
-```
+\`\`\`
 
 **Errors:**
 
@@ -963,12 +963,12 @@ pub const SpawnError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-```zig
+\`\`\`zig
 pub const YieldError = error{
     /// The system is not configured to allow yielding
     SystemCannotYield,
 }
-```
+\`\`\`
 
 **Errors:**
 
@@ -977,4 +977,3 @@ pub const YieldError = error{
 </details>
 
 ---
-

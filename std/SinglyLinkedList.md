@@ -52,7 +52,7 @@ This struct contains only a next pointer and not any data payload. The
 intended usage is to embed it intrusively into another data structure and
 access the data with `@fieldParentPtr`.
 
-```zig
+\`\`\`zig
 pub const Node = struct {
     next: ?*Node = null,
 
@@ -110,7 +110,7 @@ pub const Node = struct {
         }
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -129,12 +129,12 @@ pub const Node = struct {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn prepend(list: *SinglyLinkedList, new_node: *Node) void {
     new_node.next = list.first;
     list.first = new_node;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -153,7 +153,7 @@ pub fn prepend(list: *SinglyLinkedList, new_node: *Node) void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn remove(list: *SinglyLinkedList, node: *Node) void {
     if (list.first == node) {
         list.first = node.next;
@@ -165,7 +165,7 @@ pub fn remove(list: *SinglyLinkedList, node: *Node) void {
         current_elm.next = node.next;
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -186,13 +186,13 @@ pub fn remove(list: *SinglyLinkedList, node: *Node) void {
 
 Remove and return the first node in the list.
 
-```zig
+\`\`\`zig
 pub fn popFirst(list: *SinglyLinkedList) ?*Node {
     const first = list.first orelse return null;
     list.first = first.next;
     return first;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -215,7 +215,7 @@ Iterate over all nodes, returning the count.
 This operation is O(N). Consider tracking the length separately rather than
 computing it.
 
-```zig
+\`\`\`zig
 pub fn len(list: SinglyLinkedList) usize {
     if (list.first) |n| {
         return 1 + n.countChildren();
@@ -223,7 +223,7 @@ pub fn len(list: SinglyLinkedList) usize {
         return 0;
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -235,4 +235,3 @@ pub fn len(list: SinglyLinkedList) usize {
 </details>
 
 ---
-

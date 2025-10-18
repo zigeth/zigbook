@@ -75,12 +75,12 @@ This struct contains only the prev and next pointers and not any data
 payload. The intended usage is to embed it intrusively into another data
 structure and access the data with `@fieldParentPtr`.
 
-```zig
+\`\`\`zig
 pub const Node = struct {
     prev: ?*Node = null,
     next: ?*Node = null,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -100,7 +100,7 @@ pub const Node = struct {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn insertAfter(list: *DoublyLinkedList, existing_node: *Node, new_node: *Node) void {
     new_node.prev = existing_node;
     if (existing_node.next) |next_node| {
@@ -114,7 +114,7 @@ pub fn insertAfter(list: *DoublyLinkedList, existing_node: *Node, new_node: *Nod
     }
     existing_node.next = new_node;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -134,7 +134,7 @@ pub fn insertAfter(list: *DoublyLinkedList, existing_node: *Node, new_node: *Nod
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn insertBefore(list: *DoublyLinkedList, existing_node: *Node, new_node: *Node) void {
     new_node.next = existing_node;
     if (existing_node.prev) |prev_node| {
@@ -148,7 +148,7 @@ pub fn insertBefore(list: *DoublyLinkedList, existing_node: *Node, new_node: *No
     }
     existing_node.prev = new_node;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -174,7 +174,7 @@ Arguments:
     list1: the list to concatenate onto
     list2: the list to be concatenated
 
-```zig
+\`\`\`zig
 pub fn concatByMoving(list1: *DoublyLinkedList, list2: *DoublyLinkedList) void {
     const l2_first = list2.first orelse return;
     if (list1.last) |l1_last| {
@@ -188,7 +188,7 @@ pub fn concatByMoving(list1: *DoublyLinkedList, list2: *DoublyLinkedList) void {
     list2.first = null;
     list2.last = null;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -212,7 +212,7 @@ Insert a new node at the end of the list.
 Arguments:
     new_node: Pointer to the new node to insert.
 
-```zig
+\`\`\`zig
 pub fn append(list: *DoublyLinkedList, new_node: *Node) void {
     if (list.last) |last| {
         // Insert after last.
@@ -222,7 +222,7 @@ pub fn append(list: *DoublyLinkedList, new_node: *Node) void {
         list.prepend(new_node);
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -246,7 +246,7 @@ Insert a new node at the beginning of the list.
 Arguments:
     new_node: Pointer to the new node to insert.
 
-```zig
+\`\`\`zig
 pub fn prepend(list: *DoublyLinkedList, new_node: *Node) void {
     if (list.first) |first| {
         // Insert before first.
@@ -259,7 +259,7 @@ pub fn prepend(list: *DoublyLinkedList, new_node: *Node) void {
         new_node.next = null;
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -283,7 +283,7 @@ Remove a node from the list.
 Arguments:
     node: Pointer to the node to be removed.
 
-```zig
+\`\`\`zig
 pub fn remove(list: *DoublyLinkedList, node: *Node) void {
     if (node.prev) |prev_node| {
         // Intermediate node.
@@ -301,7 +301,7 @@ pub fn remove(list: *DoublyLinkedList, node: *Node) void {
         list.last = node.prev;
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -325,13 +325,13 @@ Remove and return the last node in the list.
 Returns:
     A pointer to the last node in the list.
 
-```zig
+\`\`\`zig
 pub fn pop(list: *DoublyLinkedList) ?*Node {
     const last = list.last orelse return null;
     list.remove(last);
     return last;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -354,13 +354,13 @@ Remove and return the first node in the list.
 Returns:
     A pointer to the first node in the list.
 
-```zig
+\`\`\`zig
 pub fn popFirst(list: *DoublyLinkedList) ?*Node {
     const first = list.first orelse return null;
     list.remove(first);
     return first;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -383,14 +383,14 @@ Iterate over all nodes, returning the count.
 This operation is O(N). Consider tracking the length separately rather than
 computing it.
 
-```zig
+\`\`\`zig
 pub fn len(list: DoublyLinkedList) usize {
     var count: usize = 0;
     var it: ?*const Node = list.first;
     while (it) |n| : (it = n.next) count += 1;
     return count;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -402,5 +402,3 @@ pub fn len(list: DoublyLinkedList) usize {
 </details>
 
 ---
-
-

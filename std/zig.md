@@ -101,7 +101,7 @@ guarantees whatsoever.
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Color = enum {
     /// Determine whether stderr is a terminal or not automatically.
     auto,
@@ -124,7 +124,7 @@ pub const Color = enum {
         };
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -143,7 +143,7 @@ pub const Color = enum {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Loc = struct {
     line: usize,
     column: usize,
@@ -154,7 +154,7 @@ pub const Loc = struct {
         return a.line == b.line and a.column == b.column and std.mem.eql(u8, a.source_line, b.source_line);
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -173,7 +173,7 @@ pub const Loc = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const BinNameOptions = struct {
     root_name: []const u8,
     target: *const std.Target,
@@ -181,7 +181,7 @@ pub const BinNameOptions = struct {
     link_mode: ?std.builtin.LinkMode = null,
     version: ?std.SemanticVersion = null,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -202,13 +202,13 @@ pub const BinNameOptions = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const SanitizeC = enum {
     off,
     trap,
     full,
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -227,9 +227,9 @@ pub const SanitizeC = enum {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const LtoMode = enum { none, full, thin }
-```
+\`\`\`
 
 **Fields:**
 
@@ -248,7 +248,7 @@ pub const LtoMode = enum { none, full, thin }
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const FormatId = struct {
     bytes: []const u8,
     flags: Flags,
@@ -271,7 +271,7 @@ pub const FormatId = struct {
         try writer.writeByte('"');
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -292,7 +292,7 @@ pub const FormatId = struct {
 Collects all the environment variables that Zig could possibly inspect, so
 that we can do reflection on this and print them with `zig env`.
 
-```zig
+\`\`\`zig
 pub const EnvVar = enum {
     ZIG_GLOBAL_CACHE_DIR,
     ZIG_LOCAL_CACHE_DIR,
@@ -326,7 +326,7 @@ pub const EnvVar = enum {
         return std.posix.getenvZ(@tagName(ev));
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -356,7 +356,7 @@ pub const EnvVar = enum {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const SimpleComptimeReason = enum(u32) {
     // Evaluating at comptime because a builtin operand must be comptime-known.
     // These messages all mention a specific builtin.
@@ -519,7 +519,7 @@ pub const SimpleComptimeReason = enum(u32) {
         };
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -604,7 +604,7 @@ pub const SimpleComptimeReason = enum(u32) {
 
 Every kind of artifact which the compiler can emit.
 
-```zig
+\`\`\`zig
 pub const EmitArtifact = enum {
     bin,
     @"asm",
@@ -632,7 +632,7 @@ pub const EmitArtifact = enum {
         return std.fmt.allocPrint(gpa, "{s}{s}", .{ opts.root_name, suffix });
     }
 }
-```
+\`\`\`
 
 **Fields:**
 
@@ -658,9 +658,9 @@ pub const EmitArtifact = enum {
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const ErrorBundle = @import("zig/ErrorBundle.zig")
-```
+\`\`\`
 
 > **Module:** `zig/ErrorBundle.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zig/ErrorBundle.zig)
 
@@ -673,9 +673,9 @@ pub const ErrorBundle = @import("zig/ErrorBundle.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Server = @import("zig/Server.zig")
-```
+\`\`\`
 
 > **Module:** `zig/Server.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zig/Server.zig)
 
@@ -688,9 +688,9 @@ pub const Server = @import("zig/Server.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Client = @import("zig/Client.zig")
-```
+\`\`\`
 
 > **Module:** `zig/Client.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zig/Client.zig)
 
@@ -703,9 +703,9 @@ pub const Client = @import("zig/Client.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const string_literal = @import("zig/string_literal.zig")
-```
+\`\`\`
 
 > **Module:** `zig/string_literal.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zig/string_literal.zig)
 
@@ -718,9 +718,9 @@ pub const string_literal = @import("zig/string_literal.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const number_literal = @import("zig/number_literal.zig")
-```
+\`\`\`
 
 > **Module:** `zig/number_literal.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zig/number_literal.zig)
 
@@ -733,9 +733,9 @@ pub const number_literal = @import("zig/number_literal.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const primitives = @import("zig/primitives.zig")
-```
+\`\`\`
 
 > **Module:** `zig/primitives.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zig/primitives.zig)
 
@@ -748,9 +748,9 @@ pub const primitives = @import("zig/primitives.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Ast = @import("zig/Ast.zig")
-```
+\`\`\`
 
 > **Module:** `zig/Ast.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zig/Ast.zig)
 
@@ -763,9 +763,9 @@ pub const Ast = @import("zig/Ast.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const AstGen = @import("zig/AstGen.zig")
-```
+\`\`\`
 
 > **Module:** `zig/AstGen.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zig/AstGen.zig)
 
@@ -778,9 +778,9 @@ pub const AstGen = @import("zig/AstGen.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Zir = @import("zig/Zir.zig")
-```
+\`\`\`
 
 > **Module:** `zig/Zir.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zig/Zir.zig)
 
@@ -793,9 +793,9 @@ pub const Zir = @import("zig/Zir.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const Zoir = @import("zig/Zoir.zig")
-```
+\`\`\`
 
 > **Module:** `zig/Zoir.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zig/Zoir.zig)
 
@@ -808,9 +808,9 @@ pub const Zoir = @import("zig/Zoir.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const ZonGen = @import("zig/ZonGen.zig")
-```
+\`\`\`
 
 > **Module:** `zig/ZonGen.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zig/ZonGen.zig)
 
@@ -823,9 +823,9 @@ pub const ZonGen = @import("zig/ZonGen.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const system = @import("zig/system.zig")
-```
+\`\`\`
 
 > **Module:** `zig/system.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zig/system.zig)
 
@@ -838,9 +838,9 @@ pub const system = @import("zig/system.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const BuiltinFn = @import("zig/BuiltinFn.zig")
-```
+\`\`\`
 
 > **Module:** `zig/BuiltinFn.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zig/BuiltinFn.zig)
 
@@ -853,9 +853,9 @@ pub const BuiltinFn = @import("zig/BuiltinFn.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const AstRlAnnotate = @import("zig/AstRlAnnotate.zig")
-```
+\`\`\`
 
 > **Module:** `zig/AstRlAnnotate.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zig/AstRlAnnotate.zig)
 
@@ -868,9 +868,9 @@ pub const AstRlAnnotate = @import("zig/AstRlAnnotate.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const LibCInstallation = @import("zig/LibCInstallation.zig")
-```
+\`\`\`
 
 > **Module:** `zig/LibCInstallation.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zig/LibCInstallation.zig)
 
@@ -883,9 +883,9 @@ pub const LibCInstallation = @import("zig/LibCInstallation.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const WindowsSdk = @import("zig/WindowsSdk.zig")
-```
+\`\`\`
 
 > **Module:** `zig/WindowsSdk.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zig/WindowsSdk.zig)
 
@@ -898,9 +898,9 @@ pub const WindowsSdk = @import("zig/WindowsSdk.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const LibCDirs = @import("zig/LibCDirs.zig")
-```
+\`\`\`
 
 > **Module:** `zig/LibCDirs.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zig/LibCDirs.zig)
 
@@ -913,9 +913,9 @@ pub const LibCDirs = @import("zig/LibCDirs.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const target = @import("zig/target.zig")
-```
+\`\`\`
 
 > **Module:** `zig/target.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zig/target.zig)
 
@@ -928,9 +928,9 @@ pub const target = @import("zig/target.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const llvm = @import("zig/llvm.zig")
-```
+\`\`\`
 
 > **Module:** `zig/llvm.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zig/llvm.zig)
 
@@ -943,9 +943,9 @@ pub const llvm = @import("zig/llvm.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const c_builtins = @import("zig/c_builtins.zig")
-```
+\`\`\`
 
 > **Module:** `zig/c_builtins.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zig/c_builtins.zig)
 
@@ -958,9 +958,9 @@ pub const c_builtins = @import("zig/c_builtins.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-```zig
+\`\`\`zig
 pub const c_translation = @import("zig/c_translation.zig")
-```
+\`\`\`
 
 > **Module:** `zig/c_translation.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/zig/c_translation.zig)
 
@@ -975,9 +975,9 @@ pub const c_translation = @import("zig/c_translation.zig")
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const Token = tokenizer.Token
-```
+\`\`\`
 
 </details>
 
@@ -988,9 +988,9 @@ pub const Token = tokenizer.Token
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const Tokenizer = tokenizer.Tokenizer
-```
+\`\`\`
 
 </details>
 
@@ -1001,9 +1001,9 @@ pub const Tokenizer = tokenizer.Tokenizer
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const isPrimitive = primitives.isPrimitive
-```
+\`\`\`
 
 </details>
 
@@ -1014,9 +1014,9 @@ pub const isPrimitive = primitives.isPrimitive
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const ParsedCharLiteral = string_literal.ParsedCharLiteral
-```
+\`\`\`
 
 </details>
 
@@ -1027,9 +1027,9 @@ pub const ParsedCharLiteral = string_literal.ParsedCharLiteral
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const parseCharLiteral = string_literal.parseCharLiteral
-```
+\`\`\`
 
 </details>
 
@@ -1040,9 +1040,9 @@ pub const parseCharLiteral = string_literal.parseCharLiteral
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const parseNumberLiteral = number_literal.parseNumberLiteral
-```
+\`\`\`
 
 </details>
 
@@ -1053,9 +1053,9 @@ pub const parseNumberLiteral = number_literal.parseNumberLiteral
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const SrcHasher = std.crypto.hash.Blake3
-```
+\`\`\`
 
 </details>
 
@@ -1066,9 +1066,9 @@ pub const SrcHasher = std.crypto.hash.Blake3
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const SrcHash = [16]u8
-```
+\`\`\`
 
 </details>
 
@@ -1082,9 +1082,9 @@ pub const SrcHash = [16]u8
 There are many assumptions in the entire codebase that Zig source files can
 be byte-indexed with a u32 integer.
 
-```zig
+\`\`\`zig
 pub const max_src_size = std.math.maxInt(u32)
-```
+\`\`\`
 
 </details>
 
@@ -1095,7 +1095,7 @@ pub const max_src_size = std.math.maxInt(u32)
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-```zig
+\`\`\`zig
 pub const BuildId = union(enum) {
     none,
     fast,
@@ -1193,7 +1193,7 @@ pub const BuildId = union(enum) {
         try std.testing.expectFmt("0x1234cdef", "{f}", .{BuildId.initHexString("\x12\x34\xcd\xef")});
     }
 }
-```
+\`\`\`
 
 </details>
 
@@ -1206,13 +1206,13 @@ pub const BuildId = union(enum) {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn hashSrc(src: []const u8) SrcHash {
     var out: SrcHash = undefined;
     SrcHasher.hash(src, &out, .{});
     return out;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1230,11 +1230,11 @@ pub fn hashSrc(src: []const u8) SrcHash {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn srcHashEql(a: SrcHash, b: SrcHash) bool {
     return @as(u128, @bitCast(a)) == @as(u128, @bitCast(b));
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1253,7 +1253,7 @@ pub fn srcHashEql(a: SrcHash, b: SrcHash) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn hashName(parent_hash: SrcHash, sep: []const u8, name: []const u8) SrcHash {
     var out: SrcHash = undefined;
     var hasher = SrcHasher.init(.{});
@@ -1263,7 +1263,7 @@ pub fn hashName(parent_hash: SrcHash, sep: []const u8, name: []const u8) SrcHash
     hasher.final(&out);
     return out;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1283,7 +1283,7 @@ pub fn hashName(parent_hash: SrcHash, sep: []const u8, name: []const u8) SrcHash
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn findLineColumn(source: []const u8, byte_offset: usize) Loc {
     var line: usize = 0;
     var column: usize = 0;
@@ -1310,7 +1310,7 @@ pub fn findLineColumn(source: []const u8, byte_offset: usize) Loc {
         .source_line = source[line_start..i],
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1329,7 +1329,7 @@ pub fn findLineColumn(source: []const u8, byte_offset: usize) Loc {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn lineDelta(source: []const u8, start: usize, end: usize) isize {
     var line: isize = 0;
     if (end >= start) {
@@ -1345,7 +1345,7 @@ pub fn lineDelta(source: []const u8, start: usize, end: usize) isize {
     }
     return line;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1367,7 +1367,7 @@ pub fn lineDelta(source: []const u8, start: usize, end: usize) isize {
 
 Returns the standard file system basename of a binary generated by the Zig compiler.
 
-```zig
+\`\`\`zig
 pub fn binNameAlloc(allocator: Allocator, options: BinNameOptions) error{OutOfMemory}![]u8 {
     const root_name = options.root_name;
     const t = options.target;
@@ -1454,7 +1454,7 @@ pub fn binNameAlloc(allocator: Allocator, options: BinNameOptions) error{OutOfMe
         },
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1481,7 +1481,7 @@ Renders a `std.Target.Cpu` value into a textual representation that can be parse
 via the `-mcpu` flag passed to the Zig compiler.
 Appends the result to `buffer`.
 
-```zig
+\`\`\`zig
 pub fn serializeCpu(buffer: *std.array_list.Managed(u8), cpu: std.Target.Cpu) Allocator.Error!void {
     const all_features = cpu.arch.allFeaturesList();
     var populated_cpu_features = cpu.model.features;
@@ -1508,7 +1508,7 @@ pub fn serializeCpu(buffer: *std.array_list.Managed(u8), cpu: std.Target.Cpu) Al
         }
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1527,13 +1527,13 @@ pub fn serializeCpu(buffer: *std.array_list.Managed(u8), cpu: std.Target.Cpu) Al
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn serializeCpuAlloc(ally: Allocator, cpu: std.Target.Cpu) Allocator.Error![]u8 {
     var buffer = std.array_list.Managed(u8).init(ally);
     try serializeCpu(&buffer, cpu);
     return buffer.toOwnedSlice();
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1556,11 +1556,11 @@ Return a Formatter for a Zig identifier, escaping it with `@""` syntax if needed
 
 See also `fmtIdFlags`.
 
-```zig
+\`\`\`zig
 pub fn fmtId(bytes: []const u8) FormatId {
     return .{ .bytes = bytes, .flags = .{} };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1582,11 +1582,11 @@ Return a Formatter for a Zig identifier, escaping it with `@""` syntax if needed
 
 See also `fmtId`.
 
-```zig
+\`\`\`zig
 pub fn fmtIdFlags(bytes: []const u8, flags: FormatId.Flags) FormatId {
     return .{ .bytes = bytes, .flags = flags };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1605,11 +1605,11 @@ pub fn fmtIdFlags(bytes: []const u8, flags: FormatId.Flags) FormatId {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn fmtIdPU(bytes: []const u8) FormatId {
     return .{ .bytes = bytes, .flags = .{ .allow_primitive = true, .allow_underscore = true } };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1627,11 +1627,11 @@ pub fn fmtIdPU(bytes: []const u8) FormatId {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn fmtIdP(bytes: []const u8) FormatId {
     return .{ .bytes = bytes, .flags = .{ .allow_primitive = true } };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1651,11 +1651,11 @@ pub fn fmtIdP(bytes: []const u8) FormatId {
 
 Return a formatter for escaping a double quoted Zig string.
 
-```zig
+\`\`\`zig
 pub fn fmtString(bytes: []const u8) std.fmt.Formatter([]const u8, stringEscape) {
     return .{ .data = bytes };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1675,11 +1675,11 @@ pub fn fmtString(bytes: []const u8) std.fmt.Formatter([]const u8, stringEscape) 
 
 Return a formatter for escaping a single quoted Zig string.
 
-```zig
+\`\`\`zig
 pub fn fmtChar(c: u21) std.fmt.Formatter(u21, charEscape) {
     return .{ .data = c };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1699,7 +1699,7 @@ pub fn fmtChar(c: u21) std.fmt.Formatter(u21, charEscape) {
 
 Print the string as escaped contents of a double quoted string.
 
-```zig
+\`\`\`zig
 pub fn stringEscape(bytes: []const u8, w: *Writer) Writer.Error!void {
     for (bytes) |byte| switch (byte) {
         '\n' => try w.writeAll("\\n"),
@@ -1715,7 +1715,7 @@ pub fn stringEscape(bytes: []const u8, w: *Writer) Writer.Error!void {
         },
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1736,7 +1736,7 @@ pub fn stringEscape(bytes: []const u8, w: *Writer) Writer.Error!void {
 
 Print as escaped contents of a single-quoted string.
 
-```zig
+\`\`\`zig
 pub fn charEscape(codepoint: u21, w: *Writer) Writer.Error!void {
     switch (codepoint) {
         '\n' => try w.writeAll("\\n"),
@@ -1757,7 +1757,7 @@ pub fn charEscape(codepoint: u21, w: *Writer) Writer.Error!void {
         },
     }
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1776,7 +1776,7 @@ pub fn charEscape(codepoint: u21, w: *Writer) Writer.Error!void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn isValidId(bytes: []const u8) bool {
     if (bytes.len == 0) return false;
     for (bytes, 0..) |c, i| {
@@ -1788,7 +1788,7 @@ pub fn isValidId(bytes: []const u8) bool {
     }
     return std.zig.Token.getKeyword(bytes) == null;
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1806,11 +1806,11 @@ pub fn isValidId(bytes: []const u8) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn isUnderscore(bytes: []const u8) bool {
     return bytes.len == 1 and bytes[0] == '_';
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1832,7 +1832,7 @@ If the source can be UTF-16LE encoded, this function asserts that `gpa`
 will align a byte-sized allocation to at least 2. Allocators that don't do
 this are rare.
 
-```zig
+\`\`\`zig
 pub fn readSourceFileToEndAlloc(gpa: Allocator, file_reader: *std.fs.File.Reader) ![:0]u8 {
     var buffer: std.ArrayList(u8) = .empty;
     defer buffer.deinit(gpa);
@@ -1870,7 +1870,7 @@ pub fn readSourceFileToEndAlloc(gpa: Allocator, file_reader: *std.fs.File.Reader
 
     return buffer.toOwnedSliceSentinel(gpa, 0);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1889,7 +1889,7 @@ pub fn readSourceFileToEndAlloc(gpa: Allocator, file_reader: *std.fs.File.Reader
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn printAstErrorsToStderr(gpa: Allocator, tree: Ast, path: []const u8, color: Color) !void {
     var wip_errors: std.zig.ErrorBundle.Wip = undefined;
     try wip_errors.init(gpa);
@@ -1901,7 +1901,7 @@ pub fn printAstErrorsToStderr(gpa: Allocator, tree: Ast, path: []const u8, color
     defer error_bundle.deinit(gpa);
     error_bundle.renderToStdErr(color.renderOptions());
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1922,7 +1922,7 @@ pub fn printAstErrorsToStderr(gpa: Allocator, tree: Ast, path: []const u8, color
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn putAstErrorsIntoBundle(
     gpa: Allocator,
     tree: Ast,
@@ -1934,7 +1934,7 @@ pub fn putAstErrorsIntoBundle(
 
     try wip_errors.addZirErrorMessages(zir, tree, tree.source, path);
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1955,12 +1955,12 @@ pub fn putAstErrorsIntoBundle(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn resolveTargetQueryOrFatal(target_query: std.Target.Query) std.Target {
     return std.zig.system.resolveTargetQuery(target_query) catch |err|
         std.process.fatal("unable to resolve target: {s}", .{@errorName(err)});
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -1978,7 +1978,7 @@ pub fn resolveTargetQueryOrFatal(target_query: std.Target.Query) std.Target {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-```zig
+\`\`\`zig
 pub fn parseTargetQueryOrReportFatalError(
     allocator: Allocator,
     opts: std.Target.Query.ParseOptions,
@@ -2042,7 +2042,7 @@ pub fn parseTargetQueryOrReportFatalError(
         }),
     };
 }
-```
+\`\`\`
 
 **Parameters & Return:**
 
@@ -2055,4 +2055,3 @@ pub fn parseTargetQueryOrReportFatalError(
 </details>
 
 ---
-

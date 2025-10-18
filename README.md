@@ -32,6 +32,11 @@ npm run typecheck
 
 Visit `http://localhost:3000` after `npm run dev` boots.
 
+## Landing Page Curation
+
+- Category ordering on the home page is controlled by the optional `weight` field in `data/std-navigation.json`. Higher values surface first; ties fall back to alphabetical ordering.
+- The landing page uses a client-side Fuse.js index for fuzzy search. The index hydrates after mount, so the UI exposes a loading state and a deterministic fallback filter until Fuse finishes building. If you add new categories or modules, no extra wiring is required—just ensure the metadata lives in the JSON file so the index rebuilds automatically.
+
 ## Project Layout
 
 ```

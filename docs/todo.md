@@ -1,30 +1,20 @@
-# Delivery Plan · Zigbook Docs
 
-## Stage 1 – Environment & Tooling Hardening (in flight)
+[x] Search field alignment – Addressed with slot-based trailing clear control that keeps the cursor centered.
 
-- [x] Pin direct dependencies and drop the `better-sqlite3` native requirement.
-- [x] Enforce Node.js 22 runtime across local and CI environments.
-- [x] Refresh the contributor README with accurate setup steps and tooling commands.
-- [x] Stand up a CI pipeline that runs install, lint, dependency-filtered type-check, and build on pull requests.
-- [x] Add commit hooks (Husky + lint-staged) so lint/typecheck/build run before every commit.
-- [x] Define baseline Lighthouse & JS payload metrics; write results to `docs/ops/baseline.md` with target budgets.
+[ ] Metric tiles spacing – On wide screens the two summary cards leave a gap while the search bar stays narrow. Consider wrapping them in grid-cols-3 with consistent heights or letting the search stretch across two columns so the header block feels balanced.
 
-## Stage 2 – Docs Integrity & Build Stability (next)
+[x] Summary banner hierarchy – Added filter icon, bold counts, and aria-live announcement for clarity.
 
-- [ ] Fix the `/raw/docs/std/*/_dir.md` prerender failures uncovered during `npm run build` (likely sync script edge cases).
-- [ ] Ensure `NUXT_PUBLIC_SITE_URL` (or `site.url` config) is populated in all environments to silence sitemap warnings.
-- [ ] Add regression tests around `scripts/sync-std-docs.mjs` (dry-run mode + snapshot of generated front matter).
-- [ ] Introduce content validation checks (broken link detection, orphaned category entries) in CI.
+[x] Card gradient – Gradient baseline now visible at rest with higher opacity and hover emphasis.
 
-## Stage 3 – Performance, Accessibility & Observability (later)
+[x] Chip overflow on mobile – Caps chip width and truncates with tooltip to avoid wrap on small screens.
 
-- [ ] Automate Lighthouse runs in CI (guard rails on performance ≥90, accessibility ≥95).
-- [ ] Add axe-core accessibility smoke tests for docs templates.
-- [ ] Instrument structured logging/analytics for `llms.txt` export freshness and sync invocations.
-- [ ] Benchmark critical routes and document budgets (home, `/docs/std/:category`, `/llms.txt`).
+[x] Reset button affordance – Reset control now uses primary outline variant for stronger contrast.
 
-## Stage 4 – LLM & Contributor Experience (stretch)
+[x] Empty state CTA sizing – CTA expands full width on mobile while retaining standard width on larger breakpoints.
 
-- [ ] Ship guided authoring docs covering Markdown conventions, sync workflow, and AI prompt hygiene.
-- [ ] Publish a changelog/what’s-new page sourced from Git history (surface notable standard library updates).
-- [ ] Expose API hooks or webhooks for internal copilots to request targeted doc refreshes.
+[x] Card min-height tuning – Min heights now responsive: 20rem base, 21rem on small screens, 22rem on large displays.
+
+[x] SEO copy – Switched summary message to straight quotes for better screen reader output.
+
+[x] Docs banner – Introduced announcement slot in header block for future highlight rows.

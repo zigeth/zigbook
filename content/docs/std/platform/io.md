@@ -69,7 +69,7 @@ This page syncs automatically from `std/Io.md` in the repository. Edit the sourc
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Limit = enum(usize) {
     nothing = 0,
     unlimited = std.math.maxInt(usize),
@@ -139,7 +139,7 @@ pub const Limit = enum(usize) {
         return @enumFromInt(@intFromEnum(l) - amount);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -162,9 +162,9 @@ pub const Limit = enum(usize) {
 
 Deprecated in favor of `Reader`.
 
-\`\`\`zig
+```zig
 pub const AnyReader = @import("Io/DeprecatedReader.zig")
-\`\`\`
+```
 
 > **Module:** `Io/DeprecatedReader.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Io/DeprecatedReader.zig)
 
@@ -179,9 +179,9 @@ pub const AnyReader = @import("Io/DeprecatedReader.zig")
 
 Deprecated in favor of `Writer`.
 
-\`\`\`zig
+```zig
 pub const AnyWriter = @import("Io/DeprecatedWriter.zig")
-\`\`\`
+```
 
 > **Module:** `Io/DeprecatedWriter.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Io/DeprecatedWriter.zig)
 
@@ -194,9 +194,9 @@ pub const AnyWriter = @import("Io/DeprecatedWriter.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Reader = @import("Io/Reader.zig")
-\`\`\`
+```
 
 > **Module:** `Io/Reader.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Io/Reader.zig)
 
@@ -209,9 +209,9 @@ pub const Reader = @import("Io/Reader.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const tty = @import("Io/tty.zig")
-\`\`\`
+```
 
 > **Module:** `Io/tty.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Io/tty.zig)
 
@@ -224,9 +224,9 @@ pub const tty = @import("Io/tty.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Writer = @import("Io/Writer.zig")
-\`\`\`
+```
 
 > **Module:** `Io/Writer.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Io/Writer.zig)
 
@@ -247,9 +247,9 @@ pub const Writer = @import("Io/Writer.zig")
 
 Deprecated with no replacement; inefficient pattern
 
-\`\`\`zig
+```zig
 pub const CountingReader = @import("Io/counting_reader.zig").CountingReader
-\`\`\`
+```
 
 </details>
 
@@ -266,9 +266,9 @@ pub const CountingReader = @import("Io/counting_reader.zig").CountingReader
 
 Deprecated with no replacement; inefficient pattern
 
-\`\`\`zig
+```zig
 pub const countingReader = @import("Io/counting_reader.zig").countingReader
-\`\`\`
+```
 
 </details>
 
@@ -285,9 +285,9 @@ pub const countingReader = @import("Io/counting_reader.zig").countingReader
 
 Deprecated in favor of `Reader`.
 
-\`\`\`zig
+```zig
 pub const FixedBufferStream = @import("Io/fixed_buffer_stream.zig").FixedBufferStream
-\`\`\`
+```
 
 </details>
 
@@ -304,9 +304,9 @@ pub const FixedBufferStream = @import("Io/fixed_buffer_stream.zig").FixedBufferS
 
 Deprecated in favor of `Reader`.
 
-\`\`\`zig
+```zig
 pub const fixedBufferStream = @import("Io/fixed_buffer_stream.zig").fixedBufferStream
-\`\`\`
+```
 
 </details>
 
@@ -323,9 +323,9 @@ pub const fixedBufferStream = @import("Io/fixed_buffer_stream.zig").fixedBufferS
 
 Deprecated in favor of `Writer.Discarding`.
 
-\`\`\`zig
+```zig
 pub const null_writer: NullWriter = .{ .context = {} }
-\`\`\`
+```
 
 </details>
 
@@ -342,9 +342,9 @@ pub const null_writer: NullWriter = .{ .context = {} }
 
 Deprecated in favor of `Writer.Discarding`.
 
-\`\`\`zig
+```zig
 pub const NullWriter = GenericWriter(void, error{}, dummyWrite)
-\`\`\`
+```
 
 </details>
 
@@ -363,7 +363,7 @@ pub const NullWriter = GenericWriter(void, error{}, dummyWrite)
 
 Deprecated in favor of `Reader`.
 
-\`\`\`zig
+```zig
 pub fn GenericReader(
     comptime Context: type,
     comptime ReadError: type,
@@ -606,7 +606,7 @@ pub fn GenericReader(
         };
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -636,7 +636,7 @@ pub fn GenericReader(
 
 Deprecated in favor of `Writer`.
 
-\`\`\`zig
+```zig
 pub fn GenericWriter(
     comptime Context: type,
     comptime WriteError: type,
@@ -728,7 +728,7 @@ pub fn GenericWriter(
         };
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -748,7 +748,7 @@ pub fn GenericWriter(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn poll(
     gpa: Allocator,
     comptime StreamEnum: type,
@@ -787,7 +787,7 @@ pub fn poll(
 
     return result;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -807,7 +807,7 @@ pub fn poll(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn Poller(comptime StreamEnum: type) type {
     return struct {
         const enum_fields = @typeInfo(StreamEnum).@"enum".fields;
@@ -1209,7 +1209,7 @@ pub fn Poller(comptime StreamEnum: type) type {
         }
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1234,7 +1234,7 @@ pub fn Poller(comptime StreamEnum: type) type {
 Given an enum, returns a struct with fields of that enum, each field
 representing an I/O stream for polling.
 
-\`\`\`zig
+```zig
 pub fn PollFiles(comptime StreamEnum: type) type {
     const enum_fields = @typeInfo(StreamEnum).@"enum".fields;
     var struct_fields: [enum_fields.len]std.builtin.Type.StructField = undefined;
@@ -1254,7 +1254,7 @@ pub fn PollFiles(comptime StreamEnum: type) type {
         .is_tuple = false,
     } });
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1266,3 +1266,5 @@ pub fn PollFiles(comptime StreamEnum: type) type {
 </details>
 
 ---
+
+

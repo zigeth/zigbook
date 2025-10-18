@@ -63,9 +63,9 @@
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const TrailerFlags = @import("meta/trailer_flags.zig").TrailerFlags
-\`\`\`
+```
 
 </details>
 
@@ -80,7 +80,7 @@ pub const TrailerFlags = @import("meta/trailer_flags.zig").TrailerFlags
 
 Returns the variant of an enum type, `T`, which is named `str`, or `null` if no such variant exists.
 
-\`\`\`zig
+```zig
 pub fn stringToEnum(comptime T: type, str: []const u8) ?T {
     // Using StaticStringMap here is more performant, but it will start to take too
     // long to compile if the enum is large enough, due to the current limits of comptime
@@ -108,7 +108,7 @@ pub fn stringToEnum(comptime T: type, str: []const u8) ?T {
         return null;
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -132,7 +132,7 @@ Note that if T is a pointer type the result is different than the one
 returned by @alignOf(T).
 If T is a pointer type the alignment of the type it points to is returned.
 
-\`\`\`zig
+```zig
 pub fn alignment(comptime T: type) comptime_int {
     return switch (@typeInfo(T)) {
         .optional => |info| switch (@typeInfo(info.child)) {
@@ -143,7 +143,7 @@ pub fn alignment(comptime T: type) comptime_int {
         else => @alignOf(T),
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -163,7 +163,7 @@ pub fn alignment(comptime T: type) comptime_int {
 
 Given a parameterized type (array, vector, pointer, optional), returns the "child type".
 
-\`\`\`zig
+```zig
 pub fn Child(comptime T: type) type {
     return switch (@typeInfo(T)) {
         .array => |info| info.child,
@@ -173,7 +173,7 @@ pub fn Child(comptime T: type) type {
         else => @compileError("Expected pointer, optional, array or vector type, found '" ++ @typeName(T) ++ "'"),
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -193,7 +193,7 @@ pub fn Child(comptime T: type) type {
 
 Given a "memory span" type (array, slice, vector, or pointer to such), returns the "element type".
 
-\`\`\`zig
+```zig
 pub fn Elem(comptime T: type) type {
     switch (@typeInfo(T)) {
         .array => |info| return info.child,
@@ -211,7 +211,7 @@ pub fn Elem(comptime T: type) type {
     }
     @compileError("Expected pointer, slice, array or vector type, found '" ++ @typeName(T) ++ "'");
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -234,7 +234,7 @@ or `null` if there is not one.
 Types which cannot possibly have a sentinel will be a compile error.
 Result is always comptime-known.
 
-\`\`\`zig
+```zig
 pub inline fn sentinel(comptime T: type) ?Elem(T) {
     switch (@typeInfo(T)) {
         .array => |info| return info.sentinel(),
@@ -252,7 +252,7 @@ pub inline fn sentinel(comptime T: type) ?Elem(T) {
     }
     @compileError("type '" ++ @typeName(T) ++ "' cannot possibly have a sentinel");
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -272,7 +272,7 @@ pub inline fn sentinel(comptime T: type) ?Elem(T) {
 
 Given a "memory span" type, returns the same type except with the given sentinel value.
 
-\`\`\`zig
+```zig
 pub fn Sentinel(comptime T: type, comptime sentinel_val: Elem(T)) type {
     switch (@typeInfo(T)) {
         .pointer => |info| switch (info.size) {
@@ -337,7 +337,7 @@ pub fn Sentinel(comptime T: type, comptime sentinel_val: Elem(T)) type {
     }
     @compileError("Unable to derive a sentinel pointer type from " ++ @typeName(T));
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -356,7 +356,7 @@ pub fn Sentinel(comptime T: type, comptime sentinel_val: Elem(T)) type {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn containerLayout(comptime T: type) Type.ContainerLayout {
     return switch (@typeInfo(T)) {
         .@"struct" => |info| info.layout,
@@ -364,7 +364,7 @@ pub fn containerLayout(comptime T: type) Type.ContainerLayout {
         else => @compileError("expected struct or union type, found '" ++ @typeName(T) ++ "'"),
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -385,7 +385,7 @@ pub fn containerLayout(comptime T: type) Type.ContainerLayout {
 Instead of this function, prefer to use e.g. `@typeInfo(foo).@"struct".decls`
 directly when you know what kind of type it is.
 
-\`\`\`zig
+```zig
 pub fn declarations(comptime T: type) []const Type.Declaration {
     return switch (@typeInfo(T)) {
         .@"struct" => |info| info.decls,
@@ -395,7 +395,7 @@ pub fn declarations(comptime T: type) []const Type.Declaration {
         else => @compileError("Expected struct, enum, union, or opaque type, found '" ++ @typeName(T) ++ "'"),
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -413,7 +413,7 @@ pub fn declarations(comptime T: type) []const Type.Declaration {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn declarationInfo(comptime T: type, comptime decl_name: []const u8) Type.Declaration {
     inline for (comptime declarations(T)) |decl| {
         if (comptime mem.eql(u8, decl.name, decl_name))
@@ -422,7 +422,7 @@ pub fn declarationInfo(comptime T: type, comptime decl_name: []const u8) Type.De
 
     @compileError("'" ++ @typeName(T) ++ "' has no declaration '" ++ decl_name ++ "'");
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -441,7 +441,7 @@ pub fn declarationInfo(comptime T: type, comptime decl_name: []const u8) Type.De
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn fields(comptime T: type) switch (@typeInfo(T)) {
     .@"struct" => []const Type.StructField,
     .@"union" => []const Type.UnionField,
@@ -457,7 +457,7 @@ pub fn fields(comptime T: type) switch (@typeInfo(T)) {
         else => @compileError("Expected struct, union, error set or enum type, found '" ++ @typeName(T) ++ "'"),
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -470,7 +470,7 @@ pub fn fields(comptime T: type) switch (@typeInfo(T)) {
 [^fn-fields-return-0]:
     Return type for `fields`:
 
-    \`\`\`zig
+    ```zig
     switch (@typeInfo(T)) {
         .@"struct" => []const Type.StructField,
         .@"union" => []const Type.UnionField,
@@ -478,7 +478,7 @@ pub fn fields(comptime T: type) switch (@typeInfo(T)) {
         .error_set => []const Type.Error,
         else => @compileError("Expected struct, union, error set or enum type, found '" ++ @typeName(T) ++ "'"),
     }
-    \`\`\`
+    ```
 
 </details>
 
@@ -489,7 +489,7 @@ pub fn fields(comptime T: type) switch (@typeInfo(T)) {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn fieldInfo(comptime T: type, comptime field: FieldEnum(T)) switch (@typeInfo(T)) {
     .@"struct" => Type.StructField,
     .@"union" => Type.UnionField,
@@ -499,7 +499,7 @@ pub fn fieldInfo(comptime T: type, comptime field: FieldEnum(T)) switch (@typeIn
 } {
     return fields(T)[@intFromEnum(field)];
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -513,7 +513,7 @@ pub fn fieldInfo(comptime T: type, comptime field: FieldEnum(T)) switch (@typeIn
 [^fn-fieldinfo-return-0]:
     Return type for `fieldInfo`:
 
-    \`\`\`zig
+    ```zig
     switch (@typeInfo(T)) {
         .@"struct" => Type.StructField,
         .@"union" => Type.UnionField,
@@ -521,7 +521,7 @@ pub fn fieldInfo(comptime T: type, comptime field: FieldEnum(T)) switch (@typeIn
         .error_set => Type.Error,
         else => @compileError("Expected struct, union, error set or enum type, found '" ++ @typeName(T) ++ "'"),
     }
-    \`\`\`
+    ```
 
 </details>
 
@@ -532,7 +532,7 @@ pub fn fieldInfo(comptime T: type, comptime field: FieldEnum(T)) switch (@typeIn
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn fieldNames(comptime T: type) *const [fields(T).len][:0]const u8 {
     return comptime blk: {
         const fieldInfos = fields(T);
@@ -542,7 +542,7 @@ pub fn fieldNames(comptime T: type) *const [fields(T).len][:0]const u8 {
         break :blk &final;
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -563,7 +563,7 @@ pub fn fieldNames(comptime T: type) *const [fields(T).len][:0]const u8 {
 Given an enum or error set type, returns a pointer to an array containing all tags for that
 enum or error set.
 
-\`\`\`zig
+```zig
 pub fn tags(comptime T: type) *const [fields(T).len]T {
     return comptime blk: {
         const fieldInfos = fields(T);
@@ -575,7 +575,7 @@ pub fn tags(comptime T: type) *const [fields(T).len]T {
         break :blk &final;
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -595,7 +595,7 @@ pub fn tags(comptime T: type) *const [fields(T).len]T {
 
 Returns an enum with a variant named after each field of `T`.
 
-\`\`\`zig
+```zig
 pub fn FieldEnum(comptime T: type) type {
     const field_infos = fields(T);
 
@@ -638,7 +638,7 @@ pub fn FieldEnum(comptime T: type) type {
         },
     });
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -656,7 +656,7 @@ pub fn FieldEnum(comptime T: type) type {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn DeclEnum(comptime T: type) type {
     const fieldInfos = std.meta.declarations(T);
     var enumDecls: [fieldInfos.len]std.builtin.Type.EnumField = undefined;
@@ -673,7 +673,7 @@ pub fn DeclEnum(comptime T: type) type {
         },
     });
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -691,7 +691,7 @@ pub fn DeclEnum(comptime T: type) type {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn Tag(comptime T: type) type {
     return switch (@typeInfo(T)) {
         .@"enum" => |info| info.tag_type,
@@ -699,7 +699,7 @@ pub fn Tag(comptime T: type) type {
         else => @compileError("expected enum or union type, found '" ++ @typeName(T) ++ "'"),
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -719,12 +719,12 @@ pub fn Tag(comptime T: type) type {
 
 Returns the active tag of a tagged union
 
-\`\`\`zig
+```zig
 pub fn activeTag(u: anytype) Tag(@TypeOf(u)) {
     const T = @TypeOf(u);
     return @as(Tag(T), u);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -748,7 +748,7 @@ pub fn activeTag(u: anytype) Tag(@TypeOf(u)) {
 
 Deprecated: Use @FieldType(U, tag_name)
 
-\`\`\`zig
+```zig
 pub fn TagPayloadByName(comptime U: type, comptime tag_name: []const u8) type {
     const info = @typeInfo(U).@"union";
 
@@ -759,7 +759,7 @@ pub fn TagPayloadByName(comptime U: type, comptime tag_name: []const u8) type {
 
     @compileError("no field '" ++ tag_name ++ "' in union '" ++ @typeName(U) ++ "'");
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -784,11 +784,11 @@ pub fn TagPayloadByName(comptime U: type, comptime tag_name: []const u8) type {
 
 Deprecated: Use @FieldType(U, @tagName(tag))
 
-\`\`\`zig
+```zig
 pub fn TagPayload(comptime U: type, comptime tag: Tag(U)) type {
     return TagPayloadByName(U, @tagName(tag));
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -810,7 +810,7 @@ pub fn TagPayload(comptime U: type, comptime tag: Tag(U)) type {
 Compares two of any type for equality. Containers that do not support comparison
 on their own are compared on a field-by-field basis. Pointers are not followed.
 
-\`\`\`zig
+```zig
 pub fn eql(a: anytype, b: @TypeOf(a)) bool {
     const T = @TypeOf(a);
 
@@ -870,7 +870,7 @@ pub fn eql(a: anytype, b: @TypeOf(a)) bool {
         else => return a == b,
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -895,11 +895,11 @@ pub fn eql(a: anytype, b: @TypeOf(a)) bool {
 
 Deprecated: use `std.enums.fromInt` instead and handle null instead of an error.
 
-\`\`\`zig
+```zig
 pub fn intToEnum(comptime EnumTag: type, tag_int: anytype) IntToEnumError!EnumTag {
     return std.enums.fromInt(EnumTag, tag_int) orelse return error.InvalidEnumTag;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -921,7 +921,7 @@ pub fn intToEnum(comptime EnumTag: type, tag_int: anytype) IntToEnumError!EnumTa
 Given a type and a name, return the field index according to source order.
 Returns `null` if the field is not found.
 
-\`\`\`zig
+```zig
 pub fn fieldIndex(comptime T: type, comptime name: []const u8) ?comptime_int {
     inline for (fields(T), 0..) |field, i| {
         if (mem.eql(u8, field.name, name))
@@ -929,7 +929,7 @@ pub fn fieldIndex(comptime T: type, comptime name: []const u8) ?comptime_int {
     }
     return null;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -950,7 +950,7 @@ pub fn fieldIndex(comptime T: type, comptime name: []const u8) ?comptime_int {
 
 Returns a slice of pointers to public declarations of a namespace.
 
-\`\`\`zig
+```zig
 pub fn declList(comptime Namespace: type, comptime Decl: type) []const *const Decl {
     const S = struct {
         fn declNameLessThan(context: void, lhs: *const Decl, rhs: *const Decl) bool {
@@ -968,7 +968,7 @@ pub fn declList(comptime Namespace: type, comptime Decl: type) []const *const De
         return &array;
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -987,7 +987,7 @@ pub fn declList(comptime Namespace: type, comptime Decl: type) []const *const De
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn Int(comptime signedness: std.builtin.Signedness, comptime bit_count: u16) type {
     return @Type(.{
         .int = .{
@@ -996,7 +996,7 @@ pub fn Int(comptime signedness: std.builtin.Signedness, comptime bit_count: u16)
         },
     });
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1015,13 +1015,13 @@ pub fn Int(comptime signedness: std.builtin.Signedness, comptime bit_count: u16)
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn Float(comptime bit_count: u8) type {
     return @Type(.{
         .float = .{ .bits = bit_count },
     });
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1047,7 +1047,7 @@ Examples:
 - `ArgsTuple(fn (a: u32) u32)` ⇒ `tuple { u32 }`
 - `ArgsTuple(fn (a: u32, b: f16) noreturn)` ⇒ `tuple { u32, f16 }`
 
-\`\`\`zig
+```zig
 pub fn ArgsTuple(comptime Function: type) type {
     const info = @typeInfo(Function);
     if (info != .@"fn")
@@ -1065,7 +1065,7 @@ pub fn ArgsTuple(comptime Function: type) type {
 
     return CreateUniqueTuple(argument_field_list.len, argument_field_list);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1091,11 +1091,11 @@ Examples:
 - `Tuple(&[_]type {f32})` ⇒ `tuple { f32 }`
 - `Tuple(&[_]type {f32,u32})` ⇒ `tuple { f32, u32 }`
 
-\`\`\`zig
+```zig
 pub fn Tuple(comptime types: []const type) type {
     return CreateUniqueTuple(types.len, types[0..types.len].*);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1115,11 +1115,11 @@ pub fn Tuple(comptime types: []const type) type {
 
 Returns whether `error_union` contains an error.
 
-\`\`\`zig
+```zig
 pub fn isError(error_union: anytype) bool {
     return if (error_union) |_| false else |_| true;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1140,7 +1140,7 @@ pub fn isError(error_union: anytype) bool {
 Returns true if a type has a namespace and the namespace contains `name`;
 `false` otherwise. Result is always comptime-known.
 
-\`\`\`zig
+```zig
 pub inline fn hasFn(comptime T: type, comptime name: []const u8) bool {
     switch (@typeInfo(T)) {
         .@"struct", .@"union", .@"enum", .@"opaque" => {},
@@ -1151,7 +1151,7 @@ pub inline fn hasFn(comptime T: type, comptime name: []const u8) bool {
 
     return @typeInfo(@TypeOf(@field(T, name))) == .@"fn";
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1173,7 +1173,7 @@ pub inline fn hasFn(comptime T: type, comptime name: []const u8) bool {
 Returns true if a type has a `name` method; `false` otherwise.
 Result is always comptime-known.
 
-\`\`\`zig
+```zig
 pub inline fn hasMethod(comptime T: type, comptime name: []const u8) bool {
     return switch (@typeInfo(T)) {
         .pointer => |P| switch (P.size) {
@@ -1183,7 +1183,7 @@ pub inline fn hasMethod(comptime T: type, comptime name: []const u8) bool {
         else => hasFn(T, name),
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1206,7 +1206,7 @@ True if every value of the type `T` has a unique bit pattern representing it.
 In other words, `T` has no unused bits and no padding.
 Result is always comptime-known.
 
-\`\`\`zig
+```zig
 pub inline fn hasUniqueRepresentation(comptime T: type) bool {
     return switch (@typeInfo(T)) {
         else => false, // TODO can we know if it's true for some of these types ?
@@ -1251,7 +1251,7 @@ pub inline fn hasUniqueRepresentation(comptime T: type) bool {
             @sizeOf(T) == @sizeOf(info.child) * info.len,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1273,9 +1273,9 @@ pub inline fn hasUniqueRepresentation(comptime T: type) bool {
 
 Deprecated: use `std.enums.fromInt` instead and handle null.
 
-\`\`\`zig
+```zig
 pub const IntToEnumError = error{InvalidEnumTag}
-\`\`\`
+```
 
 **Errors:**
 
@@ -1284,3 +1284,4 @@ pub const IntToEnumError = error{InvalidEnumTag}
 </details>
 
 ---
+

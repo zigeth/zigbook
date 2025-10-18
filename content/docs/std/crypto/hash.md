@@ -73,9 +73,9 @@ This page syncs automatically from `std/hash.md` in the repository. Edit the sou
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Adler32 = @import("hash/Adler32.zig")
-\`\`\`
+```
 
 > **Module:** `hash/Adler32.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/hash/Adler32.zig)
 
@@ -88,9 +88,9 @@ pub const Adler32 = @import("hash/Adler32.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const crc = @import("hash/crc.zig")
-\`\`\`
+```
 
 > **Module:** `hash/crc.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/hash/crc.zig)
 
@@ -103,9 +103,9 @@ pub const crc = @import("hash/crc.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const murmur = @import("hash/murmur.zig")
-\`\`\`
+```
 
 > **Module:** `hash/murmur.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/hash/murmur.zig)
 
@@ -118,9 +118,9 @@ pub const murmur = @import("hash/murmur.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const cityhash = @import("hash/cityhash.zig")
-\`\`\`
+```
 
 > **Module:** `hash/cityhash.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/hash/cityhash.zig)
 
@@ -135,9 +135,9 @@ pub const cityhash = @import("hash/cityhash.zig")
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const autoHash = auto_hash.autoHash
-\`\`\`
+```
 
 </details>
 
@@ -148,9 +148,9 @@ pub const autoHash = auto_hash.autoHash
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const autoHashStrat = auto_hash.hash
-\`\`\`
+```
 
 </details>
 
@@ -161,9 +161,9 @@ pub const autoHashStrat = auto_hash.hash
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Strategy = auto_hash.HashStrategy
-\`\`\`
+```
 
 </details>
 
@@ -174,9 +174,9 @@ pub const Strategy = auto_hash.HashStrategy
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Crc32 = crc.Crc32
-\`\`\`
+```
 
 </details>
 
@@ -187,9 +187,9 @@ pub const Crc32 = crc.Crc32
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Fnv1a_32 = fnv.Fnv1a_32
-\`\`\`
+```
 
 </details>
 
@@ -200,9 +200,9 @@ pub const Fnv1a_32 = fnv.Fnv1a_32
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Fnv1a_64 = fnv.Fnv1a_64
-\`\`\`
+```
 
 </details>
 
@@ -213,9 +213,9 @@ pub const Fnv1a_64 = fnv.Fnv1a_64
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Fnv1a_128 = fnv.Fnv1a_128
-\`\`\`
+```
 
 </details>
 
@@ -226,9 +226,9 @@ pub const Fnv1a_128 = fnv.Fnv1a_128
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SipHash64 = siphash.SipHash64
-\`\`\`
+```
 
 </details>
 
@@ -239,9 +239,9 @@ pub const SipHash64 = siphash.SipHash64
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SipHash128 = siphash.SipHash128
-\`\`\`
+```
 
 </details>
 
@@ -252,9 +252,9 @@ pub const SipHash128 = siphash.SipHash128
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Murmur2_32 = murmur.Murmur2_32
-\`\`\`
+```
 
 </details>
 
@@ -265,9 +265,9 @@ pub const Murmur2_32 = murmur.Murmur2_32
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Murmur2_64 = murmur.Murmur2_64
-\`\`\`
+```
 
 </details>
 
@@ -278,9 +278,9 @@ pub const Murmur2_64 = murmur.Murmur2_64
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Murmur3_32 = murmur.Murmur3_32
-\`\`\`
+```
 
 </details>
 
@@ -291,9 +291,9 @@ pub const Murmur3_32 = murmur.Murmur3_32
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CityHash32 = cityhash.CityHash32
-\`\`\`
+```
 
 </details>
 
@@ -304,9 +304,9 @@ pub const CityHash32 = cityhash.CityHash32
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CityHash64 = cityhash.CityHash64
-\`\`\`
+```
 
 </details>
 
@@ -317,9 +317,9 @@ pub const CityHash64 = cityhash.CityHash64
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Wyhash = wyhash.Wyhash
-\`\`\`
+```
 
 </details>
 
@@ -330,9 +330,9 @@ pub const Wyhash = wyhash.Wyhash
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const XxHash3 = xxhash.XxHash3
-\`\`\`
+```
 
 </details>
 
@@ -343,9 +343,9 @@ pub const XxHash3 = xxhash.XxHash3
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const XxHash64 = xxhash.XxHash64
-\`\`\`
+```
 
 </details>
 
@@ -356,9 +356,9 @@ pub const XxHash64 = xxhash.XxHash64
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const XxHash32 = xxhash.XxHash32
-\`\`\`
+```
 
 </details>
 
@@ -373,7 +373,7 @@ pub const XxHash32 = xxhash.XxHash32
 
 Integer-to-integer hashing for bit widths <= 256.
 
-\`\`\`zig
+```zig
 pub fn int(input: anytype) @TypeOf(input) {
     // This function is only intended for integer types
     const info = @typeInfo(@TypeOf(input)).int;
@@ -404,7 +404,7 @@ pub fn int(input: anytype) @TypeOf(input) {
     };
     return @bitCast(output);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -416,3 +416,5 @@ pub fn int(input: anytype) @TypeOf(input) {
 </details>
 
 ---
+
+

@@ -476,12 +476,12 @@ deal with the exception.
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const iovec = extern struct {
     base: [*]u8,
     len: usize,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -499,12 +499,12 @@ pub const iovec = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const iovec_const = extern struct {
     base: [*]const u8,
     len: usize,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -522,14 +522,14 @@ pub const iovec_const = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const TCSA = enum(c_uint) {
     NOW,
     DRAIN,
     FLUSH,
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -549,14 +549,14 @@ pub const TCSA = enum(c_uint) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const winsize = extern struct {
     row: u16,
     col: u16,
     xpixel: u16,
     ypixel: u16,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -576,14 +576,14 @@ pub const winsize = extern struct {
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-\`\`\`zig
+```zig
 pub const LOCK = struct {
     pub const SH = 1;
     pub const EX = 2;
     pub const NB = 4;
     pub const UN = 8;
 }
-\`\`\`
+```
 
 </details>
 
@@ -594,7 +594,7 @@ pub const LOCK = struct {
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-\`\`\`zig
+```zig
 pub const LOG = struct {
     /// system is unusable
     pub const EMERG = 0;
@@ -613,7 +613,7 @@ pub const LOG = struct {
     /// debug-level messages
     pub const DEBUG = 7;
 }
-\`\`\`
+```
 
 </details>
 
@@ -624,12 +624,12 @@ pub const LOG = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Arg0Expand = enum {
     expand,
     no_expand,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -647,9 +647,9 @@ pub const Arg0Expand = enum {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ShutdownHow = enum { recv, send, both }
-\`\`\`
+```
 
 **Fields:**
 
@@ -668,12 +668,12 @@ pub const ShutdownHow = enum { recv, send, both }
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const WaitPidResult = struct {
     pid: pid_t,
     status: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -695,7 +695,7 @@ pub const WaitPidResult = struct {
 
 A libc-compatible API layer.
 
-\`\`\`zig
+```zig
 pub const system = if (use_libc)
     std.c
 else switch (native_os) {
@@ -710,7 +710,7 @@ else switch (native_os) {
         pub const gid_t = void;
     },
 }
-\`\`\`
+```
 
 </details>
 
@@ -721,9 +721,9 @@ else switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AF = system.AF
-\`\`\`
+```
 
 </details>
 
@@ -734,9 +734,9 @@ pub const AF = system.AF
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AF_SUN = system.AF_SUN
-\`\`\`
+```
 
 </details>
 
@@ -747,9 +747,9 @@ pub const AF_SUN = system.AF_SUN
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AI = system.AI
-\`\`\`
+```
 
 </details>
 
@@ -760,9 +760,9 @@ pub const AI = system.AI
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ARCH = system.ARCH
-\`\`\`
+```
 
 </details>
 
@@ -773,9 +773,9 @@ pub const ARCH = system.ARCH
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT = system.AT
-\`\`\`
+```
 
 </details>
 
@@ -786,9 +786,9 @@ pub const AT = system.AT
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_SUN = system.AT_SUN
-\`\`\`
+```
 
 </details>
 
@@ -799,9 +799,9 @@ pub const AT_SUN = system.AT_SUN
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CLOCK = system.CLOCK
-\`\`\`
+```
 
 </details>
 
@@ -812,9 +812,9 @@ pub const CLOCK = system.CLOCK
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CPU_COUNT = system.CPU_COUNT
-\`\`\`
+```
 
 </details>
 
@@ -825,9 +825,9 @@ pub const CPU_COUNT = system.CPU_COUNT
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CTL = system.CTL
-\`\`\`
+```
 
 </details>
 
@@ -838,9 +838,9 @@ pub const CTL = system.CTL
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT = system.DT
-\`\`\`
+```
 
 </details>
 
@@ -851,9 +851,9 @@ pub const DT = system.DT
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const E = system.E
-\`\`\`
+```
 
 </details>
 
@@ -864,9 +864,9 @@ pub const E = system.E
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf_Symndx = system.Elf_Symndx
-\`\`\`
+```
 
 </details>
 
@@ -877,9 +877,9 @@ pub const Elf_Symndx = system.Elf_Symndx
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const F = system.F
-\`\`\`
+```
 
 </details>
 
@@ -890,9 +890,9 @@ pub const F = system.F
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const FD_CLOEXEC = system.FD_CLOEXEC
-\`\`\`
+```
 
 </details>
 
@@ -903,9 +903,9 @@ pub const FD_CLOEXEC = system.FD_CLOEXEC
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Flock = system.Flock
-\`\`\`
+```
 
 </details>
 
@@ -916,9 +916,9 @@ pub const Flock = system.Flock
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const HOST_NAME_MAX = system.HOST_NAME_MAX
-\`\`\`
+```
 
 </details>
 
@@ -929,9 +929,9 @@ pub const HOST_NAME_MAX = system.HOST_NAME_MAX
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const HW = system.HW
-\`\`\`
+```
 
 </details>
 
@@ -942,9 +942,9 @@ pub const HW = system.HW
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const IFNAMESIZE = system.IFNAMESIZE
-\`\`\`
+```
 
 </details>
 
@@ -955,9 +955,9 @@ pub const IFNAMESIZE = system.IFNAMESIZE
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const IOV_MAX = system.IOV_MAX
-\`\`\`
+```
 
 </details>
 
@@ -968,9 +968,9 @@ pub const IOV_MAX = system.IOV_MAX
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const IPPROTO = system.IPPROTO
-\`\`\`
+```
 
 </details>
 
@@ -981,9 +981,9 @@ pub const IPPROTO = system.IPPROTO
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const KERN = system.KERN
-\`\`\`
+```
 
 </details>
 
@@ -994,9 +994,9 @@ pub const KERN = system.KERN
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Kevent = system.Kevent
-\`\`\`
+```
 
 </details>
 
@@ -1007,9 +1007,9 @@ pub const Kevent = system.Kevent
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MADV = system.MADV
-\`\`\`
+```
 
 </details>
 
@@ -1020,9 +1020,9 @@ pub const MADV = system.MADV
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MAP = system.MAP
-\`\`\`
+```
 
 </details>
 
@@ -1033,9 +1033,9 @@ pub const MAP = system.MAP
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MAX_ADDR_LEN = system.MAX_ADDR_LEN
-\`\`\`
+```
 
 </details>
 
@@ -1046,9 +1046,9 @@ pub const MAX_ADDR_LEN = system.MAX_ADDR_LEN
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MFD = system.MFD
-\`\`\`
+```
 
 </details>
 
@@ -1059,9 +1059,9 @@ pub const MFD = system.MFD
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MREMAP = system.MREMAP
-\`\`\`
+```
 
 </details>
 
@@ -1072,9 +1072,9 @@ pub const MREMAP = system.MREMAP
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MSF = system.MSF
-\`\`\`
+```
 
 </details>
 
@@ -1085,9 +1085,9 @@ pub const MSF = system.MSF
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MSG = system.MSG
-\`\`\`
+```
 
 </details>
 
@@ -1098,9 +1098,9 @@ pub const MSG = system.MSG
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const NAME_MAX = system.NAME_MAX
-\`\`\`
+```
 
 </details>
 
@@ -1111,9 +1111,9 @@ pub const NAME_MAX = system.NAME_MAX
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const NSIG = system.NSIG
-\`\`\`
+```
 
 </details>
 
@@ -1124,9 +1124,9 @@ pub const NSIG = system.NSIG
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const O = system.O
-\`\`\`
+```
 
 </details>
 
@@ -1137,9 +1137,9 @@ pub const O = system.O
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const PATH_MAX = system.PATH_MAX
-\`\`\`
+```
 
 </details>
 
@@ -1150,9 +1150,9 @@ pub const PATH_MAX = system.PATH_MAX
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const POLL = system.POLL
-\`\`\`
+```
 
 </details>
 
@@ -1163,9 +1163,9 @@ pub const POLL = system.POLL
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const POSIX_FADV = system.POSIX_FADV
-\`\`\`
+```
 
 </details>
 
@@ -1176,9 +1176,9 @@ pub const POSIX_FADV = system.POSIX_FADV
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const PR = system.PR
-\`\`\`
+```
 
 </details>
 
@@ -1189,9 +1189,9 @@ pub const PR = system.PR
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const PROT = system.PROT
-\`\`\`
+```
 
 </details>
 
@@ -1202,9 +1202,9 @@ pub const PROT = system.PROT
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const REG = system.REG
-\`\`\`
+```
 
 </details>
 
@@ -1215,9 +1215,9 @@ pub const REG = system.REG
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const RLIM = system.RLIM
-\`\`\`
+```
 
 </details>
 
@@ -1228,9 +1228,9 @@ pub const RLIM = system.RLIM
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const RR = system.RR
-\`\`\`
+```
 
 </details>
 
@@ -1241,9 +1241,9 @@ pub const RR = system.RR
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const S = system.S
-\`\`\`
+```
 
 </details>
 
@@ -1254,9 +1254,9 @@ pub const S = system.S
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SA = system.SA
-\`\`\`
+```
 
 </details>
 
@@ -1267,9 +1267,9 @@ pub const SA = system.SA
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SC = system.SC
-\`\`\`
+```
 
 </details>
 
@@ -1280,9 +1280,9 @@ pub const SC = system.SC
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SEEK = system.SEEK
-\`\`\`
+```
 
 </details>
 
@@ -1293,9 +1293,9 @@ pub const SEEK = system.SEEK
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SHUT = system.SHUT
-\`\`\`
+```
 
 </details>
 
@@ -1306,9 +1306,9 @@ pub const SHUT = system.SHUT
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SIG = system.SIG
-\`\`\`
+```
 
 </details>
 
@@ -1319,9 +1319,9 @@ pub const SIG = system.SIG
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SIOCGIFINDEX = system.SIOCGIFINDEX
-\`\`\`
+```
 
 </details>
 
@@ -1332,9 +1332,9 @@ pub const SIOCGIFINDEX = system.SIOCGIFINDEX
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SO = system.SO
-\`\`\`
+```
 
 </details>
 
@@ -1345,9 +1345,9 @@ pub const SO = system.SO
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SOCK = system.SOCK
-\`\`\`
+```
 
 </details>
 
@@ -1358,9 +1358,9 @@ pub const SOCK = system.SOCK
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SOL = system.SOL
-\`\`\`
+```
 
 </details>
 
@@ -1371,9 +1371,9 @@ pub const SOL = system.SOL
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const IFF = system.IFF
-\`\`\`
+```
 
 </details>
 
@@ -1384,9 +1384,9 @@ pub const IFF = system.IFF
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const STDERR_FILENO = system.STDERR_FILENO
-\`\`\`
+```
 
 </details>
 
@@ -1397,9 +1397,9 @@ pub const STDERR_FILENO = system.STDERR_FILENO
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const STDIN_FILENO = system.STDIN_FILENO
-\`\`\`
+```
 
 </details>
 
@@ -1410,9 +1410,9 @@ pub const STDIN_FILENO = system.STDIN_FILENO
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const STDOUT_FILENO = system.STDOUT_FILENO
-\`\`\`
+```
 
 </details>
 
@@ -1423,9 +1423,9 @@ pub const STDOUT_FILENO = system.STDOUT_FILENO
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SYS = system.SYS
-\`\`\`
+```
 
 </details>
 
@@ -1436,9 +1436,9 @@ pub const SYS = system.SYS
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Sigaction = system.Sigaction
-\`\`\`
+```
 
 </details>
 
@@ -1449,9 +1449,9 @@ pub const Sigaction = system.Sigaction
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Stat = system.Stat
-\`\`\`
+```
 
 </details>
 
@@ -1462,9 +1462,9 @@ pub const Stat = system.Stat
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const T = system.T
-\`\`\`
+```
 
 </details>
 
@@ -1475,9 +1475,9 @@ pub const T = system.T
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const TCP = system.TCP
-\`\`\`
+```
 
 </details>
 
@@ -1488,9 +1488,9 @@ pub const TCP = system.TCP
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const VDSO = system.VDSO
-\`\`\`
+```
 
 </details>
 
@@ -1501,9 +1501,9 @@ pub const VDSO = system.VDSO
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const W = system.W
-\`\`\`
+```
 
 </details>
 
@@ -1514,9 +1514,9 @@ pub const W = system.W
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _SC = system._SC
-\`\`\`
+```
 
 </details>
 
@@ -1527,9 +1527,9 @@ pub const _SC = system._SC
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const addrinfo = system.addrinfo
-\`\`\`
+```
 
 </details>
 
@@ -1540,9 +1540,9 @@ pub const addrinfo = system.addrinfo
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const blkcnt_t = system.blkcnt_t
-\`\`\`
+```
 
 </details>
 
@@ -1553,9 +1553,9 @@ pub const blkcnt_t = system.blkcnt_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const blksize_t = system.blksize_t
-\`\`\`
+```
 
 </details>
 
@@ -1566,9 +1566,9 @@ pub const blksize_t = system.blksize_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const clock_t = system.clock_t
-\`\`\`
+```
 
 </details>
 
@@ -1579,9 +1579,9 @@ pub const clock_t = system.clock_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const clockid_t = system.clockid_t
-\`\`\`
+```
 
 </details>
 
@@ -1592,9 +1592,9 @@ pub const clockid_t = system.clockid_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const timerfd_clockid_t = system.timerfd_clockid_t
-\`\`\`
+```
 
 </details>
 
@@ -1605,9 +1605,9 @@ pub const timerfd_clockid_t = system.timerfd_clockid_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const cpu_set_t = system.cpu_set_t
-\`\`\`
+```
 
 </details>
 
@@ -1618,9 +1618,9 @@ pub const cpu_set_t = system.cpu_set_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const dev_t = system.dev_t
-\`\`\`
+```
 
 </details>
 
@@ -1631,9 +1631,9 @@ pub const dev_t = system.dev_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const dl_phdr_info = system.dl_phdr_info
-\`\`\`
+```
 
 </details>
 
@@ -1644,9 +1644,9 @@ pub const dl_phdr_info = system.dl_phdr_info
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const fd_t = system.fd_t
-\`\`\`
+```
 
 </details>
 
@@ -1657,9 +1657,9 @@ pub const fd_t = system.fd_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const file_obj = system.file_obj
-\`\`\`
+```
 
 </details>
 
@@ -1670,9 +1670,9 @@ pub const file_obj = system.file_obj
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const gid_t = system.gid_t
-\`\`\`
+```
 
 </details>
 
@@ -1683,9 +1683,9 @@ pub const gid_t = system.gid_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ifreq = system.ifreq
-\`\`\`
+```
 
 </details>
 
@@ -1696,9 +1696,9 @@ pub const ifreq = system.ifreq
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ino_t = system.ino_t
-\`\`\`
+```
 
 </details>
 
@@ -1709,9 +1709,9 @@ pub const ino_t = system.ino_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mcontext_t = system.mcontext_t
-\`\`\`
+```
 
 </details>
 
@@ -1722,9 +1722,9 @@ pub const mcontext_t = system.mcontext_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mode_t = system.mode_t
-\`\`\`
+```
 
 </details>
 
@@ -1735,9 +1735,9 @@ pub const mode_t = system.mode_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const msghdr = system.msghdr
-\`\`\`
+```
 
 </details>
 
@@ -1748,9 +1748,9 @@ pub const msghdr = system.msghdr
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const msghdr_const = system.msghdr_const
-\`\`\`
+```
 
 </details>
 
@@ -1761,9 +1761,9 @@ pub const msghdr_const = system.msghdr_const
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const nfds_t = system.nfds_t
-\`\`\`
+```
 
 </details>
 
@@ -1774,9 +1774,9 @@ pub const nfds_t = system.nfds_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const nlink_t = system.nlink_t
-\`\`\`
+```
 
 </details>
 
@@ -1787,9 +1787,9 @@ pub const nlink_t = system.nlink_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const off_t = system.off_t
-\`\`\`
+```
 
 </details>
 
@@ -1800,9 +1800,9 @@ pub const off_t = system.off_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pid_t = system.pid_t
-\`\`\`
+```
 
 </details>
 
@@ -1813,9 +1813,9 @@ pub const pid_t = system.pid_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pollfd = system.pollfd
-\`\`\`
+```
 
 </details>
 
@@ -1826,9 +1826,9 @@ pub const pollfd = system.pollfd
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const port_event = system.port_event
-\`\`\`
+```
 
 </details>
 
@@ -1839,9 +1839,9 @@ pub const port_event = system.port_event
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const port_notify = system.port_notify
-\`\`\`
+```
 
 </details>
 
@@ -1852,9 +1852,9 @@ pub const port_notify = system.port_notify
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const port_t = system.port_t
-\`\`\`
+```
 
 </details>
 
@@ -1865,9 +1865,9 @@ pub const port_t = system.port_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const rlim_t = system.rlim_t
-\`\`\`
+```
 
 </details>
 
@@ -1878,9 +1878,9 @@ pub const rlim_t = system.rlim_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const rlimit = system.rlimit
-\`\`\`
+```
 
 </details>
 
@@ -1891,9 +1891,9 @@ pub const rlimit = system.rlimit
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const rlimit_resource = system.rlimit_resource
-\`\`\`
+```
 
 </details>
 
@@ -1904,9 +1904,9 @@ pub const rlimit_resource = system.rlimit_resource
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const rusage = system.rusage
-\`\`\`
+```
 
 </details>
 
@@ -1917,9 +1917,9 @@ pub const rusage = system.rusage
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sa_family_t = system.sa_family_t
-\`\`\`
+```
 
 </details>
 
@@ -1930,9 +1930,9 @@ pub const sa_family_t = system.sa_family_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const siginfo_t = system.siginfo_t
-\`\`\`
+```
 
 </details>
 
@@ -1943,9 +1943,9 @@ pub const siginfo_t = system.siginfo_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sigset_t = system.sigset_t
-\`\`\`
+```
 
 </details>
 
@@ -1956,9 +1956,9 @@ pub const sigset_t = system.sigset_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sigrtmin = system.sigrtmin
-\`\`\`
+```
 
 </details>
 
@@ -1969,9 +1969,9 @@ pub const sigrtmin = system.sigrtmin
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sigrtmax = system.sigrtmax
-\`\`\`
+```
 
 </details>
 
@@ -1982,9 +1982,9 @@ pub const sigrtmax = system.sigrtmax
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sockaddr = system.sockaddr
-\`\`\`
+```
 
 </details>
 
@@ -1995,9 +1995,9 @@ pub const sockaddr = system.sockaddr
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const socklen_t = system.socklen_t
-\`\`\`
+```
 
 </details>
 
@@ -2008,9 +2008,9 @@ pub const socklen_t = system.socklen_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const stack_t = system.stack_t
-\`\`\`
+```
 
 </details>
 
@@ -2021,9 +2021,9 @@ pub const stack_t = system.stack_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const time_t = system.time_t
-\`\`\`
+```
 
 </details>
 
@@ -2034,9 +2034,9 @@ pub const time_t = system.time_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const timespec = system.timespec
-\`\`\`
+```
 
 </details>
 
@@ -2047,9 +2047,9 @@ pub const timespec = system.timespec
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const timestamp_t = system.timestamp_t
-\`\`\`
+```
 
 </details>
 
@@ -2060,9 +2060,9 @@ pub const timestamp_t = system.timestamp_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const timeval = system.timeval
-\`\`\`
+```
 
 </details>
 
@@ -2073,9 +2073,9 @@ pub const timeval = system.timeval
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const timezone = system.timezone
-\`\`\`
+```
 
 </details>
 
@@ -2086,9 +2086,9 @@ pub const timezone = system.timezone
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ucontext_t = system.ucontext_t
-\`\`\`
+```
 
 </details>
 
@@ -2099,9 +2099,9 @@ pub const ucontext_t = system.ucontext_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const uid_t = system.uid_t
-\`\`\`
+```
 
 </details>
 
@@ -2112,9 +2112,9 @@ pub const uid_t = system.uid_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const user_desc = system.user_desc
-\`\`\`
+```
 
 </details>
 
@@ -2125,9 +2125,9 @@ pub const user_desc = system.user_desc
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const utsname = system.utsname
-\`\`\`
+```
 
 </details>
 
@@ -2138,9 +2138,9 @@ pub const utsname = system.utsname
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const termios = system.termios
-\`\`\`
+```
 
 </details>
 
@@ -2151,9 +2151,9 @@ pub const termios = system.termios
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CSIZE = system.CSIZE
-\`\`\`
+```
 
 </details>
 
@@ -2164,9 +2164,9 @@ pub const CSIZE = system.CSIZE
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const NCCS = system.NCCS
-\`\`\`
+```
 
 </details>
 
@@ -2177,9 +2177,9 @@ pub const NCCS = system.NCCS
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const cc_t = system.cc_t
-\`\`\`
+```
 
 </details>
 
@@ -2190,9 +2190,9 @@ pub const cc_t = system.cc_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const V = system.V
-\`\`\`
+```
 
 </details>
 
@@ -2203,9 +2203,9 @@ pub const V = system.V
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const speed_t = system.speed_t
-\`\`\`
+```
 
 </details>
 
@@ -2216,9 +2216,9 @@ pub const speed_t = system.speed_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const tc_iflag_t = system.tc_iflag_t
-\`\`\`
+```
 
 </details>
 
@@ -2229,9 +2229,9 @@ pub const tc_iflag_t = system.tc_iflag_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const tc_oflag_t = system.tc_oflag_t
-\`\`\`
+```
 
 </details>
 
@@ -2242,9 +2242,9 @@ pub const tc_oflag_t = system.tc_oflag_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const tc_cflag_t = system.tc_cflag_t
-\`\`\`
+```
 
 </details>
 
@@ -2255,9 +2255,9 @@ pub const tc_cflag_t = system.tc_cflag_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const tc_lflag_t = system.tc_lflag_t
-\`\`\`
+```
 
 </details>
 
@@ -2268,9 +2268,9 @@ pub const tc_lflag_t = system.tc_lflag_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const F_OK = system.F_OK
-\`\`\`
+```
 
 </details>
 
@@ -2281,9 +2281,9 @@ pub const F_OK = system.F_OK
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const R_OK = system.R_OK
-\`\`\`
+```
 
 </details>
 
@@ -2294,9 +2294,9 @@ pub const R_OK = system.R_OK
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const W_OK = system.W_OK
-\`\`\`
+```
 
 </details>
 
@@ -2307,9 +2307,9 @@ pub const W_OK = system.W_OK
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const X_OK = system.X_OK
-\`\`\`
+```
 
 </details>
 
@@ -2320,7 +2320,7 @@ pub const X_OK = system.X_OK
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ACCMODE = switch (native_os) {
     // POSIX has a note about the access mode values:
     //
@@ -2344,7 +2344,7 @@ pub const ACCMODE = switch (native_os) {
         RDWR = 2,
     },
 }
-\`\`\`
+```
 
 </details>
 
@@ -2355,9 +2355,9 @@ pub const ACCMODE = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const socket_t = if (native_os == .windows) windows.ws2_32.SOCKET else fd_t
-\`\`\`
+```
 
 </details>
 
@@ -2368,7 +2368,7 @@ pub const socket_t = if (native_os == .windows) windows.ws2_32.SOCKET else fd_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const RebootCommand = switch (native_os) {
     .linux => union(linux.LINUX_REBOOT.CMD) {
         RESTART: void,
@@ -2382,7 +2382,7 @@ pub const RebootCommand = switch (native_os) {
     },
     else => @compileError("Unsupported OS"),
 }
-\`\`\`
+```
 
 </details>
 
@@ -2393,9 +2393,9 @@ pub const RebootCommand = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const GetRandomError = OpenError
-\`\`\`
+```
 
 </details>
 
@@ -2406,9 +2406,9 @@ pub const GetRandomError = OpenError
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const RaiseError = UnexpectedError
-\`\`\`
+```
 
 </details>
 
@@ -2419,9 +2419,9 @@ pub const RaiseError = UnexpectedError
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const GetrlimitError = UnexpectedError
-\`\`\`
+```
 
 </details>
 
@@ -2438,12 +2438,12 @@ If this happens the fix is to add the error code to the corresponding
 switch expression, possibly introduce a new error in the error set, and
 send a patch to Zig.
 
-\`\`\`zig
+```zig
 pub const unexpected_error_tracing = builtin.mode == .Debug and switch (builtin.zig_backend) {
     .stage2_llvm, .stage2_x86_64 => true,
     else => false,
 }
-\`\`\`
+```
 
 </details>
 
@@ -2463,7 +2463,7 @@ for others it will use a thread-local errno variable. Therefore, this
 function only returns a well-defined value when it is called directly after
 the system function call whose errno value is intended to be observed.
 
-\`\`\`zig
+```zig
 pub fn errno(rc: anytype) E {
     if (use_libc) {
         return if (rc == -1) @enumFromInt(std.c._errno().*) else .SUCCESS;
@@ -2472,7 +2472,7 @@ pub fn errno(rc: anytype) E {
     const int = if (signed > -4096 and signed < 0) -signed else 0;
     return @enumFromInt(int);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2500,7 +2500,7 @@ call `fsync` before `close`.
 
 The Zig standard library does not support POSIX thread cancellation.
 
-\`\`\`zig
+```zig
 pub fn close(fd: fd_t) void {
     if (native_os == .windows) {
         return windows.CloseHandle(fd);
@@ -2515,7 +2515,7 @@ pub fn close(fd: fd_t) void {
         else => return,
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2539,7 +2539,7 @@ The process must have the correct privileges in order to do this
 successfully, or must have the effective user ID matching the owner
 of the file.
 
-\`\`\`zig
+```zig
 pub fn fchmod(fd: fd_t, mode: mode_t) FChmodError!void {
     if (!fs.has_executable_bit) @compileError("fchmod unsupported by target OS");
 
@@ -2563,7 +2563,7 @@ pub fn fchmod(fd: fd_t, mode: mode_t) FChmodError!void {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2598,7 +2598,7 @@ link with `AT.SYMLINK_NOFOLLOW` set will also return
 
 [1]: https://sourceware.org/legacy-ml/libc-alpha/2020-02/msg00467.html.
 
-\`\`\`zig
+```zig
 pub inline fn fchmodat(dirfd: fd_t, path: []const u8, mode: mode_t, flags: u32) FChmodAtError!void {
     if (!fs.has_executable_bit) @compileError("fchmodat unsupported by target OS");
 
@@ -2615,7 +2615,7 @@ pub inline fn fchmodat(dirfd: fd_t, path: []const u8, mode: mode_t, flags: u32) 
 
     return fchmodat2(dirfd, path, mode, flags);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2642,7 +2642,7 @@ successfully. The group may be changed by the owner of the directory to
 any group of which the owner is a member. If the owner or group is
 specified as `null`, the ID is not changed.
 
-\`\`\`zig
+```zig
 pub fn fchown(fd: fd_t, owner: ?uid_t, group: ?gid_t) FChownError!void {
     switch (native_os) {
         .windows, .wasi => @compileError("Unsupported OS"),
@@ -2671,7 +2671,7 @@ pub fn fchown(fd: fd_t, owner: ?uid_t, group: ?gid_t) FChownError!void {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2691,7 +2691,7 @@ pub fn fchown(fd: fd_t, owner: ?uid_t, group: ?gid_t) FChownError!void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn reboot(cmd: RebootCommand) RebootError!void {
     switch (native_os) {
         .linux => {
@@ -2723,7 +2723,7 @@ pub fn reboot(cmd: RebootCommand) RebootError!void {
         else => @compileError("Unsupported OS"),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2747,7 +2747,7 @@ When linking against libc, this calls the
 appropriate OS-specific library call. Otherwise it uses the zig standard
 library implementation.
 
-\`\`\`zig
+```zig
 pub fn getrandom(buffer: []u8) GetRandomError!void {
     if (native_os == .windows) {
         return windows.RtlGenRandom(buffer);
@@ -2793,7 +2793,7 @@ pub fn getrandom(buffer: []u8) GetRandomError!void {
     }
     return getRandomBytesDevURandom(buffer);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2816,7 +2816,7 @@ If linking against libc, this calls the abort() libc function. Otherwise
 it raises SIGABRT followed by SIGKILL and finally lo
 Invokes the current signal handler for SIGABRT, if any.
 
-\`\`\`zig
+```zig
 pub fn abort() noreturn {
     @branchHint(.cold);
     // MSVCRT abort() sometimes opens a popup window which is undesirable, so
@@ -2872,7 +2872,7 @@ pub fn abort() noreturn {
         else => system.abort(),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2889,7 +2889,7 @@ pub fn abort() noreturn {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn raise(sig: u8) RaiseError!void {
     if (builtin.link_libc) {
         switch (errno(system.raise(sig))) {
@@ -2915,7 +2915,7 @@ pub fn raise(sig: u8) RaiseError!void {
 
     @compileError("std.posix.raise unimplemented for this target");
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2933,7 +2933,7 @@ pub fn raise(sig: u8) RaiseError!void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn kill(pid: pid_t, sig: u8) KillError!void {
     switch (errno(system.kill(pid, sig))) {
         .SUCCESS => return,
@@ -2943,7 +2943,7 @@ pub fn kill(pid: pid_t, sig: u8) KillError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2964,7 +2964,7 @@ pub fn kill(pid: pid_t, sig: u8) KillError!void {
 
 Exits all threads of the program with the specified status code.
 
-\`\`\`zig
+```zig
 pub fn exit(status: u8) noreturn {
     if (builtin.link_libc) {
         std.c.exit(status);
@@ -2990,7 +2990,7 @@ pub fn exit(status: u8) noreturn {
     }
     system.exit(status);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3019,7 +3019,7 @@ well as stuffing the errno codes into the last `4096` values. This is noted on t
 The limit on Darwin is `0x7fffffff`, trying to read more than that returns EINVAL.
 The corresponding POSIX limit is `maxInt(isize)`.
 
-\`\`\`zig
+```zig
 pub fn read(fd: fd_t, buf: []u8) ReadError!usize {
     if (buf.len == 0) return 0;
     if (native_os == .windows) {
@@ -3079,7 +3079,7 @@ pub fn read(fd: fd_t, buf: []u8) ReadError!usize {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3112,7 +3112,7 @@ On these systems, the read races with concurrent writes to the same file descrip
 This function assumes that all vectors, including zero-length vectors, have
 a pointer within the address space of the application.
 
-\`\`\`zig
+```zig
 pub fn readv(fd: fd_t, iov: []const iovec) ReadError!usize {
     if (native_os == .windows) {
         // TODO improve this to use ReadFileScatter
@@ -3162,7 +3162,7 @@ pub fn readv(fd: fd_t, iov: []const iovec) ReadError!usize {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3196,7 +3196,7 @@ well as stuffing the errno codes into the last `4096` values. This is noted on t
 The limit on Darwin is `0x7fffffff`, trying to read more than that returns EINVAL.
 The corresponding POSIX limit is `maxInt(isize)`.
 
-\`\`\`zig
+```zig
 pub fn pread(fd: fd_t, buf: []u8, offset: u64) PReadError!usize {
     if (buf.len == 0) return 0;
     if (native_os == .windows) {
@@ -3263,7 +3263,7 @@ pub fn pread(fd: fd_t, buf: []u8, offset: u64) PReadError!usize {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3285,7 +3285,7 @@ pub fn pread(fd: fd_t, buf: []u8, offset: u64) PReadError!usize {
 
 Length must be positive when treated as an i64.
 
-\`\`\`zig
+```zig
 pub fn ftruncate(fd: fd_t, length: u64) TruncateError!void {
     const signed_len: i64 = @bitCast(length);
     if (signed_len < 0) return error.FileTooBig; // avoid ambiguous EINVAL errors
@@ -3343,7 +3343,7 @@ pub fn ftruncate(fd: fd_t, length: u64) TruncateError!void {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3376,7 +3376,7 @@ This operation is non-atomic on the following systems:
 * Windows
 On these systems, the read races with concurrent writes to the same file descriptor.
 
-\`\`\`zig
+```zig
 pub fn preadv(fd: fd_t, iov: []const iovec, offset: u64) PReadError!usize {
     // NOTE: serenity does not have preadv but it *does* have pwritev.
     const have_pread_but_not_preadv = switch (native_os) {
@@ -3439,7 +3439,7 @@ pub fn preadv(fd: fd_t, iov: []const iovec, offset: u64) PReadError!usize {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3482,7 +3482,7 @@ well as stuffing the errno codes into the last `4096` values. This is noted on t
 The limit on Darwin is `0x7fffffff`, trying to read more than that returns EINVAL.
 The corresponding POSIX limit is `maxInt(isize)`.
 
-\`\`\`zig
+```zig
 pub fn write(fd: fd_t, bytes: []const u8) WriteError!usize {
     if (bytes.len == 0) return 0;
     if (native_os == .windows) {
@@ -3545,7 +3545,7 @@ pub fn write(fd: fd_t, bytes: []const u8) WriteError!usize {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3586,7 +3586,7 @@ If `iov.len` is larger than `IOV_MAX`, a partial write will occur.
 This function assumes that all vectors, including zero-length vectors, have
 a pointer within the address space of the application.
 
-\`\`\`zig
+```zig
 pub fn writev(fd: fd_t, iov: []const iovec_const) WriteError!usize {
     if (native_os == .windows) {
         // TODO improve this to use WriteFileScatter
@@ -3638,7 +3638,7 @@ pub fn writev(fd: fd_t, iov: []const iovec_const) WriteError!usize {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3680,7 +3680,7 @@ well as stuffing the errno codes into the last `4096` values. This is noted on t
 The limit on Darwin is `0x7fffffff`, trying to write more than that returns EINVAL.
 The corresponding POSIX limit is `maxInt(isize)`.
 
-\`\`\`zig
+```zig
 pub fn pwrite(fd: fd_t, bytes: []const u8, offset: u64) PWriteError!usize {
     if (bytes.len == 0) return 0;
     if (native_os == .windows) {
@@ -3748,7 +3748,7 @@ pub fn pwrite(fd: fd_t, bytes: []const u8, offset: u64) PWriteError!usize {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3790,7 +3790,7 @@ vector is provided:
 
 If `iov.len` is larger than `IOV_MAX`, a partial write will occur.
 
-\`\`\`zig
+```zig
 pub fn pwritev(fd: fd_t, iov: []const iovec_const, offset: u64) PWriteError!usize {
     const have_pwrite_but_not_pwritev = switch (native_os) {
         .windows, .macos, .ios, .watchos, .tvos, .visionos, .haiku => true,
@@ -3854,7 +3854,7 @@ pub fn pwritev(fd: fd_t, iov: []const iovec_const, offset: u64) PWriteError!usiz
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3880,7 +3880,7 @@ On WASI, `file_path` should be encoded as valid UTF-8.
 On other platforms, `file_path` is an opaque sequence of bytes with no particular encoding.
 See also `openZ`.
 
-\`\`\`zig
+```zig
 pub fn open(file_path: []const u8, flags: O, perm: mode_t) OpenError!fd_t {
     if (native_os == .windows) {
         @compileError("Windows does not support POSIX; use Windows-specific API or cross-platform std.fs API");
@@ -3890,7 +3890,7 @@ pub fn open(file_path: []const u8, flags: O, perm: mode_t) OpenError!fd_t {
     const file_path_c = try toPosixPath(file_path);
     return openZ(&file_path_c, flags, perm);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3916,7 +3916,7 @@ On WASI, `file_path` should be encoded as valid UTF-8.
 On other platforms, `file_path` is an opaque sequence of bytes with no particular encoding.
 See also `open`.
 
-\`\`\`zig
+```zig
 pub fn openZ(file_path: [*:0]const u8, flags: O, perm: mode_t) OpenError!fd_t {
     if (native_os == .windows) {
         @compileError("Windows does not support POSIX; use Windows-specific API or cross-platform std.fs API");
@@ -3958,7 +3958,7 @@ pub fn openZ(file_path: [*:0]const u8, flags: O, perm: mode_t) OpenError!fd_t {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3985,7 +3985,7 @@ On WASI, `file_path` should be encoded as valid UTF-8.
 On other platforms, `file_path` is an opaque sequence of bytes with no particular encoding.
 See also `openatZ`.
 
-\`\`\`zig
+```zig
 pub fn openat(dir_fd: fd_t, file_path: []const u8, flags: O, mode: mode_t) OpenError!fd_t {
     if (native_os == .windows) {
         @compileError("Windows does not support POSIX; use Windows-specific API or cross-platform std.fs API");
@@ -4014,7 +4014,7 @@ pub fn openat(dir_fd: fd_t, file_path: []const u8, flags: O, mode: mode_t) OpenE
     const file_path_c = try toPosixPath(file_path);
     return openatZ(dir_fd, &file_path_c, flags, mode);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4037,7 +4037,7 @@ pub fn openat(dir_fd: fd_t, file_path: []const u8, flags: O, mode: mode_t) OpenE
 
 Open and possibly create a file in WASI.
 
-\`\`\`zig
+```zig
 pub fn openatWasi(
     dir_fd: fd_t,
     file_path: []const u8,
@@ -4079,7 +4079,7 @@ pub fn openatWasi(
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4110,7 +4110,7 @@ On WASI, `file_path` should be encoded as valid UTF-8.
 On other platforms, `file_path` is an opaque sequence of bytes with no particular encoding.
 See also `openat`.
 
-\`\`\`zig
+```zig
 pub fn openatZ(dir_fd: fd_t, file_path: [*:0]const u8, flags: O, mode: mode_t) OpenError!fd_t {
     if (native_os == .windows) {
         @compileError("Windows does not support POSIX; use Windows-specific API or cross-platform std.fs API");
@@ -4157,7 +4157,7 @@ pub fn openatZ(dir_fd: fd_t, file_path: [*:0]const u8, flags: O, mode: mode_t) O
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4178,7 +4178,7 @@ pub fn openatZ(dir_fd: fd_t, file_path: [*:0]const u8, flags: O, mode: mode_t) O
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn dup(old_fd: fd_t) !fd_t {
     const rc = system.dup(old_fd);
     return switch (errno(rc)) {
@@ -4188,7 +4188,7 @@ pub fn dup(old_fd: fd_t) !fd_t {
         else => |err| return unexpectedErrno(err),
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4206,7 +4206,7 @@ pub fn dup(old_fd: fd_t) !fd_t {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn dup2(old_fd: fd_t, new_fd: fd_t) !void {
     while (true) {
         switch (errno(system.dup2(old_fd, new_fd))) {
@@ -4219,7 +4219,7 @@ pub fn dup2(old_fd: fd_t, new_fd: fd_t) !void {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4240,7 +4240,7 @@ pub fn dup2(old_fd: fd_t, new_fd: fd_t) !void {
 
 This function ignores PATH environment variable. See `execvpeZ` for that.
 
-\`\`\`zig
+```zig
 pub fn execveZ(
     path: [*:0]const u8,
     child_argv: [*:null]const ?[*:0]const u8,
@@ -4278,7 +4278,7 @@ pub fn execveZ(
         },
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4302,7 +4302,7 @@ Like `execvpeZ` except if `arg0_expand` is `.expand`, then `argv` is mutable,
 and `argv[0]` is expanded to be the same absolute path that is passed to the execve syscall.
 If this function returns with an error, `argv[0]` will be restored to the value it was when it was passed in.
 
-\`\`\`zig
+```zig
 pub fn execvpeZ_expandArg0(
     comptime arg0_expand: Arg0Expand,
     file: [*:0]const u8,
@@ -4352,7 +4352,7 @@ pub fn execvpeZ_expandArg0(
     if (seen_eacces) return error.AccessDenied;
     return err;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4368,12 +4368,12 @@ pub fn execvpeZ_expandArg0(
 [^fn-execvpez-expandarg0-child-argv-type-0]:
     Type for parameter `child_argv` of `execvpeZ_expandArg0`:
 
-    \`\`\`zig
+    ```zig
     switch (arg0_expand) {
             .expand => [*:null]?[*:0]const u8,
             .no_expand => [*:null]const ?[*:0]const u8,
         }
-    \`\`\`
+    ```
 
 </details>
 
@@ -4387,7 +4387,7 @@ pub fn execvpeZ_expandArg0(
 This function also uses the PATH environment variable to get the full path to the executable.
 If `file` is an absolute path, this is the same as `execveZ`.
 
-\`\`\`zig
+```zig
 pub fn execvpeZ(
     file: [*:0]const u8,
     argv_ptr: [*:null]const ?[*:0]const u8,
@@ -4395,7 +4395,7 @@ pub fn execvpeZ(
 ) ExecveError {
     return execvpeZ_expandArg0(.no_expand, file, argv_ptr, envp);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4418,7 +4418,7 @@ pub fn execvpeZ(
 Get an environment variable.
 See also `getenvZ`.
 
-\`\`\`zig
+```zig
 pub fn getenv(key: []const u8) ?[:0]const u8 {
     if (native_os == .windows) {
         @compileError("std.posix.getenv is unavailable for Windows because environment strings are in WTF-16 format. See std.process.getEnvVarOwned for a cross-platform API or std.process.getenvW for a Windows-specific API.");
@@ -4458,7 +4458,7 @@ pub fn getenv(key: []const u8) ?[:0]const u8 {
     }
     return null;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4479,7 +4479,7 @@ pub fn getenv(key: []const u8) ?[:0]const u8 {
 Get an environment variable with a null-terminated name.
 See also `getenv`.
 
-\`\`\`zig
+```zig
 pub fn getenvZ(key: [*:0]const u8) ?[:0]const u8 {
     if (builtin.link_libc) {
         const value = system.getenv(key) orelse return null;
@@ -4490,7 +4490,7 @@ pub fn getenvZ(key: [*:0]const u8) ?[:0]const u8 {
     }
     return getenv(mem.sliceTo(key, 0));
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4510,7 +4510,7 @@ pub fn getenvZ(key: [*:0]const u8) ?[:0]const u8 {
 
 The result is a slice of out_buffer, indexed from 0.
 
-\`\`\`zig
+```zig
 pub fn getcwd(out_buffer: []u8) GetCwdError![]u8 {
     if (native_os == .windows) {
         return windows.GetCurrentDirectory(out_buffer);
@@ -4537,7 +4537,7 @@ pub fn getcwd(out_buffer: []u8) GetCwdError![]u8 {
         else => return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4564,7 +4564,7 @@ On other platforms, both paths are an opaque sequence of bytes with no particula
 If `sym_link_path` exists, it will not be overwritten.
 See also `symlinkZ.
 
-\`\`\`zig
+```zig
 pub fn symlink(target_path: []const u8, sym_link_path: []const u8) SymLinkError!void {
     if (native_os == .windows) {
         @compileError("symlink is not supported on Windows; use std.os.windows.CreateSymbolicLink instead");
@@ -4575,7 +4575,7 @@ pub fn symlink(target_path: []const u8, sym_link_path: []const u8) SymLinkError!
     const sym_link_path_c = try toPosixPath(sym_link_path);
     return symlinkZ(&target_path_c, &sym_link_path_c);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4597,7 +4597,7 @@ pub fn symlink(target_path: []const u8, sym_link_path: []const u8) SymLinkError!
 This is the same as `symlink` except the parameters are null-terminated pointers.
 See also `symlink`.
 
-\`\`\`zig
+```zig
 pub fn symlinkZ(target_path: [*:0]const u8, sym_link_path: [*:0]const u8) SymLinkError!void {
     if (native_os == .windows) {
         @compileError("symlink is not supported on Windows; use std.os.windows.CreateSymbolicLink instead");
@@ -4627,7 +4627,7 @@ pub fn symlinkZ(target_path: [*:0]const u8, sym_link_path: [*:0]const u8) SymLin
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4656,7 +4656,7 @@ On other platforms, both paths are an opaque sequence of bytes with no particula
 If `sym_link_path` exists, it will not be overwritten.
 See also `symlinkatWasi`, `symlinkatZ` and `symlinkatW`.
 
-\`\`\`zig
+```zig
 pub fn symlinkat(target_path: []const u8, newdirfd: fd_t, sym_link_path: []const u8) SymLinkError!void {
     if (native_os == .windows) {
         @compileError("symlinkat is not supported on Windows; use std.os.windows.CreateSymbolicLink instead");
@@ -4667,7 +4667,7 @@ pub fn symlinkat(target_path: []const u8, newdirfd: fd_t, sym_link_path: []const
     const sym_link_path_c = try toPosixPath(sym_link_path);
     return symlinkatZ(&target_path_c, newdirfd, &sym_link_path_c);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4690,7 +4690,7 @@ pub fn symlinkat(target_path: []const u8, newdirfd: fd_t, sym_link_path: []const
 WASI-only. The same as `symlinkat` but targeting WASI.
 See also `symlinkat`.
 
-\`\`\`zig
+```zig
 pub fn symlinkatWasi(target_path: []const u8, newdirfd: fd_t, sym_link_path: []const u8) SymLinkError!void {
     switch (wasi.path_symlink(target_path.ptr, target_path.len, newdirfd, sym_link_path.ptr, sym_link_path.len)) {
         .SUCCESS => {},
@@ -4714,7 +4714,7 @@ pub fn symlinkatWasi(target_path: []const u8, newdirfd: fd_t, sym_link_path: []c
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4737,7 +4737,7 @@ pub fn symlinkatWasi(target_path: []const u8, newdirfd: fd_t, sym_link_path: []c
 The same as `symlinkat` except the parameters are null-terminated pointers.
 See also `symlinkat`.
 
-\`\`\`zig
+```zig
 pub fn symlinkatZ(target_path: [*:0]const u8, newdirfd: fd_t, sym_link_path: [*:0]const u8) SymLinkError!void {
     if (native_os == .windows) {
         @compileError("symlinkat is not supported on Windows; use std.os.windows.CreateSymbolicLink instead");
@@ -4767,7 +4767,7 @@ pub fn symlinkatZ(target_path: [*:0]const u8, newdirfd: fd_t, sym_link_path: [*:
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4790,7 +4790,7 @@ pub fn symlinkatZ(target_path: [*:0]const u8, newdirfd: fd_t, sym_link_path: [*:
 On WASI, both paths should be encoded as valid UTF-8.
 On other platforms, both paths are an opaque sequence of bytes with no particular encoding.
 
-\`\`\`zig
+```zig
 pub fn linkZ(oldpath: [*:0]const u8, newpath: [*:0]const u8) LinkError!void {
     if (native_os == .wasi and !builtin.link_libc) {
         return link(mem.sliceTo(oldpath, 0), mem.sliceTo(newpath, 0));
@@ -4819,7 +4819,7 @@ pub fn linkZ(oldpath: [*:0]const u8, newpath: [*:0]const u8) LinkError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4841,7 +4841,7 @@ pub fn linkZ(oldpath: [*:0]const u8, newpath: [*:0]const u8) LinkError!void {
 On WASI, both paths should be encoded as valid UTF-8.
 On other platforms, both paths are an opaque sequence of bytes with no particular encoding.
 
-\`\`\`zig
+```zig
 pub fn link(oldpath: []const u8, newpath: []const u8) LinkError!void {
     if (native_os == .wasi and !builtin.link_libc) {
         return linkat(AT.FDCWD, oldpath, AT.FDCWD, newpath, 0) catch |err| switch (err) {
@@ -4853,7 +4853,7 @@ pub fn link(oldpath: []const u8, newpath: []const u8) LinkError!void {
     const new = try toPosixPath(newpath);
     return try linkZ(&old, &new);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4875,7 +4875,7 @@ pub fn link(oldpath: []const u8, newpath: []const u8) LinkError!void {
 On WASI, both paths should be encoded as valid UTF-8.
 On other platforms, both paths are an opaque sequence of bytes with no particular encoding.
 
-\`\`\`zig
+```zig
 pub fn linkatZ(
     olddir: fd_t,
     oldpath: [*:0]const u8,
@@ -4911,7 +4911,7 @@ pub fn linkatZ(
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4936,7 +4936,7 @@ pub fn linkatZ(
 On WASI, both paths should be encoded as valid UTF-8.
 On other platforms, both paths are an opaque sequence of bytes with no particular encoding.
 
-\`\`\`zig
+```zig
 pub fn linkat(
     olddir: fd_t,
     oldpath: []const u8,
@@ -4984,7 +4984,7 @@ pub fn linkat(
     const new = try toPosixPath(newpath);
     return try linkatZ(olddir, &old, newdir, &new, flags);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -5012,7 +5012,7 @@ On WASI, `file_path` should be encoded as valid UTF-8.
 On other platforms, `file_path` is an opaque sequence of bytes with no particular encoding.
 See also `unlinkZ`.
 
-\`\`\`zig
+```zig
 pub fn unlink(file_path: []const u8) UnlinkError!void {
     if (native_os == .wasi and !builtin.link_libc) {
         return unlinkat(AT.FDCWD, file_path, 0) catch |err| switch (err) {
@@ -5027,7 +5027,7 @@ pub fn unlink(file_path: []const u8) UnlinkError!void {
         return unlinkZ(&file_path_c);
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -5047,7 +5047,7 @@ pub fn unlink(file_path: []const u8) UnlinkError!void {
 
 Same as `unlink` except the parameter is null terminated.
 
-\`\`\`zig
+```zig
 pub fn unlinkZ(file_path: [*:0]const u8) UnlinkError!void {
     if (native_os == .windows) {
         const file_path_w = try windows.cStrToPrefixedFileW(null, file_path);
@@ -5077,7 +5077,7 @@ pub fn unlinkZ(file_path: [*:0]const u8) UnlinkError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -5097,14 +5097,14 @@ pub fn unlinkZ(file_path: [*:0]const u8) UnlinkError!void {
 
 Windows-only. Same as `unlink` except the parameter is null-terminated, WTF16 LE encoded.
 
-\`\`\`zig
+```zig
 pub fn unlinkW(file_path_w: []const u16) UnlinkError!void {
     windows.DeleteFile(file_path_w, .{ .dir = fs.cwd().fd }) catch |err| switch (err) {
         error.DirNotEmpty => unreachable, // we're not passing .remove_dir = true
         else => |e| return e,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -5128,7 +5128,7 @@ On WASI, `file_path` should be encoded as valid UTF-8.
 On other platforms, `file_path` is an opaque sequence of bytes with no particular encoding.
 Asserts that the path parameter has no null bytes.
 
-\`\`\`zig
+```zig
 pub fn unlinkat(dirfd: fd_t, file_path: []const u8, flags: u32) UnlinkatError!void {
     if (native_os == .windows) {
         const file_path_w = try windows.sliceToPrefixedFileW(dirfd, file_path);
@@ -5140,7 +5140,7 @@ pub fn unlinkat(dirfd: fd_t, file_path: []const u8, flags: u32) UnlinkatError!vo
         return unlinkatZ(dirfd, &file_path_c, flags);
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -5163,7 +5163,7 @@ pub fn unlinkat(dirfd: fd_t, file_path: []const u8, flags: u32) UnlinkatError!vo
 WASI-only. Same as `unlinkat` but targeting WASI.
 See also `unlinkat`.
 
-\`\`\`zig
+```zig
 pub fn unlinkatWasi(dirfd: fd_t, file_path: []const u8, flags: u32) UnlinkatError!void {
     const remove_dir = (flags & AT.REMOVEDIR) != 0;
     const res = if (remove_dir)
@@ -5194,7 +5194,7 @@ pub fn unlinkatWasi(dirfd: fd_t, file_path: []const u8, flags: u32) UnlinkatErro
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -5216,7 +5216,7 @@ pub fn unlinkatWasi(dirfd: fd_t, file_path: []const u8, flags: u32) UnlinkatErro
 
 Same as `unlinkat` but `file_path` is a null-terminated string.
 
-\`\`\`zig
+```zig
 pub fn unlinkatZ(dirfd: fd_t, file_path_c: [*:0]const u8, flags: u32) UnlinkatError!void {
     if (native_os == .windows) {
         const file_path_w = try windows.cStrToPrefixedFileW(dirfd, file_path_c);
@@ -5251,7 +5251,7 @@ pub fn unlinkatZ(dirfd: fd_t, file_path_c: [*:0]const u8, flags: u32) UnlinkatEr
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -5273,12 +5273,12 @@ pub fn unlinkatZ(dirfd: fd_t, file_path_c: [*:0]const u8, flags: u32) UnlinkatEr
 
 Same as `unlinkat` but `sub_path_w` is WTF16LE, NT prefixed. Windows only.
 
-\`\`\`zig
+```zig
 pub fn unlinkatW(dirfd: fd_t, sub_path_w: []const u16, flags: u32) UnlinkatError!void {
     const remove_dir = (flags & AT.REMOVEDIR) != 0;
     return windows.DeleteFile(sub_path_w, .{ .dir = dirfd, .remove_dir = remove_dir });
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -5303,7 +5303,7 @@ On Windows, both paths should be encoded as [WTF-8](https://simonsapin.github.io
 On WASI, both paths should be encoded as valid UTF-8.
 On other platforms, both paths are an opaque sequence of bytes with no particular encoding.
 
-\`\`\`zig
+```zig
 pub fn rename(old_path: []const u8, new_path: []const u8) RenameError!void {
     if (native_os == .wasi and !builtin.link_libc) {
         return renameat(AT.FDCWD, old_path, AT.FDCWD, new_path);
@@ -5317,7 +5317,7 @@ pub fn rename(old_path: []const u8, new_path: []const u8) RenameError!void {
         return renameZ(&old_path_c, &new_path_c);
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -5338,7 +5338,7 @@ pub fn rename(old_path: []const u8, new_path: []const u8) RenameError!void {
 
 Same as `rename` except the parameters are null-terminated.
 
-\`\`\`zig
+```zig
 pub fn renameZ(old_path: [*:0]const u8, new_path: [*:0]const u8) RenameError!void {
     if (native_os == .windows) {
         const old_path_w = try windows.cStrToPrefixedFileW(null, old_path);
@@ -5374,7 +5374,7 @@ pub fn renameZ(old_path: [*:0]const u8, new_path: [*:0]const u8) RenameError!voi
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -5396,12 +5396,12 @@ pub fn renameZ(old_path: [*:0]const u8, new_path: [*:0]const u8) RenameError!voi
 Same as `rename` except the parameters are null-terminated and WTF16LE encoded.
 Assumes target is Windows.
 
-\`\`\`zig
+```zig
 pub fn renameW(old_path: [*:0]const u16, new_path: [*:0]const u16) RenameError!void {
     const flags = windows.MOVEFILE_REPLACE_EXISTING | windows.MOVEFILE_WRITE_THROUGH;
     return windows.MoveFileExW(old_path, new_path, flags);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -5425,7 +5425,7 @@ On Windows, both paths should be encoded as [WTF-8](https://simonsapin.github.io
 On WASI, both paths should be encoded as valid UTF-8.
 On other platforms, both paths are an opaque sequence of bytes with no particular encoding.
 
-\`\`\`zig
+```zig
 pub fn renameat(
     old_dir_fd: fd_t,
     old_path: []const u8,
@@ -5446,7 +5446,7 @@ pub fn renameat(
         return renameatZ(old_dir_fd, &old_path_c, new_dir_fd, &new_path_c);
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -5469,7 +5469,7 @@ pub fn renameat(
 
 Same as `renameat` except the parameters are null-terminated.
 
-\`\`\`zig
+```zig
 pub fn renameatZ(
     old_dir_fd: fd_t,
     old_path: [*:0]const u8,
@@ -5511,7 +5511,7 @@ pub fn renameatZ(
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -5535,7 +5535,7 @@ pub fn renameatZ(
 Same as `renameat` but Windows-only and the path parameters are
 [WTF-16](https://simonsapin.github.io/wtf-8/#potentially-ill-formed-utf-16) encoded.
 
-\`\`\`zig
+```zig
 pub fn renameatW(
     old_dir_fd: fd_t,
     old_path_w: []const u16,
@@ -5640,7 +5640,7 @@ pub fn renameatW(
         else => return windows.unexpectedStatus(rc),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -5666,7 +5666,7 @@ On Windows, `sub_dir_path` should be encoded as [WTF-8](https://simonsapin.githu
 On WASI, `sub_dir_path` should be encoded as valid UTF-8.
 On other platforms, `sub_dir_path` is an opaque sequence of bytes with no particular encoding.
 
-\`\`\`zig
+```zig
 pub fn mkdirat(dir_fd: fd_t, sub_dir_path: []const u8, mode: mode_t) MakeDirError!void {
     if (native_os == .windows) {
         const sub_dir_path_w = try windows.sliceToPrefixedFileW(dir_fd, sub_dir_path);
@@ -5678,7 +5678,7 @@ pub fn mkdirat(dir_fd: fd_t, sub_dir_path: []const u8, mode: mode_t) MakeDirErro
         return mkdiratZ(dir_fd, &sub_dir_path_c, mode);
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -5698,7 +5698,7 @@ pub fn mkdirat(dir_fd: fd_t, sub_dir_path: []const u8, mode: mode_t) MakeDirErro
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn mkdiratWasi(dir_fd: fd_t, sub_dir_path: []const u8, mode: mode_t) MakeDirError!void {
     _ = mode;
     switch (wasi.path_create_directory(dir_fd, sub_dir_path.ptr, sub_dir_path.len)) {
@@ -5722,7 +5722,7 @@ pub fn mkdiratWasi(dir_fd: fd_t, sub_dir_path: []const u8, mode: mode_t) MakeDir
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -5744,7 +5744,7 @@ pub fn mkdiratWasi(dir_fd: fd_t, sub_dir_path: []const u8, mode: mode_t) MakeDir
 
 Same as `mkdirat` except the parameters are null-terminated.
 
-\`\`\`zig
+```zig
 pub fn mkdiratZ(dir_fd: fd_t, sub_dir_path: [*:0]const u8, mode: mode_t) MakeDirError!void {
     if (native_os == .windows) {
         const sub_dir_path_w = try windows.cStrToPrefixedFileW(dir_fd, sub_dir_path);
@@ -5777,7 +5777,7 @@ pub fn mkdiratZ(dir_fd: fd_t, sub_dir_path: [*:0]const u8, mode: mode_t) MakeDir
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -5799,7 +5799,7 @@ pub fn mkdiratZ(dir_fd: fd_t, sub_dir_path: [*:0]const u8, mode: mode_t) MakeDir
 
 Windows-only. Same as `mkdirat` except the parameter WTF16 LE encoded.
 
-\`\`\`zig
+```zig
 pub fn mkdiratW(dir_fd: fd_t, sub_path_w: []const u16, mode: mode_t) MakeDirError!void {
     _ = mode;
     const sub_dir_handle = windows.OpenFile(sub_path_w, .{
@@ -5817,7 +5817,7 @@ pub fn mkdiratW(dir_fd: fd_t, sub_path_w: []const u16, mode: mode_t) MakeDirErro
     };
     windows.CloseHandle(sub_dir_handle);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -5843,7 +5843,7 @@ On Windows, `dir_path` should be encoded as [WTF-8](https://simonsapin.github.io
 On WASI, `dir_path` should be encoded as valid UTF-8.
 On other platforms, `dir_path` is an opaque sequence of bytes with no particular encoding.
 
-\`\`\`zig
+```zig
 pub fn mkdir(dir_path: []const u8, mode: mode_t) MakeDirError!void {
     if (native_os == .wasi and !builtin.link_libc) {
         return mkdirat(AT.FDCWD, dir_path, mode);
@@ -5855,7 +5855,7 @@ pub fn mkdir(dir_path: []const u8, mode: mode_t) MakeDirError!void {
         return mkdirZ(&dir_path_c, mode);
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -5879,7 +5879,7 @@ On Windows, `dir_path` should be encoded as [WTF-8](https://simonsapin.github.io
 On WASI, `dir_path` should be encoded as valid UTF-8.
 On other platforms, `dir_path` is an opaque sequence of bytes with no particular encoding.
 
-\`\`\`zig
+```zig
 pub fn mkdirZ(dir_path: [*:0]const u8, mode: mode_t) MakeDirError!void {
     if (native_os == .windows) {
         const dir_path_w = try windows.cStrToPrefixedFileW(null, dir_path);
@@ -5909,7 +5909,7 @@ pub fn mkdirZ(dir_path: [*:0]const u8, mode: mode_t) MakeDirError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -5930,7 +5930,7 @@ pub fn mkdirZ(dir_path: [*:0]const u8, mode: mode_t) MakeDirError!void {
 
 Windows-only. Same as `mkdir` but the parameters is WTF16LE encoded.
 
-\`\`\`zig
+```zig
 pub fn mkdirW(dir_path_w: []const u16, mode: mode_t) MakeDirError!void {
     _ = mode;
     const sub_dir_handle = windows.OpenFile(dir_path_w, .{
@@ -5948,7 +5948,7 @@ pub fn mkdirW(dir_path_w: []const u16, mode: mode_t) MakeDirError!void {
     };
     windows.CloseHandle(sub_dir_handle);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -5972,7 +5972,7 @@ On Windows, `dir_path` should be encoded as [WTF-8](https://simonsapin.github.io
 On WASI, `dir_path` should be encoded as valid UTF-8.
 On other platforms, `dir_path` is an opaque sequence of bytes with no particular encoding.
 
-\`\`\`zig
+```zig
 pub fn rmdir(dir_path: []const u8) DeleteDirError!void {
     if (native_os == .wasi and !builtin.link_libc) {
         return unlinkat(AT.FDCWD, dir_path, AT.REMOVEDIR) catch |err| switch (err) {
@@ -5988,7 +5988,7 @@ pub fn rmdir(dir_path: []const u8) DeleteDirError!void {
         return rmdirZ(&dir_path_c);
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6011,7 +6011,7 @@ On Windows, `dir_path` should be encoded as [WTF-8](https://simonsapin.github.io
 On WASI, `dir_path` should be encoded as valid UTF-8.
 On other platforms, `dir_path` is an opaque sequence of bytes with no particular encoding.
 
-\`\`\`zig
+```zig
 pub fn rmdirZ(dir_path: [*:0]const u8) DeleteDirError!void {
     if (native_os == .windows) {
         const dir_path_w = try windows.cStrToPrefixedFileW(null, dir_path);
@@ -6041,7 +6041,7 @@ pub fn rmdirZ(dir_path: [*:0]const u8) DeleteDirError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6061,14 +6061,14 @@ pub fn rmdirZ(dir_path: [*:0]const u8) DeleteDirError!void {
 
 Windows-only. Same as `rmdir` except the parameter is WTF-16 LE encoded.
 
-\`\`\`zig
+```zig
 pub fn rmdirW(dir_path_w: []const u16) DeleteDirError!void {
     return windows.DeleteFile(dir_path_w, .{ .dir = fs.cwd().fd, .remove_dir = true }) catch |err| switch (err) {
         error.IsDir => unreachable,
         else => |e| return e,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6091,7 +6091,7 @@ On Windows, `dir_path` should be encoded as [WTF-8](https://simonsapin.github.io
 On WASI, `dir_path` should be encoded as valid UTF-8.
 On other platforms, `dir_path` is an opaque sequence of bytes with no particular encoding.
 
-\`\`\`zig
+```zig
 pub fn chdir(dir_path: []const u8) ChangeCurDirError!void {
     if (native_os == .wasi and !builtin.link_libc) {
         @compileError("WASI does not support os.chdir");
@@ -6107,7 +6107,7 @@ pub fn chdir(dir_path: []const u8) ChangeCurDirError!void {
         return chdirZ(&dir_path_c);
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6130,7 +6130,7 @@ On Windows, `dir_path` should be encoded as [WTF-8](https://simonsapin.github.io
 On WASI, `dir_path` should be encoded as valid UTF-8.
 On other platforms, `dir_path` is an opaque sequence of bytes with no particular encoding.
 
-\`\`\`zig
+```zig
 pub fn chdirZ(dir_path: [*:0]const u8) ChangeCurDirError!void {
     if (native_os == .windows) {
         const dir_path_span = mem.span(dir_path);
@@ -6160,7 +6160,7 @@ pub fn chdirZ(dir_path: [*:0]const u8) ChangeCurDirError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6180,14 +6180,14 @@ pub fn chdirZ(dir_path: [*:0]const u8) ChangeCurDirError!void {
 
 Windows-only. Same as `chdir` except the parameter is WTF16 LE encoded.
 
-\`\`\`zig
+```zig
 pub fn chdirW(dir_path: []const u16) ChangeCurDirError!void {
     windows.SetCurrentDirectory(dir_path) catch |err| switch (err) {
         error.NoDevice => return error.FileSystem,
         else => |e| return e,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6205,7 +6205,7 @@ pub fn chdirW(dir_path: []const u16) ChangeCurDirError!void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn fchdir(dirfd: fd_t) FchdirError!void {
     if (dirfd == AT.FDCWD) return;
     while (true) {
@@ -6220,7 +6220,7 @@ pub fn fchdir(dirfd: fd_t) FchdirError!void {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6247,7 +6247,7 @@ On Windows, the result is encoded as [WTF-8](https://simonsapin.github.io/wtf-8/
 On WASI, the result is encoded as UTF-8.
 On other platforms, the result is an opaque sequence of bytes with no particular encoding.
 
-\`\`\`zig
+```zig
 pub fn readlink(file_path: []const u8, out_buffer: []u8) ReadLinkError![]u8 {
     if (native_os == .wasi and !builtin.link_libc) {
         return readlinkat(AT.FDCWD, file_path, out_buffer);
@@ -6259,7 +6259,7 @@ pub fn readlink(file_path: []const u8, out_buffer: []u8) ReadLinkError![]u8 {
         return readlinkZ(&file_path_c, out_buffer);
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6282,11 +6282,11 @@ Windows-only. Same as `readlink` except `file_path` is WTF16 LE encoded.
 The result is encoded as [WTF-8](https://simonsapin.github.io/wtf-8/).
 See also `readlinkZ`.
 
-\`\`\`zig
+```zig
 pub fn readlinkW(file_path: []const u16, out_buffer: []u8) ReadLinkError![]u8 {
     return windows.ReadLink(fs.cwd().fd, file_path, out_buffer);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6307,7 +6307,7 @@ pub fn readlinkW(file_path: []const u16, out_buffer: []u8) ReadLinkError![]u8 {
 
 Same as `readlink` except `file_path` is null-terminated.
 
-\`\`\`zig
+```zig
 pub fn readlinkZ(file_path: [*:0]const u8, out_buffer: []u8) ReadLinkError![]u8 {
     if (native_os == .windows) {
         const file_path_w = try windows.cStrToPrefixedFileW(null, file_path);
@@ -6334,7 +6334,7 @@ pub fn readlinkZ(file_path: [*:0]const u8, out_buffer: []u8) ReadLinkError![]u8 
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6363,7 +6363,7 @@ On WASI, the result is encoded as UTF-8.
 On other platforms, the result is an opaque sequence of bytes with no particular encoding.
 See also `readlinkatWasi`, `realinkatZ` and `realinkatW`.
 
-\`\`\`zig
+```zig
 pub fn readlinkat(dirfd: fd_t, file_path: []const u8, out_buffer: []u8) ReadLinkError![]u8 {
     if (native_os == .wasi and !builtin.link_libc) {
         return readlinkatWasi(dirfd, file_path, out_buffer);
@@ -6375,7 +6375,7 @@ pub fn readlinkat(dirfd: fd_t, file_path: []const u8, out_buffer: []u8) ReadLink
     const file_path_c = try toPosixPath(file_path);
     return readlinkatZ(dirfd, &file_path_c, out_buffer);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6398,7 +6398,7 @@ pub fn readlinkat(dirfd: fd_t, file_path: []const u8, out_buffer: []u8) ReadLink
 WASI-only. Same as `readlinkat` but targets WASI.
 See also `readlinkat`.
 
-\`\`\`zig
+```zig
 pub fn readlinkatWasi(dirfd: fd_t, file_path: []const u8, out_buffer: []u8) ReadLinkError![]u8 {
     var bufused: usize = undefined;
     switch (wasi.path_readlink(dirfd, file_path.ptr, file_path.len, out_buffer.ptr, out_buffer.len, &bufused)) {
@@ -6417,7 +6417,7 @@ pub fn readlinkatWasi(dirfd: fd_t, file_path: []const u8, out_buffer: []u8) Read
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6441,11 +6441,11 @@ Windows-only. Same as `readlinkat` except `file_path` is null-terminated, WTF16 
 The result is encoded as [WTF-8](https://simonsapin.github.io/wtf-8/).
 See also `readlinkat`.
 
-\`\`\`zig
+```zig
 pub fn readlinkatW(dirfd: fd_t, file_path: []const u16, out_buffer: []u8) ReadLinkError![]u8 {
     return windows.ReadLink(dirfd, file_path, out_buffer);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6468,7 +6468,7 @@ pub fn readlinkatW(dirfd: fd_t, file_path: []const u16, out_buffer: []u8) ReadLi
 Same as `readlinkat` except `file_path` is null-terminated.
 See also `readlinkat`.
 
-\`\`\`zig
+```zig
 pub fn readlinkatZ(dirfd: fd_t, file_path: [*:0]const u8, out_buffer: []u8) ReadLinkError![]u8 {
     if (native_os == .windows) {
         const file_path_w = try windows.cStrToPrefixedFileW(dirfd, file_path);
@@ -6495,7 +6495,7 @@ pub fn readlinkatZ(dirfd: fd_t, file_path: [*:0]const u8, out_buffer: []u8) Read
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6515,7 +6515,7 @@ pub fn readlinkatZ(dirfd: fd_t, file_path: [*:0]const u8, out_buffer: []u8) Read
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn setuid(uid: uid_t) SetIdError!void {
     switch (errno(system.setuid(uid))) {
         .SUCCESS => return,
@@ -6525,7 +6525,7 @@ pub fn setuid(uid: uid_t) SetIdError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6543,7 +6543,7 @@ pub fn setuid(uid: uid_t) SetIdError!void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn seteuid(uid: uid_t) SetEidError!void {
     switch (errno(system.seteuid(uid))) {
         .SUCCESS => return,
@@ -6552,7 +6552,7 @@ pub fn seteuid(uid: uid_t) SetEidError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6570,7 +6570,7 @@ pub fn seteuid(uid: uid_t) SetEidError!void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn setreuid(ruid: uid_t, euid: uid_t) SetIdError!void {
     switch (errno(system.setreuid(ruid, euid))) {
         .SUCCESS => return,
@@ -6580,7 +6580,7 @@ pub fn setreuid(ruid: uid_t, euid: uid_t) SetIdError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6599,7 +6599,7 @@ pub fn setreuid(ruid: uid_t, euid: uid_t) SetIdError!void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn setgid(gid: gid_t) SetIdError!void {
     switch (errno(system.setgid(gid))) {
         .SUCCESS => return,
@@ -6609,7 +6609,7 @@ pub fn setgid(gid: gid_t) SetIdError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6627,7 +6627,7 @@ pub fn setgid(gid: gid_t) SetIdError!void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn setegid(uid: uid_t) SetEidError!void {
     switch (errno(system.setegid(uid))) {
         .SUCCESS => return,
@@ -6636,7 +6636,7 @@ pub fn setegid(uid: uid_t) SetEidError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6654,7 +6654,7 @@ pub fn setegid(uid: uid_t) SetEidError!void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn setregid(rgid: gid_t, egid: gid_t) SetIdError!void {
     switch (errno(system.setregid(rgid, egid))) {
         .SUCCESS => return,
@@ -6664,7 +6664,7 @@ pub fn setregid(rgid: gid_t, egid: gid_t) SetIdError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6683,7 +6683,7 @@ pub fn setregid(rgid: gid_t, egid: gid_t) SetIdError!void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn setpgid(pid: pid_t, pgid: pid_t) SetPgidError!void {
     switch (errno(system.setpgid(pid, pgid))) {
         .SUCCESS => return,
@@ -6694,7 +6694,7 @@ pub fn setpgid(pid: pid_t, pgid: pid_t) SetPgidError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6713,11 +6713,11 @@ pub fn setpgid(pid: pid_t, pgid: pid_t) SetPgidError!void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn getuid() uid_t {
     return system.getuid();
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6734,11 +6734,11 @@ pub fn getuid() uid_t {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn geteuid() uid_t {
     return system.geteuid();
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6757,7 +6757,7 @@ pub fn geteuid() uid_t {
 
 Test whether a file descriptor refers to a terminal.
 
-\`\`\`zig
+```zig
 pub fn isatty(handle: fd_t) bool {
     if (native_os == .windows) {
         if (fs.File.isCygwinPty(.{ .handle = handle }))
@@ -6797,7 +6797,7 @@ pub fn isatty(handle: fd_t) bool {
     }
     return system.isatty(handle) != 0;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6815,7 +6815,7 @@ pub fn isatty(handle: fd_t) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn socket(domain: u32, socket_type: u32, protocol: u32) SocketError!socket_t {
     if (native_os == .windows) {
         // These flags are not actually part of the Windows API, instead they are converted here for compatibility
@@ -6871,7 +6871,7 @@ pub fn socket(domain: u32, socket_type: u32, protocol: u32) SocketError!socket_t
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6893,7 +6893,7 @@ pub fn socket(domain: u32, socket_type: u32, protocol: u32) SocketError!socket_t
 
 Shutdown socket send/receive operations
 
-\`\`\`zig
+```zig
 pub fn shutdown(sock: socket_t, how: ShutdownHow) ShutdownError!void {
     if (native_os == .windows) {
         const result = windows.ws2_32.shutdown(sock, switch (how) {
@@ -6929,7 +6929,7 @@ pub fn shutdown(sock: socket_t, how: ShutdownHow) ShutdownError!void {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -6950,7 +6950,7 @@ pub fn shutdown(sock: socket_t, how: ShutdownHow) ShutdownError!void {
 
 addr is `*const T` where T is one of the sockaddr
 
-\`\`\`zig
+```zig
 pub fn bind(sock: socket_t, addr: *const sockaddr, len: socklen_t) BindError!void {
     if (native_os == .windows) {
         const rc = windows.bind(sock, addr, len);
@@ -6993,7 +6993,7 @@ pub fn bind(sock: socket_t, addr: *const sockaddr, len: socklen_t) BindError!voi
     }
     unreachable;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7013,7 +7013,7 @@ pub fn bind(sock: socket_t, addr: *const sockaddr, len: socklen_t) BindError!voi
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn listen(sock: socket_t, backlog: u31) ListenError!void {
     if (native_os == .windows) {
         const rc = windows.listen(sock, backlog);
@@ -7044,7 +7044,7 @@ pub fn listen(sock: socket_t, backlog: u31) ListenError!void {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7067,7 +7067,7 @@ Accept a connection on a socket.
 If `sockfd` is opened in non blocking mode, the function will
 return error.WouldBlock when EAGAIN is received.
 
-\`\`\`zig
+```zig
 pub fn accept(
     /// This argument is a socket that has been created with `socket`, bound to a local address
     /// with `bind`, and is listening for connections after a `listen`.
@@ -7152,7 +7152,7 @@ pub fn accept(
     }
     return accepted_sock;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7173,7 +7173,7 @@ pub fn accept(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn epoll_create1(flags: u32) EpollCreateError!i32 {
     const rc = system.epoll_create1(flags);
     switch (errno(rc)) {
@@ -7186,7 +7186,7 @@ pub fn epoll_create1(flags: u32) EpollCreateError!i32 {
         .NOMEM => return error.SystemResources,
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7204,7 +7204,7 @@ pub fn epoll_create1(flags: u32) EpollCreateError!i32 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn epoll_ctl(epfd: i32, op: u32, fd: i32, event: ?*system.epoll_event) EpollCtlError!void {
     const rc = system.epoll_ctl(epfd, op, fd, event);
     switch (errno(rc)) {
@@ -7221,7 +7221,7 @@ pub fn epoll_ctl(epfd: i32, op: u32, fd: i32, event: ?*system.epoll_event) Epoll
         .PERM => return error.FileDescriptorIncompatibleWithEpoll,
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7246,7 +7246,7 @@ Waits for an I/O event on an epoll file descriptor.
 Returns the number of file descriptors ready for the requested I/O,
 or zero if no file descriptor became ready during the requested timeout milliseconds.
 
-\`\`\`zig
+```zig
 pub fn epoll_wait(epfd: i32, events: []system.epoll_event, timeout: i32) usize {
     while (true) {
         // TODO get rid of the @intCast
@@ -7261,7 +7261,7 @@ pub fn epoll_wait(epfd: i32, events: []system.epoll_event, timeout: i32) usize {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7281,7 +7281,7 @@ pub fn epoll_wait(epfd: i32, events: []system.epoll_event, timeout: i32) usize {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn eventfd(initval: u32, flags: u32) EventFdError!i32 {
     const rc = system.eventfd(initval, flags);
     switch (errno(rc)) {
@@ -7295,7 +7295,7 @@ pub fn eventfd(initval: u32, flags: u32) EventFdError!i32 {
         .NOMEM => return error.SystemResources,
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7314,7 +7314,7 @@ pub fn eventfd(initval: u32, flags: u32) EventFdError!i32 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn getsockname(sock: socket_t, addr: *sockaddr, addrlen: *socklen_t) GetSockNameError!void {
     if (native_os == .windows) {
         const rc = windows.getsockname(sock, addr, addrlen);
@@ -7343,7 +7343,7 @@ pub fn getsockname(sock: socket_t, addr: *sockaddr, addrlen: *socklen_t) GetSock
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7363,7 +7363,7 @@ pub fn getsockname(sock: socket_t, addr: *sockaddr, addrlen: *socklen_t) GetSock
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn getpeername(sock: socket_t, addr: *sockaddr, addrlen: *socklen_t) GetSockNameError!void {
     if (native_os == .windows) {
         const rc = windows.getpeername(sock, addr, addrlen);
@@ -7392,7 +7392,7 @@ pub fn getpeername(sock: socket_t, addr: *sockaddr, addrlen: *socklen_t) GetSock
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7416,7 +7416,7 @@ Initiate a connection on a socket.
 If `sockfd` is opened in non blocking mode, the function will
 return error.WouldBlock when EAGAIN or EINPROGRESS is received.
 
-\`\`\`zig
+```zig
 pub fn connect(sock: socket_t, sock_addr: *const sockaddr, len: socklen_t) ConnectError!void {
     if (native_os == .windows) {
         const rc = windows.ws2_32.connect(sock, sock_addr, @intCast(len));
@@ -7470,7 +7470,7 @@ pub fn connect(sock: socket_t, sock_addr: *const sockaddr, len: socklen_t) Conne
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7490,7 +7490,7 @@ pub fn connect(sock: socket_t, sock_addr: *const sockaddr, len: socklen_t) Conne
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn getsockopt(fd: socket_t, level: i32, optname: u32, opt: []u8) GetSockOptError!void {
     var len: socklen_t = @intCast(opt.len);
     switch (errno(system.getsockopt(fd, level, optname, opt.ptr, &len))) {
@@ -7508,7 +7508,7 @@ pub fn getsockopt(fd: socket_t, level: i32, optname: u32, opt: []u8) GetSockOptE
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7529,7 +7529,7 @@ pub fn getsockopt(fd: socket_t, level: i32, optname: u32, opt: []u8) GetSockOptE
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn getsockoptError(sockfd: fd_t) ConnectError!void {
     var err_code: i32 = undefined;
     var size: u32 = @sizeOf(u32);
@@ -7565,7 +7565,7 @@ pub fn getsockoptError(sockfd: fd_t) ConnectError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7586,7 +7586,7 @@ pub fn getsockoptError(sockfd: fd_t) ConnectError!void {
 Use this version of the `waitpid` wrapper if you spawned your child process using explicit
 `fork` and `execve` method.
 
-\`\`\`zig
+```zig
 pub fn waitpid(pid: pid_t, flags: u32) WaitPidResult {
     var status: if (builtin.link_libc) c_int else u32 = undefined;
     while (true) {
@@ -7603,7 +7603,7 @@ pub fn waitpid(pid: pid_t, flags: u32) WaitPidResult {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7622,7 +7622,7 @@ pub fn waitpid(pid: pid_t, flags: u32) WaitPidResult {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn wait4(pid: pid_t, flags: u32, ru: ?*rusage) WaitPidResult {
     var status: if (builtin.link_libc) c_int else u32 = undefined;
     while (true) {
@@ -7639,7 +7639,7 @@ pub fn wait4(pid: pid_t, flags: u32, ru: ?*rusage) WaitPidResult {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7661,7 +7661,7 @@ pub fn wait4(pid: pid_t, flags: u32, ru: ?*rusage) WaitPidResult {
 
 Return information about a file descriptor.
 
-\`\`\`zig
+```zig
 pub fn fstat(fd: fd_t) FStatError!Stat {
     if (native_os == .wasi and !builtin.link_libc) {
         return Stat.fromFilestat(try std.os.fstat_wasi(fd));
@@ -7681,7 +7681,7 @@ pub fn fstat(fd: fd_t) FStatError!Stat {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7705,7 +7705,7 @@ On WASI, `pathname` should be encoded as valid UTF-8.
 On other platforms, `pathname` is an opaque sequence of bytes with no particular encoding.
 See also `fstatatZ` and `std.os.fstatat_wasi`.
 
-\`\`\`zig
+```zig
 pub fn fstatat(dirfd: fd_t, pathname: []const u8, flags: u32) FStatAtError!Stat {
     if (native_os == .wasi and !builtin.link_libc) {
         const filestat = try std.os.fstatat_wasi(dirfd, pathname, .{
@@ -7719,7 +7719,7 @@ pub fn fstatat(dirfd: fd_t, pathname: []const u8, flags: u32) FStatAtError!Stat 
         return fstatatZ(dirfd, &pathname_c, flags);
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7742,7 +7742,7 @@ pub fn fstatat(dirfd: fd_t, pathname: []const u8, flags: u32) FStatAtError!Stat 
 Same as `fstatat` but `pathname` is null-terminated.
 See also `fstatat`.
 
-\`\`\`zig
+```zig
 pub fn fstatatZ(dirfd: fd_t, pathname: [*:0]const u8, flags: u32) FStatAtError!Stat {
     if (native_os == .wasi and !builtin.link_libc) {
         const filestat = try std.os.fstatat_wasi(dirfd, mem.sliceTo(pathname, 0), .{
@@ -7772,7 +7772,7 @@ pub fn fstatatZ(dirfd: fd_t, pathname: [*:0]const u8, flags: u32) FStatAtError!S
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7792,7 +7792,7 @@ pub fn fstatatZ(dirfd: fd_t, pathname: [*:0]const u8, flags: u32) FStatAtError!S
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn kqueue() KQueueError!i32 {
     const rc = system.kqueue();
     switch (errno(rc)) {
@@ -7802,7 +7802,7 @@ pub fn kqueue() KQueueError!i32 {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7819,7 +7819,7 @@ pub fn kqueue() KQueueError!i32 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn kevent(
     kq: i32,
     changelist: []const Kevent,
@@ -7849,7 +7849,7 @@ pub fn kevent(
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7872,7 +7872,7 @@ pub fn kevent(
 
 initialize an inotify instance
 
-\`\`\`zig
+```zig
 pub fn inotify_init1(flags: u32) INotifyInitError!i32 {
     const rc = system.inotify_init1(flags);
     switch (errno(rc)) {
@@ -7884,7 +7884,7 @@ pub fn inotify_init1(flags: u32) INotifyInitError!i32 {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7904,12 +7904,12 @@ pub fn inotify_init1(flags: u32) INotifyInitError!i32 {
 
 add a watch to an initialized inotify instance
 
-\`\`\`zig
+```zig
 pub fn inotify_add_watch(inotify_fd: i32, pathname: []const u8, mask: u32) INotifyAddWatchError!i32 {
     const pathname_c = try toPosixPath(pathname);
     return inotify_add_watchZ(inotify_fd, &pathname_c, mask);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7931,7 +7931,7 @@ pub fn inotify_add_watch(inotify_fd: i32, pathname: []const u8, mask: u32) INoti
 
 Same as `inotify_add_watch` except pathname is null-terminated.
 
-\`\`\`zig
+```zig
 pub fn inotify_add_watchZ(inotify_fd: i32, pathname: [*:0]const u8, mask: u32) INotifyAddWatchError!i32 {
     const rc = system.inotify_add_watch(inotify_fd, pathname, mask);
     switch (errno(rc)) {
@@ -7949,7 +7949,7 @@ pub fn inotify_add_watchZ(inotify_fd: i32, pathname: [*:0]const u8, mask: u32) I
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7971,7 +7971,7 @@ pub fn inotify_add_watchZ(inotify_fd: i32, pathname: [*:0]const u8, mask: u32) I
 
 remove an existing watch from an inotify instance
 
-\`\`\`zig
+```zig
 pub fn inotify_rm_watch(inotify_fd: i32, wd: i32) void {
     switch (errno(system.inotify_rm_watch(inotify_fd, wd))) {
         .SUCCESS => return,
@@ -7980,7 +7980,7 @@ pub fn inotify_rm_watch(inotify_fd: i32, wd: i32) void {
         else => unreachable,
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -7999,7 +7999,7 @@ pub fn inotify_rm_watch(inotify_fd: i32, wd: i32) void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn fanotify_init(flags: std.os.linux.fanotify.InitFlags, event_f_flags: u32) FanotifyInitError!i32 {
     const rc = system.fanotify_init(flags, event_f_flags);
     switch (errno(rc)) {
@@ -8012,7 +8012,7 @@ pub fn fanotify_init(flags: std.os.linux.fanotify.InitFlags, event_f_flags: u32)
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -8031,7 +8031,7 @@ pub fn fanotify_init(flags: std.os.linux.fanotify.InitFlags, event_f_flags: u32)
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn fanotify_mark(
     fanotify_fd: fd_t,
     flags: std.os.linux.fanotify.MarkFlags,
@@ -8046,7 +8046,7 @@ pub fn fanotify_mark(
         return fanotify_markZ(fanotify_fd, flags, mask, dirfd, null);
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -8068,7 +8068,7 @@ pub fn fanotify_mark(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn fanotify_markZ(
     fanotify_fd: fd_t,
     flags: std.os.linux.fanotify.MarkFlags,
@@ -8094,7 +8094,7 @@ pub fn fanotify_markZ(
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -8116,7 +8116,7 @@ pub fn fanotify_markZ(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn mprotect(memory: []align(page_size_min) u8, protection: u32) MProtectError!void {
     if (native_os == .windows) {
         const win_prot: windows.DWORD = switch (@as(u3, @truncate(protection))) {
@@ -8144,7 +8144,7 @@ pub fn mprotect(memory: []align(page_size_min) u8, protection: u32) MProtectErro
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -8163,7 +8163,7 @@ pub fn mprotect(memory: []align(page_size_min) u8, protection: u32) MProtectErro
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn fork() ForkError!pid_t {
     const rc = system.fork();
     switch (errno(rc)) {
@@ -8173,7 +8173,7 @@ pub fn fork() ForkError!pid_t {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -8196,7 +8196,7 @@ Use of a mapped region can result in these signals:
 * SIGSEGV - Attempted write into a region mapped as read-only.
 * SIGBUS - Attempted  access to a portion of the buffer that does not correspond to the file
 
-\`\`\`zig
+```zig
 pub fn mmap(
     ptr: ?[*]align(page_size_min) u8,
     length: usize,
@@ -8232,7 +8232,7 @@ pub fn mmap(
         else => return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -8262,7 +8262,7 @@ Zig's munmap function does not, for two reasons:
 * It violates the Zig principle that resource deallocation must succeed.
 * The Windows function, VirtualFree, has this restriction.
 
-\`\`\`zig
+```zig
 pub fn munmap(memory: []align(page_size_min) const u8) void {
     switch (errno(system.munmap(memory.ptr, memory.len))) {
         .SUCCESS => return,
@@ -8271,7 +8271,7 @@ pub fn munmap(memory: []align(page_size_min) const u8) void {
         else => unreachable,
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -8289,7 +8289,7 @@ pub fn munmap(memory: []align(page_size_min) const u8) void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn mremap(
     old_address: ?[*]align(page_size_min) u8,
     old_len: usize,
@@ -8315,7 +8315,7 @@ pub fn mremap(
         else => return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -8337,7 +8337,7 @@ pub fn mremap(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn msync(memory: []align(page_size_min) u8, flags: i32) MSyncError!void {
     switch (errno(system.msync(memory.ptr, memory.len, flags))) {
         .SUCCESS => return,
@@ -8347,7 +8347,7 @@ pub fn msync(memory: []align(page_size_min) u8, flags: i32) MSyncError!void {
         else => unreachable,
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -8375,7 +8375,7 @@ check user's permissions for a file
 On Windows, `mode` is ignored. This is a POSIX API that is only partially supported by
 Windows. See `fs` for the cross-platform file system API.
 
-\`\`\`zig
+```zig
 pub fn access(path: []const u8, mode: u32) AccessError!void {
     if (native_os == .windows) {
         const path_w = try windows.sliceToPrefixedFileW(null, path);
@@ -8387,7 +8387,7 @@ pub fn access(path: []const u8, mode: u32) AccessError!void {
     const path_c = try toPosixPath(path);
     return accessZ(&path_c, mode);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -8408,7 +8408,7 @@ pub fn access(path: []const u8, mode: u32) AccessError!void {
 
 Same as `access` except `path` is null-terminated.
 
-\`\`\`zig
+```zig
 pub fn accessZ(path: [*:0]const u8, mode: u32) AccessError!void {
     if (native_os == .windows) {
         const path_w = try windows.cStrToPrefixedFileW(null, path);
@@ -8438,7 +8438,7 @@ pub fn accessZ(path: [*:0]const u8, mode: u32) AccessError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -8466,7 +8466,7 @@ Check user's permissions for a file, based on an open directory handle.
 On Windows, `mode` is ignored. This is a POSIX API that is only partially supported by
 Windows. See `fs` for the cross-platform file system API.
 
-\`\`\`zig
+```zig
 pub fn faccessat(dirfd: fd_t, path: []const u8, mode: u32, flags: u32) AccessError!void {
     if (native_os == .windows) {
         const path_w = try windows.sliceToPrefixedFileW(dirfd, path);
@@ -8509,7 +8509,7 @@ pub fn faccessat(dirfd: fd_t, path: []const u8, mode: u32, flags: u32) AccessErr
     const path_c = try toPosixPath(path);
     return faccessatZ(dirfd, &path_c, mode, flags);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -8532,7 +8532,7 @@ pub fn faccessat(dirfd: fd_t, path: []const u8, mode: u32, flags: u32) AccessErr
 
 Same as `faccessat` except the path parameter is null-terminated.
 
-\`\`\`zig
+```zig
 pub fn faccessatZ(dirfd: fd_t, path: [*:0]const u8, mode: u32, flags: u32) AccessError!void {
     if (native_os == .windows) {
         const path_w = try windows.cStrToPrefixedFileW(dirfd, path);
@@ -8561,7 +8561,7 @@ pub fn faccessatZ(dirfd: fd_t, path: [*:0]const u8, mode: u32, flags: u32) Acces
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -8585,7 +8585,7 @@ pub fn faccessatZ(dirfd: fd_t, path: [*:0]const u8, mode: u32, flags: u32) Acces
 Same as `faccessat` except asserts the target is Windows and the path parameter
 is NtDll-prefixed, null-terminated, WTF-16 encoded.
 
-\`\`\`zig
+```zig
 pub fn faccessatW(dirfd: fd_t, sub_path_w: [*:0]const u16) AccessError!void {
     if (sub_path_w[0] == '.' and sub_path_w[1] == 0) {
         return;
@@ -8620,7 +8620,7 @@ pub fn faccessatW(dirfd: fd_t, sub_path_w: [*:0]const u16) AccessError!void {
         else => |rc| return windows.unexpectedStatus(rc),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -8641,7 +8641,7 @@ pub fn faccessatW(dirfd: fd_t, sub_path_w: [*:0]const u16) AccessError!void {
 
 Creates a unidirectional data channel that can be used for interprocess communication.
 
-\`\`\`zig
+```zig
 pub fn pipe() PipeError![2]fd_t {
     var fds: [2]fd_t = undefined;
     switch (errno(system.pipe(&fds))) {
@@ -8653,7 +8653,7 @@ pub fn pipe() PipeError![2]fd_t {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -8670,7 +8670,7 @@ pub fn pipe() PipeError![2]fd_t {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn pipe2(flags: O) PipeError![2]fd_t {
     if (@TypeOf(system.pipe2) != void) {
         var fds: [2]fd_t = undefined;
@@ -8726,7 +8726,7 @@ pub fn pipe2(flags: O) PipeError![2]fd_t {
 
     return fds;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -8744,7 +8744,7 @@ pub fn pipe2(flags: O) PipeError![2]fd_t {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn sysctl(
     name: []const c_int,
     oldp: ?*anyopaque,
@@ -8769,7 +8769,7 @@ pub fn sysctl(
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -8791,7 +8791,7 @@ pub fn sysctl(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn sysctlbynameZ(
     name: [*:0]const u8,
     oldp: ?*anyopaque,
@@ -8815,7 +8815,7 @@ pub fn sysctlbynameZ(
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -8837,7 +8837,7 @@ pub fn sysctlbynameZ(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn gettimeofday(tv: ?*timeval, tz: ?*timezone) void {
     switch (errno(system.gettimeofday(tv, tz))) {
         .SUCCESS => return,
@@ -8845,7 +8845,7 @@ pub fn gettimeofday(tv: ?*timeval, tz: ?*timezone) void {
         else => unreachable,
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -8866,7 +8866,7 @@ pub fn gettimeofday(tv: ?*timeval, tz: ?*timezone) void {
 
 Repositions read/write file offset relative to the beginning.
 
-\`\`\`zig
+```zig
 pub fn lseek_SET(fd: fd_t, offset: u64) SeekError!void {
     if (native_os == .linux and !builtin.link_libc and @sizeOf(usize) == 4) {
         var result: u64 = undefined;
@@ -8908,7 +8908,7 @@ pub fn lseek_SET(fd: fd_t, offset: u64) SeekError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -8929,7 +8929,7 @@ pub fn lseek_SET(fd: fd_t, offset: u64) SeekError!void {
 
 Repositions read/write file offset relative to the current offset.
 
-\`\`\`zig
+```zig
 pub fn lseek_CUR(fd: fd_t, offset: i64) SeekError!void {
     if (native_os == .linux and !builtin.link_libc and @sizeOf(usize) == 4) {
         var result: u64 = undefined;
@@ -8970,7 +8970,7 @@ pub fn lseek_CUR(fd: fd_t, offset: i64) SeekError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -8991,7 +8991,7 @@ pub fn lseek_CUR(fd: fd_t, offset: i64) SeekError!void {
 
 Repositions read/write file offset relative to the end.
 
-\`\`\`zig
+```zig
 pub fn lseek_END(fd: fd_t, offset: i64) SeekError!void {
     if (native_os == .linux and !builtin.link_libc and @sizeOf(usize) == 4) {
         var result: u64 = undefined;
@@ -9032,7 +9032,7 @@ pub fn lseek_END(fd: fd_t, offset: i64) SeekError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9053,7 +9053,7 @@ pub fn lseek_END(fd: fd_t, offset: i64) SeekError!void {
 
 Returns the read/write file offset relative to the beginning.
 
-\`\`\`zig
+```zig
 pub fn lseek_CUR_get(fd: fd_t) SeekError!u64 {
     if (native_os == .linux and !builtin.link_libc and @sizeOf(usize) == 4) {
         var result: u64 = undefined;
@@ -9095,7 +9095,7 @@ pub fn lseek_CUR_get(fd: fd_t) SeekError!u64 {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9113,7 +9113,7 @@ pub fn lseek_CUR_get(fd: fd_t) SeekError!u64 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn fcntl(fd: fd_t, cmd: i32, arg: usize) FcntlError!usize {
     while (true) {
         const rc = system.fcntl(fd, cmd, arg);
@@ -9133,7 +9133,7 @@ pub fn fcntl(fd: fd_t, cmd: i32, arg: usize) FcntlError!usize {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9156,7 +9156,7 @@ pub fn fcntl(fd: fd_t, cmd: i32, arg: usize) FcntlError!usize {
 Depending on the operating system `flock` may or may not interact with
 `fcntl` locks made by other processes.
 
-\`\`\`zig
+```zig
 pub fn flock(fd: fd_t, operation: i32) FlockError!void {
     while (true) {
         const rc = system.flock(fd, operation);
@@ -9172,7 +9172,7 @@ pub fn flock(fd: fd_t, operation: i32) FlockError!void {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9209,7 +9209,7 @@ See also `realpathZ` and `realpathW`.
 
 Calling this function is usually a bug.
 
-\`\`\`zig
+```zig
 pub fn realpath(pathname: []const u8, out_buffer: *[max_path_bytes]u8) RealPathError![]u8 {
     if (native_os == .windows) {
         const pathname_w = try windows.sliceToPrefixedFileW(null, pathname);
@@ -9220,7 +9220,7 @@ pub fn realpath(pathname: []const u8, out_buffer: *[max_path_bytes]u8) RealPathE
     const pathname_c = try toPosixPath(pathname);
     return realpathZ(&pathname_c, out_buffer);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9243,7 +9243,7 @@ Same as `realpath` except `pathname` is null-terminated.
 
 Calling this function is usually a bug.
 
-\`\`\`zig
+```zig
 pub fn realpathZ(pathname: [*:0]const u8, out_buffer: *[max_path_bytes]u8) RealPathError![]u8 {
     if (native_os == .windows) {
         const pathname_w = try windows.cStrToPrefixedFileW(null, pathname);
@@ -9290,7 +9290,7 @@ pub fn realpathZ(pathname: [*:0]const u8, out_buffer: *[max_path_bytes]u8) RealP
     };
     return mem.sliceTo(result_path, 0);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9315,7 +9315,7 @@ The result is encoded as [WTF-8](https://simonsapin.github.io/wtf-8/).
 
 Calling this function is usually a bug.
 
-\`\`\`zig
+```zig
 pub fn realpathW(pathname: []const u16, out_buffer: *[max_path_bytes]u8) RealPathError![]u8 {
     const w = windows;
 
@@ -9340,7 +9340,7 @@ pub fn realpathW(pathname: []const u16, out_buffer: *[max_path_bytes]u8) RealPat
 
     return std.os.getFdPath(h_file, out_buffer);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9361,7 +9361,7 @@ pub fn realpathW(pathname: []const u16, out_buffer: *[max_path_bytes]u8) RealPat
 
 Spurious wakeups are possible and no precision of timing is guaranteed.
 
-\`\`\`zig
+```zig
 pub fn nanosleep(seconds: u64, nanoseconds: u64) void {
     var req = timespec{
         .sec = cast(isize, seconds) orelse maxInt(isize),
@@ -9385,7 +9385,7 @@ pub fn nanosleep(seconds: u64, nanoseconds: u64) void {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9404,7 +9404,7 @@ pub fn nanosleep(seconds: u64, nanoseconds: u64) void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn dl_iterate_phdr(
     context: anytype,
     comptime Error: type,
@@ -9490,7 +9490,7 @@ pub fn dl_iterate_phdr(
         try callback(&info, @sizeOf(dl_phdr_info), context);
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9505,9 +9505,9 @@ pub fn dl_iterate_phdr(
 [^fn-dl-iterate-phdr-callback-type-0]:
     Type for parameter `callback` of `dl_iterate_phdr`:
 
-    \`\`\`zig
+    ```zig
     fn (info: *dl_phdr_info, size: usize, context: @TypeOf(context)) Error!void
-    \`\`\`
+    ```
 
 </details>
 
@@ -9518,7 +9518,7 @@ pub fn dl_iterate_phdr(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn clock_gettime(clock_id: clockid_t) ClockGetTimeError!timespec {
     var tp: timespec = undefined;
 
@@ -9546,7 +9546,7 @@ pub fn clock_gettime(clock_id: clockid_t) ClockGetTimeError!timespec {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9564,7 +9564,7 @@ pub fn clock_gettime(clock_id: clockid_t) ClockGetTimeError!timespec {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn clock_getres(clock_id: clockid_t, res: *timespec) ClockGetTimeError!void {
     if (native_os == .wasi and !builtin.link_libc) {
         var ts: timestamp_t = undefined;
@@ -9586,7 +9586,7 @@ pub fn clock_getres(clock_id: clockid_t, res: *timespec) ClockGetTimeError!void 
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9605,7 +9605,7 @@ pub fn clock_getres(clock_id: clockid_t, res: *timespec) ClockGetTimeError!void 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn sched_getaffinity(pid: pid_t) SchedGetAffinityError!cpu_set_t {
     var set: cpu_set_t = undefined;
     switch (errno(system.sched_getaffinity(pid, @sizeOf(cpu_set_t), &set))) {
@@ -9617,7 +9617,7 @@ pub fn sched_getaffinity(pid: pid_t) SchedGetAffinityError!cpu_set_t {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9635,7 +9635,7 @@ pub fn sched_getaffinity(pid: pid_t) SchedGetAffinityError!cpu_set_t {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn sigaltstack(ss: ?*stack_t, old_ss: ?*stack_t) SigaltstackError!void {
     switch (errno(system.sigaltstack(ss, old_ss))) {
         .SUCCESS => return,
@@ -9646,7 +9646,7 @@ pub fn sigaltstack(ss: ?*stack_t, old_ss: ?*stack_t) SigaltstackError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9667,7 +9667,7 @@ pub fn sigaltstack(ss: ?*stack_t, old_ss: ?*stack_t) SigaltstackError!void {
 
 Return a filled sigset_t.
 
-\`\`\`zig
+```zig
 pub fn sigfillset() sigset_t {
     if (builtin.link_libc) {
         var set: sigset_t = undefined;
@@ -9678,7 +9678,7 @@ pub fn sigfillset() sigset_t {
     }
     return system.sigfillset();
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9697,7 +9697,7 @@ pub fn sigfillset() sigset_t {
 
 Return an empty sigset_t.
 
-\`\`\`zig
+```zig
 pub fn sigemptyset() sigset_t {
     if (builtin.link_libc) {
         var set: sigset_t = undefined;
@@ -9708,7 +9708,7 @@ pub fn sigemptyset() sigset_t {
     }
     return system.sigemptyset();
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9725,7 +9725,7 @@ pub fn sigemptyset() sigset_t {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn sigaddset(set: *sigset_t, sig: u8) void {
     if (builtin.link_libc) {
         switch (errno(system.sigaddset(set, sig))) {
@@ -9735,7 +9735,7 @@ pub fn sigaddset(set: *sigset_t, sig: u8) void {
     }
     system.sigaddset(set, sig);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9754,7 +9754,7 @@ pub fn sigaddset(set: *sigset_t, sig: u8) void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn sigdelset(set: *sigset_t, sig: u8) void {
     if (builtin.link_libc) {
         switch (errno(system.sigdelset(set, sig))) {
@@ -9764,7 +9764,7 @@ pub fn sigdelset(set: *sigset_t, sig: u8) void {
     }
     system.sigdelset(set, sig);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9783,7 +9783,7 @@ pub fn sigdelset(set: *sigset_t, sig: u8) void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn sigismember(set: *const sigset_t, sig: u8) bool {
     if (builtin.link_libc) {
         const rc = system.sigismember(set, sig);
@@ -9794,7 +9794,7 @@ pub fn sigismember(set: *const sigset_t, sig: u8) bool {
     }
     return system.sigismember(set, sig);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9815,7 +9815,7 @@ pub fn sigismember(set: *const sigset_t, sig: u8) bool {
 
 Examine and change a signal action.
 
-\`\`\`zig
+```zig
 pub fn sigaction(sig: u8, noalias act: ?*const Sigaction, noalias oact: ?*Sigaction) void {
     switch (errno(system.sigaction(sig, act, oact))) {
         .SUCCESS => return,
@@ -9826,7 +9826,7 @@ pub fn sigaction(sig: u8, noalias act: ?*const Sigaction, noalias oact: ?*Sigact
         else => unreachable,
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9848,7 +9848,7 @@ pub fn sigaction(sig: u8, noalias act: ?*const Sigaction, noalias oact: ?*Sigact
 
 Sets the thread signal mask.
 
-\`\`\`zig
+```zig
 pub fn sigprocmask(flags: u32, noalias set: ?*const sigset_t, noalias oldset: ?*sigset_t) void {
     switch (errno(system.sigprocmask(@bitCast(flags), set, oldset))) {
         .SUCCESS => return,
@@ -9857,7 +9857,7 @@ pub fn sigprocmask(flags: u32, noalias set: ?*const sigset_t, noalias oldset: ?*
         else => unreachable,
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9877,7 +9877,7 @@ pub fn sigprocmask(flags: u32, noalias set: ?*const sigset_t, noalias oldset: ?*
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn futimens(fd: fd_t, times: ?*const [2]timespec) FutimensError!void {
     if (native_os == .wasi and !builtin.link_libc) {
         // TODO WASI encodes `wasi.fstflags` to signify magic values
@@ -9921,7 +9921,7 @@ pub fn futimens(fd: fd_t, times: ?*const [2]timespec) FutimensError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9940,7 +9940,7 @@ pub fn futimens(fd: fd_t, times: ?*const [2]timespec) FutimensError!void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn gethostname(name_buffer: *[HOST_NAME_MAX]u8) GetHostNameError![]u8 {
     if (builtin.link_libc) {
         switch (errno(system.gethostname(name_buffer, name_buffer.len))) {
@@ -9961,7 +9961,7 @@ pub fn gethostname(name_buffer: *[HOST_NAME_MAX]u8) GetHostNameError![]u8 {
 
     @compileError("TODO implement gethostname for this OS");
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -9979,7 +9979,7 @@ pub fn gethostname(name_buffer: *[HOST_NAME_MAX]u8) GetHostNameError![]u8 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn uname() utsname {
     var uts: utsname = undefined;
     switch (errno(system.uname(&uts))) {
@@ -9988,7 +9988,7 @@ pub fn uname() utsname {
         else => unreachable,
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -10005,7 +10005,7 @@ pub fn uname() utsname {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn res_mkquery(
     op: u4,
     dname: []const u8,
@@ -10054,7 +10054,7 @@ pub fn res_mkquery(
     @memcpy(buf[0..n], q[0..n]);
     return n;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -10078,7 +10078,7 @@ pub fn res_mkquery(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn sendmsg(
     /// The file descriptor of the sending socket.
     sockfd: socket_t,
@@ -10149,7 +10149,7 @@ pub fn sendmsg(
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -10195,7 +10195,7 @@ unless  the socket has been placed in nonblocking I/O mode.  In nonblocking mode
 with `SendError.WouldBlock`.  The `select` call may be used  to  determine when it is
 possible to send more data.
 
-\`\`\`zig
+```zig
 pub fn sendto(
     /// The file descriptor of the sending socket.
     sockfd: socket_t,
@@ -10267,7 +10267,7 @@ pub fn sendto(
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -10309,7 +10309,7 @@ unless  the socket has been placed in nonblocking I/O mode.  In nonblocking mode
 with `SendError.WouldBlock`.  The `select` call may be used  to  determine when it is
 possible to send more data.
 
-\`\`\`zig
+```zig
 pub fn send(
     /// The file descriptor of the sending socket.
     sockfd: socket_t,
@@ -10329,7 +10329,7 @@ pub fn send(
         else => |e| return e,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -10377,7 +10377,7 @@ Other systems fall back to calling `pread` / `pwrite`.
 
 Maximum offsets on Linux and FreeBSD are `maxInt(i64)`.
 
-\`\`\`zig
+```zig
 pub fn copy_file_range(fd_in: fd_t, off_in: u64, fd_out: fd_t, off_out: u64, len: usize, flags: u32) CopyFileRangeError!usize {
     if (builtin.os.tag == .freebsd or
         (comptime builtin.os.tag == .linux and std.c.versionCheck(if (builtin.abi.isAndroid()) .{ .major = 34, .minor = 0, .patch = 0 } else .{ .major = 2, .minor = 27, .patch = 0 })))
@@ -10425,7 +10425,7 @@ pub fn copy_file_range(fd_in: fd_t, off_in: u64, fd_out: fd_t, off_out: u64, len
     if (amt_read == 0) return 0;
     return pwrite(fd_out, buf[0..amt_read], off_out);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -10448,7 +10448,7 @@ pub fn copy_file_range(fd_in: fd_t, off_in: u64, fd_out: fd_t, off_out: u64, len
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn poll(fds: []pollfd, timeout: i32) PollError!usize {
     if (native_os == .windows) {
         switch (windows.poll(fds.ptr, @intCast(fds.len), timeout)) {
@@ -10476,7 +10476,7 @@ pub fn poll(fds: []pollfd, timeout: i32) PollError!usize {
     }
     unreachable;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -10495,7 +10495,7 @@ pub fn poll(fds: []pollfd, timeout: i32) PollError!usize {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn ppoll(fds: []pollfd, timeout: ?*const timespec, mask: ?*const sigset_t) PPollError!usize {
     var ts: timespec = undefined;
     var ts_ptr: ?*timespec = null;
@@ -10514,7 +10514,7 @@ pub fn ppoll(fds: []pollfd, timeout: ?*const timespec, mask: ?*const sigset_t) P
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -10534,11 +10534,11 @@ pub fn ppoll(fds: []pollfd, timeout: ?*const timespec, mask: ?*const sigset_t) P
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn recv(sock: socket_t, buf: []u8, flags: u32) RecvFromError!usize {
     return recvfrom(sock, buf, flags, null, null);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -10561,7 +10561,7 @@ pub fn recv(sock: socket_t, buf: []u8, flags: u32) RecvFromError!usize {
 If `sockfd` is opened in non blocking mode, the function will
 return error.WouldBlock when EAGAIN is received.
 
-\`\`\`zig
+```zig
 pub fn recvfrom(
     sockfd: socket_t,
     buf: []u8,
@@ -10607,7 +10607,7 @@ pub fn recvfrom(
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -10629,7 +10629,7 @@ pub fn recvfrom(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn dn_expand(
     msg: []const u8,
     comp_dn: []const u8,
@@ -10677,7 +10677,7 @@ pub fn dn_expand(
     }
     return error.InvalidDnsPacket;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -10699,7 +10699,7 @@ pub fn dn_expand(
 
 Set a socket's options.
 
-\`\`\`zig
+```zig
 pub fn setsockopt(fd: socket_t, level: i32, optname: u32, opt: []const u8) SetSockOptError!void {
     if (native_os == .windows) {
         const rc = windows.ws2_32.setsockopt(fd, level, @intCast(optname), opt.ptr, @intCast(opt.len));
@@ -10733,7 +10733,7 @@ pub fn setsockopt(fd: socket_t, level: i32, optname: u32, opt: []const u8) SetSo
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -10754,7 +10754,7 @@ pub fn setsockopt(fd: socket_t, level: i32, optname: u32, opt: []const u8) SetSo
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn memfd_createZ(name: [*:0]const u8, flags: u32) MemFdCreateError!fd_t {
     switch (native_os) {
         .linux => {
@@ -10789,7 +10789,7 @@ pub fn memfd_createZ(name: [*:0]const u8, flags: u32) MemFdCreateError!fd_t {
         else => @compileError("target OS does not support memfd_create()"),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -10808,7 +10808,7 @@ pub fn memfd_createZ(name: [*:0]const u8, flags: u32) MemFdCreateError!fd_t {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn memfd_create(name: []const u8, flags: u32) MemFdCreateError!fd_t {
     var buffer: [NAME_MAX - "memfd:".len - 1:0]u8 = undefined;
     if (name.len > buffer.len) return error.NameTooLong;
@@ -10816,7 +10816,7 @@ pub fn memfd_create(name: []const u8, flags: u32) MemFdCreateError!fd_t {
     buffer[name.len] = 0;
     return memfd_createZ(&buffer, flags);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -10835,7 +10835,7 @@ pub fn memfd_create(name: []const u8, flags: u32) MemFdCreateError!fd_t {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn getrusage(who: i32) rusage {
     var result: rusage = undefined;
     const rc = system.getrusage(who, &result);
@@ -10846,7 +10846,7 @@ pub fn getrusage(who: i32) rusage {
         else => unreachable,
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -10864,7 +10864,7 @@ pub fn getrusage(who: i32) rusage {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn tcgetattr(handle: fd_t) TermiosGetError!termios {
     while (true) {
         var term: termios = undefined;
@@ -10877,7 +10877,7 @@ pub fn tcgetattr(handle: fd_t) TermiosGetError!termios {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -10895,7 +10895,7 @@ pub fn tcgetattr(handle: fd_t) TermiosGetError!termios {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn tcsetattr(handle: fd_t, optional_action: TCSA, termios_p: termios) TermiosSetError!void {
     while (true) {
         switch (errno(system.tcsetattr(handle, optional_action, &termios_p))) {
@@ -10909,7 +10909,7 @@ pub fn tcsetattr(handle: fd_t, optional_action: TCSA, termios_p: termios) Termio
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -10931,7 +10931,7 @@ pub fn tcsetattr(handle: fd_t, optional_action: TCSA, termios_p: termios) Termio
 
 Returns the process group ID for the TTY associated with the given handle.
 
-\`\`\`zig
+```zig
 pub fn tcgetpgrp(handle: fd_t) TermioGetPgrpError!pid_t {
     while (true) {
         var pgrp: pid_t = undefined;
@@ -10945,7 +10945,7 @@ pub fn tcgetpgrp(handle: fd_t) TermioGetPgrpError!pid_t {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -10968,7 +10968,7 @@ handle must be valid fd_t to a TTY associated with calling process.
 pgrp must be a valid process group, and the calling process must be a member
 of that group.
 
-\`\`\`zig
+```zig
 pub fn tcsetpgrp(handle: fd_t, pgrp: pid_t) TermioSetPgrpError!void {
     while (true) {
         switch (errno(system.tcsetpgrp(handle, &pgrp))) {
@@ -10982,7 +10982,7 @@ pub fn tcsetpgrp(handle: fd_t, pgrp: pid_t) TermioSetPgrpError!void {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11001,7 +11001,7 @@ pub fn tcsetpgrp(handle: fd_t, pgrp: pid_t) TermioSetPgrpError!void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn setsid() SetSidError!pid_t {
     const rc = system.setsid();
     switch (errno(rc)) {
@@ -11010,7 +11010,7 @@ pub fn setsid() SetSidError!pid_t {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11027,7 +11027,7 @@ pub fn setsid() SetSidError!pid_t {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn signalfd(fd: fd_t, mask: *const sigset_t, flags: u32) !fd_t {
     const rc = system.signalfd(fd, mask, flags);
     switch (errno(rc)) {
@@ -11040,7 +11040,7 @@ pub fn signalfd(fd: fd_t, mask: *const sigset_t, flags: u32) !fd_t {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11062,11 +11062,11 @@ pub fn signalfd(fd: fd_t, mask: *const sigset_t, flags: u32) !fd_t {
 
 Write all pending file contents and metadata modifications to all filesystems.
 
-\`\`\`zig
+```zig
 pub fn sync() void {
     system.sync();
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11085,7 +11085,7 @@ pub fn sync() void {
 
 Write all pending file contents and metadata modifications to the filesystem which contains the specified file.
 
-\`\`\`zig
+```zig
 pub fn syncfs(fd: fd_t) SyncError!void {
     const rc = system.syncfs(fd);
     switch (errno(rc)) {
@@ -11097,7 +11097,7 @@ pub fn syncfs(fd: fd_t) SyncError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11117,7 +11117,7 @@ pub fn syncfs(fd: fd_t) SyncError!void {
 
 Write all pending file contents and metadata modifications for the specified file descriptor to the underlying filesystem.
 
-\`\`\`zig
+```zig
 pub fn fsync(fd: fd_t) SyncError!void {
     if (native_os == .windows) {
         if (windows.kernel32.FlushFileBuffers(fd) != 0)
@@ -11140,7 +11140,7 @@ pub fn fsync(fd: fd_t) SyncError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11160,7 +11160,7 @@ pub fn fsync(fd: fd_t) SyncError!void {
 
 Write all pending file contents for the specified file descriptor to the underlying filesystem, but not necessarily the metadata.
 
-\`\`\`zig
+```zig
 pub fn fdatasync(fd: fd_t) SyncError!void {
     if (native_os == .windows) {
         return fsync(fd) catch |err| switch (err) {
@@ -11178,7 +11178,7 @@ pub fn fdatasync(fd: fd_t) SyncError!void {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11196,7 +11196,7 @@ pub fn fdatasync(fd: fd_t) SyncError!void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn prctl(option: PR, args: anytype) PrctlError!u31 {
     if (@typeInfo(@TypeOf(args)) != .@"struct")
         @compileError("Expected tuple or struct argument, found " ++ @typeName(@TypeOf(args)));
@@ -11223,7 +11223,7 @@ pub fn prctl(option: PR, args: anytype) PrctlError!u31 {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11242,7 +11242,7 @@ pub fn prctl(option: PR, args: anytype) PrctlError!u31 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn getrlimit(resource: rlimit_resource) GetrlimitError!rlimit {
     const getrlimit_sym = if (lfs64_abi) system.getrlimit64 else system.getrlimit;
 
@@ -11254,7 +11254,7 @@ pub fn getrlimit(resource: rlimit_resource) GetrlimitError!rlimit {
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11272,7 +11272,7 @@ pub fn getrlimit(resource: rlimit_resource) GetrlimitError!rlimit {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn setrlimit(resource: rlimit_resource, limits: rlimit) SetrlimitError!void {
     const setrlimit_sym = if (lfs64_abi) system.setrlimit64 else system.setrlimit;
 
@@ -11284,7 +11284,7 @@ pub fn setrlimit(resource: rlimit_resource, limits: rlimit) SetrlimitError!void 
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11305,7 +11305,7 @@ pub fn setrlimit(resource: rlimit_resource, limits: rlimit) SetrlimitError!void 
 
 Determine whether pages are resident in memory.
 
-\`\`\`zig
+```zig
 pub fn mincore(ptr: [*]align(page_size_min) u8, length: usize, vec: [*]u8) MincoreError!void {
     return switch (errno(system.mincore(ptr, length, vec))) {
         .SUCCESS => {},
@@ -11317,7 +11317,7 @@ pub fn mincore(ptr: [*]align(page_size_min) u8, length: usize, vec: [*]u8) Minco
         else => |err| unexpectedErrno(err),
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11340,7 +11340,7 @@ pub fn mincore(ptr: [*]align(page_size_min) u8, length: usize, vec: [*]u8) Minco
 Give advice about use of memory.
 This syscall is optional and is sometimes configured to be disabled.
 
-\`\`\`zig
+```zig
 pub fn madvise(ptr: [*]align(page_size_min) u8, length: usize, advice: u32) MadviseError!void {
     switch (errno(system.madvise(ptr, length, advice))) {
         .SUCCESS => return,
@@ -11355,7 +11355,7 @@ pub fn madvise(ptr: [*]align(page_size_min) u8, length: usize, advice: u32) Madv
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11375,7 +11375,7 @@ pub fn madvise(ptr: [*]align(page_size_min) u8, length: usize, advice: u32) Madv
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn perf_event_open(
     attr: *system.perf_event_attr,
     pid: pid_t,
@@ -11408,7 +11408,7 @@ pub fn perf_event_open(
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11430,7 +11430,7 @@ pub fn perf_event_open(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn timerfd_create(clock_id: system.timerfd_clockid_t, flags: system.TFD) TimerFdCreateError!fd_t {
     const rc = system.timerfd_create(clock_id, @bitCast(flags));
     return switch (errno(rc)) {
@@ -11444,7 +11444,7 @@ pub fn timerfd_create(clock_id: system.timerfd_clockid_t, flags: system.TFD) Tim
         else => |err| return unexpectedErrno(err),
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11463,7 +11463,7 @@ pub fn timerfd_create(clock_id: system.timerfd_clockid_t, flags: system.TFD) Tim
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn timerfd_settime(
     fd: i32,
     flags: system.TFD.TIMER,
@@ -11480,7 +11480,7 @@ pub fn timerfd_settime(
         else => |err| return unexpectedErrno(err),
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11501,7 +11501,7 @@ pub fn timerfd_settime(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn timerfd_gettime(fd: i32) TimerFdGetError!system.itimerspec {
     var curr_value: system.itimerspec = undefined;
     const rc = system.timerfd_gettime(fd, &curr_value);
@@ -11513,7 +11513,7 @@ pub fn timerfd_gettime(fd: i32) TimerFdGetError!system.itimerspec {
         else => |err| return unexpectedErrno(err),
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11531,7 +11531,7 @@ pub fn timerfd_gettime(fd: i32) TimerFdGetError!system.itimerspec {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn ptrace(request: u32, pid: pid_t, addr: usize, signal: usize) PtraceError!void {
     if (native_os == .windows or native_os == .wasi)
         @compileError("Unsupported OS");
@@ -11572,7 +11572,7 @@ pub fn ptrace(request: u32, pid: pid_t, addr: usize, signal: usize) PtraceError!
         },
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11593,7 +11593,7 @@ pub fn ptrace(request: u32, pid: pid_t, addr: usize, signal: usize) PtraceError!
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn name_to_handle_at(
     dirfd: fd_t,
     pathname: []const u8,
@@ -11604,7 +11604,7 @@ pub fn name_to_handle_at(
     const pathname_c = try toPosixPath(pathname);
     return name_to_handle_atZ(dirfd, &pathname_c, handle, mount_id, flags);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11626,7 +11626,7 @@ pub fn name_to_handle_at(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn name_to_handle_atZ(
     dirfd: fd_t,
     pathname_z: [*:0]const u8,
@@ -11645,7 +11645,7 @@ pub fn name_to_handle_atZ(
         else => |err| return unexpectedErrno(err),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11667,7 +11667,7 @@ pub fn name_to_handle_atZ(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn ioctl_SIOCGIFINDEX(fd: fd_t, ifr: *ifreq) IoCtl_SIOCGIFINDEX_Error!void {
     while (true) {
         switch (errno(system.ioctl(fd, SIOCGIFINDEX, @intFromPtr(ifr)))) {
@@ -11684,7 +11684,7 @@ pub fn ioctl_SIOCGIFINDEX(fd: fd_t, ifr: *ifreq) IoCtl_SIOCGIFINDEX_Error!void {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11706,7 +11706,7 @@ pub fn ioctl_SIOCGIFINDEX(fd: fd_t, ifr: *ifreq) IoCtl_SIOCGIFINDEX_Error!void {
 Call this when you made a syscall or something that sets errno
 and you get an unexpected error.
 
-\`\`\`zig
+```zig
 pub fn unexpectedErrno(err: E) UnexpectedError {
     if (unexpected_error_tracing) {
         std.debug.print("unexpected errno: {d}\n", .{@intFromEnum(err)});
@@ -11714,7 +11714,7 @@ pub fn unexpectedErrno(err: E) UnexpectedError {
     }
     return error.Unexpected;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11734,7 +11734,7 @@ pub fn unexpectedErrno(err: E) UnexpectedError {
 
 Used to convert a slice to a null terminated slice on the stack.
 
-\`\`\`zig
+```zig
 pub fn toPosixPath(file_path: []const u8) error{NameTooLong}![PATH_MAX - 1:0]u8 {
     if (std.debug.runtime_safety) assert(mem.indexOfScalar(u8, file_path, 0) == null);
     var path_with_null: [PATH_MAX - 1:0]u8 = undefined;
@@ -11744,7 +11744,7 @@ pub fn toPosixPath(file_path: []const u8) error{NameTooLong}![PATH_MAX - 1:0]u8 
     path_with_null[file_path.len] = 0;
     return path_with_null;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -11768,7 +11768,7 @@ pub fn toPosixPath(file_path: []const u8) error{NameTooLong}![PATH_MAX - 1:0]u8 
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const FChmodError = error{
     AccessDenied,
     PermissionDenied,
@@ -11778,7 +11778,7 @@ pub const FChmodError = error{
     SystemResources,
     ReadOnlyFileSystem,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -11799,7 +11799,7 @@ pub const FChmodError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const FChmodAtError = FChmodError || error{
     /// A component of `path` exceeded `NAME_MAX`, or the entire path exceeded
     /// `PATH_MAX`.
@@ -11817,7 +11817,7 @@ pub const FChmodAtError = FChmodError || error{
     /// The procfs fallback was used but the system exceeded it open file limit.
     SystemFdQuotaExceeded,
 }
-\`\`\`
+```
 
 **Errors:**
 
@@ -11835,7 +11835,7 @@ pub const FChmodAtError = FChmodError || error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const FChownError = error{
     AccessDenied,
     PermissionDenied,
@@ -11845,7 +11845,7 @@ pub const FChownError = error{
     SystemResources,
     ReadOnlyFileSystem,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -11866,11 +11866,11 @@ pub const FChownError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const RebootError = error{
     PermissionDenied,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -11885,9 +11885,9 @@ pub const RebootError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const KillError = error{ ProcessNotFound, PermissionDenied } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -11903,7 +11903,7 @@ pub const KillError = error{ ProcessNotFound, PermissionDenied } || UnexpectedEr
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const ReadError = error{
     InputOutput,
     SystemResources,
@@ -11934,7 +11934,7 @@ pub const ReadError = error{
     /// Unable to read file due to lock.
     LockViolation,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -11962,9 +11962,9 @@ pub const ReadError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const PReadError = ReadError || error{Unseekable}
-\`\`\`
+```
 
 **Errors:**
 
@@ -11979,7 +11979,7 @@ pub const PReadError = ReadError || error{Unseekable}
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const TruncateError = error{
     FileTooBig,
     InputOutput,
@@ -11988,7 +11988,7 @@ pub const TruncateError = error{
     PermissionDenied,
     NonResizable,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -12008,7 +12008,7 @@ pub const TruncateError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const WriteError = error{
     DiskQuota,
     FileTooBig,
@@ -12047,7 +12047,7 @@ pub const WriteError = error{
     /// to be sent made this impossible. The message is not transmitted.
     MessageTooBig,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -12079,9 +12079,9 @@ pub const WriteError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const PWriteError = WriteError || error{Unseekable}
-\`\`\`
+```
 
 **Errors:**
 
@@ -12096,7 +12096,7 @@ pub const PWriteError = WriteError || error{Unseekable}
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const OpenError = error{
     /// In WASI, this error may occur when the file descriptor does
     /// not hold the required rights to open a new resource relative to it.
@@ -12172,7 +12172,7 @@ pub const OpenError = error{
 
     WouldBlock,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -12209,7 +12209,7 @@ pub const OpenError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const ExecveError = error{
     SystemResources,
     AccessDenied,
@@ -12224,7 +12224,7 @@ pub const ExecveError = error{
     SystemFdQuotaExceeded,
     NameTooLong,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -12250,12 +12250,12 @@ pub const ExecveError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const GetCwdError = error{
     NameTooLong,
     CurrentWorkingDirectoryUnlinked,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -12271,7 +12271,7 @@ pub const GetCwdError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const SymLinkError = error{
     /// In WASI, this error may occur when the file descriptor does
     /// not hold the required rights to create a new symbolic link relative to it.
@@ -12297,7 +12297,7 @@ pub const SymLinkError = error{
 
     BadPathName,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -12326,7 +12326,7 @@ pub const SymLinkError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const LinkError = UnexpectedError || error{
     AccessDenied,
     PermissionDenied,
@@ -12345,7 +12345,7 @@ pub const LinkError = UnexpectedError || error{
     /// WASI-only; file paths must be valid UTF-8.
     InvalidUtf8,
 }
-\`\`\`
+```
 
 **Errors:**
 
@@ -12373,9 +12373,9 @@ pub const LinkError = UnexpectedError || error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const LinkatError = LinkError || error{NotDir}
-\`\`\`
+```
 
 **Errors:**
 
@@ -12390,7 +12390,7 @@ pub const LinkatError = LinkError || error{NotDir}
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const UnlinkError = error{
     FileNotFound,
 
@@ -12421,7 +12421,7 @@ pub const UnlinkError = error{
     /// On Windows, `\\server` or `\\server\share` was not found.
     NetworkNotFound,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -12450,12 +12450,12 @@ pub const UnlinkError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const UnlinkatError = UnlinkError || error{
     /// When passing `AT.REMOVEDIR`, this error occurs when the named directory is not empty.
     DirNotEmpty,
 }
-\`\`\`
+```
 
 **Errors:**
 
@@ -12470,7 +12470,7 @@ pub const UnlinkatError = UnlinkError || error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const RenameError = error{
     /// In WASI, this error may occur when the file descriptor does
     /// not hold the required rights to rename a resource by path relative to it.
@@ -12510,7 +12510,7 @@ pub const RenameError = error{
     /// in addition to possibly failing with this error code.
     AntivirusInterference,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -12547,7 +12547,7 @@ pub const RenameError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const MakeDirError = error{
     /// In WASI, this error may occur when the file descriptor does
     /// not hold the required rights to create a new directory relative to it.
@@ -12573,7 +12573,7 @@ pub const MakeDirError = error{
     /// On Windows, `\\server` or `\\server\share` was not found.
     NetworkNotFound,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -12604,7 +12604,7 @@ pub const MakeDirError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const DeleteDirError = error{
     AccessDenied,
     PermissionDenied,
@@ -12625,7 +12625,7 @@ pub const DeleteDirError = error{
     /// On Windows, `\\server` or `\\server\share` was not found.
     NetworkNotFound,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -12653,7 +12653,7 @@ pub const DeleteDirError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const ChangeCurDirError = error{
     AccessDenied,
     FileSystem,
@@ -12669,7 +12669,7 @@ pub const ChangeCurDirError = error{
     /// https://simonsapin.github.io/wtf-8/
     InvalidWtf8,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -12693,13 +12693,13 @@ pub const ChangeCurDirError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const FchdirError = error{
     AccessDenied,
     NotDir,
     FileSystem,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -12716,7 +12716,7 @@ pub const FchdirError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const ReadLinkError = error{
     /// In WASI, this error may occur when the file descriptor does
     /// not hold the required rights to read value of a symbolic link relative to it.
@@ -12741,7 +12741,7 @@ pub const ReadLinkError = error{
     /// On Windows, `\\server` or `\\server\share` was not found.
     NetworkNotFound,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -12769,12 +12769,12 @@ pub const ReadLinkError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const SetEidError = error{
     InvalidUserId,
     PermissionDenied,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -12790,9 +12790,9 @@ pub const SetEidError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const SetIdError = error{ResourceLimitReached} || SetEidError
-\`\`\`
+```
 
 **Errors:**
 
@@ -12807,14 +12807,14 @@ pub const SetIdError = error{ResourceLimitReached} || SetEidError
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const SetPgidError = error{
     ProcessAlreadyExec,
     InvalidProcessGroupId,
     PermissionDenied,
     ProcessNotFound,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -12832,7 +12832,7 @@ pub const SetPgidError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const SocketError = error{
     /// Permission to create a socket of the specified type and/or
     /// pro‐tocol is denied.
@@ -12860,7 +12860,7 @@ pub const SocketError = error{
     /// The socket type is not supported by the protocol.
     SocketTypeNotSupported,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -12882,7 +12882,7 @@ pub const SocketError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const ShutdownError = error{
     ConnectionAborted,
 
@@ -12897,7 +12897,7 @@ pub const ShutdownError = error{
     SocketNotConnected,
     SystemResources,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -12917,7 +12917,7 @@ pub const ShutdownError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const BindError = error{
     /// The address is protected, and the user is not the superuser.
     /// For UNIX domain sockets: Search permission is denied on  a  component
@@ -12962,7 +12962,7 @@ pub const BindError = error{
 
     AlreadyBound,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -12989,7 +12989,7 @@ pub const BindError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const ListenError = error{
     /// Another socket is already listening on the same port.
     /// For Internet domain sockets, the  socket referred to by sockfd had not previously
@@ -13017,7 +13017,7 @@ pub const ListenError = error{
     /// Socket has not been bound yet
     SocketNotBound,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13038,7 +13038,7 @@ pub const ListenError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const AcceptError = error{
     ConnectionAborted,
 
@@ -13077,7 +13077,7 @@ pub const AcceptError = error{
     /// The referenced socket is not a type that supports connection-oriented service.
     OperationNotSupported,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13103,7 +13103,7 @@ pub const AcceptError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const EpollCreateError = error{
     /// The  per-user   limit   on   the   number   of   epoll   instances   imposed   by
     /// /proc/sys/fs/epoll/max_user_instances  was encountered.  See epoll(7) for further
@@ -13117,7 +13117,7 @@ pub const EpollCreateError = error{
     /// There was insufficient memory to create the kernel object.
     SystemResources,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13134,7 +13134,7 @@ pub const EpollCreateError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const EpollCtlError = error{
     /// op was EPOLL_CTL_ADD, and the supplied file descriptor fd is  already  registered
     /// with this epoll instance.
@@ -13160,7 +13160,7 @@ pub const EpollCtlError = error{
     /// for example, a regular file or a directory.
     FileDescriptorIncompatibleWithEpoll,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13180,13 +13180,13 @@ pub const EpollCtlError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const EventFdError = error{
     SystemResources,
     ProcessFdQuotaExceeded,
     SystemFdQuotaExceeded,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13203,7 +13203,7 @@ pub const EventFdError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const GetSockNameError = error{
     /// Insufficient resources were available in the system to perform the operation.
     SystemResources,
@@ -13216,7 +13216,7 @@ pub const GetSockNameError = error{
 
     FileDescriptorNotASocket,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13234,7 +13234,7 @@ pub const GetSockNameError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const ConnectError = error{
     /// For UNIX domain sockets, which are identified by pathname: Write permission is denied on  the  socket
     /// file,  or  search  permission  is  denied  for  one of the directories in the path prefix.
@@ -13284,7 +13284,7 @@ pub const ConnectError = error{
     /// Socket is non-blocking and already has a pending connection in progress.
     ConnectionPending,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13311,7 +13311,7 @@ pub const ConnectError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const GetSockOptError = error{
     /// The calling process does not have the appropriate privileges.
     AccessDenied,
@@ -13322,7 +13322,7 @@ pub const GetSockOptError = error{
     /// Insufficient resources are available in the system to complete the call.
     SystemResources,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13339,7 +13339,7 @@ pub const GetSockOptError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const FStatError = error{
     SystemResources,
 
@@ -13348,7 +13348,7 @@ pub const FStatError = error{
     AccessDenied,
     PermissionDenied,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13365,7 +13365,7 @@ pub const FStatError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const FStatAtError = FStatError || error{
     NameTooLong,
     FileNotFound,
@@ -13373,7 +13373,7 @@ pub const FStatAtError = FStatError || error{
     /// WASI-only; file paths must be valid UTF-8.
     InvalidUtf8,
 }
-\`\`\`
+```
 
 **Errors:**
 
@@ -13391,7 +13391,7 @@ pub const FStatAtError = FStatError || error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const KQueueError = error{
     /// The per-process limit on the number of open file descriptors has been reached.
     ProcessFdQuotaExceeded,
@@ -13399,7 +13399,7 @@ pub const KQueueError = error{
     /// The system-wide limit on the total number of open files has been reached.
     SystemFdQuotaExceeded,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13415,7 +13415,7 @@ pub const KQueueError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const KEventError = error{
     /// The process does not have permission to register a filter.
     AccessDenied,
@@ -13433,7 +13433,7 @@ pub const KEventError = error{
     /// TODO remove this possibility
     Overflow,
 }
-\`\`\`
+```
 
 **Errors:**
 
@@ -13452,13 +13452,13 @@ pub const KEventError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const INotifyInitError = error{
     ProcessFdQuotaExceeded,
     SystemFdQuotaExceeded,
     SystemResources,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13475,7 +13475,7 @@ pub const INotifyInitError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const INotifyAddWatchError = error{
     AccessDenied,
     NameTooLong,
@@ -13485,7 +13485,7 @@ pub const INotifyAddWatchError = error{
     NotDir,
     WatchAlreadyExists,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13506,7 +13506,7 @@ pub const INotifyAddWatchError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const FanotifyInitError = error{
     ProcessFdQuotaExceeded,
     SystemFdQuotaExceeded,
@@ -13516,7 +13516,7 @@ pub const FanotifyInitError = error{
     /// older version.
     UnsupportedFlags,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13535,7 +13535,7 @@ pub const FanotifyInitError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const FanotifyMarkError = error{
     MarkAlreadyExists,
     IsDir,
@@ -13549,7 +13549,7 @@ pub const FanotifyMarkError = error{
     NotSameFileSystem,
     NameTooLong,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13574,7 +13574,7 @@ pub const FanotifyMarkError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const MProtectError = error{
     /// The memory cannot be given the specified access.  This can happen, for example, if you
     /// mmap(2)  a  file  to  which  you have read-only access, then ask mprotect() to mark it
@@ -13588,7 +13588,7 @@ pub const MProtectError = error{
     /// pings: two read/write mappings at each end and a read-only mapping in the middle.)
     OutOfMemory,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13604,9 +13604,9 @@ pub const MProtectError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const ForkError = error{SystemResources} || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13621,7 +13621,7 @@ pub const ForkError = error{SystemResources} || UnexpectedError
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const MMapError = error{
     /// The underlying filesystem of the specified file does not support memory mapping.
     MemoryMappingNotSupported,
@@ -13643,7 +13643,7 @@ pub const MMapError = error{
     /// Using FIXED_NOREPLACE flag and the process has already mapped memory at the given address
     MappingAlreadyExists,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13665,7 +13665,7 @@ pub const MMapError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const MRemapError = error{
     LockedMemoryLimitExceeded,
     /// Either a bug in the calling code, or the operating system abused the
@@ -13673,7 +13673,7 @@ pub const MRemapError = error{
     InvalidSyscallParameters,
     OutOfMemory,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13690,12 +13690,12 @@ pub const MRemapError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const MSyncError = error{
     UnmappedMemory,
     PermissionDenied,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13711,7 +13711,7 @@ pub const MSyncError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const AccessError = error{
     AccessDenied,
     PermissionDenied,
@@ -13729,7 +13729,7 @@ pub const AccessError = error{
     /// https://simonsapin.github.io/wtf-8/
     InvalidWtf8,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13755,12 +13755,12 @@ pub const AccessError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const PipeError = error{
     SystemFdQuotaExceeded,
     ProcessFdQuotaExceeded,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13776,14 +13776,14 @@ pub const PipeError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const SysCtlError = error{
     PermissionDenied,
     SystemResources,
     NameTooLong,
     UnknownName,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13801,7 +13801,7 @@ pub const SysCtlError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const SeekError = error{
     Unseekable,
 
@@ -13809,7 +13809,7 @@ pub const SeekError = error{
     /// not hold the required rights to seek on it.
     AccessDenied,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13825,7 +13825,7 @@ pub const SeekError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const FcntlError = error{
     PermissionDenied,
     FileBusy,
@@ -13834,7 +13834,7 @@ pub const FcntlError = error{
     DeadLock,
     LockedRegionLimitExceeded,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13854,7 +13854,7 @@ pub const FcntlError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const FlockError = error{
     WouldBlock,
 
@@ -13864,7 +13864,7 @@ pub const FlockError = error{
     /// The underlying filesystem does not support file locks
     FileLocksNotSupported,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13881,7 +13881,7 @@ pub const FlockError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const RealPathError = error{
     FileNotFound,
     AccessDenied,
@@ -13926,7 +13926,7 @@ pub const RealPathError = error{
     /// system drivers might not be loaded, or the volume may be corrupt.
     UnrecognizedVolume,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13966,9 +13966,9 @@ pub const RealPathError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const ClockGetTimeError = error{UnsupportedClock} || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -13983,9 +13983,9 @@ pub const ClockGetTimeError = error{UnsupportedClock} || UnexpectedError
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const SchedGetAffinityError = error{PermissionDenied} || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -14000,7 +14000,7 @@ pub const SchedGetAffinityError = error{PermissionDenied} || UnexpectedError
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const SigaltstackError = error{
     /// The supplied stack size was less than MINSIGSTKSZ.
     SizeTooSmall,
@@ -14008,7 +14008,7 @@ pub const SigaltstackError = error{
     /// Attempted to change the signal stack while it was active.
     PermissionDenied,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -14024,7 +14024,7 @@ pub const SigaltstackError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const FutimensError = error{
     /// times is NULL, or both nsec values are UTIME_NOW, and either:
     /// *  the effective user ID of the caller does not match the  owner
@@ -14048,7 +14048,7 @@ pub const FutimensError = error{
 
     ReadOnlyFileSystem,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -14065,9 +14065,9 @@ pub const FutimensError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const GetHostNameError = error{PermissionDenied} || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -14082,7 +14082,7 @@ pub const GetHostNameError = error{PermissionDenied} || UnexpectedError
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const SendError = error{
     /// (For UNIX domain sockets, which are identified by pathname) Write permission is  denied
     /// on  the destination socket file, or search permission is denied for one of the
@@ -14132,7 +14132,7 @@ pub const SendError = error{
     /// The destination address is not listening.
     ConnectionRefused,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -14157,7 +14157,7 @@ pub const SendError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const SendMsgError = SendError || error{
     /// The passed address didn't have the correct address family in its sa_family field.
     AddressFamilyNotSupported,
@@ -14176,7 +14176,7 @@ pub const SendMsgError = SendError || error{
     SocketNotConnected,
     AddressNotAvailable,
 }
-\`\`\`
+```
 
 **Errors:**
 
@@ -14197,14 +14197,14 @@ pub const SendMsgError = SendError || error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const SendToError = SendMsgError || error{
     /// The destination address is not reachable by the bound address.
     UnreachableAddress,
     /// The destination address is not listening.
     ConnectionRefused,
 }
-\`\`\`
+```
 
 **Errors:**
 
@@ -14220,7 +14220,7 @@ pub const SendToError = SendMsgError || error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const CopyFileRangeError = error{
     FileTooBig,
     InputOutput,
@@ -14235,7 +14235,7 @@ pub const CopyFileRangeError = error{
     SwapFile,
     CorruptedData,
 } || PReadError || PWriteError || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -14259,7 +14259,7 @@ pub const CopyFileRangeError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const PollError = error{
     /// The network subsystem has failed.
     NetworkSubsystemFailed,
@@ -14267,7 +14267,7 @@ pub const PollError = error{
     /// The kernel had no space to allocate file descriptor tables.
     SystemResources,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -14283,7 +14283,7 @@ pub const PollError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const PPollError = error{
     /// The operation was interrupted by a delivery of a signal before it could complete.
     SignalInterrupt,
@@ -14291,7 +14291,7 @@ pub const PPollError = error{
     /// The kernel had no space to allocate file descriptor tables.
     SystemResources,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -14307,7 +14307,7 @@ pub const PPollError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const RecvFromError = error{
     /// The socket is marked nonblocking and the requested operation would block, and
     /// there is no global event loop configured.
@@ -14335,7 +14335,7 @@ pub const RecvFromError = error{
     /// The socket is not connected (connection-oriented sockets only).
     SocketNotConnected,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -14358,9 +14358,9 @@ pub const RecvFromError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const DnExpandError = error{InvalidDnsPacket}
-\`\`\`
+```
 
 **Errors:**
 
@@ -14375,7 +14375,7 @@ pub const DnExpandError = error{InvalidDnsPacket}
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const SetSockOptError = error{
     /// The socket is already connected, and a specified option cannot be set while the socket is connected.
     AlreadyConnected,
@@ -14398,7 +14398,7 @@ pub const SetSockOptError = error{
     SocketNotBound,
     NoDevice,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -14422,7 +14422,7 @@ pub const SetSockOptError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const MemFdCreateError = error{
     SystemFdQuotaExceeded,
     ProcessFdQuotaExceeded,
@@ -14431,7 +14431,7 @@ pub const MemFdCreateError = error{
     NameTooLong,
     SystemOutdated,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -14450,9 +14450,9 @@ pub const MemFdCreateError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const TIOCError = error{NotATerminal}
-\`\`\`
+```
 
 **Errors:**
 
@@ -14467,9 +14467,9 @@ pub const TIOCError = error{NotATerminal}
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const TermiosGetError = TIOCError || UnexpectedError
-\`\`\`
+```
 
 </details>
 
@@ -14480,9 +14480,9 @@ pub const TermiosGetError = TIOCError || UnexpectedError
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const TermiosSetError = TermiosGetError || error{ProcessOrphaned}
-\`\`\`
+```
 
 **Errors:**
 
@@ -14497,9 +14497,9 @@ pub const TermiosSetError = TermiosGetError || error{ProcessOrphaned}
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const TermioGetPgrpError = TIOCError || UnexpectedError
-\`\`\`
+```
 
 </details>
 
@@ -14510,9 +14510,9 @@ pub const TermioGetPgrpError = TIOCError || UnexpectedError
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const TermioSetPgrpError = TermioGetPgrpError || error{NotAPgrpMember}
-\`\`\`
+```
 
 **Errors:**
 
@@ -14527,12 +14527,12 @@ pub const TermioSetPgrpError = TermioGetPgrpError || error{NotAPgrpMember}
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const SetSidError = error{
     /// The calling process is already a process group leader, or the process group ID of a process other than the calling process matches the process ID of the calling process.
     PermissionDenied,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -14547,14 +14547,14 @@ pub const SetSidError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const SyncError = error{
     InputOutput,
     NoSpaceLeft,
     DiskQuota,
     AccessDenied,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -14572,7 +14572,7 @@ pub const SyncError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const PrctlError = error{
     /// Can only occur with PR_SET_SECCOMP/SECCOMP_MODE_FILTER or
     /// PR_SET_MM/PR_SET_MM_EXE_FILE
@@ -14587,7 +14587,7 @@ pub const PrctlError = error{
     OperationNotSupported,
     PermissionDenied,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -14607,9 +14607,9 @@ pub const PrctlError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const SetrlimitError = error{ PermissionDenied, LimitTooBig } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -14625,7 +14625,7 @@ pub const SetrlimitError = error{ PermissionDenied, LimitTooBig } || UnexpectedE
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const MincoreError = error{
     /// A kernel resource was temporarily unavailable.
     SystemResources,
@@ -14641,7 +14641,7 @@ pub const MincoreError = error{
     /// of this UNIX-like kernel.
     MincoreUnavailable,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -14660,7 +14660,7 @@ pub const MincoreError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const MadviseError = error{
     /// advice is MADV.REMOVE, but the specified address range is not a shared writable mapping.
     AccessDenied,
@@ -14692,7 +14692,7 @@ pub const MadviseError = error{
     /// The operating system returned an undocumented error code.
     Unexpected,
 }
-\`\`\`
+```
 
 **Errors:**
 
@@ -14714,7 +14714,7 @@ pub const MadviseError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const PerfEventOpenError = error{
     /// Returned if the perf_event_attr size value is too small (smaller
     /// than PERF_ATTR_SIZE_VER0), too big (larger than the page  size),
@@ -14768,7 +14768,7 @@ pub const PerfEventOpenError = error{
     /// Returned if attempting to attach to a process that does not  exist.
     ProcessNotFound,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -14792,7 +14792,7 @@ pub const PerfEventOpenError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const TimerFdCreateError = error{
     PermissionDenied,
     ProcessFdQuotaExceeded,
@@ -14800,7 +14800,7 @@ pub const TimerFdCreateError = error{
     NoDevice,
     SystemResources,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -14819,9 +14819,9 @@ pub const TimerFdCreateError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const TimerFdGetError = error{InvalidHandle} || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -14836,9 +14836,9 @@ pub const TimerFdGetError = error{InvalidHandle} || UnexpectedError
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const TimerFdSetError = TimerFdGetError || error{Canceled}
-\`\`\`
+```
 
 **Errors:**
 
@@ -14853,14 +14853,14 @@ pub const TimerFdSetError = TimerFdGetError || error{Canceled}
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const PtraceError = error{
     DeviceBusy,
     InputOutput,
     ProcessNotFound,
     PermissionDenied,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -14878,7 +14878,7 @@ pub const PtraceError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const NameToFileHandleAtError = error{
     FileNotFound,
     NotDir,
@@ -14886,7 +14886,7 @@ pub const NameToFileHandleAtError = error{
     NameTooLong,
     Unexpected,
 }
-\`\`\`
+```
 
 **Errors:**
 
@@ -14905,12 +14905,12 @@ pub const NameToFileHandleAtError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const IoCtl_SIOCGIFINDEX_Error = error{
     FileSystem,
     InterfaceNotFound,
 } || UnexpectedError
-\`\`\`
+```
 
 **Errors:**
 
@@ -14926,7 +14926,7 @@ pub const IoCtl_SIOCGIFINDEX_Error = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const UnexpectedError = error{
     /// The Operating System returned an undocumented error code.
     ///
@@ -14938,7 +14938,7 @@ pub const UnexpectedError = error{
     /// the respective function.
     Unexpected,
 }
-\`\`\`
+```
 
 **Errors:**
 
@@ -14947,3 +14947,4 @@ pub const UnexpectedError = error{
 </details>
 
 ---
+

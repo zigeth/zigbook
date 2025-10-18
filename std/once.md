@@ -28,11 +28,11 @@
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn once(comptime f: fn () void) Once(f) {
     return Once(f){};
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -53,7 +53,7 @@ pub fn once(comptime f: fn () void) Once(f) {
 An object that executes the function `f` just once.
 It is undefined behavior if `f` re-enters the same Once instance.
 
-\`\`\`zig
+```zig
 pub fn Once(comptime f: fn () void) type {
     return struct {
         done: bool = false,
@@ -84,7 +84,7 @@ pub fn Once(comptime f: fn () void) type {
         }
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -96,3 +96,4 @@ pub fn Once(comptime f: fn () void) type {
 </details>
 
 ---
+

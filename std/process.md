@@ -85,7 +85,7 @@
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const EnvMap = struct {
     hash_map: HashMap,
 
@@ -237,7 +237,7 @@ pub const EnvMap = struct {
         return self.hash_map.allocator.dupe(u8, value);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -254,7 +254,7 @@ pub const EnvMap = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ArgIteratorPosix = struct {
     index: usize,
     count: usize,
@@ -283,7 +283,7 @@ pub const ArgIteratorPosix = struct {
         return true;
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -301,7 +301,7 @@ pub const ArgIteratorPosix = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ArgIteratorWasi = struct {
     allocator: Allocator,
     index: usize,
@@ -377,7 +377,7 @@ pub const ArgIteratorWasi = struct {
         self.allocator.free(self.args);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -414,7 +414,7 @@ David Deley explains some additional undocumented quirks in great detail:
 
 - https://daviddeley.com/autohotkey/parameters/parameters.htm#WINCRULES
 
-\`\`\`zig
+```zig
 pub const ArgIteratorWindows = struct {
     allocator: Allocator,
     /// Encoded as WTF-16 LE.
@@ -667,7 +667,7 @@ pub const ArgIteratorWindows = struct {
         self.allocator.free(self.buffer);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -691,12 +691,12 @@ pub const ArgIteratorWindows = struct {
 
 Optional parameters for `ArgIteratorGeneral`
 
-\`\`\`zig
+```zig
 pub const ArgIteratorGeneralOptions = struct {
     comments: bool = false,
     single_quotes: bool = false,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -716,7 +716,7 @@ pub const ArgIteratorGeneralOptions = struct {
 
 Cross-platform command line argument iterator.
 
-\`\`\`zig
+```zig
 pub const ArgIterator = struct {
     const InnerType = switch (native_os) {
         .windows => ArgIteratorWindows,
@@ -782,7 +782,7 @@ pub const ArgIterator = struct {
         }
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -799,12 +799,12 @@ pub const ArgIterator = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const UserInfo = struct {
     uid: posix.uid_t,
     gid: posix.gid_t,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -822,14 +822,14 @@ pub const UserInfo = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const CreateEnvironOptions = struct {
     /// `null` means to leave the `ZIG_PROGRESS` environment variable unmodified.
     /// If non-null, negative means to remove the environment variable, and >= 0
     /// means to provide it with the given integer.
     zig_progress_fd: ?i32 = null,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -848,9 +848,9 @@ pub const CreateEnvironOptions = struct {
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Child = @import("process/Child.zig")
-\`\`\`
+```
 
 > **Module:** `process/Child.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/process/Child.zig)
 
@@ -865,9 +865,9 @@ pub const Child = @import("process/Child.zig")
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const abort = posix.abort
-\`\`\`
+```
 
 </details>
 
@@ -878,9 +878,9 @@ pub const abort = posix.abort
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const exit = posix.exit
-\`\`\`
+```
 
 </details>
 
@@ -891,9 +891,9 @@ pub const exit = posix.exit
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const changeCurDir = posix.chdir
-\`\`\`
+```
 
 </details>
 
@@ -904,9 +904,9 @@ pub const changeCurDir = posix.chdir
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const changeCurDirZ = posix.chdirZ
-\`\`\`
+```
 
 </details>
 
@@ -917,9 +917,9 @@ pub const changeCurDirZ = posix.chdirZ
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const GetCwdError = posix.GetCwdError
-\`\`\`
+```
 
 </details>
 
@@ -932,12 +932,12 @@ pub const GetCwdError = posix.GetCwdError
 
 Tells whether calling the `execv` or `execve` functions will be a compile error.
 
-\`\`\`zig
+```zig
 pub const can_execv = switch (native_os) {
     .windows, .haiku, .wasi => false,
     else => true,
 }
-\`\`\`
+```
 
 </details>
 
@@ -950,12 +950,12 @@ pub const can_execv = switch (native_os) {
 
 Tells whether spawning child processes is supported (e.g. via Child)
 
-\`\`\`zig
+```zig
 pub const can_spawn = switch (native_os) {
     .wasi, .watchos, .tvos, .visionos => false,
     else => true,
 }
-\`\`\`
+```
 
 </details>
 
@@ -972,11 +972,11 @@ The result is a slice of `out_buffer`, from index `0`.
 On Windows, the result is encoded as [WTF-8](https://simonsapin.github.io/wtf-8/).
 On other platforms, the result is an opaque sequence of bytes with no particular encoding.
 
-\`\`\`zig
+```zig
 pub fn getCwd(out_buffer: []u8) ![]u8 {
     return posix.getcwd(out_buffer);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -998,7 +998,7 @@ Caller must free the returned memory.
 On Windows, the result is encoded as [WTF-8](https://simonsapin.github.io/wtf-8/).
 On other platforms, the result is an opaque sequence of bytes with no particular encoding.
 
-\`\`\`zig
+```zig
 pub fn getCwdAlloc(allocator: Allocator) ![]u8 {
     // The use of max_path_bytes here is just a heuristic: most paths will fit
     // in stack_buf, avoiding an extra allocation in the common case.
@@ -1023,7 +1023,7 @@ pub fn getCwdAlloc(allocator: Allocator) ![]u8 {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1046,7 +1046,7 @@ Any modifications to the resulting EnvMap will not be reflected in the environme
 likewise, any future modifications to the environment will not be reflected in the EnvMap.
 Caller owns resulting `EnvMap` and should call its `deinit` fn when done.
 
-\`\`\`zig
+```zig
 pub fn getEnvMap(allocator: Allocator) GetEnvMapError!EnvMap {
     var result = EnvMap.init(allocator);
     errdefer result.deinit();
@@ -1142,7 +1142,7 @@ pub fn getEnvMap(allocator: Allocator) GetEnvMapError!EnvMap {
         return result;
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1166,7 +1166,7 @@ then `error.InvalidWtf8` is returned.
 On Windows, the value is encoded as [WTF-8](https://simonsapin.github.io/wtf-8/).
 On other platforms, the value is an opaque sequence of bytes with no particular encoding.
 
-\`\`\`zig
+```zig
 pub fn getEnvVarOwned(allocator: Allocator, key: []const u8) GetEnvVarOwnedError![]u8 {
     if (native_os == .windows) {
         const result_w = blk: {
@@ -1189,7 +1189,7 @@ pub fn getEnvVarOwned(allocator: Allocator, key: []const u8) GetEnvVarOwnedError
         return allocator.dupe(u8, result);
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1210,7 +1210,7 @@ pub fn getEnvVarOwned(allocator: Allocator, key: []const u8) GetEnvVarOwnedError
 
 On Windows, `key` must be valid WTF-8.
 
-\`\`\`zig
+```zig
 pub fn hasEnvVarConstant(comptime key: []const u8) bool {
     if (native_os == .windows) {
         const key_w = comptime unicode.wtf8ToWtf16LeStringLiteral(key);
@@ -1221,7 +1221,7 @@ pub fn hasEnvVarConstant(comptime key: []const u8) bool {
         return posix.getenv(key) != null;
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1241,7 +1241,7 @@ pub fn hasEnvVarConstant(comptime key: []const u8) bool {
 
 On Windows, `key` must be valid WTF-8.
 
-\`\`\`zig
+```zig
 pub fn hasNonEmptyEnvVarConstant(comptime key: []const u8) bool {
     if (native_os == .windows) {
         const key_w = comptime unicode.wtf8ToWtf16LeStringLiteral(key);
@@ -1254,7 +1254,7 @@ pub fn hasNonEmptyEnvVarConstant(comptime key: []const u8) bool {
         return value.len != 0;
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1278,7 +1278,7 @@ Since the key is comptime-known, no allocation is needed.
 
 On Windows, `key` must be valid WTF-8.
 
-\`\`\`zig
+```zig
 pub fn parseEnvVarInt(comptime key: []const u8, comptime I: type, base: u8) ParseEnvVarIntError!I {
     if (native_os == .windows) {
         const key_w = comptime std.unicode.wtf8ToWtf16LeStringLiteral(key);
@@ -1291,7 +1291,7 @@ pub fn parseEnvVarInt(comptime key: []const u8, comptime I: type, base: u8) Pars
         return std.fmt.parseInt(I, text, base);
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1314,7 +1314,7 @@ pub fn parseEnvVarInt(comptime key: []const u8, comptime I: type, base: u8) Pars
 On Windows, if `key` is not valid [WTF-8](https://simonsapin.github.io/wtf-8/),
 then `error.InvalidWtf8` is returned.
 
-\`\`\`zig
+```zig
 pub fn hasEnvVar(allocator: Allocator, key: []const u8) HasEnvVarError!bool {
     if (native_os == .windows) {
         var stack_alloc = std.heap.stackFallback(256 * @sizeOf(u16), allocator);
@@ -1330,7 +1330,7 @@ pub fn hasEnvVar(allocator: Allocator, key: []const u8) HasEnvVarError!bool {
         return posix.getenv(key) != null;
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1352,7 +1352,7 @@ pub fn hasEnvVar(allocator: Allocator, key: []const u8) HasEnvVarError!bool {
 On Windows, if `key` is not valid [WTF-8](https://simonsapin.github.io/wtf-8/),
 then `error.InvalidWtf8` is returned.
 
-\`\`\`zig
+```zig
 pub fn hasNonEmptyEnvVar(allocator: Allocator, key: []const u8) HasEnvVarError!bool {
     if (native_os == .windows) {
         var stack_alloc = std.heap.stackFallback(256 * @sizeOf(u16), allocator);
@@ -1371,7 +1371,7 @@ pub fn hasNonEmptyEnvVar(allocator: Allocator, key: []const u8) HasEnvVarError!b
         return value.len != 0;
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1401,7 +1401,7 @@ See also:
 * `hasEnvVarConstant`
 * `hasEnvVar`
 
-\`\`\`zig
+```zig
 pub fn getenvW(key: [*:0]const u16) ?[:0]const u16 {
     if (native_os != .windows) {
         @compileError("Windows-only");
@@ -1437,7 +1437,7 @@ pub fn getenvW(key: [*:0]const u16) ?[:0]const u16 {
     }
     return null;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1457,7 +1457,7 @@ pub fn getenvW(key: [*:0]const u16) ?[:0]const u16 {
 
 A general Iterator to parse a string into a set of arguments
 
-\`\`\`zig
+```zig
 pub fn ArgIteratorGeneral(comptime options: ArgIteratorGeneralOptions) type {
     return struct {
         allocator: Allocator,
@@ -1654,7 +1654,7 @@ pub fn ArgIteratorGeneral(comptime options: ArgIteratorGeneralOptions) type {
         }
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1679,11 +1679,11 @@ pub fn ArgIteratorGeneral(comptime options: ArgIteratorGeneralOptions) type {
 Holds the command-line arguments, with the program name as the first entry.
 Use argsWithAllocator() for cross-platform code.
 
-\`\`\`zig
+```zig
 pub fn args() ArgIterator {
     return ArgIterator.init();
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1702,11 +1702,11 @@ pub fn args() ArgIterator {
 
 You must deinitialize iterator's internal buffers by calling `deinit` when done.
 
-\`\`\`zig
+```zig
 pub fn argsWithAllocator(allocator: Allocator) ArgIterator.InitError!ArgIterator {
     return ArgIterator.initWithAllocator(allocator);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1728,7 +1728,7 @@ Caller must call argsFree on result.
 On Windows, the result is encoded as [WTF-8](https://simonsapin.github.io/wtf-8/).
 On other platforms, the result is an opaque sequence of bytes with no particular encoding.
 
-\`\`\`zig
+```zig
 pub fn argsAlloc(allocator: Allocator) ![][:0]u8 {
     // TODO refactor to only make 1 allocation.
     var it = try argsWithAllocator(allocator);
@@ -1765,7 +1765,7 @@ pub fn argsAlloc(allocator: Allocator) ![][:0]u8 {
 
     return result_slice_list;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1783,7 +1783,7 @@ pub fn argsAlloc(allocator: Allocator) ![][:0]u8 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn argsFree(allocator: Allocator, args_alloc: []const [:0]u8) void {
     var total_bytes: usize = 0;
     for (args_alloc) |arg| {
@@ -1793,7 +1793,7 @@ pub fn argsFree(allocator: Allocator, args_alloc: []const [:0]u8) void {
     const aligned_allocated_buf: []align(@alignOf([]u8)) const u8 = @alignCast(unaligned_allocated_buf);
     return allocator.free(aligned_allocated_buf);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1814,7 +1814,7 @@ pub fn argsFree(allocator: Allocator, args_alloc: []const [:0]u8) void {
 
 POSIX function which gets a uid from username.
 
-\`\`\`zig
+```zig
 pub fn getUserInfo(name: []const u8) !UserInfo {
     return switch (native_os) {
         .linux,
@@ -1834,7 +1834,7 @@ pub fn getUserInfo(name: []const u8) !UserInfo {
         else => @compileError("Unsupported OS"),
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1855,7 +1855,7 @@ pub fn getUserInfo(name: []const u8) !UserInfo {
 TODO this reads /etc/passwd. But sometimes the user/id mapping is in something else
 like NIS, AD, etc. See `man nss` or look at an strace for `id myuser`.
 
-\`\`\`zig
+```zig
 pub fn posixGetUserInfo(name: []const u8) !UserInfo {
     const file = try std.fs.openFileAbsolute("/etc/passwd", .{});
     defer file.close();
@@ -1957,7 +1957,7 @@ pub fn posixGetUserInfo(name: []const u8) !UserInfo {
         if (amt_read < buf.len) return error.UserNotFound;
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1975,7 +1975,7 @@ pub fn posixGetUserInfo(name: []const u8) !UserInfo {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn getBaseAddress() usize {
     switch (native_os) {
         .linux => {
@@ -1994,7 +1994,7 @@ pub fn getBaseAddress() usize {
         else => @compileError("Unsupported OS"),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2020,11 +2020,11 @@ This function also uses the PATH environment variable to get the full path to th
 Due to the heap-allocation, it is illegal to call this function in a fork() child.
 For that use case, use the `std.posix` functions directly.
 
-\`\`\`zig
+```zig
 pub fn execv(allocator: Allocator, argv: []const []const u8) ExecvError {
     return execve(allocator, argv, null);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2052,7 +2052,7 @@ This function also uses the PATH environment variable to get the full path to th
 Due to the heap-allocation, it is illegal to call this function in a fork() child.
 For that use case, use the `std.posix` functions directly.
 
-\`\`\`zig
+```zig
 pub fn execve(
     allocator: Allocator,
     argv: []const []const u8,
@@ -2085,7 +2085,7 @@ pub fn execve(
 
     return posix.execvpeZ_expandArg0(.no_expand, argv_buf.ptr[0].?, argv_buf.ptr, envp);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2110,7 +2110,7 @@ We return a u64 instead of usize due to PAE on ARM
 and Linux's /proc/meminfo reporting more memory when
 using QEMU user mode emulation.
 
-\`\`\`zig
+```zig
 pub fn totalSystemMemory() TotalSystemMemoryError!u64 {
     switch (native_os) {
         .linux => {
@@ -2163,7 +2163,7 @@ pub fn totalSystemMemory() TotalSystemMemoryError!u64 {
         else => return error.UnknownTotalSystemMemory,
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2186,7 +2186,7 @@ cleanup mechanisms are tested and so that external tools that
 check for resource leaks can be accurate. In release builds, this
 calls exit(0), and does not return.
 
-\`\`\`zig
+```zig
 pub fn cleanExit() void {
     if (builtin.mode == .Debug) {
         return;
@@ -2195,7 +2195,7 @@ pub fn cleanExit() void {
         exit(0);
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2217,7 +2217,7 @@ Raise the open file descriptor limit.
 On some systems, this raises the limit before seeing ProcessFdQuotaExceeded
 errors. On other systems, this does nothing.
 
-\`\`\`zig
+```zig
 pub fn raiseFileDescriptorLimit() void {
     const have_rlimit = posix.rlimit_resource != void;
     if (!have_rlimit) return;
@@ -2252,7 +2252,7 @@ pub fn raiseFileDescriptorLimit() void {
         if (min + 1 >= max) break;
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2272,7 +2272,7 @@ pub fn raiseFileDescriptorLimit() void {
 Creates a null-delimited environment variable block in the format
 expected by POSIX, from a hash map plus options.
 
-\`\`\`zig
+```zig
 pub fn createEnvironFromMap(
     arena: Allocator,
     map: *const EnvMap,
@@ -2332,7 +2332,7 @@ pub fn createEnvironFromMap(
     assert(i == envp_count);
     return envp_buf;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2355,7 +2355,7 @@ pub fn createEnvironFromMap(
 Creates a null-delimited environment variable block in the format
 expected by POSIX, from a hash map plus options.
 
-\`\`\`zig
+```zig
 pub fn createEnvironFromExisting(
     arena: Allocator,
     existing: [*:null]const ?[*:0]const u8,
@@ -2417,7 +2417,7 @@ pub fn createEnvironFromExisting(
     assert(i == envp_count);
     return envp_buf;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2437,11 +2437,11 @@ pub fn createEnvironFromExisting(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn createNullDelimitedEnvMap(arena: mem.Allocator, env_map: *const EnvMap) Allocator.Error![:null]?[*:0]u8 {
     return createEnvironFromMap(arena, env_map, .{});
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2462,7 +2462,7 @@ pub fn createNullDelimitedEnvMap(arena: mem.Allocator, env_map: *const EnvMap) A
 
 Caller must free result.
 
-\`\`\`zig
+```zig
 pub fn createWindowsEnvBlock(allocator: mem.Allocator, env_map: *const EnvMap) ![]u16 {
     // count bytes needed
     const max_chars_needed = x: {
@@ -2501,7 +2501,7 @@ pub fn createWindowsEnvBlock(allocator: mem.Allocator, env_map: *const EnvMap) !
     }
     return try allocator.realloc(result, i);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2522,12 +2522,12 @@ pub fn createWindowsEnvBlock(allocator: mem.Allocator, env_map: *const EnvMap) !
 
 Logs an error and then terminates the process with exit code 1.
 
-\`\`\`zig
+```zig
 pub fn fatal(comptime format: []const u8, format_arguments: anytype) noreturn {
     std.log.err(format, format_arguments);
     exit(1);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2548,9 +2548,9 @@ pub fn fatal(comptime format: []const u8, format_arguments: anytype) noreturn {
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const GetCwdAllocError = Allocator.Error || posix.GetCwdError
-\`\`\`
+```
 
 </details>
 
@@ -2561,14 +2561,14 @@ pub const GetCwdAllocError = Allocator.Error || posix.GetCwdError
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const GetEnvMapError = error{
     OutOfMemory,
     /// WASI-only. `environ_sizes_get` or `environ_get`
     /// failed for an unexpected reason.
     Unexpected,
 }
-\`\`\`
+```
 
 **Errors:**
 
@@ -2584,7 +2584,7 @@ pub const GetEnvMapError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const GetEnvVarOwnedError = error{
     OutOfMemory,
     EnvironmentVariableNotFound,
@@ -2593,7 +2593,7 @@ pub const GetEnvVarOwnedError = error{
     /// https://simonsapin.github.io/wtf-8/
     InvalidWtf8,
 }
-\`\`\`
+```
 
 **Errors:**
 
@@ -2610,9 +2610,9 @@ pub const GetEnvVarOwnedError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const ParseEnvVarIntError = std.fmt.ParseIntError || error{EnvironmentVariableNotFound}
-\`\`\`
+```
 
 **Errors:**
 
@@ -2627,7 +2627,7 @@ pub const ParseEnvVarIntError = std.fmt.ParseIntError || error{EnvironmentVariab
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const HasEnvVarError = error{
     OutOfMemory,
 
@@ -2635,7 +2635,7 @@ pub const HasEnvVarError = error{
     /// https://simonsapin.github.io/wtf-8/
     InvalidWtf8,
 }
-\`\`\`
+```
 
 **Errors:**
 
@@ -2651,9 +2651,9 @@ pub const HasEnvVarError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const ExecvError = std.posix.ExecveError || error{OutOfMemory}
-\`\`\`
+```
 
 **Errors:**
 
@@ -2668,11 +2668,11 @@ pub const ExecvError = std.posix.ExecveError || error{OutOfMemory}
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const TotalSystemMemoryError = error{
     UnknownTotalSystemMemory,
 }
-\`\`\`
+```
 
 **Errors:**
 
@@ -2681,3 +2681,4 @@ pub const TotalSystemMemoryError = error{
 </details>
 
 ---
+

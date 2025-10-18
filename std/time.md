@@ -69,7 +69,7 @@ It tries to sample the system's fastest and most precise timer available.
 It also tries to be monotonic, but this is not a guarantee due to OS/hardware bugs.
 If you need monotonic readings for elapsed time, consider `Timer` instead.
 
-\`\`\`zig
+```zig
 pub const Instant = struct {
     timestamp: if (is_posix) posix.timespec else u64,
 
@@ -169,7 +169,7 @@ pub const Instant = struct {
         }
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -197,7 +197,7 @@ Monotonicity is ensured by saturating on the most previous sample.
 This means that while timings reported are monotonic,
 they're not guaranteed to tick at a steady rate as this is up to the underlying system.
 
-\`\`\`zig
+```zig
 pub const Timer = struct {
     started: Instant,
     previous: Instant,
@@ -241,7 +241,7 @@ pub const Timer = struct {
         return self.previous;
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -261,9 +261,9 @@ pub const Timer = struct {
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const epoch = @import("time/epoch.zig")
-\`\`\`
+```
 
 > **Module:** `time/epoch.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/time/epoch.zig)
 
@@ -278,9 +278,9 @@ pub const epoch = @import("time/epoch.zig")
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ns_per_us = 1000
-\`\`\`
+```
 
 </details>
 
@@ -291,9 +291,9 @@ pub const ns_per_us = 1000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ns_per_ms = 1000 * ns_per_us
-\`\`\`
+```
 
 </details>
 
@@ -304,9 +304,9 @@ pub const ns_per_ms = 1000 * ns_per_us
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ns_per_s = 1000 * ns_per_ms
-\`\`\`
+```
 
 </details>
 
@@ -317,9 +317,9 @@ pub const ns_per_s = 1000 * ns_per_ms
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ns_per_min = 60 * ns_per_s
-\`\`\`
+```
 
 </details>
 
@@ -330,9 +330,9 @@ pub const ns_per_min = 60 * ns_per_s
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ns_per_hour = 60 * ns_per_min
-\`\`\`
+```
 
 </details>
 
@@ -343,9 +343,9 @@ pub const ns_per_hour = 60 * ns_per_min
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ns_per_day = 24 * ns_per_hour
-\`\`\`
+```
 
 </details>
 
@@ -356,9 +356,9 @@ pub const ns_per_day = 24 * ns_per_hour
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ns_per_week = 7 * ns_per_day
-\`\`\`
+```
 
 </details>
 
@@ -369,9 +369,9 @@ pub const ns_per_week = 7 * ns_per_day
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const us_per_ms = 1000
-\`\`\`
+```
 
 </details>
 
@@ -382,9 +382,9 @@ pub const us_per_ms = 1000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const us_per_s = 1000 * us_per_ms
-\`\`\`
+```
 
 </details>
 
@@ -395,9 +395,9 @@ pub const us_per_s = 1000 * us_per_ms
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const us_per_min = 60 * us_per_s
-\`\`\`
+```
 
 </details>
 
@@ -408,9 +408,9 @@ pub const us_per_min = 60 * us_per_s
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const us_per_hour = 60 * us_per_min
-\`\`\`
+```
 
 </details>
 
@@ -421,9 +421,9 @@ pub const us_per_hour = 60 * us_per_min
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const us_per_day = 24 * us_per_hour
-\`\`\`
+```
 
 </details>
 
@@ -434,9 +434,9 @@ pub const us_per_day = 24 * us_per_hour
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const us_per_week = 7 * us_per_day
-\`\`\`
+```
 
 </details>
 
@@ -447,9 +447,9 @@ pub const us_per_week = 7 * us_per_day
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ms_per_s = 1000
-\`\`\`
+```
 
 </details>
 
@@ -460,9 +460,9 @@ pub const ms_per_s = 1000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ms_per_min = 60 * ms_per_s
-\`\`\`
+```
 
 </details>
 
@@ -473,9 +473,9 @@ pub const ms_per_min = 60 * ms_per_s
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ms_per_hour = 60 * ms_per_min
-\`\`\`
+```
 
 </details>
 
@@ -486,9 +486,9 @@ pub const ms_per_hour = 60 * ms_per_min
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ms_per_day = 24 * ms_per_hour
-\`\`\`
+```
 
 </details>
 
@@ -499,9 +499,9 @@ pub const ms_per_day = 24 * ms_per_hour
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ms_per_week = 7 * ms_per_day
-\`\`\`
+```
 
 </details>
 
@@ -512,9 +512,9 @@ pub const ms_per_week = 7 * ms_per_day
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const s_per_min = 60
-\`\`\`
+```
 
 </details>
 
@@ -525,9 +525,9 @@ pub const s_per_min = 60
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const s_per_hour = s_per_min * 60
-\`\`\`
+```
 
 </details>
 
@@ -538,9 +538,9 @@ pub const s_per_hour = s_per_min * 60
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const s_per_day = s_per_hour * 24
-\`\`\`
+```
 
 </details>
 
@@ -551,9 +551,9 @@ pub const s_per_day = s_per_hour * 24
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const s_per_week = s_per_day * 7
-\`\`\`
+```
 
 </details>
 
@@ -572,11 +572,11 @@ The return value is signed because it is possible to have a date that is
 before the epoch.
 See `posix.clock_gettime` for a POSIX timestamp.
 
-\`\`\`zig
+```zig
 pub fn timestamp() i64 {
     return @divFloor(milliTimestamp(), ms_per_s);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -599,11 +599,11 @@ The return value is signed because it is possible to have a date that is
 before the epoch.
 See `posix.clock_gettime` for a POSIX timestamp.
 
-\`\`\`zig
+```zig
 pub fn milliTimestamp() i64 {
     return @as(i64, @intCast(@divFloor(nanoTimestamp(), ns_per_ms)));
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -626,11 +626,11 @@ The return value is signed because it is possible to have a date that is
 before the epoch.
 See `posix.clock_gettime` for a POSIX timestamp.
 
-\`\`\`zig
+```zig
 pub fn microTimestamp() i64 {
     return @as(i64, @intCast(@divFloor(nanoTimestamp(), ns_per_us)));
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -654,7 +654,7 @@ The return value is signed because it is possible to have a date that is
 before the epoch.
 See `posix.clock_gettime` for a POSIX timestamp.
 
-\`\`\`zig
+```zig
 pub fn nanoTimestamp() i128 {
     switch (builtin.os.tag) {
         .windows => {
@@ -681,7 +681,7 @@ pub fn nanoTimestamp() i128 {
         },
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -692,3 +692,4 @@ pub fn nanoTimestamp() i128 {
 </details>
 
 ---
+

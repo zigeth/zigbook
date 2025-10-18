@@ -62,7 +62,7 @@ This data structure has O(1) append and O(1) pop.
 It supports preallocated elements, making it especially well suited when the expected maximum
 size is small. `prealloc_item_count` must be 0, or a power of 2.
 
-\`\`\`zig
+```zig
 pub fn SegmentedList(comptime T: type, comptime prealloc_item_count: usize) type {
     return struct {
         const Self = @This();
@@ -395,7 +395,7 @@ pub fn SegmentedList(comptime T: type, comptime prealloc_item_count: usize) type
         }
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -408,3 +408,5 @@ pub fn SegmentedList(comptime T: type, comptime prealloc_item_count: usize) type
 </details>
 
 ---
+
+

@@ -75,7 +75,7 @@ Cross-platform networking abstractions.
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Address = extern union {
     any: posix.sockaddr,
     in: Ip4Address,
@@ -340,7 +340,7 @@ pub const Address = extern union {
         return s;
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -360,7 +360,7 @@ pub const Address = extern union {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Ip4Address = extern struct {
     sa: posix.sockaddr.in,
 
@@ -454,7 +454,7 @@ pub const Ip4Address = extern struct {
         return @sizeOf(posix.sockaddr.in);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -471,7 +471,7 @@ pub const Ip4Address = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Ip6Address = extern struct {
     sa: posix.sockaddr.in6,
 
@@ -832,7 +832,7 @@ pub const Ip6Address = extern struct {
         return @sizeOf(posix.sockaddr.in6);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -849,7 +849,7 @@ pub const Ip6Address = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const AddressList = struct {
     arena: std.heap.ArenaAllocator,
     addrs: []Address,
@@ -863,7 +863,7 @@ pub const AddressList = struct {
         // self is destroyed
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -882,7 +882,7 @@ pub const AddressList = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Stream = struct {
     /// Underlying platform-defined type which may or may not be
     /// interchangeable with a file system file descriptor.
@@ -1371,7 +1371,7 @@ pub const Stream = struct {
         }
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1388,7 +1388,7 @@ pub const Stream = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Server = struct {
     listen_address: Address,
     stream: Stream,
@@ -1417,7 +1417,7 @@ pub const Server = struct {
         };
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1437,13 +1437,13 @@ pub const Server = struct {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const has_unix_sockets = switch (native_os) {
     .windows => builtin.os.version_range.windows.isAtLeast(.win10_rs4) orelse false,
     .wasi => false,
     else => true,
 }
-\`\`\`
+```
 
 </details>
 
@@ -1456,7 +1456,7 @@ pub const has_unix_sockets = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn connectUnixSocket(path: []const u8) !Stream {
     const opt_non_block = 0;
     const sockfd = try posix.socket(
@@ -1471,7 +1471,7 @@ pub fn connectUnixSocket(path: []const u8) !Stream {
 
     return .{ .handle = sockfd };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1491,7 +1491,7 @@ pub fn connectUnixSocket(path: []const u8) !Stream {
 
 All memory allocated with `allocator` will be freed before this function returns.
 
-\`\`\`zig
+```zig
 pub fn tcpConnectToHost(allocator: Allocator, name: []const u8, port: u16) TcpConnectToHostError!Stream {
     const list = try getAddressList(allocator, name, port);
     defer list.deinit();
@@ -1508,7 +1508,7 @@ pub fn tcpConnectToHost(allocator: Allocator, name: []const u8, port: u16) TcpCo
     }
     return posix.ConnectError.ConnectionRefused;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1528,7 +1528,7 @@ pub fn tcpConnectToHost(allocator: Allocator, name: []const u8, port: u16) TcpCo
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn tcpConnectToAddress(address: Address) TcpConnectToAddressError!Stream {
     const nonblock = 0;
     const sock_flags = posix.SOCK.STREAM | nonblock |
@@ -1540,7 +1540,7 @@ pub fn tcpConnectToAddress(address: Address) TcpConnectToAddressError!Stream {
 
     return Stream{ .handle = sockfd };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1560,7 +1560,7 @@ pub fn tcpConnectToAddress(address: Address) TcpConnectToAddressError!Stream {
 
 Call `AddressList.deinit` on the result.
 
-\`\`\`zig
+```zig
 pub fn getAddressList(gpa: Allocator, name: []const u8, port: u16) GetAddressListError!*AddressList {
     const result = blk: {
         var arena = std.heap.ArenaAllocator.init(gpa);
@@ -1739,7 +1739,7 @@ pub fn getAddressList(gpa: Allocator, name: []const u8, port: u16) GetAddressLis
     }
     @compileError("std.net.getAddressList unimplemented for this OS");
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1759,7 +1759,7 @@ pub fn getAddressList(gpa: Allocator, name: []const u8, port: u16) GetAddressLis
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn isValidHostName(hostname: []const u8) bool {
     if (hostname.len >= 254) return false;
     if (!std.unicode.utf8ValidateSlice(hostname)) return false;
@@ -1771,7 +1771,7 @@ pub fn isValidHostName(hostname: []const u8) bool {
     }
     return true;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1791,14 +1791,14 @@ pub fn isValidHostName(hostname: []const u8) bool {
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const IPParseError = error{
     Overflow,
     InvalidEnd,
     InvalidCharacter,
     Incomplete,
 }
-\`\`\`
+```
 
 **Errors:**
 
@@ -1816,9 +1816,9 @@ pub const IPParseError = error{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const IPv4ParseError = IPParseError || error{NonCanonical}
-\`\`\`
+```
 
 **Errors:**
 
@@ -1833,9 +1833,9 @@ pub const IPv4ParseError = IPParseError || error{NonCanonical}
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const IPv6ParseError = IPParseError || error{InvalidIpv4Mapping}
-\`\`\`
+```
 
 **Errors:**
 
@@ -1850,9 +1850,9 @@ pub const IPv6ParseError = IPParseError || error{InvalidIpv4Mapping}
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const IPv6InterfaceError = posix.SocketError || posix.IoCtl_SIOCGIFINDEX_Error || error{NameTooLong}
-\`\`\`
+```
 
 **Errors:**
 
@@ -1867,9 +1867,9 @@ pub const IPv6InterfaceError = posix.SocketError || posix.IoCtl_SIOCGIFINDEX_Err
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const IPv6ResolveError = IPv6ParseError || IPv6InterfaceError
-\`\`\`
+```
 
 </details>
 
@@ -1880,9 +1880,9 @@ pub const IPv6ResolveError = IPv6ParseError || IPv6InterfaceError
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const TcpConnectToHostError = GetAddressListError || TcpConnectToAddressError
-\`\`\`
+```
 
 </details>
 
@@ -1893,10 +1893,12 @@ pub const TcpConnectToHostError = GetAddressListError || TcpConnectToAddressErro
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const TcpConnectToAddressError = posix.SocketError || posix.ConnectError
-\`\`\`
+```
 
 </details>
 
 ---
+
+

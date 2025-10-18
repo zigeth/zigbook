@@ -65,7 +65,7 @@ This module contains utilities and data structures for working with enums.
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn fromInt(comptime E: type, integer: anytype) ?E {
     const enum_info = @typeInfo(E).@"enum";
     if (!enum_info.is_exhaustive) {
@@ -84,7 +84,7 @@ pub fn fromInt(comptime E: type, integer: anytype) ?E {
     }
     return null;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -108,7 +108,7 @@ If the enum is extern and has multiple names for the same value, only
 the first name is used.  Each field is of type Data and has the provided
 default, which may be undefined.
 
-\`\`\`zig
+```zig
 pub fn EnumFieldStruct(comptime E: type, comptime Data: type, comptime field_default: ?Data) type {
     @setEvalBranchQuota(@typeInfo(E).@"enum".fields.len + eval_branch_quota_cushion);
     var struct_fields: [@typeInfo(E).@"enum".fields.len]std.builtin.Type.StructField = undefined;
@@ -128,7 +128,7 @@ pub fn EnumFieldStruct(comptime E: type, comptime Data: type, comptime field_def
         .is_tuple = false,
     } });
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -152,7 +152,7 @@ Looks up the supplied fields in the given enum type.
 Uses only the field names, field values are ignored.
 The result array is in the same order as the input.
 
-\`\`\`zig
+```zig
 pub inline fn valuesFromFields(comptime E: type, comptime fields: []const EnumField) []const E {
     comptime {
         var result: [fields.len]E = undefined;
@@ -163,7 +163,7 @@ pub inline fn valuesFromFields(comptime E: type, comptime fields: []const EnumFi
         return &final;
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -185,11 +185,11 @@ pub inline fn valuesFromFields(comptime E: type, comptime fields: []const EnumFi
 Returns the set of all named values in the given enum, in
 declaration order.
 
-\`\`\`zig
+```zig
 pub fn values(comptime E: type) []const E {
     return comptime valuesFromFields(E, @typeInfo(E).@"enum".fields);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -211,13 +211,13 @@ A safe alternative to @tagName() for non-exhaustive enums that doesn't
 panic when `e` has no tagged value.
 Returns the tag name for `e` or null if no tag exists.
 
-\`\`\`zig
+```zig
 pub fn tagName(comptime E: type, e: E) ?[:0]const u8 {
     return inline for (@typeInfo(E).@"enum".fields) |f| {
         if (@intFromEnum(e) == f.value) break f.name;
     } else null;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -246,7 +246,7 @@ the total number of items which have no matching enum key (holes in the enum
 numbering).  So for example, if an enum has values 1, 2, 5, and 6, max_unused_slots
 must be at least 3, to allow unused slots 0, 3, and 4.
 
-\`\`\`zig
+```zig
 pub fn directEnumArrayLen(comptime E: type, comptime max_unused_slots: comptime_int) comptime_int {
     var max_value: comptime_int = -1;
     const max_usize: comptime_int = ~@as(usize, 0);
@@ -272,7 +272,7 @@ pub fn directEnumArrayLen(comptime E: type, comptime max_unused_slots: comptime_
 
     return max_value + 1;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -304,7 +304,7 @@ The init_values parameter must be a struct with field names that match the enum 
 If the enum has multiple fields with the same value, the name of the first one must
 be used.
 
-\`\`\`zig
+```zig
 pub fn directEnumArray(
     comptime E: type,
     comptime Data: type,
@@ -313,7 +313,7 @@ pub fn directEnumArray(
 ) [directEnumArrayLen(E, max_unused_slots)]Data {
     return directEnumArrayDefault(E, Data, null, max_unused_slots, init_values);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -345,7 +345,7 @@ The init_values parameter must be a struct with field names that match the enum 
 If the enum has multiple fields with the same value, the name of the first one must
 be used.
 
-\`\`\`zig
+```zig
 pub fn directEnumArrayDefault(
     comptime E: type,
     comptime Data: type,
@@ -362,7 +362,7 @@ pub fn directEnumArrayDefault(
     }
     return result;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -390,7 +390,7 @@ pub fn directEnumArrayDefault(
 
 Deprecated: Use @field(E, @tagName(tag)) or @field(E, string)
 
-\`\`\`zig
+```zig
 pub fn nameCast(comptime E: type, comptime value: anytype) E {
     return comptime blk: {
         const V = @TypeOf(value);
@@ -409,7 +409,7 @@ pub fn nameCast(comptime E: type, comptime value: anytype) E {
         @compileError("Cannot cast from " ++ @typeName(@TypeOf(value)) ++ " to " ++ @typeName(E));
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -433,7 +433,7 @@ is exhaustive but not dense, a mapping will be constructed from enum values
 to dense indices.  This type does no dynamic allocation and
 can be copied by value.
 
-\`\`\`zig
+```zig
 pub fn EnumSet(comptime E: type) type {
     return struct {
         const Self = @This();
@@ -615,7 +615,7 @@ pub fn EnumSet(comptime E: type) type {
         };
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -638,7 +638,7 @@ If the enum is exhaustive but not dense, a mapping will be constructed from
 enum values to dense indices.  This type does no dynamic
 allocation and can be copied by value.
 
-\`\`\`zig
+```zig
 pub fn EnumMap(comptime E: type, comptime V: type) type {
     return struct {
         const Self = @This();
@@ -860,7 +860,7 @@ pub fn EnumMap(comptime E: type, comptime V: type) type {
         };
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -883,11 +883,11 @@ A multiset of enum elements up to a count of usize. Backed
 by an EnumArray. This type does no dynamic allocation and can
 be copied by value.
 
-\`\`\`zig
+```zig
 pub fn EnumMultiset(comptime E: type) type {
     return BoundedEnumMultiset(E, usize);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -909,7 +909,7 @@ A multiset of enum elements up to CountSize. Backed by an
 EnumArray. This type does no dynamic allocation and can be
 copied by value.
 
-\`\`\`zig
+```zig
 pub fn BoundedEnumMultiset(comptime E: type, comptime CountSize: type) type {
     return struct {
         const Self = @This();
@@ -1092,7 +1092,7 @@ pub fn BoundedEnumMultiset(comptime E: type, comptime CountSize: type) type {
         }
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1120,7 +1120,7 @@ If the enum is not dense, a mapping will be constructed from
 enum values to dense indices.  This type does no dynamic
 allocation and can be copied by value.
 
-\`\`\`zig
+```zig
 pub fn EnumArray(comptime E: type, comptime V: type) type {
     return struct {
         const Self = @This();
@@ -1219,7 +1219,7 @@ pub fn EnumArray(comptime E: type, comptime V: type) type {
         };
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1238,7 +1238,7 @@ pub fn EnumArray(comptime E: type, comptime V: type) type {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn EnumIndexer(comptime E: type) type {
     // n log n for `std.mem.sortUnstable` call below.
     const fields_len = @typeInfo(E).@"enum".fields.len;
@@ -1336,7 +1336,7 @@ pub fn EnumIndexer(comptime E: type) type {
         }
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1348,3 +1348,5 @@ pub fn EnumIndexer(comptime E: type) type {
 </details>
 
 ---
+
+

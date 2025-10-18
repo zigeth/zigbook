@@ -70,9 +70,9 @@ This page syncs automatically from `std/sort.md` in the repository. Edit the sou
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Mode = enum { stable, unstable }
-\`\`\`
+```
 
 **Fields:**
 
@@ -92,9 +92,9 @@ pub const Mode = enum { stable, unstable }
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const block = @import("sort/block.zig").block
-\`\`\`
+```
 
 </details>
 
@@ -105,9 +105,9 @@ pub const block = @import("sort/block.zig").block
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pdq = @import("sort/pdq.zig").pdq
-\`\`\`
+```
 
 </details>
 
@@ -118,9 +118,9 @@ pub const pdq = @import("sort/pdq.zig").pdq
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pdqContext = @import("sort/pdq.zig").pdqContext
-\`\`\`
+```
 
 </details>
 
@@ -137,7 +137,7 @@ Stable in-place sort. O(n) best case, O(pow(n, 2)) worst case.
 O(1) memory (no allocator required).
 Sorts in ascending order with respect to the given `lessThan` function.
 
-\`\`\`zig
+```zig
 pub fn insertion(
     comptime T: type,
     items: []T,
@@ -158,7 +158,7 @@ pub fn insertion(
     };
     insertionContext(0, items.len, Context{ .items = items, .sub_ctx = context });
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -185,7 +185,7 @@ O(1) memory (no allocator required).
 which each take 2 `usize` parameters indicating the index of an item.
 Sorts in ascending order with respect to `lessThan`.
 
-\`\`\`zig
+```zig
 pub fn insertionContext(a: usize, b: usize, context: anytype) void {
     assert(a <= b);
 
@@ -197,7 +197,7 @@ pub fn insertionContext(a: usize, b: usize, context: anytype) void {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -221,7 +221,7 @@ Unstable in-place sort. O(n*log(n)) best case, worst case and average case.
 O(1) memory (no allocator required).
 Sorts in ascending order with respect to the given `lessThan` function.
 
-\`\`\`zig
+```zig
 pub fn heap(
     comptime T: type,
     items: []T,
@@ -242,7 +242,7 @@ pub fn heap(
     };
     heapContext(0, items.len, Context{ .items = items, .sub_ctx = context });
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -269,7 +269,7 @@ O(1) memory (no allocator required).
 which each take 2 `usize` parameters indicating the index of an item.
 Sorts in ascending order with respect to `lessThan`.
 
-\`\`\`zig
+```zig
 pub fn heapContext(a: usize, b: usize, context: anytype) void {
     assert(a <= b);
     // build the heap in linear time.
@@ -287,7 +287,7 @@ pub fn heapContext(a: usize, b: usize, context: anytype) void {
         siftDown(a, a, i, context);
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -309,7 +309,7 @@ pub fn heapContext(a: usize, b: usize, context: anytype) void {
 
 Use to generate a comparator function for a given type. e.g. `sort(u8, slice, {}, asc(u8))`.
 
-\`\`\`zig
+```zig
 pub fn asc(comptime T: type) fn (void, T, T) bool {
     return struct {
         pub fn inner(_: void, a: T, b: T) bool {
@@ -317,7 +317,7 @@ pub fn asc(comptime T: type) fn (void, T, T) bool {
         }
     }.inner;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -337,7 +337,7 @@ pub fn asc(comptime T: type) fn (void, T, T) bool {
 
 Use to generate a comparator function for a given type. e.g. `sort(u8, slice, {}, desc(u8))`.
 
-\`\`\`zig
+```zig
 pub fn desc(comptime T: type) fn (void, T, T) bool {
     return struct {
         pub fn inner(_: void, a: T, b: T) bool {
@@ -345,7 +345,7 @@ pub fn desc(comptime T: type) fn (void, T, T) bool {
         }
     }.inner;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -368,7 +368,7 @@ Returns the index of an element in `items` returning `.eq` when given to `compar
 - If there are no such elements, returns `null`.
 
 `items` must be sorted in ascending order with respect to `compareFn`:
-\`\`\`
+```
 [0]                                                   [len]
 ┌───┬───┬─/ /─┬───┬───┬───┬─/ /─┬───┬───┬───┬─/ /─┬───┐
 │.lt│.lt│ \ \ │.lt│.eq│.eq│ \ \ │.eq│.gt│.gt│ \ \ │.gt│
@@ -378,13 +378,13 @@ Returns the index of an element in `items` returning `.eq` when given to `compar
                   ├─────────────────┤
                    ↳ if not null, returned
                      index is in this range
-\`\`\`
+```
 
 `O(log n)` time complexity.
 
 See also: `lowerBound, `upperBound`, `partitionPoint`, `equalRange`.
 
-\`\`\`zig
+```zig
 pub fn binarySearch(
     comptime T: type,
     items: []const T,
@@ -405,7 +405,7 @@ pub fn binarySearch(
     }
     return null;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -423,7 +423,7 @@ pub fn binarySearch(
 
 This example demonstrates how to call `binarySearch`.
 
-\`\`\`zig
+```zig
 [0]                                                   [len]
 ┌───┬───┬─/ /─┬───┬───┬───┬─/ /─┬───┬───┬───┬─/ /─┬───┐
 │.lt│.lt│ \ \ │.lt│.eq│.eq│ \ \ │.eq│.gt│.gt│ \ \ │.gt│
@@ -433,7 +433,7 @@ This example demonstrates how to call `binarySearch`.
 ├─────────────────┤
 ↳ if not null, returned
 index is in this range
-\`\`\`
+```
 
 </details>
 
@@ -448,7 +448,7 @@ Returns the index of the first element in `items` that is greater than or equal 
 as determined by `compareFn`. If no such element exists, returns `items.len`.
 
 `items` must be sorted in ascending order with respect to `compareFn`:
-\`\`\`
+```
 [0]                                                   [len]
 ┌───┬───┬─/ /─┬───┬───┬───┬─/ /─┬───┬───┬───┬─/ /─┬───┐
 │.lt│.lt│ \ \ │.lt│.eq│.eq│ \ \ │.eq│.gt│.gt│ \ \ │.gt│
@@ -457,13 +457,13 @@ as determined by `compareFn`. If no such element exists, returns `items.len`.
  ↳ zero or more    ↳ zero or more    ↳ zero or more
                   ├───┤
                    ↳ returned index
-\`\`\`
+```
 
 `O(log n)` time complexity.
 
 See also: `binarySearch`, `upperBound`, `partitionPoint`, `equalRange`.
 
-\`\`\`zig
+```zig
 pub fn lowerBound(
     comptime T: type,
     items: []const T,
@@ -477,7 +477,7 @@ pub fn lowerBound(
     };
     return partitionPoint(T, items, context, S.predicate);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -495,7 +495,7 @@ pub fn lowerBound(
 
 This example demonstrates how to call `lowerBound`.
 
-\`\`\`zig
+```zig
 [0]                                                   [len]
 ┌───┬───┬─/ /─┬───┬───┬───┬─/ /─┬───┬───┬───┬─/ /─┬───┐
 │.lt│.lt│ \ \ │.lt│.eq│.eq│ \ \ │.eq│.gt│.gt│ \ \ │.gt│
@@ -504,7 +504,7 @@ This example demonstrates how to call `lowerBound`.
 ↳ zero or more    ↳ zero or more    ↳ zero or more
 ├───┤
 ↳ returned index
-\`\`\`
+```
 
 </details>
 
@@ -519,7 +519,7 @@ Returns the index of the first element in `items` that is greater than `context`
 by `compareFn`. If no such element exists, returns `items.len`.
 
 `items` must be sorted in ascending order with respect to `compareFn`:
-\`\`\`
+```
 [0]                                                   [len]
 ┌───┬───┬─/ /─┬───┬───┬───┬─/ /─┬───┬───┬───┬─/ /─┬───┐
 │.lt│.lt│ \ \ │.lt│.eq│.eq│ \ \ │.eq│.gt│.gt│ \ \ │.gt│
@@ -528,13 +528,13 @@ by `compareFn`. If no such element exists, returns `items.len`.
  ↳ zero or more    ↳ zero or more    ↳ zero or more
                                     ├───┤
                                      ↳ returned index
-\`\`\`
+```
 
 `O(log n)` time complexity.
 
 See also: `binarySearch`, `lowerBound`, `partitionPoint`, `equalRange`.
 
-\`\`\`zig
+```zig
 pub fn upperBound(
     comptime T: type,
     items: []const T,
@@ -548,7 +548,7 @@ pub fn upperBound(
     };
     return partitionPoint(T, items, context, S.predicate);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -566,7 +566,7 @@ pub fn upperBound(
 
 This example demonstrates how to call `upperBound`.
 
-\`\`\`zig
+```zig
 [0]                                                   [len]
 ┌───┬───┬─/ /─┬───┬───┬───┬─/ /─┬───┬───┬───┬─/ /─┬───┐
 │.lt│.lt│ \ \ │.lt│.eq│.eq│ \ \ │.eq│.gt│.gt│ \ \ │.gt│
@@ -575,7 +575,7 @@ This example demonstrates how to call `upperBound`.
 ↳ zero or more    ↳ zero or more    ↳ zero or more
 ├───┤
 ↳ returned index
-\`\`\`
+```
 
 </details>
 
@@ -591,7 +591,7 @@ Returns the index of the partition point of `items` in relation to the given pre
 
 `items` must contain a prefix for which all elements satisfy the predicate,
 and beyond which none of the elements satisfy the predicate:
-\`\`\`
+```
 [0]                                          [len]
 ┌────┬────┬─/ /─┬────┬─────┬─────┬─/ /─┬─────┐
 │true│true│ \ \ │true│false│false│ \ \ │false│
@@ -600,13 +600,13 @@ and beyond which none of the elements satisfy the predicate:
  ↳ zero or more       ↳ zero or more
                      ├─────┤
                       ↳ returned index
-\`\`\`
+```
 
 `O(log n)` time complexity.
 
 See also: `binarySearch`, `lowerBound, `upperBound`, `equalRange`.
 
-\`\`\`zig
+```zig
 pub fn partitionPoint(
     comptime T: type,
     items: []const T,
@@ -626,7 +626,7 @@ pub fn partitionPoint(
     }
     return low;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -644,7 +644,7 @@ pub fn partitionPoint(
 
 This example demonstrates how to call `partitionPoint`.
 
-\`\`\`zig
+```zig
 [0]                                          [len]
 ┌────┬────┬─/ /─┬────┬─────┬─────┬─/ /─┬─────┐
 │true│true│ \ \ │true│false│false│ \ \ │false│
@@ -653,7 +653,7 @@ This example demonstrates how to call `partitionPoint`.
 ↳ zero or more       ↳ zero or more
 ├─────┤
 ↳ returned index
-\`\`\`
+```
 
 </details>
 
@@ -671,7 +671,7 @@ index of the first element in `items` returning `.gt`.
 - If no element in `items` returns `.gt`, both indices equal `items.len`.
 
 `items` must be sorted in ascending order with respect to `compareFn`:
-\`\`\`
+```
 [0]                                                   [len]
 ┌───┬───┬─/ /─┬───┬───┬───┬─/ /─┬───┬───┬───┬─/ /─┬───┐
 │.lt│.lt│ \ \ │.lt│.eq│.eq│ \ \ │.eq│.gt│.gt│ \ \ │.gt│
@@ -680,13 +680,13 @@ index of the first element in `items` returning `.gt`.
  ↳ zero or more    ↳ zero or more    ↳ zero or more
                   ├─────────────────┤
                    ↳ returned range
-\`\`\`
+```
 
 `O(log n)` time complexity.
 
 See also: `binarySearch`, `lowerBound, `upperBound`, `partitionPoint`.
 
-\`\`\`zig
+```zig
 pub fn equalRange(
     comptime T: type,
     items: []const T,
@@ -726,7 +726,7 @@ pub fn equalRange(
 
     return .{ low, low };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -744,7 +744,7 @@ pub fn equalRange(
 
 This example demonstrates how to call `equalRange`.
 
-\`\`\`zig
+```zig
 [0]                                                   [len]
 ┌───┬───┬─/ /─┬───┬───┬───┬─/ /─┬───┬───┬───┬─/ /─┬───┐
 │.lt│.lt│ \ \ │.lt│.eq│.eq│ \ \ │.eq│.gt│.gt│ \ \ │.gt│
@@ -753,7 +753,7 @@ This example demonstrates how to call `equalRange`.
 ↳ zero or more    ↳ zero or more    ↳ zero or more
 ├─────────────────┤
 ↳ returned range
-\`\`\`
+```
 
 </details>
 
@@ -764,7 +764,7 @@ This example demonstrates how to call `equalRange`.
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn argMin(
     comptime T: type,
     items: []const T,
@@ -786,7 +786,7 @@ pub fn argMin(
 
     return smallest_index;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -807,7 +807,7 @@ pub fn argMin(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn min(
     comptime T: type,
     items: []const T,
@@ -817,7 +817,7 @@ pub fn min(
     const i = argMin(T, items, context, lessThan) orelse return null;
     return items[i];
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -838,7 +838,7 @@ pub fn min(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn argMax(
     comptime T: type,
     items: []const T,
@@ -860,7 +860,7 @@ pub fn argMax(
 
     return biggest_index;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -881,7 +881,7 @@ pub fn argMax(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn max(
     comptime T: type,
     items: []const T,
@@ -891,7 +891,7 @@ pub fn max(
     const i = argMax(T, items, context, lessThan) orelse return null;
     return items[i];
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -912,7 +912,7 @@ pub fn max(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn isSorted(
     comptime T: type,
     items: []const T,
@@ -928,7 +928,7 @@ pub fn isSorted(
 
     return true;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -943,3 +943,5 @@ pub fn isSorted(
 </details>
 
 ---
+
+

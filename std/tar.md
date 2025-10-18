@@ -61,7 +61,7 @@ When this is provided, some errors which would otherwise be returned
 immediately will instead be added to this structure. The API user must check
 the errors in diagnostics to know whether the operation succeeded or failed.
 
-\`\`\`zig
+```zig
 pub const Diagnostics = struct {
     allocator: std.mem.Allocator,
     errors: std.ArrayListUnmanaged(Error) = .empty,
@@ -154,7 +154,7 @@ pub const Diagnostics = struct {
         d.* = undefined;
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -176,7 +176,7 @@ pub const Diagnostics = struct {
 
 pipeToFileSystem options
 
-\`\`\`zig
+```zig
 pub const PipeOptions = struct {
     /// Number of directory levels to skip when extracting files.
     strip_components: u32 = 0,
@@ -197,7 +197,7 @@ pub const PipeOptions = struct {
         executable_bit_only,
     };
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -219,13 +219,13 @@ pub const PipeOptions = struct {
 
 Type of the file returned by iterator `next` method.
 
-\`\`\`zig
+```zig
 pub const FileKind = enum {
     directory,
     sym_link,
     file,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -246,7 +246,7 @@ pub const FileKind = enum {
 
 Iterator over entries in the tar file represented by reader.
 
-\`\`\`zig
+```zig
 pub const Iterator = struct {
     reader: *std.Io.Reader,
     diagnostics: ?*Diagnostics = null,
@@ -433,7 +433,7 @@ pub const Iterator = struct {
         }
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -456,7 +456,7 @@ pub const Iterator = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const PaxIterator = struct {
     size: usize, // cumulative size of all pax attributes
     reader: *std.Io.Reader,
@@ -537,7 +537,7 @@ pub const PaxIterator = struct {
         if (try reader.takeByte() != '\n') return error.PaxInvalidAttributeEnd;
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -557,9 +557,9 @@ pub const PaxIterator = struct {
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Writer = @import("tar/Writer.zig")
-\`\`\`
+```
 
 > **Module:** `tar/Writer.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/tar/Writer.zig)
 
@@ -576,7 +576,7 @@ pub const Writer = @import("tar/Writer.zig")
 
 Saves tar file content to the file systems.
 
-\`\`\`zig
+```zig
 pub fn pipeToFileSystem(dir: std.fs.Dir, reader: *std.Io.Reader, options: PipeOptions) !void {
     var file_name_buffer: [std.fs.max_path_bytes]u8 = undefined;
     var link_name_buffer: [std.fs.max_path_bytes]u8 = undefined;
@@ -634,7 +634,7 @@ pub fn pipeToFileSystem(dir: std.fs.Dir, reader: *std.Io.Reader, options: PipeOp
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -648,3 +648,4 @@ pub fn pipeToFileSystem(dir: std.fs.Dir, reader: *std.Io.Reader, options: PipeOp
 </details>
 
 ---
+

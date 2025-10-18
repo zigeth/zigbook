@@ -83,7 +83,7 @@ documentation and/or contributors.
 
 https://llvm.org/docs/PDB/DbiStream.html#stream-header
 
-\`\`\`zig
+```zig
 pub const DbiStreamHeader = extern struct {
     version_signature: i32,
     version_header: u32,
@@ -106,7 +106,7 @@ pub const DbiStreamHeader = extern struct {
     machine: u16,
     padding: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -142,7 +142,7 @@ pub const DbiStreamHeader = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const SectionContribEntry = extern struct {
     /// COFF Section index, 1-based
     section: u16,
@@ -155,7 +155,7 @@ pub const SectionContribEntry = extern struct {
     data_crc: u32,
     reloc_crc: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -180,7 +180,7 @@ pub const SectionContribEntry = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ModInfo = extern struct {
     unused1: u32,
     section_contr: SectionContribEntry,
@@ -198,7 +198,7 @@ pub const ModInfo = extern struct {
     //module_name: char[],
     //obj_file_name: char[],
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -226,7 +226,7 @@ pub const ModInfo = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const SectionMapHeader = extern struct {
     /// Number of segment descriptors
     count: u16,
@@ -234,7 +234,7 @@ pub const SectionMapHeader = extern struct {
     /// Number of logical segment descriptors
     log_count: u16,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -252,7 +252,7 @@ pub const SectionMapHeader = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const SectionMapEntry = extern struct {
     /// See the SectionMapEntryFlags enum below.
     flags: u16,
@@ -276,7 +276,7 @@ pub const SectionMapEntry = extern struct {
     /// Byte count of the segment or group.
     section_length: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -300,14 +300,14 @@ pub const SectionMapEntry = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const StreamType = enum(u16) {
     pdb = 1,
     tpi = 2,
     dbi = 3,
     ipi = 4,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -330,7 +330,7 @@ pub const StreamType = enum(u16) {
 Duplicate copy of SymbolRecordKind, but using the official CV names. Useful
 for reference purposes and when dealing with unknown record types.
 
-\`\`\`zig
+```zig
 pub const SymbolKind = enum(u16) {
     compile = 1,
     register_16t = 2,
@@ -529,7 +529,7 @@ pub const SymbolKind = enum(u16) {
     lthread32 = 4370,
     gthread32 = 4371,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -741,7 +741,7 @@ pub const SymbolKind = enum(u16) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ProcSym = extern struct {
     parent: u32,
     end: u32,
@@ -755,7 +755,7 @@ pub const ProcSym = extern struct {
     flags: ProcSymFlags,
     name: [1]u8, // null-terminated
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -782,7 +782,7 @@ pub const ProcSym = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ProcSymFlags = packed struct {
     has_fp: bool,
     has_iret: bool,
@@ -793,7 +793,7 @@ pub const ProcSymFlags = packed struct {
     is_no_inline: bool,
     has_optimized_debug_info: bool,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -817,13 +817,13 @@ pub const ProcSymFlags = packed struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const SectionContrSubstreamVersion = enum(u32) {
     Ver60 = 0xeffe0000 + 19970605,
     V2 = 0xeffe0000 + 20140516,
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -842,7 +842,7 @@ pub const SectionContrSubstreamVersion = enum(u32) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const RecordPrefix = extern struct {
     /// Record length, starting from &record_kind.
     record_len: u16,
@@ -850,7 +850,7 @@ pub const RecordPrefix = extern struct {
     /// Record kind enum (SymRecordKind or TypeRecordKind)
     record_kind: SymbolKind,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -873,7 +873,7 @@ The structure definition follows.
 LineBlockFragmentHeader Blocks[]
 Each `LineBlockFragmentHeader` as specified below.
 
-\`\`\`zig
+```zig
 pub const LineFragmentHeader = extern struct {
     /// Code offset of line contribution.
     reloc_offset: u32,
@@ -885,7 +885,7 @@ pub const LineFragmentHeader = extern struct {
     /// Code size of this line contribution.
     code_size: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -905,13 +905,13 @@ pub const LineFragmentHeader = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const LineFlags = packed struct {
     /// CV_LINES_HAVE_COLUMNS
     have_columns: bool,
     unused: u15,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -934,7 +934,7 @@ header.  The structure definitions follow.
 LineNumberEntry   Lines[NumLines];
 ColumnNumberEntry Columns[NumLines];
 
-\`\`\`zig
+```zig
 pub const LineBlockFragmentHeader = extern struct {
     /// Offset of FileChecksum entry in File
     /// checksums buffer.  The checksum entry then
@@ -946,7 +946,7 @@ pub const LineBlockFragmentHeader = extern struct {
     /// code size of block, in bytes
     block_size: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -965,7 +965,7 @@ pub const LineBlockFragmentHeader = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const LineNumberEntry = extern struct {
     /// Offset to start of code bytes for line number
     offset: u32,
@@ -980,7 +980,7 @@ pub const LineNumberEntry = extern struct {
         is_statement: bool,
     };
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -998,12 +998,12 @@ pub const LineNumberEntry = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ColumnNumberEntry = extern struct {
     start_column: u16,
     end_column: u16,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1023,7 +1023,7 @@ pub const ColumnNumberEntry = extern struct {
 
 Checksum bytes follow.
 
-\`\`\`zig
+```zig
 pub const FileChecksumEntryHeader = extern struct {
     /// Byte offset of filename in global string table.
     file_name_offset: u32,
@@ -1032,7 +1032,7 @@ pub const FileChecksumEntryHeader = extern struct {
     /// FileChecksumKind
     checksum_kind: u8,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1051,7 +1051,7 @@ pub const FileChecksumEntryHeader = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const DebugSubsectionKind = enum(u32) {
     none = 0,
     symbols = 0xf1,
@@ -1071,7 +1071,7 @@ pub const DebugSubsectionKind = enum(u32) {
 
     coff_symbol_rva = 0xfd,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1101,7 +1101,7 @@ pub const DebugSubsectionKind = enum(u32) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const DebugSubsectionHeader = extern struct {
     /// codeview::DebugSubsectionKind enum
     kind: DebugSubsectionKind,
@@ -1109,7 +1109,7 @@ pub const DebugSubsectionHeader = extern struct {
     /// number of bytes occupied by this record.
     length: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1127,7 +1127,7 @@ pub const DebugSubsectionHeader = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const StringTableHeader = extern struct {
     /// PDBStringTableSignature
     signature: u32,
@@ -1136,7 +1136,7 @@ pub const StringTableHeader = extern struct {
     /// Number of bytes of names buffer.
     byte_size: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1155,7 +1155,7 @@ pub const StringTableHeader = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const SuperBlock = extern struct {
     /// The LLVM docs list a space between C / C++ but empirically this is not the case.
     pub const expect_magic = "Microsoft C/C++ MSF 7.00\r\n\x1a\x44\x53\x00\x00\x00";
@@ -1201,7 +1201,7 @@ pub const SuperBlock = extern struct {
     // implement it so we're kind of safe making this assumption for now.
     block_map_addr: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1226,10 +1226,12 @@ pub const SuperBlock = extern struct {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const TypeIndex = u32
-\`\`\`
+```
 
 </details>
 
 ---
+
+

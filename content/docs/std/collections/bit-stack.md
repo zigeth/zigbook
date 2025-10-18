@@ -59,13 +59,13 @@ Effectively a stack of u1 values implemented using ArrayList(u8).
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn init(allocator: Allocator) @This() {
     return .{
         .bytes = std.array_list.Managed(u8).init(allocator),
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -83,12 +83,12 @@ pub fn init(allocator: Allocator) @This() {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn deinit(self: *@This()) void {
     self.bytes.deinit();
     self.* = undefined;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -106,12 +106,12 @@ pub fn deinit(self: *@This()) void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn ensureTotalCapacity(self: *@This(), bit_capacity: usize) Allocator.Error!void {
     const byte_capacity = (bit_capacity + 7) >> 3;
     try self.bytes.ensureTotalCapacity(byte_capacity);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -130,7 +130,7 @@ pub fn ensureTotalCapacity(self: *@This(), bit_capacity: usize) Allocator.Error!
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn push(self: *@This(), b: u1) Allocator.Error!void {
     const byte_index = self.bit_len >> 3;
     if (self.bytes.items.len <= byte_index) {
@@ -139,7 +139,7 @@ pub fn push(self: *@This(), b: u1) Allocator.Error!void {
 
     pushWithStateAssumeCapacity(self.bytes.items, &self.bit_len, b);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -158,11 +158,11 @@ pub fn push(self: *@This(), b: u1) Allocator.Error!void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn peek(self: *const @This()) u1 {
     return peekWithState(self.bytes.items, self.bit_len);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -180,11 +180,11 @@ pub fn peek(self: *const @This()) u1 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn pop(self: *@This()) u1 {
     return popWithState(self.bytes.items, &self.bit_len);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -204,7 +204,7 @@ pub fn pop(self: *@This()) u1 {
 
 Standalone function for working with a fixed-size buffer.
 
-\`\`\`zig
+```zig
 pub fn pushWithStateAssumeCapacity(buf: []u8, bit_len: *usize, b: u1) void {
     const byte_index = bit_len.* >> 3;
     const bit_index = @as(u3, @intCast(bit_len.* & 7));
@@ -214,7 +214,7 @@ pub fn pushWithStateAssumeCapacity(buf: []u8, bit_len: *usize, b: u1) void {
 
     bit_len.* += 1;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -236,13 +236,13 @@ pub fn pushWithStateAssumeCapacity(buf: []u8, bit_len: *usize, b: u1) void {
 
 Standalone function for working with a fixed-size buffer.
 
-\`\`\`zig
+```zig
 pub fn peekWithState(buf: []const u8, bit_len: usize) u1 {
     const byte_index = (bit_len - 1) >> 3;
     const bit_index = @as(u3, @intCast((bit_len - 1) & 7));
     return @as(u1, @intCast((buf[byte_index] >> bit_index) & 1));
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -263,13 +263,13 @@ pub fn peekWithState(buf: []const u8, bit_len: usize) u1 {
 
 Standalone function for working with a fixed-size buffer.
 
-\`\`\`zig
+```zig
 pub fn popWithState(buf: []const u8, bit_len: *usize) u1 {
     const b = peekWithState(buf, bit_len.*);
     bit_len.* -= 1;
     return b;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -282,3 +282,5 @@ pub fn popWithState(buf: []const u8, bit_len: *usize) u1 {
 </details>
 
 ---
+
+

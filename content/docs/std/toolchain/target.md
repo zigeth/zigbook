@@ -123,7 +123,7 @@ etc.
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Os = struct {
     tag: Tag,
     version_range: VersionRange,
@@ -811,7 +811,7 @@ pub const Os = struct {
         };
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -829,7 +829,7 @@ pub const Os = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Abi = enum {
     none,
     gnu,
@@ -1054,7 +1054,7 @@ pub const Abi = enum {
         };
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1100,7 +1100,7 @@ pub const Abi = enum {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ObjectFormat = enum {
     /// C source code.
     c,
@@ -1155,7 +1155,7 @@ pub const ObjectFormat = enum {
         };
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1182,7 +1182,7 @@ pub const ObjectFormat = enum {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const SubSystem = enum {
     Console,
     Windows,
@@ -1193,7 +1193,7 @@ pub const SubSystem = enum {
     EfiRom,
     EfiRuntimeDriver,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1217,7 +1217,7 @@ pub const SubSystem = enum {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Cpu = struct {
     /// Architecture
     arch: Arch,
@@ -2035,7 +2035,7 @@ pub const Cpu = struct {
         return true;
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2054,7 +2054,7 @@ pub const Cpu = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const DynamicLinker = struct {
     /// Contains the memory used to store the dynamic linker path. This field
     /// should not be used directly. See `get` and `set`. This field exists so
@@ -2555,7 +2555,7 @@ pub const DynamicLinker = struct {
         } catch unreachable;
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2573,7 +2573,7 @@ pub const DynamicLinker = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const CType = enum {
     char,
     short,
@@ -2588,7 +2588,7 @@ pub const CType = enum {
     double,
     longdouble,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2618,9 +2618,9 @@ pub const CType = enum {
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Query = @import("Target/Query.zig")
-\`\`\`
+```
 
 > **Module:** `Target/Query.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/Query.zig)
 
@@ -2633,9 +2633,9 @@ pub const Query = @import("Target/Query.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const aarch64 = @import("Target/aarch64.zig")
-\`\`\`
+```
 
 > **Module:** `Target/aarch64.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/aarch64.zig)
 
@@ -2648,9 +2648,9 @@ pub const aarch64 = @import("Target/aarch64.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const amdgcn = @import("Target/amdgcn.zig")
-\`\`\`
+```
 
 > **Module:** `Target/amdgcn.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/amdgcn.zig)
 
@@ -2663,9 +2663,9 @@ pub const amdgcn = @import("Target/amdgcn.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const arc = @import("Target/arc.zig")
-\`\`\`
+```
 
 > **Module:** `Target/arc.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/arc.zig)
 
@@ -2678,9 +2678,9 @@ pub const arc = @import("Target/arc.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const arm = @import("Target/arm.zig")
-\`\`\`
+```
 
 > **Module:** `Target/arm.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/arm.zig)
 
@@ -2693,9 +2693,9 @@ pub const arm = @import("Target/arm.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const avr = @import("Target/avr.zig")
-\`\`\`
+```
 
 > **Module:** `Target/avr.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/avr.zig)
 
@@ -2708,9 +2708,9 @@ pub const avr = @import("Target/avr.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const bpf = @import("Target/bpf.zig")
-\`\`\`
+```
 
 > **Module:** `Target/bpf.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/bpf.zig)
 
@@ -2723,9 +2723,9 @@ pub const bpf = @import("Target/bpf.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const csky = @import("Target/csky.zig")
-\`\`\`
+```
 
 > **Module:** `Target/csky.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/csky.zig)
 
@@ -2738,9 +2738,9 @@ pub const csky = @import("Target/csky.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const hexagon = @import("Target/hexagon.zig")
-\`\`\`
+```
 
 > **Module:** `Target/hexagon.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/hexagon.zig)
 
@@ -2753,9 +2753,9 @@ pub const hexagon = @import("Target/hexagon.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const kalimba = @import("Target/generic.zig")
-\`\`\`
+```
 
 > **Module:** `Target/generic.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/generic.zig)
 
@@ -2768,9 +2768,9 @@ pub const kalimba = @import("Target/generic.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const lanai = @import("Target/lanai.zig")
-\`\`\`
+```
 
 > **Module:** `Target/lanai.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/lanai.zig)
 
@@ -2783,9 +2783,9 @@ pub const lanai = @import("Target/lanai.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const loongarch = @import("Target/loongarch.zig")
-\`\`\`
+```
 
 > **Module:** `Target/loongarch.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/loongarch.zig)
 
@@ -2798,9 +2798,9 @@ pub const loongarch = @import("Target/loongarch.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const m68k = @import("Target/m68k.zig")
-\`\`\`
+```
 
 > **Module:** `Target/m68k.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/m68k.zig)
 
@@ -2813,9 +2813,9 @@ pub const m68k = @import("Target/m68k.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const mips = @import("Target/mips.zig")
-\`\`\`
+```
 
 > **Module:** `Target/mips.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/mips.zig)
 
@@ -2828,9 +2828,9 @@ pub const mips = @import("Target/mips.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const msp430 = @import("Target/msp430.zig")
-\`\`\`
+```
 
 > **Module:** `Target/msp430.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/msp430.zig)
 
@@ -2843,9 +2843,9 @@ pub const msp430 = @import("Target/msp430.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const nvptx = @import("Target/nvptx.zig")
-\`\`\`
+```
 
 > **Module:** `Target/nvptx.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/nvptx.zig)
 
@@ -2858,9 +2858,9 @@ pub const nvptx = @import("Target/nvptx.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const or1k = @import("Target/generic.zig")
-\`\`\`
+```
 
 > **Module:** `Target/generic.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/generic.zig)
 
@@ -2873,9 +2873,9 @@ pub const or1k = @import("Target/generic.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const powerpc = @import("Target/powerpc.zig")
-\`\`\`
+```
 
 > **Module:** `Target/powerpc.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/powerpc.zig)
 
@@ -2888,9 +2888,9 @@ pub const powerpc = @import("Target/powerpc.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const propeller = @import("Target/propeller.zig")
-\`\`\`
+```
 
 > **Module:** `Target/propeller.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/propeller.zig)
 
@@ -2903,9 +2903,9 @@ pub const propeller = @import("Target/propeller.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const riscv = @import("Target/riscv.zig")
-\`\`\`
+```
 
 > **Module:** `Target/riscv.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/riscv.zig)
 
@@ -2918,9 +2918,9 @@ pub const riscv = @import("Target/riscv.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const s390x = @import("Target/s390x.zig")
-\`\`\`
+```
 
 > **Module:** `Target/s390x.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/s390x.zig)
 
@@ -2933,9 +2933,9 @@ pub const s390x = @import("Target/s390x.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const sparc = @import("Target/sparc.zig")
-\`\`\`
+```
 
 > **Module:** `Target/sparc.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/sparc.zig)
 
@@ -2948,9 +2948,9 @@ pub const sparc = @import("Target/sparc.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const spirv = @import("Target/spirv.zig")
-\`\`\`
+```
 
 > **Module:** `Target/spirv.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/spirv.zig)
 
@@ -2963,9 +2963,9 @@ pub const spirv = @import("Target/spirv.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ve = @import("Target/ve.zig")
-\`\`\`
+```
 
 > **Module:** `Target/ve.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/ve.zig)
 
@@ -2978,9 +2978,9 @@ pub const ve = @import("Target/ve.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const wasm = @import("Target/wasm.zig")
-\`\`\`
+```
 
 > **Module:** `Target/wasm.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/wasm.zig)
 
@@ -2993,9 +2993,9 @@ pub const wasm = @import("Target/wasm.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const x86 = @import("Target/x86.zig")
-\`\`\`
+```
 
 > **Module:** `Target/x86.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/x86.zig)
 
@@ -3008,9 +3008,9 @@ pub const x86 = @import("Target/x86.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const xcore = @import("Target/xcore.zig")
-\`\`\`
+```
 
 > **Module:** `Target/xcore.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/xcore.zig)
 
@@ -3023,9 +3023,9 @@ pub const xcore = @import("Target/xcore.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const xtensa = @import("Target/xtensa.zig")
-\`\`\`
+```
 
 > **Module:** `Target/xtensa.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/Target/xtensa.zig)
 
@@ -3040,7 +3040,7 @@ pub const xtensa = @import("Target/xtensa.zig")
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn toElfMachine(target: *const Target) std.elf.EM {
     return switch (target.cpu.arch) {
         .amdgcn => .AMDGPU,
@@ -3080,7 +3080,7 @@ pub fn toElfMachine(target: *const Target) std.elf.EM {
         => .NONE,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3098,7 +3098,7 @@ pub fn toElfMachine(target: *const Target) std.elf.EM {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn toCoffMachine(target: *const Target) std.coff.MachineType {
     return switch (target.cpu.arch) {
         .arm => .ARM,
@@ -3150,7 +3150,7 @@ pub fn toCoffMachine(target: *const Target) std.coff.MachineType {
         => .UNKNOWN,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3168,11 +3168,11 @@ pub fn toCoffMachine(target: *const Target) std.coff.MachineType {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn zigTriple(target: *const Target, allocator: Allocator) Allocator.Error![]u8 {
     return Query.fromTarget(target).zigTriple(allocator);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3191,11 +3191,11 @@ pub fn zigTriple(target: *const Target, allocator: Allocator) Allocator.Error![]
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn hurdTupleSimple(allocator: Allocator, arch: Cpu.Arch, abi: Abi) ![]u8 {
     return std.fmt.allocPrint(allocator, "{s}-{s}", .{ @tagName(arch), @tagName(abi) });
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3215,11 +3215,11 @@ pub fn hurdTupleSimple(allocator: Allocator, arch: Cpu.Arch, abi: Abi) ![]u8 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn hurdTuple(target: *const Target, allocator: Allocator) ![]u8 {
     return hurdTupleSimple(allocator, target.cpu.arch, target.abi);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3238,11 +3238,11 @@ pub fn hurdTuple(target: *const Target, allocator: Allocator) ![]u8 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn linuxTripleSimple(allocator: Allocator, arch: Cpu.Arch, os_tag: Os.Tag, abi: Abi) ![]u8 {
     return std.fmt.allocPrint(allocator, "{s}-{s}-{s}", .{ @tagName(arch), @tagName(os_tag), @tagName(abi) });
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3263,11 +3263,11 @@ pub fn linuxTripleSimple(allocator: Allocator, arch: Cpu.Arch, os_tag: Os.Tag, a
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn linuxTriple(target: *const Target, allocator: Allocator) ![]u8 {
     return linuxTripleSimple(allocator, target.cpu.arch, target.os.tag, target.abi);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3286,11 +3286,11 @@ pub fn linuxTriple(target: *const Target, allocator: Allocator) ![]u8 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn exeFileExt(target: *const Target) [:0]const u8 {
     return target.os.tag.exeFileExt(target.cpu.arch);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3308,11 +3308,11 @@ pub fn exeFileExt(target: *const Target) [:0]const u8 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn staticLibSuffix(target: *const Target) [:0]const u8 {
     return target.os.tag.staticLibSuffix(target.abi);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3330,11 +3330,11 @@ pub fn staticLibSuffix(target: *const Target) [:0]const u8 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn dynamicLibSuffix(target: *const Target) [:0]const u8 {
     return target.os.tag.dynamicLibSuffix();
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3352,11 +3352,11 @@ pub fn dynamicLibSuffix(target: *const Target) [:0]const u8 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn libPrefix(target: *const Target) [:0]const u8 {
     return target.os.tag.libPrefix(target.abi);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3374,11 +3374,11 @@ pub fn libPrefix(target: *const Target) [:0]const u8 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub inline fn isMinGW(target: *const Target) bool {
     return target.os.tag == .windows and target.abi.isGnu();
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3396,14 +3396,14 @@ pub inline fn isMinGW(target: *const Target) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub inline fn isGnuLibC(target: *const Target) bool {
     return switch (target.os.tag) {
         .hurd, .linux => target.abi.isGnu(),
         else => false,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3421,11 +3421,11 @@ pub inline fn isGnuLibC(target: *const Target) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub inline fn isMuslLibC(target: *const Target) bool {
     return target.os.tag == .linux and target.abi.isMusl();
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3443,14 +3443,14 @@ pub inline fn isMuslLibC(target: *const Target) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub inline fn isDarwinLibC(target: *const Target) bool {
     return switch (target.abi) {
         .none, .macabi, .simulator => target.os.tag.isDarwin(),
         else => false,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3468,14 +3468,14 @@ pub inline fn isDarwinLibC(target: *const Target) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub inline fn isFreeBSDLibC(target: *const Target) bool {
     return switch (target.abi) {
         .none, .eabihf => target.os.tag == .freebsd,
         else => false,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3493,14 +3493,14 @@ pub inline fn isFreeBSDLibC(target: *const Target) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub inline fn isNetBSDLibC(target: *const Target) bool {
     return switch (target.abi) {
         .none, .eabi, .eabihf => target.os.tag == .netbsd,
         else => false,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3518,11 +3518,11 @@ pub inline fn isNetBSDLibC(target: *const Target) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub inline fn isWasiLibC(target: *const Target) bool {
     return target.os.tag == .wasi and target.abi.isMusl();
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3543,7 +3543,7 @@ pub inline fn isWasiLibC(target: *const Target) bool {
 Does this target require linking libc? This may be the case if the target has an unstable
 syscall interface, for example.
 
-\`\`\`zig
+```zig
 pub fn requiresLibC(target: *const Target) bool {
     return switch (target.os.tag) {
         .aix,
@@ -3596,7 +3596,7 @@ pub fn requiresLibC(target: *const Target) bool {
         => false,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3614,11 +3614,11 @@ pub fn requiresLibC(target: *const Target) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn standardDynamicLinkerPath(target: *const Target) DynamicLinker {
     return DynamicLinker.standard(target.cpu, target.os, target.abi);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3636,11 +3636,11 @@ pub fn standardDynamicLinkerPath(target: *const Target) DynamicLinker {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn ptrBitWidth_cpu_abi(cpu: Cpu, abi: Abi) u16 {
     return ptrBitWidth_arch_abi(cpu.arch, abi);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3659,7 +3659,7 @@ pub fn ptrBitWidth_cpu_abi(cpu: Cpu, abi: Abi) u16 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn ptrBitWidth_arch_abi(cpu_arch: Cpu.Arch, abi: Abi) u16 {
     switch (abi) {
         .gnux32, .muslx32, .gnuabin32, .muslabin32, .ilp32 => return 32,
@@ -3719,7 +3719,7 @@ pub fn ptrBitWidth_arch_abi(cpu_arch: Cpu.Arch, abi: Abi) u16 {
         => 64,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3738,11 +3738,11 @@ pub fn ptrBitWidth_arch_abi(cpu_arch: Cpu.Arch, abi: Abi) u16 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn ptrBitWidth(target: *const Target) u16 {
     return ptrBitWidth_cpu_abi(target.cpu, target.abi);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3760,7 +3760,7 @@ pub fn ptrBitWidth(target: *const Target) u16 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn stackAlignment(target: *const Target) u16 {
     // Overrides for when the stack alignment is not equal to the pointer width.
     switch (target.cpu.arch) {
@@ -3805,7 +3805,7 @@ pub fn stackAlignment(target: *const Target) u16 {
 
     return @divExact(target.ptrBitWidth(), 8);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3827,7 +3827,7 @@ Default signedness of `char` for the native C compiler for this target
 Note that char signedness is implementation-defined and many compilers provide
 an option to override the default signedness e.g. GCC's -funsigned-char / -fsigned-char
 
-\`\`\`zig
+```zig
 pub fn cCharSignedness(target: *const Target) std.builtin.Signedness {
     if (target.os.tag.isDarwin() or target.os.tag == .windows or target.os.tag == .uefi) return .signed;
 
@@ -3855,7 +3855,7 @@ pub fn cCharSignedness(target: *const Target) std.builtin.Signedness {
         else => .signed,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3873,7 +3873,7 @@ pub fn cCharSignedness(target: *const Target) std.builtin.Signedness {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn cTypeByteSize(t: *const Target, c_type: CType) u16 {
     return switch (c_type) {
         .char,
@@ -3899,7 +3899,7 @@ pub fn cTypeByteSize(t: *const Target, c_type: CType) u16 {
         },
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3918,7 +3918,7 @@ pub fn cTypeByteSize(t: *const Target, c_type: CType) u16 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn cTypeBitSize(target: *const Target, c_type: CType) u16 {
     switch (target.os.tag) {
         .freestanding, .other => switch (target.cpu.arch) {
@@ -4229,7 +4229,7 @@ pub fn cTypeBitSize(target: *const Target, c_type: CType) u16 {
         => @panic("specify the C integer and float type sizes for this OS"),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4248,7 +4248,7 @@ pub fn cTypeBitSize(target: *const Target, c_type: CType) u16 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn cTypeAlignment(target: *const Target, c_type: CType) u16 {
     // Overrides for unusual alignments
     switch (target.cpu.arch) {
@@ -4342,7 +4342,7 @@ pub fn cTypeAlignment(target: *const Target, c_type: CType) u16 {
         }),
     );
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4361,7 +4361,7 @@ pub fn cTypeAlignment(target: *const Target, c_type: CType) u16 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn cTypePreferredAlignment(target: *const Target, c_type: CType) u16 {
     // Overrides for unusual alignments
     switch (target.cpu.arch) {
@@ -4453,7 +4453,7 @@ pub fn cTypePreferredAlignment(target: *const Target, c_type: CType) u16 {
         }),
     );
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4472,7 +4472,7 @@ pub fn cTypePreferredAlignment(target: *const Target, c_type: CType) u16 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn cMaxIntAlignment(target: *const Target) u16 {
     return switch (target.cpu.arch) {
         .avr => 1,
@@ -4534,7 +4534,7 @@ pub fn cMaxIntAlignment(target: *const Target) u16 {
         => 16,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4552,7 +4552,7 @@ pub fn cMaxIntAlignment(target: *const Target) u16 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn cCallingConvention(target: *const Target) ?std.builtin.CallingConvention {
     return switch (target.cpu.arch) {
         .x86_64 => switch (target.os.tag) {
@@ -4617,7 +4617,7 @@ pub fn cCallingConvention(target: *const Target) ?std.builtin.CallingConvention 
         .spirv32, .spirv64 => .spirv_device,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -4629,3 +4629,5 @@ pub fn cCallingConvention(target: *const Target) ?std.builtin.CallingConvention 
 </details>
 
 ---
+
+

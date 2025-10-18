@@ -74,13 +74,13 @@ Note that this file uses the abbreviation "cd" for "central directory"
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const CompressionMethod = enum(u16) {
     store = 0,
     deflate = 8,
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -99,12 +99,12 @@ pub const CompressionMethod = enum(u16) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ExtraHeader = enum(u16) {
     zip64_info = 0x1,
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -122,7 +122,7 @@ pub const ExtraHeader = enum(u16) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const LocalFileHeader = extern struct {
     signature: [4]u8 align(1),
     version_needed_to_extract: u16 align(1),
@@ -136,7 +136,7 @@ pub const LocalFileHeader = extern struct {
     filename_len: u16 align(1),
     extra_len: u16 align(1),
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -163,7 +163,7 @@ pub const LocalFileHeader = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const CentralDirectoryFileHeader = extern struct {
     signature: [4]u8 align(1),
     version_made_by: u16 align(1),
@@ -183,7 +183,7 @@ pub const CentralDirectoryFileHeader = extern struct {
     external_file_attributes: u32 align(1),
     local_file_header_offset: u32 align(1),
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -216,7 +216,7 @@ pub const CentralDirectoryFileHeader = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const EndRecord64 = extern struct {
     signature: [4]u8 align(1),
     end_record_size: u64 align(1),
@@ -229,7 +229,7 @@ pub const EndRecord64 = extern struct {
     central_directory_size: u64 align(1),
     central_directory_offset: u64 align(1),
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -255,14 +255,14 @@ pub const EndRecord64 = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const EndLocator64 = extern struct {
     signature: [4]u8 align(1),
     zip64_disk_count: u32 align(1),
     record_file_offset: u64 align(1),
     total_disk_count: u32 align(1),
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -282,7 +282,7 @@ pub const EndLocator64 = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const EndRecord = extern struct {
     signature: [4]u8 align(1),
     disk_number: u16 align(1),
@@ -358,7 +358,7 @@ pub const EndRecord = extern struct {
         }
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -382,7 +382,7 @@ pub const EndRecord = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Decompress = struct {
     interface: Reader,
     state: union {
@@ -426,7 +426,7 @@ pub const Decompress = struct {
         return flate.Decompress.read(&d.inflate, w, limit);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -439,12 +439,12 @@ pub const Decompress = struct {
 [^type-decompress-state-type-0]:
     Type for field `state` of `Decompress`:
 
-    \`\`\`zig
+    ```zig
     union {
             inflate: flate.Decompress,
             store: *Reader,
         }
-    \`\`\`
+    ```
 
 </details>
 
@@ -455,7 +455,7 @@ pub const Decompress = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Iterator = struct {
     input: *File.Reader,
 
@@ -787,7 +787,7 @@ pub const Iterator = struct {
         }
     };
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -809,7 +809,7 @@ pub const Iterator = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Diagnostics = struct {
     allocator: std.mem.Allocator,
 
@@ -841,7 +841,7 @@ pub const Diagnostics = struct {
         }
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -860,7 +860,7 @@ pub const Diagnostics = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ExtractOptions = struct {
     /// Allow filenames within the zip to use backslashes.  Back slashes are normalized
     /// to forward slashes before forwarding them to platform APIs.
@@ -868,7 +868,7 @@ pub const ExtractOptions = struct {
     diagnostics: ?*Diagnostics = null,
     verify_checksums: bool = false,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -889,9 +889,9 @@ pub const ExtractOptions = struct {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const central_file_header_sig = [4]u8{ 'P', 'K', 1, 2 }
-\`\`\`
+```
 
 </details>
 
@@ -902,9 +902,9 @@ pub const central_file_header_sig = [4]u8{ 'P', 'K', 1, 2 }
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const local_file_header_sig = [4]u8{ 'P', 'K', 3, 4 }
-\`\`\`
+```
 
 </details>
 
@@ -915,9 +915,9 @@ pub const local_file_header_sig = [4]u8{ 'P', 'K', 3, 4 }
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const end_record_sig = [4]u8{ 'P', 'K', 5, 6 }
-\`\`\`
+```
 
 </details>
 
@@ -928,9 +928,9 @@ pub const end_record_sig = [4]u8{ 'P', 'K', 5, 6 }
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const end_record64_sig = [4]u8{ 'P', 'K', 6, 6 }
-\`\`\`
+```
 
 </details>
 
@@ -941,9 +941,9 @@ pub const end_record64_sig = [4]u8{ 'P', 'K', 6, 6 }
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const end_locator64_sig = [4]u8{ 'P', 'K', 6, 7 }
-\`\`\`
+```
 
 </details>
 
@@ -958,7 +958,7 @@ pub const end_locator64_sig = [4]u8{ 'P', 'K', 6, 7 }
 
 Extract the zipped files to the given `dest` directory.
 
-\`\`\`zig
+```zig
 pub fn extract(dest: std.fs.Dir, fr: *File.Reader, options: ExtractOptions) !void {
     if (options.verify_checksums) @panic("TODO unimplemented");
 
@@ -972,7 +972,7 @@ pub fn extract(dest: std.fs.Dir, fr: *File.Reader, options: ExtractOptions) !voi
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -986,3 +986,5 @@ pub fn extract(dest: std.fs.Dir, fr: *File.Reader, options: ExtractOptions) !voi
 </details>
 
 ---
+
+

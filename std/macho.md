@@ -340,7 +340,7 @@
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_header = extern struct {
     magic: u32,
     cputype: cpu_type_t,
@@ -350,7 +350,7 @@ pub const mach_header = extern struct {
     sizeofcmds: u32,
     flags: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -373,7 +373,7 @@ pub const mach_header = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_header_64 = extern struct {
     magic: u32 = MH_MAGIC_64,
     cputype: cpu_type_t = 0,
@@ -384,7 +384,7 @@ pub const mach_header_64 = extern struct {
     flags: u32 = 0,
     reserved: u32 = 0,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -408,12 +408,12 @@ pub const mach_header_64 = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const fat_header = extern struct {
     magic: u32,
     nfat_arch: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -431,7 +431,7 @@ pub const fat_header = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const fat_arch = extern struct {
     cputype: cpu_type_t,
     cpusubtype: cpu_subtype_t,
@@ -439,7 +439,7 @@ pub const fat_arch = extern struct {
     size: u32,
     @"align": u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -460,12 +460,12 @@ pub const fat_arch = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const load_command = extern struct {
     cmd: LC,
     cmdsize: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -486,7 +486,7 @@ pub const load_command = extern struct {
 The uuid load command contains a single 128-bit unique random number that
 identifies an object produced by the static link editor.
 
-\`\`\`zig
+```zig
 pub const uuid_command = extern struct {
     /// LC_UUID
     cmd: LC = .UUID,
@@ -497,7 +497,7 @@ pub const uuid_command = extern struct {
     /// the 128-bit uuid
     uuid: [16]u8 = undefined,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -519,7 +519,7 @@ pub const uuid_command = extern struct {
 The version_min_command contains the min OS version on which this
 binary was built to run.
 
-\`\`\`zig
+```zig
 pub const version_min_command = extern struct {
     /// LC_VERSION_MIN_MACOSX or LC_VERSION_MIN_IPHONEOS or LC_VERSION_MIN_WATCHOS or LC_VERSION_MIN_TVOS
     cmd: LC,
@@ -533,7 +533,7 @@ pub const version_min_command = extern struct {
     /// X.Y.Z is encoded in nibbles xxxx.yy.zz
     sdk: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -556,7 +556,7 @@ pub const version_min_command = extern struct {
 The source_version_command is an optional load command containing
 the version of the sources used to build the binary.
 
-\`\`\`zig
+```zig
 pub const source_version_command = extern struct {
     /// LC_SOURCE_VERSION
     cmd: LC = .SOURCE_VERSION,
@@ -567,7 +567,7 @@ pub const source_version_command = extern struct {
     /// A.B.C.D.E packed as a24.b10.c10.d10.e10
     version: u64,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -590,7 +590,7 @@ The build_version_command contains the min OS version on which this
 binary was built to run for its platform. The list of known platforms and
 tool values following it.
 
-\`\`\`zig
+```zig
 pub const build_version_command = extern struct {
     /// LC_BUILD_VERSION
     cmd: LC = .BUILD_VERSION,
@@ -611,7 +611,7 @@ pub const build_version_command = extern struct {
     /// number of tool entries following this
     ntools: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -633,7 +633,7 @@ pub const build_version_command = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const build_tool_version = extern struct {
     /// enum for the tool
     tool: TOOL,
@@ -641,7 +641,7 @@ pub const build_tool_version = extern struct {
     /// version number of the tool
     version: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -659,7 +659,7 @@ pub const build_tool_version = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const PLATFORM = enum(u32) {
     UNKNOWN = 0,
     ANY = 0xffffffff,
@@ -677,7 +677,7 @@ pub const PLATFORM = enum(u32) {
     VISIONOSSIMULATOR = 12,
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -708,7 +708,7 @@ pub const PLATFORM = enum(u32) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const TOOL = enum(u32) {
     CLANG = 0x1,
     SWIFT = 0x2,
@@ -717,7 +717,7 @@ pub const TOOL = enum(u32) {
     ZIG = 0x5, // Unofficially Zig
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -744,7 +744,7 @@ It is used for main executables to specify the location (file offset)
 of main(). If -stack_size was used at link time, the stacksize
 field will contain the stack size needed for the main thread.
 
-\`\`\`zig
+```zig
 pub const entry_point_command = extern struct {
     /// LC_MAIN only used in MH_EXECUTE filetypes
     cmd: LC = .MAIN,
@@ -758,7 +758,7 @@ pub const entry_point_command = extern struct {
     /// if not zero, initial stack size
     stacksize: u64 = 0,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -782,7 +782,7 @@ The symtab_command contains the offsets and sizes of the link-edit 4.3BSD
 "stab" style symbol table information as described in the header files
 <nlist.h> and <stab.h>.
 
-\`\`\`zig
+```zig
 pub const symtab_command = extern struct {
     /// LC_SYMTAB
     cmd: LC = .SYMTAB,
@@ -802,7 +802,7 @@ pub const symtab_command = extern struct {
     /// string table size in bytes
     strsize: u32 = 0,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -862,7 +862,7 @@ separated into two groups:
 For executable and object modules the relocation entries continue to hang
 off the section structures.
 
-\`\`\`zig
+```zig
 pub const dysymtab_command = extern struct {
     /// LC_DYSYMTAB
     cmd: LC = .DYSYMTAB,
@@ -1000,7 +1000,7 @@ pub const dysymtab_command = extern struct {
     /// number of local relocation entries
     nlocrel: u32 = 0,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1039,7 +1039,7 @@ pub const dysymtab_command = extern struct {
 The linkedit_data_command contains the offsets and sizes of a blob
 of data in the __LINKEDIT segment.
 
-\`\`\`zig
+```zig
 pub const linkedit_data_command = extern struct {
     /// LC_CODE_SIGNATURE, LC_SEGMENT_SPLIT_INFO, LC_FUNCTION_STARTS, LC_DATA_IN_CODE, LC_DYLIB_CODE_SIGN_DRS or LC_LINKER_OPTIMIZATION_HINT.
     cmd: LC,
@@ -1053,7 +1053,7 @@ pub const linkedit_data_command = extern struct {
     /// file size of data in __LINKEDIT segment
     datasize: u32 = 0,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1080,7 +1080,7 @@ load the image.  This information is used by dyld on Mac OS X
 is encoded using byte streams, so no endian swapping is needed
 to interpret it.
 
-\`\`\`zig
+```zig
 pub const dyld_info_command = extern struct {
     /// LC_DYLD_INFO or LC_DYLD_INFO_ONLY
     cmd: LC = .DYLD_INFO_ONLY,
@@ -1195,7 +1195,7 @@ pub const dyld_info_command = extern struct {
     /// size of lazy binding info
     export_size: u32 = 0,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1230,7 +1230,7 @@ A file can have at most one of these.
 This struct is also used for the LC_DYLD_ENVIRONMENT load command and contains
 string for dyld to treat like an environment variable.
 
-\`\`\`zig
+```zig
 pub const dylinker_command = extern struct {
     /// LC_ID_DYLINKER, LC_LOAD_DYLINKER, or LC_DYLD_ENVIRONMENT
     cmd: LC,
@@ -1246,7 +1246,7 @@ pub const dylinker_command = extern struct {
     /// of 4 bytes must be zero.
     name: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1271,7 +1271,7 @@ An object that uses a dynamically linked shared library also contains a
 dylib_command (cmd == LC_LOAD_DYLIB, LC_LOAD_WEAK_DYLIB, or
 LC_REEXPORT_DYLIB) for each library it uses.
 
-\`\`\`zig
+```zig
 pub const dylib_command = extern struct {
     /// LC_ID_DYLIB, LC_LOAD_WEAK_DYLIB, LC_LOAD_DYLIB, LC_REEXPORT_DYLIB
     cmd: LC,
@@ -1282,7 +1282,7 @@ pub const dylib_command = extern struct {
     /// the library identification
     dylib: dylib,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1309,7 +1309,7 @@ library being used.  The time stamp is used to record the time a library was
 built and copied into user so it can be use to determined if the library used
 at runtime is exactly the same as used to build the program.
 
-\`\`\`zig
+```zig
 pub const dylib = extern struct {
     /// library's pathname (offset pointing at the end of dylib_command)
     name: u32,
@@ -1323,7 +1323,7 @@ pub const dylib = extern struct {
     /// library's compatibility version number
     compatibility_version: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1346,7 +1346,7 @@ pub const dylib = extern struct {
 The rpath_command contains a path which at runtime should be added to the current
 run path used to find @rpath prefixed dylibs.
 
-\`\`\`zig
+```zig
 pub const rpath_command = extern struct {
     /// LC_RPATH
     cmd: LC = .RPATH,
@@ -1357,7 +1357,7 @@ pub const rpath_command = extern struct {
     /// path to add to run path
     path: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1387,7 +1387,7 @@ by the maxprot and initprot fields.  If the segment has sections then the
 section structures directly follow the segment command and their size is
 reflected in cmdsize.
 
-\`\`\`zig
+```zig
 pub const segment_command = extern struct {
     /// LC_SEGMENT
     cmd: LC = .SEGMENT,
@@ -1420,7 +1420,7 @@ pub const segment_command = extern struct {
     nsects: u32,
     flags: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1452,7 +1452,7 @@ mapped into a 64-bit task's address space.  If the 64-bit segment has
 sections then section_64 structures directly follow the 64-bit segment
 command and their size is reflected in cmdsize.
 
-\`\`\`zig
+```zig
 pub const segment_command_64 = extern struct {
     /// LC_SEGMENT_64
     cmd: LC = .SEGMENT_64,
@@ -1495,7 +1495,7 @@ pub const segment_command_64 = extern struct {
         return seg.initprot & PROT.WRITE != 0;
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1522,7 +1522,7 @@ pub const segment_command_64 = extern struct {
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-\`\`\`zig
+```zig
 pub const PROT = struct {
     /// [MC2] no permissions
     pub const NONE: vm_prot_t = 0x00;
@@ -1539,7 +1539,7 @@ pub const PROT = struct {
     /// the associated entry.
     pub const COPY: vm_prot_t = 0x10;
 }
-\`\`\`
+```
 
 </details>
 
@@ -1576,7 +1576,7 @@ The format of the relocation entries referenced by the reloff and nreloc
 fields of the section structure for mach object files is described in the
 header file <reloc.h>.
 
-\`\`\`zig
+```zig
 pub const section = extern struct {
     /// name of this section
     sectname: [16]u8,
@@ -1611,7 +1611,7 @@ pub const section = extern struct {
     /// reserved (for count or sizeof)
     reserved2: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1638,7 +1638,7 @@ pub const section = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const section_64 = extern struct {
     /// name of this section
     sectname: [16]u8,
@@ -1719,7 +1719,7 @@ pub const section_64 = extern struct {
         return sect.attrs() & S_ATTR_LIVE_SUPPORT != 0;
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1747,7 +1747,7 @@ pub const section_64 = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const nlist = extern struct {
     n_strx: u32,
     n_type: u8,
@@ -1755,7 +1755,7 @@ pub const nlist = extern struct {
     n_desc: i16,
     n_value: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1776,7 +1776,7 @@ pub const nlist = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const nlist_64 = extern struct {
     n_strx: u32,
     n_type: u8,
@@ -1837,7 +1837,7 @@ pub const nlist_64 = extern struct {
         return sym.n_value != 0;
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1865,7 +1865,7 @@ This modification is required to support symbols in an arbitrary number of
 sections not just the three sections (text, data and bss) in a 4.3BSD file.
 Also the last 4 bits have had the r_type tag added to them.
 
-\`\`\`zig
+```zig
 pub const relocation_info = packed struct {
     /// offset in the section to what is being relocated
     r_address: i32,
@@ -1885,7 +1885,7 @@ pub const relocation_info = packed struct {
     /// if not 0, machine specific relocation type
     r_type: u4,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1907,7 +1907,7 @@ pub const relocation_info = packed struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const LC = enum(u32) {
     /// No load command - invalid
     NONE = 0x0,
@@ -2074,7 +2074,7 @@ pub const LC = enum(u32) {
 
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2145,7 +2145,7 @@ pub const LC = enum(u32) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const reloc_type_x86_64 = enum(u4) {
     /// for absolute addresses
     X86_64_RELOC_UNSIGNED = 0,
@@ -2177,7 +2177,7 @@ pub const reloc_type_x86_64 = enum(u4) {
     /// for thread local variables
     X86_64_RELOC_TLV,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2203,7 +2203,7 @@ pub const reloc_type_x86_64 = enum(u4) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const reloc_type_arm64 = enum(u4) {
     /// For pointers.
     ARM64_RELOC_UNSIGNED = 0,
@@ -2238,7 +2238,7 @@ pub const reloc_type_arm64 = enum(u4) {
     /// Must be followed by PAGE21 or PAGEOFF12.
     ARM64_RELOC_ADDEND,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2267,7 +2267,7 @@ pub const reloc_type_arm64 = enum(u4) {
 
 This CodeDirectory is tailored specifically at version 0x20400.
 
-\`\`\`zig
+```zig
 pub const CodeDirectory = extern struct {
     /// Magic number (CSMAGIC_CODEDIRECTORY)
     magic: u32,
@@ -2332,7 +2332,7 @@ pub const CodeDirectory = extern struct {
     /// Executable segment flags
     execSegFlags: u64,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2371,7 +2371,7 @@ pub const CodeDirectory = extern struct {
 
 Structure of an embedded-signature SuperBlob
 
-\`\`\`zig
+```zig
 pub const BlobIndex = extern struct {
     /// Type of entry
     type: u32,
@@ -2379,7 +2379,7 @@ pub const BlobIndex = extern struct {
     /// Offset of entry
     offset: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2400,7 +2400,7 @@ pub const BlobIndex = extern struct {
 This structure is followed by GenericBlobs in no particular
 order as indicated by offsets in index
 
-\`\`\`zig
+```zig
 pub const SuperBlob = extern struct {
     /// Magic number
     magic: u32,
@@ -2411,7 +2411,7 @@ pub const SuperBlob = extern struct {
     /// Number of index BlobIndex entries following this struct
     count: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2430,7 +2430,7 @@ pub const SuperBlob = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const GenericBlob = extern struct {
     /// Magic number
     magic: u32,
@@ -2438,7 +2438,7 @@ pub const GenericBlob = extern struct {
     /// Total length of blob
     length: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2460,7 +2460,7 @@ The LC_DATA_IN_CODE load commands uses a linkedit_data_command
 to point to an array of data_in_code_entry entries. Each entry
 describes a range of data in a code section.
 
-\`\`\`zig
+```zig
 pub const data_in_code_entry = extern struct {
     /// From mach_header to start of data range.
     offset: u32,
@@ -2471,7 +2471,7 @@ pub const data_in_code_entry = extern struct {
     /// A DICE_KIND value.
     kind: u16,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2490,7 +2490,7 @@ pub const data_in_code_entry = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const LoadCommandIterator = struct {
     ncmds: usize,
     buffer: []const u8,
@@ -2562,7 +2562,7 @@ pub const LoadCommandIterator = struct {
         return cmd;
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2581,7 +2581,7 @@ pub const LoadCommandIterator = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const compact_unwind_entry = extern struct {
     rangeStart: u64,
     rangeLength: u32,
@@ -2589,7 +2589,7 @@ pub const compact_unwind_entry = extern struct {
     personalityFunction: u64,
     lsda: u64,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2610,7 +2610,7 @@ pub const compact_unwind_entry = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const unwind_info_section_header = extern struct {
     /// UNWIND_SECTION_VERSION
     version: u32 = UNWIND_SECTION_VERSION,
@@ -2625,7 +2625,7 @@ pub const unwind_info_section_header = extern struct {
     // unwind_info_section_header_index_entry[]
     // unwind_info_section_header_lsda_index_entry[]
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2648,7 +2648,7 @@ pub const unwind_info_section_header = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const unwind_info_section_header_index_entry = extern struct {
     functionOffset: u32,
 
@@ -2658,7 +2658,7 @@ pub const unwind_info_section_header_index_entry = extern struct {
     /// section offset to start of lsda_index array for this range
     lsdaIndexArraySectionOffset: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2677,12 +2677,12 @@ pub const unwind_info_section_header_index_entry = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const unwind_info_section_header_lsda_index_entry = extern struct {
     functionOffset: u32,
     lsdaOffset: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2700,12 +2700,12 @@ pub const unwind_info_section_header_lsda_index_entry = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const unwind_info_regular_second_level_entry = extern struct {
     functionOffset: u32,
     encoding: compact_unwind_encoding_t,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2723,13 +2723,13 @@ pub const unwind_info_regular_second_level_entry = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_SECOND_LEVEL = enum(u32) {
     REGULAR = 2,
     COMPRESSED = 3,
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2748,7 +2748,7 @@ pub const UNWIND_SECOND_LEVEL = enum(u32) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const unwind_info_regular_second_level_page_header = extern struct {
     /// UNWIND_SECOND_LEVEL_REGULAR
     kind: UNWIND_SECOND_LEVEL = .REGULAR,
@@ -2757,7 +2757,7 @@ pub const unwind_info_regular_second_level_page_header = extern struct {
     entryCount: u16,
     // entry array
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2776,7 +2776,7 @@ pub const unwind_info_regular_second_level_page_header = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const unwind_info_compressed_second_level_page_header = extern struct {
     /// UNWIND_SECOND_LEVEL_COMPRESSED
     kind: UNWIND_SECOND_LEVEL = .COMPRESSED,
@@ -2788,7 +2788,7 @@ pub const unwind_info_compressed_second_level_page_header = extern struct {
     // 32bit entry array
     // encodings array
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2809,12 +2809,12 @@ pub const unwind_info_compressed_second_level_page_header = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const UnwindInfoCompressedEntry = packed struct {
     funcOffset: u24,
     encodingIndex: u8,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2832,7 +2832,7 @@ pub const UnwindInfoCompressedEntry = packed struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_X86_64_MODE = enum(u4) {
     OLD = 0,
     RBP_FRAME = 1,
@@ -2840,7 +2840,7 @@ pub const UNWIND_X86_64_MODE = enum(u4) {
     STACK_IND = 3,
     DWARF = 4,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2861,7 +2861,7 @@ pub const UNWIND_X86_64_MODE = enum(u4) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_X86_64_REG = enum(u3) {
     NONE = 0,
     RBX = 1,
@@ -2871,7 +2871,7 @@ pub const UNWIND_X86_64_REG = enum(u3) {
     R15 = 5,
     RBP = 6,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2894,14 +2894,14 @@ pub const UNWIND_X86_64_REG = enum(u3) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_ARM64_MODE = enum(u4) {
     OLD = 0,
     FRAMELESS = 2,
     DWARF = 3,
     FRAME = 4,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2921,7 +2921,7 @@ pub const UNWIND_ARM64_MODE = enum(u4) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const CompactUnwindEncoding = packed struct(u32) {
     value: packed union {
         x86_64: packed union {
@@ -2982,7 +2982,7 @@ pub const CompactUnwindEncoding = packed struct(u32) {
     has_lsda: u1,
     start: u1,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2998,7 +2998,7 @@ pub const CompactUnwindEncoding = packed struct(u32) {
 [^type-compactunwindencoding-value-type-0]:
     Type for field `value` of `CompactUnwindEncoding`:
 
-    \`\`\`zig
+    ```zig
     packed union {
             x86_64: packed union {
                 frame: packed struct(u24) {
@@ -3050,17 +3050,17 @@ pub const CompactUnwindEncoding = packed struct(u32) {
                 dwarf: u24,
             },
         }
-    \`\`\`
+    ```
 
 [^type-compactunwindencoding-mode-type-1]:
     Type for field `mode` of `CompactUnwindEncoding`:
 
-    \`\`\`zig
+    ```zig
     packed union {
             x86_64: UNWIND_X86_64_MODE,
             arm64: UNWIND_ARM64_MODE,
         }
-    \`\`\`
+    ```
 
 </details>
 
@@ -3073,9 +3073,9 @@ pub const CompactUnwindEncoding = packed struct(u32) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const cpu_type_t = c_int
-\`\`\`
+```
 
 </details>
 
@@ -3086,9 +3086,9 @@ pub const cpu_type_t = c_int
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const cpu_subtype_t = c_int
-\`\`\`
+```
 
 </details>
 
@@ -3099,9 +3099,9 @@ pub const cpu_subtype_t = c_int
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const vm_prot_t = c_int
-\`\`\`
+```
 
 </details>
 
@@ -3120,9 +3120,9 @@ linker sees such a load command it it does not understand will issue a
 image.  Other load commands without this bit that are not understood will
 simply be ignored.
 
-\`\`\`zig
+```zig
 pub const LC_REQ_DYLD = 0x80000000
-\`\`\`
+```
 
 </details>
 
@@ -3135,9 +3135,9 @@ pub const LC_REQ_DYLD = 0x80000000
 
 the mach magic number
 
-\`\`\`zig
+```zig
 pub const MH_MAGIC = 0xfeedface
-\`\`\`
+```
 
 </details>
 
@@ -3150,9 +3150,9 @@ pub const MH_MAGIC = 0xfeedface
 
 NXSwapInt(MH_MAGIC)
 
-\`\`\`zig
+```zig
 pub const MH_CIGAM = 0xcefaedfe
-\`\`\`
+```
 
 </details>
 
@@ -3165,9 +3165,9 @@ pub const MH_CIGAM = 0xcefaedfe
 
 the 64-bit mach magic number
 
-\`\`\`zig
+```zig
 pub const MH_MAGIC_64 = 0xfeedfacf
-\`\`\`
+```
 
 </details>
 
@@ -3180,9 +3180,9 @@ pub const MH_MAGIC_64 = 0xfeedfacf
 
 NXSwapInt(MH_MAGIC_64)
 
-\`\`\`zig
+```zig
 pub const MH_CIGAM_64 = 0xcffaedfe
-\`\`\`
+```
 
 </details>
 
@@ -3195,9 +3195,9 @@ pub const MH_CIGAM_64 = 0xcffaedfe
 
 relocatable object file
 
-\`\`\`zig
+```zig
 pub const MH_OBJECT = 0x1
-\`\`\`
+```
 
 </details>
 
@@ -3210,9 +3210,9 @@ pub const MH_OBJECT = 0x1
 
 demand paged executable file
 
-\`\`\`zig
+```zig
 pub const MH_EXECUTE = 0x2
-\`\`\`
+```
 
 </details>
 
@@ -3225,9 +3225,9 @@ pub const MH_EXECUTE = 0x2
 
 fixed VM shared library file
 
-\`\`\`zig
+```zig
 pub const MH_FVMLIB = 0x3
-\`\`\`
+```
 
 </details>
 
@@ -3240,9 +3240,9 @@ pub const MH_FVMLIB = 0x3
 
 core file
 
-\`\`\`zig
+```zig
 pub const MH_CORE = 0x4
-\`\`\`
+```
 
 </details>
 
@@ -3255,9 +3255,9 @@ pub const MH_CORE = 0x4
 
 preloaded executable file
 
-\`\`\`zig
+```zig
 pub const MH_PRELOAD = 0x5
-\`\`\`
+```
 
 </details>
 
@@ -3270,9 +3270,9 @@ pub const MH_PRELOAD = 0x5
 
 dynamically bound shared library
 
-\`\`\`zig
+```zig
 pub const MH_DYLIB = 0x6
-\`\`\`
+```
 
 </details>
 
@@ -3285,9 +3285,9 @@ pub const MH_DYLIB = 0x6
 
 dynamic link editor
 
-\`\`\`zig
+```zig
 pub const MH_DYLINKER = 0x7
-\`\`\`
+```
 
 </details>
 
@@ -3300,9 +3300,9 @@ pub const MH_DYLINKER = 0x7
 
 dynamically bound bundle file
 
-\`\`\`zig
+```zig
 pub const MH_BUNDLE = 0x8
-\`\`\`
+```
 
 </details>
 
@@ -3315,9 +3315,9 @@ pub const MH_BUNDLE = 0x8
 
 shared library stub for static linking only, no section contents
 
-\`\`\`zig
+```zig
 pub const MH_DYLIB_STUB = 0x9
-\`\`\`
+```
 
 </details>
 
@@ -3330,9 +3330,9 @@ pub const MH_DYLIB_STUB = 0x9
 
 companion file with only debug sections
 
-\`\`\`zig
+```zig
 pub const MH_DSYM = 0xa
-\`\`\`
+```
 
 </details>
 
@@ -3345,9 +3345,9 @@ pub const MH_DSYM = 0xa
 
 x86_64 kexts
 
-\`\`\`zig
+```zig
 pub const MH_KEXT_BUNDLE = 0xb
-\`\`\`
+```
 
 </details>
 
@@ -3360,9 +3360,9 @@ pub const MH_KEXT_BUNDLE = 0xb
 
 the object file has no undefined references
 
-\`\`\`zig
+```zig
 pub const MH_NOUNDEFS = 0x1
-\`\`\`
+```
 
 </details>
 
@@ -3375,9 +3375,9 @@ pub const MH_NOUNDEFS = 0x1
 
 the object file is the output of an incremental link against a base file and can't be link edited again
 
-\`\`\`zig
+```zig
 pub const MH_INCRLINK = 0x2
-\`\`\`
+```
 
 </details>
 
@@ -3390,9 +3390,9 @@ pub const MH_INCRLINK = 0x2
 
 the object file is input for the dynamic linker and can't be statically link edited again
 
-\`\`\`zig
+```zig
 pub const MH_DYLDLINK = 0x4
-\`\`\`
+```
 
 </details>
 
@@ -3405,9 +3405,9 @@ pub const MH_DYLDLINK = 0x4
 
 the object file's undefined references are bound by the dynamic linker when loaded.
 
-\`\`\`zig
+```zig
 pub const MH_BINDATLOAD = 0x8
-\`\`\`
+```
 
 </details>
 
@@ -3420,9 +3420,9 @@ pub const MH_BINDATLOAD = 0x8
 
 the file has its dynamic undefined references prebound.
 
-\`\`\`zig
+```zig
 pub const MH_PREBOUND = 0x10
-\`\`\`
+```
 
 </details>
 
@@ -3435,9 +3435,9 @@ pub const MH_PREBOUND = 0x10
 
 the file has its read-only and read-write segments split
 
-\`\`\`zig
+```zig
 pub const MH_SPLIT_SEGS = 0x20
-\`\`\`
+```
 
 </details>
 
@@ -3450,9 +3450,9 @@ pub const MH_SPLIT_SEGS = 0x20
 
 the shared library init routine is to be run lazily via catching memory faults to its writeable segments (obsolete)
 
-\`\`\`zig
+```zig
 pub const MH_LAZY_INIT = 0x40
-\`\`\`
+```
 
 </details>
 
@@ -3465,9 +3465,9 @@ pub const MH_LAZY_INIT = 0x40
 
 the image is using two-level name space bindings
 
-\`\`\`zig
+```zig
 pub const MH_TWOLEVEL = 0x80
-\`\`\`
+```
 
 </details>
 
@@ -3480,9 +3480,9 @@ pub const MH_TWOLEVEL = 0x80
 
 the executable is forcing all images to use flat name space bindings
 
-\`\`\`zig
+```zig
 pub const MH_FORCE_FLAT = 0x100
-\`\`\`
+```
 
 </details>
 
@@ -3495,9 +3495,9 @@ pub const MH_FORCE_FLAT = 0x100
 
 this umbrella guarantees no multiple definitions of symbols in its sub-images so the two-level namespace hints can always be used.
 
-\`\`\`zig
+```zig
 pub const MH_NOMULTIDEFS = 0x200
-\`\`\`
+```
 
 </details>
 
@@ -3510,9 +3510,9 @@ pub const MH_NOMULTIDEFS = 0x200
 
 do not have dyld notify the prebinding agent about this executable
 
-\`\`\`zig
+```zig
 pub const MH_NOFIXPREBINDING = 0x400
-\`\`\`
+```
 
 </details>
 
@@ -3525,9 +3525,9 @@ pub const MH_NOFIXPREBINDING = 0x400
 
 the binary is not prebound but can have its prebinding redone. only used when MH_PREBOUND is not set.
 
-\`\`\`zig
+```zig
 pub const MH_PREBINDABLE = 0x800
-\`\`\`
+```
 
 </details>
 
@@ -3540,9 +3540,9 @@ pub const MH_PREBINDABLE = 0x800
 
 indicates that this binary binds to all two-level namespace modules of its dependent libraries. only used when MH_PREBINDABLE and MH_TWOLEVEL are both set.
 
-\`\`\`zig
+```zig
 pub const MH_ALLMODSBOUND = 0x1000
-\`\`\`
+```
 
 </details>
 
@@ -3555,9 +3555,9 @@ pub const MH_ALLMODSBOUND = 0x1000
 
 safe to divide up the sections into sub-sections via symbols for dead code stripping
 
-\`\`\`zig
+```zig
 pub const MH_SUBSECTIONS_VIA_SYMBOLS = 0x2000
-\`\`\`
+```
 
 </details>
 
@@ -3570,9 +3570,9 @@ pub const MH_SUBSECTIONS_VIA_SYMBOLS = 0x2000
 
 the binary has been canonicalized via the unprebind operation
 
-\`\`\`zig
+```zig
 pub const MH_CANONICAL = 0x4000
-\`\`\`
+```
 
 </details>
 
@@ -3585,9 +3585,9 @@ pub const MH_CANONICAL = 0x4000
 
 the final linked image contains external weak symbols
 
-\`\`\`zig
+```zig
 pub const MH_WEAK_DEFINES = 0x8000
-\`\`\`
+```
 
 </details>
 
@@ -3600,9 +3600,9 @@ pub const MH_WEAK_DEFINES = 0x8000
 
 the final linked image uses weak symbols
 
-\`\`\`zig
+```zig
 pub const MH_BINDS_TO_WEAK = 0x10000
-\`\`\`
+```
 
 </details>
 
@@ -3615,9 +3615,9 @@ pub const MH_BINDS_TO_WEAK = 0x10000
 
 When this bit is set, all stacks in the task will be given stack execution privilege.  Only used in MH_EXECUTE filetypes.
 
-\`\`\`zig
+```zig
 pub const MH_ALLOW_STACK_EXECUTION = 0x20000
-\`\`\`
+```
 
 </details>
 
@@ -3630,9 +3630,9 @@ pub const MH_ALLOW_STACK_EXECUTION = 0x20000
 
 When this bit is set, the binary declares it is safe for use in processes with uid zero
 
-\`\`\`zig
+```zig
 pub const MH_ROOT_SAFE = 0x40000
-\`\`\`
+```
 
 </details>
 
@@ -3645,9 +3645,9 @@ pub const MH_ROOT_SAFE = 0x40000
 
 When this bit is set, the binary declares it is safe for use in processes when issetugid() is true
 
-\`\`\`zig
+```zig
 pub const MH_SETUID_SAFE = 0x80000
-\`\`\`
+```
 
 </details>
 
@@ -3660,9 +3660,9 @@ pub const MH_SETUID_SAFE = 0x80000
 
 When this bit is set on a dylib, the static linker does not need to examine dependent dylibs to see if any are re-exported
 
-\`\`\`zig
+```zig
 pub const MH_NO_REEXPORTED_DYLIBS = 0x100000
-\`\`\`
+```
 
 </details>
 
@@ -3675,9 +3675,9 @@ pub const MH_NO_REEXPORTED_DYLIBS = 0x100000
 
 When this bit is set, the OS will load the main executable at a random address.  Only used in MH_EXECUTE filetypes.
 
-\`\`\`zig
+```zig
 pub const MH_PIE = 0x200000
-\`\`\`
+```
 
 </details>
 
@@ -3690,9 +3690,9 @@ pub const MH_PIE = 0x200000
 
 Only for use on dylibs.  When linking against a dylib that has this bit set, the static linker will automatically not create a LC_LOAD_DYLIB load command to the dylib if no symbols are being referenced from the dylib.
 
-\`\`\`zig
+```zig
 pub const MH_DEAD_STRIPPABLE_DYLIB = 0x400000
-\`\`\`
+```
 
 </details>
 
@@ -3705,9 +3705,9 @@ pub const MH_DEAD_STRIPPABLE_DYLIB = 0x400000
 
 Contains a section of type S_THREAD_LOCAL_VARIABLES
 
-\`\`\`zig
+```zig
 pub const MH_HAS_TLV_DESCRIPTORS = 0x800000
-\`\`\`
+```
 
 </details>
 
@@ -3720,9 +3720,9 @@ pub const MH_HAS_TLV_DESCRIPTORS = 0x800000
 
 When this bit is set, the OS will run the main executable with a non-executable heap even on platforms (e.g. x86) that don't require it. Only used in MH_EXECUTE filetypes.
 
-\`\`\`zig
+```zig
 pub const MH_NO_HEAP_EXECUTION = 0x1000000
-\`\`\`
+```
 
 </details>
 
@@ -3735,9 +3735,9 @@ pub const MH_NO_HEAP_EXECUTION = 0x1000000
 
 The code was linked for use in an application extension.
 
-\`\`\`zig
+```zig
 pub const MH_APP_EXTENSION_SAFE = 0x02000000
-\`\`\`
+```
 
 </details>
 
@@ -3750,9 +3750,9 @@ pub const MH_APP_EXTENSION_SAFE = 0x02000000
 
 The external symbols listed in the nlist symbol table do not include all the symbols listed in the dyld info.
 
-\`\`\`zig
+```zig
 pub const MH_NLIST_OUTOFSYNC_WITH_DYLDINFO = 0x04000000
-\`\`\`
+```
 
 </details>
 
@@ -3765,9 +3765,9 @@ pub const MH_NLIST_OUTOFSYNC_WITH_DYLDINFO = 0x04000000
 
 Allow LC_MIN_VERSION_MACOS and LC_BUILD_VERSION load commands with the platforms macOS, iOSMac, iOSSimulator, tvOSSimulator and watchOSSimulator.
 
-\`\`\`zig
+```zig
 pub const MH_SIM_SUPPORT = 0x08000000
-\`\`\`
+```
 
 </details>
 
@@ -3780,9 +3780,9 @@ pub const MH_SIM_SUPPORT = 0x08000000
 
 Only for use on dylibs. When this bit is set, the dylib is part of the dyld shared cache, rather than loose in the filesystem.
 
-\`\`\`zig
+```zig
 pub const MH_DYLIB_IN_CACHE = 0x80000000
-\`\`\`
+```
 
 </details>
 
@@ -3795,9 +3795,9 @@ pub const MH_DYLIB_IN_CACHE = 0x80000000
 
 the fat magic number
 
-\`\`\`zig
+```zig
 pub const FAT_MAGIC = 0xcafebabe
-\`\`\`
+```
 
 </details>
 
@@ -3810,9 +3810,9 @@ pub const FAT_MAGIC = 0xcafebabe
 
 NXSwapLong(FAT_MAGIC)
 
-\`\`\`zig
+```zig
 pub const FAT_CIGAM = 0xbebafeca
-\`\`\`
+```
 
 </details>
 
@@ -3825,9 +3825,9 @@ pub const FAT_CIGAM = 0xbebafeca
 
 the 64-bit fat magic number
 
-\`\`\`zig
+```zig
 pub const FAT_MAGIC_64 = 0xcafebabf
-\`\`\`
+```
 
 </details>
 
@@ -3840,9 +3840,9 @@ pub const FAT_MAGIC_64 = 0xcafebabf
 
 NXSwapLong(FAT_MAGIC_64)
 
-\`\`\`zig
+```zig
 pub const FAT_CIGAM_64 = 0xbfbafeca
-\`\`\`
+```
 
 </details>
 
@@ -3857,9 +3857,9 @@ Segment flags
 The file contents for this segment is for the high part of the VM space, the low part
 is zero filled (for stacks in core files).
 
-\`\`\`zig
+```zig
 pub const SG_HIGHVM = 0x1
-\`\`\`
+```
 
 </details>
 
@@ -3873,9 +3873,9 @@ pub const SG_HIGHVM = 0x1
 This segment is the VM that is allocated by a fixed VM library, for overlap checking in
 the link editor.
 
-\`\`\`zig
+```zig
 pub const SG_FVMLIB = 0x2
-\`\`\`
+```
 
 </details>
 
@@ -3889,9 +3889,9 @@ pub const SG_FVMLIB = 0x2
 This segment has nothing that was relocated in it and nothing relocated to it, that is
 it maybe safely replaced without relocation.
 
-\`\`\`zig
+```zig
 pub const SG_NORELOC = 0x4
-\`\`\`
+```
 
 </details>
 
@@ -3905,9 +3905,9 @@ pub const SG_NORELOC = 0x4
 This segment is protected.  If the segment starts at file offset 0, the
 first page of the segment is not protected.  All other pages of the segment are protected.
 
-\`\`\`zig
+```zig
 pub const SG_PROTECTED_VERSION_1 = 0x8
-\`\`\`
+```
 
 </details>
 
@@ -3920,9 +3920,9 @@ pub const SG_PROTECTED_VERSION_1 = 0x8
 
 This segment is made read-only after fixups
 
-\`\`\`zig
+```zig
 pub const SG_READ_ONLY = 0x10
-\`\`\`
+```
 
 </details>
 
@@ -3939,9 +3939,9 @@ can only have one type) but the section attributes are not (it may have more
 than one attribute).
 256 section types
 
-\`\`\`zig
+```zig
 pub const SECTION_TYPE = 0x000000ff
-\`\`\`
+```
 
 </details>
 
@@ -3954,9 +3954,9 @@ pub const SECTION_TYPE = 0x000000ff
 
  24 section attributes
 
-\`\`\`zig
+```zig
 pub const SECTION_ATTRIBUTES = 0xffffff00
-\`\`\`
+```
 
 </details>
 
@@ -3969,9 +3969,9 @@ pub const SECTION_ATTRIBUTES = 0xffffff00
 
 regular section
 
-\`\`\`zig
+```zig
 pub const S_REGULAR = 0x0
-\`\`\`
+```
 
 </details>
 
@@ -3984,9 +3984,9 @@ pub const S_REGULAR = 0x0
 
 zero fill on demand section
 
-\`\`\`zig
+```zig
 pub const S_ZEROFILL = 0x1
-\`\`\`
+```
 
 </details>
 
@@ -3999,9 +3999,9 @@ pub const S_ZEROFILL = 0x1
 
 section with only literal C string
 
-\`\`\`zig
+```zig
 pub const S_CSTRING_LITERALS = 0x2
-\`\`\`
+```
 
 </details>
 
@@ -4014,9 +4014,9 @@ pub const S_CSTRING_LITERALS = 0x2
 
 section with only 4 byte literals
 
-\`\`\`zig
+```zig
 pub const S_4BYTE_LITERALS = 0x3
-\`\`\`
+```
 
 </details>
 
@@ -4029,9 +4029,9 @@ pub const S_4BYTE_LITERALS = 0x3
 
 section with only 8 byte literals
 
-\`\`\`zig
+```zig
 pub const S_8BYTE_LITERALS = 0x4
-\`\`\`
+```
 
 </details>
 
@@ -4044,9 +4044,9 @@ pub const S_8BYTE_LITERALS = 0x4
 
 section with only pointers to
 
-\`\`\`zig
+```zig
 pub const S_LITERAL_POINTERS = 0x5
-\`\`\`
+```
 
 </details>
 
@@ -4059,9 +4059,9 @@ pub const S_LITERAL_POINTERS = 0x5
 
 if any of these bits set, a symbolic debugging entry
 
-\`\`\`zig
+```zig
 pub const N_STAB = 0xe0
-\`\`\`
+```
 
 </details>
 
@@ -4074,9 +4074,9 @@ pub const N_STAB = 0xe0
 
 private external symbol bit
 
-\`\`\`zig
+```zig
 pub const N_PEXT = 0x10
-\`\`\`
+```
 
 </details>
 
@@ -4089,9 +4089,9 @@ pub const N_PEXT = 0x10
 
 mask for the type bits
 
-\`\`\`zig
+```zig
 pub const N_TYPE = 0x0e
-\`\`\`
+```
 
 </details>
 
@@ -4104,9 +4104,9 @@ pub const N_TYPE = 0x0e
 
 external symbol bit, set for external symbols
 
-\`\`\`zig
+```zig
 pub const N_EXT = 0x01
-\`\`\`
+```
 
 </details>
 
@@ -4119,9 +4119,9 @@ pub const N_EXT = 0x01
 
 symbol is undefined
 
-\`\`\`zig
+```zig
 pub const N_UNDF = 0x0
-\`\`\`
+```
 
 </details>
 
@@ -4134,9 +4134,9 @@ pub const N_UNDF = 0x0
 
 symbol is absolute
 
-\`\`\`zig
+```zig
 pub const N_ABS = 0x2
-\`\`\`
+```
 
 </details>
 
@@ -4149,9 +4149,9 @@ pub const N_ABS = 0x2
 
 symbol is defined in the section number given in n_sect
 
-\`\`\`zig
+```zig
 pub const N_SECT = 0xe
-\`\`\`
+```
 
 </details>
 
@@ -4165,9 +4165,9 @@ pub const N_SECT = 0xe
 symbol is undefined  and the image is using a prebound
 value  for the symbol
 
-\`\`\`zig
+```zig
 pub const N_PBUD = 0xc
-\`\`\`
+```
 
 </details>
 
@@ -4182,9 +4182,9 @@ symbol is defined to be the same as another symbol; the n_value
 field is an index into the string table specifying the name of the
 other symbol
 
-\`\`\`zig
+```zig
 pub const N_INDR = 0xa
-\`\`\`
+```
 
 </details>
 
@@ -4197,9 +4197,9 @@ pub const N_INDR = 0xa
 
 global symbol: name,,NO_SECT,type,0
 
-\`\`\`zig
+```zig
 pub const N_GSYM = 0x20
-\`\`\`
+```
 
 </details>
 
@@ -4212,9 +4212,9 @@ pub const N_GSYM = 0x20
 
 procedure name (f77 kludge): name,,NO_SECT,0,0
 
-\`\`\`zig
+```zig
 pub const N_FNAME = 0x22
-\`\`\`
+```
 
 </details>
 
@@ -4227,9 +4227,9 @@ pub const N_FNAME = 0x22
 
 procedure: name,,n_sect,linenumber,address
 
-\`\`\`zig
+```zig
 pub const N_FUN = 0x24
-\`\`\`
+```
 
 </details>
 
@@ -4242,9 +4242,9 @@ pub const N_FUN = 0x24
 
 static symbol: name,,n_sect,type,address
 
-\`\`\`zig
+```zig
 pub const N_STSYM = 0x26
-\`\`\`
+```
 
 </details>
 
@@ -4257,9 +4257,9 @@ pub const N_STSYM = 0x26
 
 .lcomm symbol: name,,n_sect,type,address
 
-\`\`\`zig
+```zig
 pub const N_LCSYM = 0x28
-\`\`\`
+```
 
 </details>
 
@@ -4272,9 +4272,9 @@ pub const N_LCSYM = 0x28
 
 begin nsect sym: 0,,n_sect,0,address
 
-\`\`\`zig
+```zig
 pub const N_BNSYM = 0x2e
-\`\`\`
+```
 
 </details>
 
@@ -4287,9 +4287,9 @@ pub const N_BNSYM = 0x2e
 
 AST file path: name,,NO_SECT,0,0
 
-\`\`\`zig
+```zig
 pub const N_AST = 0x32
-\`\`\`
+```
 
 </details>
 
@@ -4302,9 +4302,9 @@ pub const N_AST = 0x32
 
 emitted with gcc2_compiled and in gcc source
 
-\`\`\`zig
+```zig
 pub const N_OPT = 0x3c
-\`\`\`
+```
 
 </details>
 
@@ -4317,9 +4317,9 @@ pub const N_OPT = 0x3c
 
 register sym: name,,NO_SECT,type,register
 
-\`\`\`zig
+```zig
 pub const N_RSYM = 0x40
-\`\`\`
+```
 
 </details>
 
@@ -4332,9 +4332,9 @@ pub const N_RSYM = 0x40
 
 src line: 0,,n_sect,linenumber,address
 
-\`\`\`zig
+```zig
 pub const N_SLINE = 0x44
-\`\`\`
+```
 
 </details>
 
@@ -4347,9 +4347,9 @@ pub const N_SLINE = 0x44
 
 end nsect sym: 0,,n_sect,0,address
 
-\`\`\`zig
+```zig
 pub const N_ENSYM = 0x4e
-\`\`\`
+```
 
 </details>
 
@@ -4362,9 +4362,9 @@ pub const N_ENSYM = 0x4e
 
 structure elt: name,,NO_SECT,type,struct_offset
 
-\`\`\`zig
+```zig
 pub const N_SSYM = 0x60
-\`\`\`
+```
 
 </details>
 
@@ -4377,9 +4377,9 @@ pub const N_SSYM = 0x60
 
 source file name: name,,n_sect,0,address
 
-\`\`\`zig
+```zig
 pub const N_SO = 0x64
-\`\`\`
+```
 
 </details>
 
@@ -4392,9 +4392,9 @@ pub const N_SO = 0x64
 
 object file name: name,,0,0,st_mtime
 
-\`\`\`zig
+```zig
 pub const N_OSO = 0x66
-\`\`\`
+```
 
 </details>
 
@@ -4407,9 +4407,9 @@ pub const N_OSO = 0x66
 
 local sym: name,,NO_SECT,type,offset
 
-\`\`\`zig
+```zig
 pub const N_LSYM = 0x80
-\`\`\`
+```
 
 </details>
 
@@ -4422,9 +4422,9 @@ pub const N_LSYM = 0x80
 
 include file beginning: name,,NO_SECT,0,sum
 
-\`\`\`zig
+```zig
 pub const N_BINCL = 0x82
-\`\`\`
+```
 
 </details>
 
@@ -4437,9 +4437,9 @@ pub const N_BINCL = 0x82
 
 #included file name: name,,n_sect,0,address
 
-\`\`\`zig
+```zig
 pub const N_SOL = 0x84
-\`\`\`
+```
 
 </details>
 
@@ -4452,9 +4452,9 @@ pub const N_SOL = 0x84
 
 compiler parameters: name,,NO_SECT,0,0
 
-\`\`\`zig
+```zig
 pub const N_PARAMS = 0x86
-\`\`\`
+```
 
 </details>
 
@@ -4467,9 +4467,9 @@ pub const N_PARAMS = 0x86
 
 compiler version: name,,NO_SECT,0,0
 
-\`\`\`zig
+```zig
 pub const N_VERSION = 0x88
-\`\`\`
+```
 
 </details>
 
@@ -4482,9 +4482,9 @@ pub const N_VERSION = 0x88
 
 compiler -O level: name,,NO_SECT,0,0
 
-\`\`\`zig
+```zig
 pub const N_OLEVEL = 0x8A
-\`\`\`
+```
 
 </details>
 
@@ -4497,9 +4497,9 @@ pub const N_OLEVEL = 0x8A
 
 parameter: name,,NO_SECT,type,offset
 
-\`\`\`zig
+```zig
 pub const N_PSYM = 0xa0
-\`\`\`
+```
 
 </details>
 
@@ -4512,9 +4512,9 @@ pub const N_PSYM = 0xa0
 
 include file end: name,,NO_SECT,0,0
 
-\`\`\`zig
+```zig
 pub const N_EINCL = 0xa2
-\`\`\`
+```
 
 </details>
 
@@ -4527,9 +4527,9 @@ pub const N_EINCL = 0xa2
 
 alternate entry: name,,n_sect,linenumber,address
 
-\`\`\`zig
+```zig
 pub const N_ENTRY = 0xa4
-\`\`\`
+```
 
 </details>
 
@@ -4542,9 +4542,9 @@ pub const N_ENTRY = 0xa4
 
 left bracket: 0,,NO_SECT,nesting level,address
 
-\`\`\`zig
+```zig
 pub const N_LBRAC = 0xc0
-\`\`\`
+```
 
 </details>
 
@@ -4557,9 +4557,9 @@ pub const N_LBRAC = 0xc0
 
 deleted include file: name,,NO_SECT,0,sum
 
-\`\`\`zig
+```zig
 pub const N_EXCL = 0xc2
-\`\`\`
+```
 
 </details>
 
@@ -4572,9 +4572,9 @@ pub const N_EXCL = 0xc2
 
 right bracket: 0,,NO_SECT,nesting level,address
 
-\`\`\`zig
+```zig
 pub const N_RBRAC = 0xe0
-\`\`\`
+```
 
 </details>
 
@@ -4587,9 +4587,9 @@ pub const N_RBRAC = 0xe0
 
 begin common: name,,NO_SECT,0,0
 
-\`\`\`zig
+```zig
 pub const N_BCOMM = 0xe2
-\`\`\`
+```
 
 </details>
 
@@ -4602,9 +4602,9 @@ pub const N_BCOMM = 0xe2
 
 end common: name,,n_sect,0,0
 
-\`\`\`zig
+```zig
 pub const N_ECOMM = 0xe4
-\`\`\`
+```
 
 </details>
 
@@ -4617,9 +4617,9 @@ pub const N_ECOMM = 0xe4
 
 end common (local name): 0,,n_sect,0,address
 
-\`\`\`zig
+```zig
 pub const N_ECOML = 0xe8
-\`\`\`
+```
 
 </details>
 
@@ -4632,9 +4632,9 @@ pub const N_ECOML = 0xe8
 
 second stab entry with length information
 
-\`\`\`zig
+```zig
 pub const N_LENG = 0xfe
-\`\`\`
+```
 
 </details>
 
@@ -4647,9 +4647,9 @@ pub const N_LENG = 0xfe
 
 section with only non-lazy symbol pointers
 
-\`\`\`zig
+```zig
 pub const S_NON_LAZY_SYMBOL_POINTERS = 0x6
-\`\`\`
+```
 
 </details>
 
@@ -4662,9 +4662,9 @@ pub const S_NON_LAZY_SYMBOL_POINTERS = 0x6
 
 section with only lazy symbol pointers
 
-\`\`\`zig
+```zig
 pub const S_LAZY_SYMBOL_POINTERS = 0x7
-\`\`\`
+```
 
 </details>
 
@@ -4677,9 +4677,9 @@ pub const S_LAZY_SYMBOL_POINTERS = 0x7
 
 section with only symbol stubs, byte size of stub in the reserved2 field
 
-\`\`\`zig
+```zig
 pub const S_SYMBOL_STUBS = 0x8
-\`\`\`
+```
 
 </details>
 
@@ -4692,9 +4692,9 @@ pub const S_SYMBOL_STUBS = 0x8
 
 section with only function pointers for initialization
 
-\`\`\`zig
+```zig
 pub const S_MOD_INIT_FUNC_POINTERS = 0x9
-\`\`\`
+```
 
 </details>
 
@@ -4707,9 +4707,9 @@ pub const S_MOD_INIT_FUNC_POINTERS = 0x9
 
 section with only function pointers for termination
 
-\`\`\`zig
+```zig
 pub const S_MOD_TERM_FUNC_POINTERS = 0xa
-\`\`\`
+```
 
 </details>
 
@@ -4722,9 +4722,9 @@ pub const S_MOD_TERM_FUNC_POINTERS = 0xa
 
 section contains symbols that are to be coalesced
 
-\`\`\`zig
+```zig
 pub const S_COALESCED = 0xb
-\`\`\`
+```
 
 </details>
 
@@ -4737,9 +4737,9 @@ pub const S_COALESCED = 0xb
 
 zero fill on demand section (that can be larger than 4 gigabytes)
 
-\`\`\`zig
+```zig
 pub const S_GB_ZEROFILL = 0xc
-\`\`\`
+```
 
 </details>
 
@@ -4752,9 +4752,9 @@ pub const S_GB_ZEROFILL = 0xc
 
 section with only pairs of function pointers for interposing
 
-\`\`\`zig
+```zig
 pub const S_INTERPOSING = 0xd
-\`\`\`
+```
 
 </details>
 
@@ -4767,9 +4767,9 @@ pub const S_INTERPOSING = 0xd
 
 section with only 16 byte literals
 
-\`\`\`zig
+```zig
 pub const S_16BYTE_LITERALS = 0xe
-\`\`\`
+```
 
 </details>
 
@@ -4782,9 +4782,9 @@ pub const S_16BYTE_LITERALS = 0xe
 
 section contains DTrace Object Format
 
-\`\`\`zig
+```zig
 pub const S_DTRACE_DOF = 0xf
-\`\`\`
+```
 
 </details>
 
@@ -4797,9 +4797,9 @@ pub const S_DTRACE_DOF = 0xf
 
 section with only lazy symbol pointers to lazy loaded dylibs
 
-\`\`\`zig
+```zig
 pub const S_LAZY_DYLIB_SYMBOL_POINTERS = 0x10
-\`\`\`
+```
 
 </details>
 
@@ -4812,9 +4812,9 @@ pub const S_LAZY_DYLIB_SYMBOL_POINTERS = 0x10
 
 a debug section
 
-\`\`\`zig
+```zig
 pub const S_ATTR_DEBUG = 0x02000000
-\`\`\`
+```
 
 </details>
 
@@ -4827,9 +4827,9 @@ pub const S_ATTR_DEBUG = 0x02000000
 
 section contains only true machine instructions
 
-\`\`\`zig
+```zig
 pub const S_ATTR_PURE_INSTRUCTIONS = 0x80000000
-\`\`\`
+```
 
 </details>
 
@@ -4843,9 +4843,9 @@ pub const S_ATTR_PURE_INSTRUCTIONS = 0x80000000
 section contains coalesced symbols that are not to be in a ranlib
 table of contents
 
-\`\`\`zig
+```zig
 pub const S_ATTR_NO_TOC = 0x40000000
-\`\`\`
+```
 
 </details>
 
@@ -4859,9 +4859,9 @@ pub const S_ATTR_NO_TOC = 0x40000000
 ok to strip static symbols in this section in files with the
 MH_DYLDLINK flag
 
-\`\`\`zig
+```zig
 pub const S_ATTR_STRIP_STATIC_SYMS = 0x20000000
-\`\`\`
+```
 
 </details>
 
@@ -4874,9 +4874,9 @@ pub const S_ATTR_STRIP_STATIC_SYMS = 0x20000000
 
 no dead stripping
 
-\`\`\`zig
+```zig
 pub const S_ATTR_NO_DEAD_STRIP = 0x10000000
-\`\`\`
+```
 
 </details>
 
@@ -4889,9 +4889,9 @@ pub const S_ATTR_NO_DEAD_STRIP = 0x10000000
 
 blocks are live if they reference live blocks
 
-\`\`\`zig
+```zig
 pub const S_ATTR_LIVE_SUPPORT = 0x8000000
-\`\`\`
+```
 
 </details>
 
@@ -4904,9 +4904,9 @@ pub const S_ATTR_LIVE_SUPPORT = 0x8000000
 
 used with x86 code stubs written on by dyld
 
-\`\`\`zig
+```zig
 pub const S_ATTR_SELF_MODIFYING_CODE = 0x4000000
-\`\`\`
+```
 
 </details>
 
@@ -4919,9 +4919,9 @@ pub const S_ATTR_SELF_MODIFYING_CODE = 0x4000000
 
 section contains some machine instructions
 
-\`\`\`zig
+```zig
 pub const S_ATTR_SOME_INSTRUCTIONS = 0x400
-\`\`\`
+```
 
 </details>
 
@@ -4934,9 +4934,9 @@ pub const S_ATTR_SOME_INSTRUCTIONS = 0x400
 
 section has external relocation entries
 
-\`\`\`zig
+```zig
 pub const S_ATTR_EXT_RELOC = 0x200
-\`\`\`
+```
 
 </details>
 
@@ -4949,9 +4949,9 @@ pub const S_ATTR_EXT_RELOC = 0x200
 
 section has local relocation entries
 
-\`\`\`zig
+```zig
 pub const S_ATTR_LOC_RELOC = 0x100
-\`\`\`
+```
 
 </details>
 
@@ -4964,9 +4964,9 @@ pub const S_ATTR_LOC_RELOC = 0x100
 
 template of initial values for TLVs
 
-\`\`\`zig
+```zig
 pub const S_THREAD_LOCAL_REGULAR = 0x11
-\`\`\`
+```
 
 </details>
 
@@ -4979,9 +4979,9 @@ pub const S_THREAD_LOCAL_REGULAR = 0x11
 
 template of initial values for TLVs
 
-\`\`\`zig
+```zig
 pub const S_THREAD_LOCAL_ZEROFILL = 0x12
-\`\`\`
+```
 
 </details>
 
@@ -4994,9 +4994,9 @@ pub const S_THREAD_LOCAL_ZEROFILL = 0x12
 
 TLV descriptors
 
-\`\`\`zig
+```zig
 pub const S_THREAD_LOCAL_VARIABLES = 0x13
-\`\`\`
+```
 
 </details>
 
@@ -5009,9 +5009,9 @@ pub const S_THREAD_LOCAL_VARIABLES = 0x13
 
 pointers to TLV descriptors
 
-\`\`\`zig
+```zig
 pub const S_THREAD_LOCAL_VARIABLE_POINTERS = 0x14
-\`\`\`
+```
 
 </details>
 
@@ -5024,9 +5024,9 @@ pub const S_THREAD_LOCAL_VARIABLE_POINTERS = 0x14
 
 functions to call to initialize TLV values
 
-\`\`\`zig
+```zig
 pub const S_THREAD_LOCAL_INIT_FUNCTION_POINTERS = 0x15
-\`\`\`
+```
 
 </details>
 
@@ -5039,9 +5039,9 @@ pub const S_THREAD_LOCAL_INIT_FUNCTION_POINTERS = 0x15
 
 32-bit offsets to initializers
 
-\`\`\`zig
+```zig
 pub const S_INIT_FUNC_OFFSETS = 0x16
-\`\`\`
+```
 
 </details>
 
@@ -5054,9 +5054,9 @@ pub const S_INIT_FUNC_OFFSETS = 0x16
 
 CPU type targeting 64-bit Intel-based Macs
 
-\`\`\`zig
+```zig
 pub const CPU_TYPE_X86_64: cpu_type_t = 0x01000007
-\`\`\`
+```
 
 </details>
 
@@ -5069,9 +5069,9 @@ pub const CPU_TYPE_X86_64: cpu_type_t = 0x01000007
 
 CPU type targeting 64-bit ARM-based Macs
 
-\`\`\`zig
+```zig
 pub const CPU_TYPE_ARM64: cpu_type_t = 0x0100000C
-\`\`\`
+```
 
 </details>
 
@@ -5084,9 +5084,9 @@ pub const CPU_TYPE_ARM64: cpu_type_t = 0x0100000C
 
 All Intel-based Macs
 
-\`\`\`zig
+```zig
 pub const CPU_SUBTYPE_X86_64_ALL: cpu_subtype_t = 0x3
-\`\`\`
+```
 
 </details>
 
@@ -5099,9 +5099,9 @@ pub const CPU_SUBTYPE_X86_64_ALL: cpu_subtype_t = 0x3
 
 All ARM-based Macs
 
-\`\`\`zig
+```zig
 pub const CPU_SUBTYPE_ARM_ALL: cpu_subtype_t = 0x0
-\`\`\`
+```
 
 </details>
 
@@ -5112,9 +5112,9 @@ pub const CPU_SUBTYPE_ARM_ALL: cpu_subtype_t = 0x0
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const REBASE_TYPE_POINTER: u8 = 1
-\`\`\`
+```
 
 </details>
 
@@ -5125,9 +5125,9 @@ pub const REBASE_TYPE_POINTER: u8 = 1
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const REBASE_TYPE_TEXT_ABSOLUTE32: u8 = 2
-\`\`\`
+```
 
 </details>
 
@@ -5138,9 +5138,9 @@ pub const REBASE_TYPE_TEXT_ABSOLUTE32: u8 = 2
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const REBASE_TYPE_TEXT_PCREL32: u8 = 3
-\`\`\`
+```
 
 </details>
 
@@ -5151,9 +5151,9 @@ pub const REBASE_TYPE_TEXT_PCREL32: u8 = 3
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const REBASE_OPCODE_MASK: u8 = 0xF0
-\`\`\`
+```
 
 </details>
 
@@ -5164,9 +5164,9 @@ pub const REBASE_OPCODE_MASK: u8 = 0xF0
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const REBASE_IMMEDIATE_MASK: u8 = 0x0F
-\`\`\`
+```
 
 </details>
 
@@ -5177,9 +5177,9 @@ pub const REBASE_IMMEDIATE_MASK: u8 = 0x0F
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const REBASE_OPCODE_DONE: u8 = 0x00
-\`\`\`
+```
 
 </details>
 
@@ -5190,9 +5190,9 @@ pub const REBASE_OPCODE_DONE: u8 = 0x00
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const REBASE_OPCODE_SET_TYPE_IMM: u8 = 0x10
-\`\`\`
+```
 
 </details>
 
@@ -5203,9 +5203,9 @@ pub const REBASE_OPCODE_SET_TYPE_IMM: u8 = 0x10
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const REBASE_OPCODE_SET_SEGMENT_AND_OFFSET_ULEB: u8 = 0x20
-\`\`\`
+```
 
 </details>
 
@@ -5216,9 +5216,9 @@ pub const REBASE_OPCODE_SET_SEGMENT_AND_OFFSET_ULEB: u8 = 0x20
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const REBASE_OPCODE_ADD_ADDR_ULEB: u8 = 0x30
-\`\`\`
+```
 
 </details>
 
@@ -5229,9 +5229,9 @@ pub const REBASE_OPCODE_ADD_ADDR_ULEB: u8 = 0x30
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const REBASE_OPCODE_ADD_ADDR_IMM_SCALED: u8 = 0x40
-\`\`\`
+```
 
 </details>
 
@@ -5242,9 +5242,9 @@ pub const REBASE_OPCODE_ADD_ADDR_IMM_SCALED: u8 = 0x40
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const REBASE_OPCODE_DO_REBASE_IMM_TIMES: u8 = 0x50
-\`\`\`
+```
 
 </details>
 
@@ -5255,9 +5255,9 @@ pub const REBASE_OPCODE_DO_REBASE_IMM_TIMES: u8 = 0x50
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const REBASE_OPCODE_DO_REBASE_ULEB_TIMES: u8 = 0x60
-\`\`\`
+```
 
 </details>
 
@@ -5268,9 +5268,9 @@ pub const REBASE_OPCODE_DO_REBASE_ULEB_TIMES: u8 = 0x60
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const REBASE_OPCODE_DO_REBASE_ADD_ADDR_ULEB: u8 = 0x70
-\`\`\`
+```
 
 </details>
 
@@ -5281,9 +5281,9 @@ pub const REBASE_OPCODE_DO_REBASE_ADD_ADDR_ULEB: u8 = 0x70
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const REBASE_OPCODE_DO_REBASE_ULEB_TIMES_SKIPPING_ULEB: u8 = 0x80
-\`\`\`
+```
 
 </details>
 
@@ -5294,9 +5294,9 @@ pub const REBASE_OPCODE_DO_REBASE_ULEB_TIMES_SKIPPING_ULEB: u8 = 0x80
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_TYPE_POINTER: u8 = 1
-\`\`\`
+```
 
 </details>
 
@@ -5307,9 +5307,9 @@ pub const BIND_TYPE_POINTER: u8 = 1
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_TYPE_TEXT_ABSOLUTE32: u8 = 2
-\`\`\`
+```
 
 </details>
 
@@ -5320,9 +5320,9 @@ pub const BIND_TYPE_TEXT_ABSOLUTE32: u8 = 2
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_TYPE_TEXT_PCREL32: u8 = 3
-\`\`\`
+```
 
 </details>
 
@@ -5333,9 +5333,9 @@ pub const BIND_TYPE_TEXT_PCREL32: u8 = 3
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_SPECIAL_DYLIB_SELF: i8 = 0
-\`\`\`
+```
 
 </details>
 
@@ -5346,9 +5346,9 @@ pub const BIND_SPECIAL_DYLIB_SELF: i8 = 0
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_SPECIAL_DYLIB_MAIN_EXECUTABLE: i8 = -1
-\`\`\`
+```
 
 </details>
 
@@ -5359,9 +5359,9 @@ pub const BIND_SPECIAL_DYLIB_MAIN_EXECUTABLE: i8 = -1
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_SPECIAL_DYLIB_FLAT_LOOKUP: i8 = -2
-\`\`\`
+```
 
 </details>
 
@@ -5372,9 +5372,9 @@ pub const BIND_SPECIAL_DYLIB_FLAT_LOOKUP: i8 = -2
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_SYMBOL_FLAGS_WEAK_IMPORT: u8 = 0x1
-\`\`\`
+```
 
 </details>
 
@@ -5385,9 +5385,9 @@ pub const BIND_SYMBOL_FLAGS_WEAK_IMPORT: u8 = 0x1
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_SYMBOL_FLAGS_NON_WEAK_DEFINITION: u8 = 0x8
-\`\`\`
+```
 
 </details>
 
@@ -5398,9 +5398,9 @@ pub const BIND_SYMBOL_FLAGS_NON_WEAK_DEFINITION: u8 = 0x8
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_OPCODE_MASK: u8 = 0xf0
-\`\`\`
+```
 
 </details>
 
@@ -5411,9 +5411,9 @@ pub const BIND_OPCODE_MASK: u8 = 0xf0
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_IMMEDIATE_MASK: u8 = 0x0f
-\`\`\`
+```
 
 </details>
 
@@ -5424,9 +5424,9 @@ pub const BIND_IMMEDIATE_MASK: u8 = 0x0f
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_OPCODE_DONE: u8 = 0x00
-\`\`\`
+```
 
 </details>
 
@@ -5437,9 +5437,9 @@ pub const BIND_OPCODE_DONE: u8 = 0x00
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_OPCODE_SET_DYLIB_ORDINAL_IMM: u8 = 0x10
-\`\`\`
+```
 
 </details>
 
@@ -5450,9 +5450,9 @@ pub const BIND_OPCODE_SET_DYLIB_ORDINAL_IMM: u8 = 0x10
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_OPCODE_SET_DYLIB_ORDINAL_ULEB: u8 = 0x20
-\`\`\`
+```
 
 </details>
 
@@ -5463,9 +5463,9 @@ pub const BIND_OPCODE_SET_DYLIB_ORDINAL_ULEB: u8 = 0x20
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_OPCODE_SET_DYLIB_SPECIAL_IMM: u8 = 0x30
-\`\`\`
+```
 
 </details>
 
@@ -5476,9 +5476,9 @@ pub const BIND_OPCODE_SET_DYLIB_SPECIAL_IMM: u8 = 0x30
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_OPCODE_SET_SYMBOL_TRAILING_FLAGS_IMM: u8 = 0x40
-\`\`\`
+```
 
 </details>
 
@@ -5489,9 +5489,9 @@ pub const BIND_OPCODE_SET_SYMBOL_TRAILING_FLAGS_IMM: u8 = 0x40
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_OPCODE_SET_TYPE_IMM: u8 = 0x50
-\`\`\`
+```
 
 </details>
 
@@ -5502,9 +5502,9 @@ pub const BIND_OPCODE_SET_TYPE_IMM: u8 = 0x50
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_OPCODE_SET_ADDEND_SLEB: u8 = 0x60
-\`\`\`
+```
 
 </details>
 
@@ -5515,9 +5515,9 @@ pub const BIND_OPCODE_SET_ADDEND_SLEB: u8 = 0x60
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_OPCODE_SET_SEGMENT_AND_OFFSET_ULEB: u8 = 0x70
-\`\`\`
+```
 
 </details>
 
@@ -5528,9 +5528,9 @@ pub const BIND_OPCODE_SET_SEGMENT_AND_OFFSET_ULEB: u8 = 0x70
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_OPCODE_ADD_ADDR_ULEB: u8 = 0x80
-\`\`\`
+```
 
 </details>
 
@@ -5541,9 +5541,9 @@ pub const BIND_OPCODE_ADD_ADDR_ULEB: u8 = 0x80
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_OPCODE_DO_BIND: u8 = 0x90
-\`\`\`
+```
 
 </details>
 
@@ -5554,9 +5554,9 @@ pub const BIND_OPCODE_DO_BIND: u8 = 0x90
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_OPCODE_DO_BIND_ADD_ADDR_ULEB: u8 = 0xa0
-\`\`\`
+```
 
 </details>
 
@@ -5567,9 +5567,9 @@ pub const BIND_OPCODE_DO_BIND_ADD_ADDR_ULEB: u8 = 0xa0
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_OPCODE_DO_BIND_ADD_ADDR_IMM_SCALED: u8 = 0xb0
-\`\`\`
+```
 
 </details>
 
@@ -5580,9 +5580,9 @@ pub const BIND_OPCODE_DO_BIND_ADD_ADDR_IMM_SCALED: u8 = 0xb0
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BIND_OPCODE_DO_BIND_ULEB_TIMES_SKIPPING_ULEB: u8 = 0xc0
-\`\`\`
+```
 
 </details>
 
@@ -5595,9 +5595,9 @@ pub const BIND_OPCODE_DO_BIND_ULEB_TIMES_SKIPPING_ULEB: u8 = 0xc0
 
 This symbol is a reference to an external non-lazy (data) symbol.
 
-\`\`\`zig
+```zig
 pub const REFERENCE_FLAG_UNDEFINED_NON_LAZY: u16 = 0x0
-\`\`\`
+```
 
 </details>
 
@@ -5610,9 +5610,9 @@ pub const REFERENCE_FLAG_UNDEFINED_NON_LAZY: u16 = 0x0
 
 This symbol is a reference to an external lazy symbol—that is, to a function call.
 
-\`\`\`zig
+```zig
 pub const REFERENCE_FLAG_UNDEFINED_LAZY: u16 = 0x1
-\`\`\`
+```
 
 </details>
 
@@ -5625,9 +5625,9 @@ pub const REFERENCE_FLAG_UNDEFINED_LAZY: u16 = 0x1
 
 This symbol is defined in this module.
 
-\`\`\`zig
+```zig
 pub const REFERENCE_FLAG_DEFINED: u16 = 0x2
-\`\`\`
+```
 
 </details>
 
@@ -5640,9 +5640,9 @@ pub const REFERENCE_FLAG_DEFINED: u16 = 0x2
 
 This symbol is defined in this module and is visible only to modules within this shared library.
 
-\`\`\`zig
+```zig
 pub const REFERENCE_FLAG_PRIVATE_DEFINED: u16 = 3
-\`\`\`
+```
 
 </details>
 
@@ -5656,9 +5656,9 @@ pub const REFERENCE_FLAG_PRIVATE_DEFINED: u16 = 3
 This symbol is defined in another module in this file, is a non-lazy (data) symbol, and is visible
 only to modules within this shared library.
 
-\`\`\`zig
+```zig
 pub const REFERENCE_FLAG_PRIVATE_UNDEFINED_NON_LAZY: u16 = 4
-\`\`\`
+```
 
 </details>
 
@@ -5672,9 +5672,9 @@ pub const REFERENCE_FLAG_PRIVATE_UNDEFINED_NON_LAZY: u16 = 4
 This symbol is defined in another module in this file, is a lazy (function) symbol, and is visible
 only to modules within this shared library.
 
-\`\`\`zig
+```zig
 pub const REFERENCE_FLAG_PRIVATE_UNDEFINED_LAZY: u16 = 5
-\`\`\`
+```
 
 </details>
 
@@ -5689,9 +5689,9 @@ Must be set for any defined symbol that is referenced by dynamic-loader APIs (su
 NSLookupSymbolInImage) and not ordinary undefined symbol references. The strip tool uses this bit
 to avoid removing symbols that must exist: If the symbol has this bit set, strip does not strip it.
 
-\`\`\`zig
+```zig
 pub const REFERENCED_DYNAMICALLY: u16 = 0x10
-\`\`\`
+```
 
 </details>
 
@@ -5706,9 +5706,9 @@ The N_NO_DEAD_STRIP bit of the n_desc field only ever appears in a
 relocatable .o file (MH_OBJECT filetype). And is used to indicate to the
 static link editor it is never to dead strip the symbol.
 
-\`\`\`zig
+```zig
 pub const N_NO_DEAD_STRIP: u16 = 0x20
-\`\`\`
+```
 
 </details>
 
@@ -5721,9 +5721,9 @@ pub const N_NO_DEAD_STRIP: u16 = 0x20
 
 Used by the dynamic linker at runtime. Do not set this bit.
 
-\`\`\`zig
+```zig
 pub const N_DESC_DISCARDED: u16 = 0x20
-\`\`\`
+```
 
 </details>
 
@@ -5738,9 +5738,9 @@ Indicates that this symbol is a weak reference. If the dynamic linker cannot fin
 for this symbol, it sets the address of this symbol to 0. The static linker sets this symbol given
 the appropriate weak-linking flags.
 
-\`\`\`zig
+```zig
 pub const N_WEAK_REF: u16 = 0x40
-\`\`\`
+```
 
 </details>
 
@@ -5755,9 +5755,9 @@ Indicates that this symbol is a weak definition. If the static linker or the dyn
 another (non-weak) definition for this symbol, the weak definition is ignored. Only symbols in a
 coalesced section (page 23) can be marked as a weak definition.
 
-\`\`\`zig
+```zig
 pub const N_WEAK_DEF: u16 = 0x80
-\`\`\`
+```
 
 </details>
 
@@ -5773,9 +5773,9 @@ that the function is actually a resolver function and should
 be called to get the address of the real function to use.
 This bit is only available in .o files (MH_OBJECT filetype)
 
-\`\`\`zig
+```zig
 pub const N_SYMBOL_RESOLVER: u16 = 0x100
-\`\`\`
+```
 
 </details>
 
@@ -5786,9 +5786,9 @@ pub const N_SYMBOL_RESOLVER: u16 = 0x100
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const EXPORT_SYMBOL_FLAGS_KIND_MASK: u8 = 0x03
-\`\`\`
+```
 
 </details>
 
@@ -5799,9 +5799,9 @@ pub const EXPORT_SYMBOL_FLAGS_KIND_MASK: u8 = 0x03
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const EXPORT_SYMBOL_FLAGS_KIND_REGULAR: u8 = 0x00
-\`\`\`
+```
 
 </details>
 
@@ -5812,9 +5812,9 @@ pub const EXPORT_SYMBOL_FLAGS_KIND_REGULAR: u8 = 0x00
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const EXPORT_SYMBOL_FLAGS_KIND_THREAD_LOCAL: u8 = 0x01
-\`\`\`
+```
 
 </details>
 
@@ -5825,9 +5825,9 @@ pub const EXPORT_SYMBOL_FLAGS_KIND_THREAD_LOCAL: u8 = 0x01
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const EXPORT_SYMBOL_FLAGS_KIND_ABSOLUTE: u8 = 0x02
-\`\`\`
+```
 
 </details>
 
@@ -5838,9 +5838,9 @@ pub const EXPORT_SYMBOL_FLAGS_KIND_ABSOLUTE: u8 = 0x02
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const EXPORT_SYMBOL_FLAGS_WEAK_DEFINITION: u8 = 0x04
-\`\`\`
+```
 
 </details>
 
@@ -5851,9 +5851,9 @@ pub const EXPORT_SYMBOL_FLAGS_WEAK_DEFINITION: u8 = 0x04
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const EXPORT_SYMBOL_FLAGS_REEXPORT: u8 = 0x08
-\`\`\`
+```
 
 </details>
 
@@ -5864,9 +5864,9 @@ pub const EXPORT_SYMBOL_FLAGS_REEXPORT: u8 = 0x08
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const EXPORT_SYMBOL_FLAGS_STUB_AND_RESOLVER: u8 = 0x10
-\`\`\`
+```
 
 </details>
 
@@ -5877,9 +5877,9 @@ pub const EXPORT_SYMBOL_FLAGS_STUB_AND_RESOLVER: u8 = 0x10
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const INDIRECT_SYMBOL_LOCAL: u32 = 0x80000000
-\`\`\`
+```
 
 </details>
 
@@ -5890,9 +5890,9 @@ pub const INDIRECT_SYMBOL_LOCAL: u32 = 0x80000000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const INDIRECT_SYMBOL_ABS: u32 = 0x40000000
-\`\`\`
+```
 
 </details>
 
@@ -5905,9 +5905,9 @@ pub const INDIRECT_SYMBOL_ABS: u32 = 0x40000000
 
 Single Requirement blob
 
-\`\`\`zig
+```zig
 pub const CSMAGIC_REQUIREMENT: u32 = 0xfade0c00
-\`\`\`
+```
 
 </details>
 
@@ -5920,9 +5920,9 @@ pub const CSMAGIC_REQUIREMENT: u32 = 0xfade0c00
 
 Requirements vector (internal requirements)
 
-\`\`\`zig
+```zig
 pub const CSMAGIC_REQUIREMENTS: u32 = 0xfade0c01
-\`\`\`
+```
 
 </details>
 
@@ -5935,9 +5935,9 @@ pub const CSMAGIC_REQUIREMENTS: u32 = 0xfade0c01
 
 CodeDirectory blob
 
-\`\`\`zig
+```zig
 pub const CSMAGIC_CODEDIRECTORY: u32 = 0xfade0c02
-\`\`\`
+```
 
 </details>
 
@@ -5950,9 +5950,9 @@ pub const CSMAGIC_CODEDIRECTORY: u32 = 0xfade0c02
 
 embedded form of signature data
 
-\`\`\`zig
+```zig
 pub const CSMAGIC_EMBEDDED_SIGNATURE: u32 = 0xfade0cc0
-\`\`\`
+```
 
 </details>
 
@@ -5965,9 +5965,9 @@ pub const CSMAGIC_EMBEDDED_SIGNATURE: u32 = 0xfade0cc0
 
 XXX
 
-\`\`\`zig
+```zig
 pub const CSMAGIC_EMBEDDED_SIGNATURE_OLD: u32 = 0xfade0b02
-\`\`\`
+```
 
 </details>
 
@@ -5980,9 +5980,9 @@ pub const CSMAGIC_EMBEDDED_SIGNATURE_OLD: u32 = 0xfade0b02
 
 Embedded entitlements
 
-\`\`\`zig
+```zig
 pub const CSMAGIC_EMBEDDED_ENTITLEMENTS: u32 = 0xfade7171
-\`\`\`
+```
 
 </details>
 
@@ -5995,9 +5995,9 @@ pub const CSMAGIC_EMBEDDED_ENTITLEMENTS: u32 = 0xfade7171
 
 Embedded DER encoded entitlements
 
-\`\`\`zig
+```zig
 pub const CSMAGIC_EMBEDDED_DER_ENTITLEMENTS: u32 = 0xfade7172
-\`\`\`
+```
 
 </details>
 
@@ -6010,9 +6010,9 @@ pub const CSMAGIC_EMBEDDED_DER_ENTITLEMENTS: u32 = 0xfade7172
 
 Multi-arch collection of embedded signatures
 
-\`\`\`zig
+```zig
 pub const CSMAGIC_DETACHED_SIGNATURE: u32 = 0xfade0cc1
-\`\`\`
+```
 
 </details>
 
@@ -6025,9 +6025,9 @@ pub const CSMAGIC_DETACHED_SIGNATURE: u32 = 0xfade0cc1
 
 CMS Signature, among other things
 
-\`\`\`zig
+```zig
 pub const CSMAGIC_BLOBWRAPPER: u32 = 0xfade0b01
-\`\`\`
+```
 
 </details>
 
@@ -6038,9 +6038,9 @@ pub const CSMAGIC_BLOBWRAPPER: u32 = 0xfade0b01
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CS_SUPPORTSSCATTER: u32 = 0x20100
-\`\`\`
+```
 
 </details>
 
@@ -6051,9 +6051,9 @@ pub const CS_SUPPORTSSCATTER: u32 = 0x20100
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CS_SUPPORTSTEAMID: u32 = 0x20200
-\`\`\`
+```
 
 </details>
 
@@ -6064,9 +6064,9 @@ pub const CS_SUPPORTSTEAMID: u32 = 0x20200
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CS_SUPPORTSCODELIMIT64: u32 = 0x20300
-\`\`\`
+```
 
 </details>
 
@@ -6077,9 +6077,9 @@ pub const CS_SUPPORTSCODELIMIT64: u32 = 0x20300
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CS_SUPPORTSEXECSEG: u32 = 0x20400
-\`\`\`
+```
 
 </details>
 
@@ -6092,9 +6092,9 @@ pub const CS_SUPPORTSEXECSEG: u32 = 0x20400
 
 Slot index for CodeDirectory
 
-\`\`\`zig
+```zig
 pub const CSSLOT_CODEDIRECTORY: u32 = 0
-\`\`\`
+```
 
 </details>
 
@@ -6105,9 +6105,9 @@ pub const CSSLOT_CODEDIRECTORY: u32 = 0
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CSSLOT_INFOSLOT: u32 = 1
-\`\`\`
+```
 
 </details>
 
@@ -6118,9 +6118,9 @@ pub const CSSLOT_INFOSLOT: u32 = 1
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CSSLOT_REQUIREMENTS: u32 = 2
-\`\`\`
+```
 
 </details>
 
@@ -6131,9 +6131,9 @@ pub const CSSLOT_REQUIREMENTS: u32 = 2
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CSSLOT_RESOURCEDIR: u32 = 3
-\`\`\`
+```
 
 </details>
 
@@ -6144,9 +6144,9 @@ pub const CSSLOT_RESOURCEDIR: u32 = 3
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CSSLOT_APPLICATION: u32 = 4
-\`\`\`
+```
 
 </details>
 
@@ -6157,9 +6157,9 @@ pub const CSSLOT_APPLICATION: u32 = 4
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CSSLOT_ENTITLEMENTS: u32 = 5
-\`\`\`
+```
 
 </details>
 
@@ -6170,9 +6170,9 @@ pub const CSSLOT_ENTITLEMENTS: u32 = 5
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CSSLOT_DER_ENTITLEMENTS: u32 = 7
-\`\`\`
+```
 
 </details>
 
@@ -6185,9 +6185,9 @@ pub const CSSLOT_DER_ENTITLEMENTS: u32 = 7
 
 first alternate CodeDirectory, if any
 
-\`\`\`zig
+```zig
 pub const CSSLOT_ALTERNATE_CODEDIRECTORIES: u32 = 0x1000
-\`\`\`
+```
 
 </details>
 
@@ -6200,9 +6200,9 @@ pub const CSSLOT_ALTERNATE_CODEDIRECTORIES: u32 = 0x1000
 
 Max number of alternate CD slots
 
-\`\`\`zig
+```zig
 pub const CSSLOT_ALTERNATE_CODEDIRECTORY_MAX: u32 = 5
-\`\`\`
+```
 
 </details>
 
@@ -6215,9 +6215,9 @@ pub const CSSLOT_ALTERNATE_CODEDIRECTORY_MAX: u32 = 5
 
 One past the last
 
-\`\`\`zig
+```zig
 pub const CSSLOT_ALTERNATE_CODEDIRECTORY_LIMIT: u32 = CSSLOT_ALTERNATE_CODEDIRECTORIES + CSSLOT_ALTERNATE_CODEDIRECTORY_MAX
-\`\`\`
+```
 
 </details>
 
@@ -6230,9 +6230,9 @@ pub const CSSLOT_ALTERNATE_CODEDIRECTORY_LIMIT: u32 = CSSLOT_ALTERNATE_CODEDIREC
 
 CMS Signature
 
-\`\`\`zig
+```zig
 pub const CSSLOT_SIGNATURESLOT: u32 = 0x10000
-\`\`\`
+```
 
 </details>
 
@@ -6243,9 +6243,9 @@ pub const CSSLOT_SIGNATURESLOT: u32 = 0x10000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CSSLOT_IDENTIFICATIONSLOT: u32 = 0x10001
-\`\`\`
+```
 
 </details>
 
@@ -6256,9 +6256,9 @@ pub const CSSLOT_IDENTIFICATIONSLOT: u32 = 0x10001
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CSSLOT_TICKETSLOT: u32 = 0x10002
-\`\`\`
+```
 
 </details>
 
@@ -6271,9 +6271,9 @@ pub const CSSLOT_TICKETSLOT: u32 = 0x10002
 
 Compat with amfi
 
-\`\`\`zig
+```zig
 pub const CSTYPE_INDEX_REQUIREMENTS: u32 = 0x00000002
-\`\`\`
+```
 
 </details>
 
@@ -6286,9 +6286,9 @@ pub const CSTYPE_INDEX_REQUIREMENTS: u32 = 0x00000002
 
 Compat with amfi
 
-\`\`\`zig
+```zig
 pub const CSTYPE_INDEX_ENTITLEMENTS: u32 = 0x00000005
-\`\`\`
+```
 
 </details>
 
@@ -6299,9 +6299,9 @@ pub const CSTYPE_INDEX_ENTITLEMENTS: u32 = 0x00000005
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CS_HASHTYPE_SHA1: u8 = 1
-\`\`\`
+```
 
 </details>
 
@@ -6312,9 +6312,9 @@ pub const CS_HASHTYPE_SHA1: u8 = 1
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CS_HASHTYPE_SHA256: u8 = 2
-\`\`\`
+```
 
 </details>
 
@@ -6325,9 +6325,9 @@ pub const CS_HASHTYPE_SHA256: u8 = 2
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CS_HASHTYPE_SHA256_TRUNCATED: u8 = 3
-\`\`\`
+```
 
 </details>
 
@@ -6338,9 +6338,9 @@ pub const CS_HASHTYPE_SHA256_TRUNCATED: u8 = 3
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CS_HASHTYPE_SHA384: u8 = 4
-\`\`\`
+```
 
 </details>
 
@@ -6351,9 +6351,9 @@ pub const CS_HASHTYPE_SHA384: u8 = 4
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CS_SHA1_LEN: u32 = 20
-\`\`\`
+```
 
 </details>
 
@@ -6364,9 +6364,9 @@ pub const CS_SHA1_LEN: u32 = 20
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CS_SHA256_LEN: u32 = 32
-\`\`\`
+```
 
 </details>
 
@@ -6377,9 +6377,9 @@ pub const CS_SHA256_LEN: u32 = 32
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CS_SHA256_TRUNCATED_LEN: u32 = 20
-\`\`\`
+```
 
 </details>
 
@@ -6392,9 +6392,9 @@ pub const CS_SHA256_TRUNCATED_LEN: u32 = 20
 
 Always - larger hashes are truncated
 
-\`\`\`zig
+```zig
 pub const CS_CDHASH_LEN: u32 = 20
-\`\`\`
+```
 
 </details>
 
@@ -6407,9 +6407,9 @@ pub const CS_CDHASH_LEN: u32 = 20
 
 Max size of the hash we'll support
 
-\`\`\`zig
+```zig
 pub const CS_HASH_MAX_SIZE: u32 = 48
-\`\`\`
+```
 
 </details>
 
@@ -6420,9 +6420,9 @@ pub const CS_HASH_MAX_SIZE: u32 = 48
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CS_SIGNER_TYPE_UNKNOWN: u32 = 0
-\`\`\`
+```
 
 </details>
 
@@ -6433,9 +6433,9 @@ pub const CS_SIGNER_TYPE_UNKNOWN: u32 = 0
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CS_SIGNER_TYPE_LEGACYVPN: u32 = 5
-\`\`\`
+```
 
 </details>
 
@@ -6446,9 +6446,9 @@ pub const CS_SIGNER_TYPE_LEGACYVPN: u32 = 5
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CS_SIGNER_TYPE_MAC_APP_STORE: u32 = 6
-\`\`\`
+```
 
 </details>
 
@@ -6459,9 +6459,9 @@ pub const CS_SIGNER_TYPE_MAC_APP_STORE: u32 = 6
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CS_ADHOC: u32 = 0x2
-\`\`\`
+```
 
 </details>
 
@@ -6472,9 +6472,9 @@ pub const CS_ADHOC: u32 = 0x2
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CS_LINKER_SIGNED: u32 = 0x20000
-\`\`\`
+```
 
 </details>
 
@@ -6485,9 +6485,9 @@ pub const CS_LINKER_SIGNED: u32 = 0x20000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CS_EXECSEG_MAIN_BINARY: u32 = 0x1
-\`\`\`
+```
 
 </details>
 
@@ -6498,9 +6498,9 @@ pub const CS_EXECSEG_MAIN_BINARY: u32 = 0x1
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const compact_unwind_encoding_t = u32
-\`\`\`
+```
 
 </details>
 
@@ -6511,9 +6511,9 @@ pub const compact_unwind_encoding_t = u32
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_SECTION_VERSION = 1
-\`\`\`
+```
 
 </details>
 
@@ -6524,9 +6524,9 @@ pub const UNWIND_SECTION_VERSION = 1
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_IS_NOT_FUNCTION_START: u32 = 0x80000000
-\`\`\`
+```
 
 </details>
 
@@ -6537,9 +6537,9 @@ pub const UNWIND_IS_NOT_FUNCTION_START: u32 = 0x80000000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_HAS_LSDA: u32 = 0x40000000
-\`\`\`
+```
 
 </details>
 
@@ -6550,9 +6550,9 @@ pub const UNWIND_HAS_LSDA: u32 = 0x40000000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_PERSONALITY_MASK: u32 = 0x30000000
-\`\`\`
+```
 
 </details>
 
@@ -6563,9 +6563,9 @@ pub const UNWIND_PERSONALITY_MASK: u32 = 0x30000000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_X86_64_MODE_MASK: u32 = 0x0F000000
-\`\`\`
+```
 
 </details>
 
@@ -6576,9 +6576,9 @@ pub const UNWIND_X86_64_MODE_MASK: u32 = 0x0F000000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_X86_64_RBP_FRAME_REGISTERS: u32 = 0x00007FFF
-\`\`\`
+```
 
 </details>
 
@@ -6589,9 +6589,9 @@ pub const UNWIND_X86_64_RBP_FRAME_REGISTERS: u32 = 0x00007FFF
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_X86_64_RBP_FRAME_OFFSET: u32 = 0x00FF0000
-\`\`\`
+```
 
 </details>
 
@@ -6602,9 +6602,9 @@ pub const UNWIND_X86_64_RBP_FRAME_OFFSET: u32 = 0x00FF0000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_X86_64_FRAMELESS_STACK_SIZE: u32 = 0x00FF0000
-\`\`\`
+```
 
 </details>
 
@@ -6615,9 +6615,9 @@ pub const UNWIND_X86_64_FRAMELESS_STACK_SIZE: u32 = 0x00FF0000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_X86_64_FRAMELESS_STACK_ADJUST: u32 = 0x0000E000
-\`\`\`
+```
 
 </details>
 
@@ -6628,9 +6628,9 @@ pub const UNWIND_X86_64_FRAMELESS_STACK_ADJUST: u32 = 0x0000E000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_X86_64_FRAMELESS_STACK_REG_COUNT: u32 = 0x00001C00
-\`\`\`
+```
 
 </details>
 
@@ -6641,9 +6641,9 @@ pub const UNWIND_X86_64_FRAMELESS_STACK_REG_COUNT: u32 = 0x00001C00
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_X86_64_FRAMELESS_STACK_REG_PERMUTATION: u32 = 0x000003FF
-\`\`\`
+```
 
 </details>
 
@@ -6654,9 +6654,9 @@ pub const UNWIND_X86_64_FRAMELESS_STACK_REG_PERMUTATION: u32 = 0x000003FF
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_X86_64_DWARF_SECTION_OFFSET: u32 = 0x00FFFFFF
-\`\`\`
+```
 
 </details>
 
@@ -6667,9 +6667,9 @@ pub const UNWIND_X86_64_DWARF_SECTION_OFFSET: u32 = 0x00FFFFFF
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_ARM64_MODE_MASK: u32 = 0x0F000000
-\`\`\`
+```
 
 </details>
 
@@ -6680,9 +6680,9 @@ pub const UNWIND_ARM64_MODE_MASK: u32 = 0x0F000000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_ARM64_FRAME_X19_X20_PAIR: u32 = 0x00000001
-\`\`\`
+```
 
 </details>
 
@@ -6693,9 +6693,9 @@ pub const UNWIND_ARM64_FRAME_X19_X20_PAIR: u32 = 0x00000001
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_ARM64_FRAME_X21_X22_PAIR: u32 = 0x00000002
-\`\`\`
+```
 
 </details>
 
@@ -6706,9 +6706,9 @@ pub const UNWIND_ARM64_FRAME_X21_X22_PAIR: u32 = 0x00000002
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_ARM64_FRAME_X23_X24_PAIR: u32 = 0x00000004
-\`\`\`
+```
 
 </details>
 
@@ -6719,9 +6719,9 @@ pub const UNWIND_ARM64_FRAME_X23_X24_PAIR: u32 = 0x00000004
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_ARM64_FRAME_X25_X26_PAIR: u32 = 0x00000008
-\`\`\`
+```
 
 </details>
 
@@ -6732,9 +6732,9 @@ pub const UNWIND_ARM64_FRAME_X25_X26_PAIR: u32 = 0x00000008
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_ARM64_FRAME_X27_X28_PAIR: u32 = 0x00000010
-\`\`\`
+```
 
 </details>
 
@@ -6745,9 +6745,9 @@ pub const UNWIND_ARM64_FRAME_X27_X28_PAIR: u32 = 0x00000010
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_ARM64_FRAME_D8_D9_PAIR: u32 = 0x00000100
-\`\`\`
+```
 
 </details>
 
@@ -6758,9 +6758,9 @@ pub const UNWIND_ARM64_FRAME_D8_D9_PAIR: u32 = 0x00000100
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_ARM64_FRAME_D10_D11_PAIR: u32 = 0x00000200
-\`\`\`
+```
 
 </details>
 
@@ -6771,9 +6771,9 @@ pub const UNWIND_ARM64_FRAME_D10_D11_PAIR: u32 = 0x00000200
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_ARM64_FRAME_D12_D13_PAIR: u32 = 0x00000400
-\`\`\`
+```
 
 </details>
 
@@ -6784,9 +6784,9 @@ pub const UNWIND_ARM64_FRAME_D12_D13_PAIR: u32 = 0x00000400
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_ARM64_FRAME_D14_D15_PAIR: u32 = 0x00000800
-\`\`\`
+```
 
 </details>
 
@@ -6797,9 +6797,9 @@ pub const UNWIND_ARM64_FRAME_D14_D15_PAIR: u32 = 0x00000800
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_ARM64_FRAMELESS_STACK_SIZE_MASK: u32 = 0x00FFF000
-\`\`\`
+```
 
 </details>
 
@@ -6810,10 +6810,11 @@ pub const UNWIND_ARM64_FRAMELESS_STACK_SIZE_MASK: u32 = 0x00FFF000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UNWIND_ARM64_DWARF_SECTION_OFFSET: u32 = 0x00FFFFFF
-\`\`\`
+```
 
 </details>
 
 ---
+

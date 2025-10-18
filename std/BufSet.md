@@ -31,7 +31,7 @@ A BufSet is a set of strings.  The BufSet duplicates
 strings internally, and never takes ownership of strings
 which are passed to it.
 
-\`\`\`zig
+```zig
 pub const BufSet = struct {
     hash_map: BufSetHashMap,
 
@@ -142,7 +142,7 @@ pub const BufSet = struct {
         return result;
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -153,3 +153,4 @@ pub const BufSet = struct {
 </details>
 
 ---
+

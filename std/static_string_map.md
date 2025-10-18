@@ -34,11 +34,11 @@ Static string map optimized for small sets of disparate string keys.
 Works by separating the keys by length at initialization and only checking
 strings of equal length at runtime.
 
-\`\`\`zig
+```zig
 pub fn StaticStringMap(comptime V: type) type {
     return StaticStringMapWithEql(V, defaultEql);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -59,7 +59,7 @@ pub fn StaticStringMap(comptime V: type) type {
 Like `std.mem.eql`, but takes advantage of the fact that the lengths
 of `a` and `b` are known to be equal.
 
-\`\`\`zig
+```zig
 pub fn defaultEql(a: []const u8, b: []const u8) bool {
     if (a.ptr == b.ptr) return true;
     for (a, b) |a_elem, b_elem| {
@@ -67,7 +67,7 @@ pub fn defaultEql(a: []const u8, b: []const u8) bool {
     }
     return true;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -89,7 +89,7 @@ pub fn defaultEql(a: []const u8, b: []const u8) bool {
 Like `std.ascii.eqlIgnoreCase` but takes advantage of the fact that
 the lengths of `a` and `b` are known to be equal.
 
-\`\`\`zig
+```zig
 pub fn eqlAsciiIgnoreCase(a: []const u8, b: []const u8) bool {
     if (a.ptr == b.ptr) return true;
     for (a, b) |a_c, b_c| {
@@ -97,7 +97,7 @@ pub fn eqlAsciiIgnoreCase(a: []const u8, b: []const u8) bool {
     }
     return true;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -121,7 +121,7 @@ The `eql` function is only called to determine the equality
 of equal length strings. Any strings that are not equal length
 are never compared using the `eql` function.
 
-\`\`\`zig
+```zig
 pub fn StaticStringMapWithEql(
     comptime V: type,
     comptime eql: fn (a: []const u8, b: []const u8) bool,
@@ -349,7 +349,7 @@ pub fn StaticStringMapWithEql(
         }
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -362,3 +362,4 @@ pub fn StaticStringMapWithEql(
 </details>
 
 ---
+

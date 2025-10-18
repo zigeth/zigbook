@@ -77,7 +77,7 @@ The C0 control codes of the ASCII encoding.
 
 See also: https://en.wikipedia.org/wiki/C0_and_C1_control_codes and `isControl`
 
-\`\`\`zig
+```zig
 pub const control_code = struct {
     /// Null.
     pub const nul = 0x00;
@@ -152,7 +152,7 @@ pub const control_code = struct {
     /// An alias to `dc3`.
     pub const xoff = dc3;
 }
-\`\`\`
+```
 
 </details>
 
@@ -163,7 +163,7 @@ pub const control_code = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const HexEscape = struct {
     bytes: []const u8,
     charset: *const [16]u8,
@@ -189,7 +189,7 @@ pub const HexEscape = struct {
         }
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -209,9 +209,9 @@ pub const HexEscape = struct {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const lowercase = "abcdefghijklmnopqrstuvwxyz"
-\`\`\`
+```
 
 </details>
 
@@ -222,9 +222,9 @@ pub const lowercase = "abcdefghijklmnopqrstuvwxyz"
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-\`\`\`
+```
 
 </details>
 
@@ -235,9 +235,9 @@ pub const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const letters = lowercase ++ uppercase
-\`\`\`
+```
 
 </details>
 
@@ -253,9 +253,9 @@ This may be used with e.g. `std.mem.trim` to trim whitespace.
 
 See also: `isWhitespace`
 
-\`\`\`zig
+```zig
 pub const whitespace = [_]u8{ ' ', '\t', '\n', '\r', control_code.vt, control_code.ff }
-\`\`\`
+```
 
 </details>
 
@@ -270,14 +270,14 @@ pub const whitespace = [_]u8{ ' ', '\t', '\n', '\r', control_code.vt, control_co
 
 Returns whether the character is alphanumeric: A-Z, a-z, or 0-9.
 
-\`\`\`zig
+```zig
 pub fn isAlphanumeric(c: u8) bool {
     return switch (c) {
         '0'...'9', 'A'...'Z', 'a'...'z' => true,
         else => false,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -297,14 +297,14 @@ pub fn isAlphanumeric(c: u8) bool {
 
 Returns whether the character is alphabetic: A-Z or a-z.
 
-\`\`\`zig
+```zig
 pub fn isAlphabetic(c: u8) bool {
     return switch (c) {
         'A'...'Z', 'a'...'z' => true,
         else => false,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -326,11 +326,11 @@ Returns whether the character is a control character.
 
 See also: `control_code`
 
-\`\`\`zig
+```zig
 pub fn isControl(c: u8) bool {
     return c <= control_code.us or c == control_code.del;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -350,14 +350,14 @@ pub fn isControl(c: u8) bool {
 
 Returns whether the character is a digit.
 
-\`\`\`zig
+```zig
 pub fn isDigit(c: u8) bool {
     return switch (c) {
         '0'...'9' => true,
         else => false,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -377,14 +377,14 @@ pub fn isDigit(c: u8) bool {
 
 Returns whether the character is a lowercase letter.
 
-\`\`\`zig
+```zig
 pub fn isLower(c: u8) bool {
     return switch (c) {
         'a'...'z' => true,
         else => false,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -405,11 +405,11 @@ pub fn isLower(c: u8) bool {
 Returns whether the character is printable and has some graphical representation,
 including the space character.
 
-\`\`\`zig
+```zig
 pub fn isPrint(c: u8) bool {
     return isAscii(c) and !isControl(c);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -429,14 +429,14 @@ pub fn isPrint(c: u8) bool {
 
 Returns whether this character is included in `whitespace`.
 
-\`\`\`zig
+```zig
 pub fn isWhitespace(c: u8) bool {
     return switch (c) {
         ' ', '\t'...'\r' => true,
         else => false,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -456,14 +456,14 @@ pub fn isWhitespace(c: u8) bool {
 
 Returns whether the character is an uppercase letter.
 
-\`\`\`zig
+```zig
 pub fn isUpper(c: u8) bool {
     return switch (c) {
         'A'...'Z' => true,
         else => false,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -483,14 +483,14 @@ pub fn isUpper(c: u8) bool {
 
 Returns whether the character is a hexadecimal digit: A-F, a-f, or 0-9.
 
-\`\`\`zig
+```zig
 pub fn isHex(c: u8) bool {
     return switch (c) {
         '0'...'9', 'A'...'F', 'a'...'f' => true,
         else => false,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -510,11 +510,11 @@ pub fn isHex(c: u8) bool {
 
 Returns whether the character is a 7-bit ASCII character.
 
-\`\`\`zig
+```zig
 pub fn isAscii(c: u8) bool {
     return c < 128;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -534,12 +534,12 @@ pub fn isAscii(c: u8) bool {
 
 Uppercases the character and returns it as-is if already uppercase or not a letter.
 
-\`\`\`zig
+```zig
 pub fn toUpper(c: u8) u8 {
     const mask = @as(u8, @intFromBool(isLower(c))) << 5;
     return c ^ mask;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -559,12 +559,12 @@ pub fn toUpper(c: u8) u8 {
 
 Lowercases the character and returns it as-is if already lowercase or not a letter.
 
-\`\`\`zig
+```zig
 pub fn toLower(c: u8) u8 {
     const mask = @as(u8, @intFromBool(isUpper(c))) << 5;
     return c | mask;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -585,7 +585,7 @@ pub fn toLower(c: u8) u8 {
 Writes a lower case copy of `ascii_string` to `output`.
 Asserts `output.len >= ascii_string.len`.
 
-\`\`\`zig
+```zig
 pub fn lowerString(output: []u8, ascii_string: []const u8) []u8 {
     std.debug.assert(output.len >= ascii_string.len);
     for (ascii_string, 0..) |c, i| {
@@ -593,7 +593,7 @@ pub fn lowerString(output: []u8, ascii_string: []const u8) []u8 {
     }
     return output[0..ascii_string.len];
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -615,12 +615,12 @@ pub fn lowerString(output: []u8, ascii_string: []const u8) []u8 {
 Allocates a lower case copy of `ascii_string`.
 Caller owns returned string and must free with `allocator`.
 
-\`\`\`zig
+```zig
 pub fn allocLowerString(allocator: std.mem.Allocator, ascii_string: []const u8) ![]u8 {
     const result = try allocator.alloc(u8, ascii_string.len);
     return lowerString(result, ascii_string);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -642,7 +642,7 @@ pub fn allocLowerString(allocator: std.mem.Allocator, ascii_string: []const u8) 
 Writes an upper case copy of `ascii_string` to `output`.
 Asserts `output.len >= ascii_string.len`.
 
-\`\`\`zig
+```zig
 pub fn upperString(output: []u8, ascii_string: []const u8) []u8 {
     std.debug.assert(output.len >= ascii_string.len);
     for (ascii_string, 0..) |c, i| {
@@ -650,7 +650,7 @@ pub fn upperString(output: []u8, ascii_string: []const u8) []u8 {
     }
     return output[0..ascii_string.len];
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -672,12 +672,12 @@ pub fn upperString(output: []u8, ascii_string: []const u8) []u8 {
 Allocates an upper case copy of `ascii_string`.
 Caller owns returned string and must free with `allocator`.
 
-\`\`\`zig
+```zig
 pub fn allocUpperString(allocator: std.mem.Allocator, ascii_string: []const u8) ![]u8 {
     const result = try allocator.alloc(u8, ascii_string.len);
     return upperString(result, ascii_string);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -698,7 +698,7 @@ pub fn allocUpperString(allocator: std.mem.Allocator, ascii_string: []const u8) 
 
 Compares strings `a` and `b` case-insensitively and returns whether they are equal.
 
-\`\`\`zig
+```zig
 pub fn eqlIgnoreCase(a: []const u8, b: []const u8) bool {
     if (a.len != b.len) return false;
     for (a, 0..) |a_c, i| {
@@ -706,7 +706,7 @@ pub fn eqlIgnoreCase(a: []const u8, b: []const u8) bool {
     }
     return true;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -725,11 +725,11 @@ pub fn eqlIgnoreCase(a: []const u8, b: []const u8) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn startsWithIgnoreCase(haystack: []const u8, needle: []const u8) bool {
     return if (needle.len > haystack.len) false else eqlIgnoreCase(haystack[0..needle.len], needle);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -748,11 +748,11 @@ pub fn startsWithIgnoreCase(haystack: []const u8, needle: []const u8) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn endsWithIgnoreCase(haystack: []const u8, needle: []const u8) bool {
     return if (needle.len > haystack.len) false else eqlIgnoreCase(haystack[haystack.len - needle.len ..], needle);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -773,11 +773,11 @@ pub fn endsWithIgnoreCase(haystack: []const u8, needle: []const u8) bool {
 
 Finds `needle` in `haystack`, ignoring case, starting at index 0.
 
-\`\`\`zig
+```zig
 pub fn indexOfIgnoreCase(haystack: []const u8, needle: []const u8) ?usize {
     return indexOfIgnoreCasePos(haystack, 0, needle);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -799,7 +799,7 @@ pub fn indexOfIgnoreCase(haystack: []const u8, needle: []const u8) ?usize {
 Finds `needle` in `haystack`, ignoring case, starting at `start_index`.
 Uses Boyer-Moore-Horspool algorithm on large inputs; `indexOfIgnoreCasePosLinear` on small inputs.
 
-\`\`\`zig
+```zig
 pub fn indexOfIgnoreCasePos(haystack: []const u8, start_index: usize, needle: []const u8) ?usize {
     if (needle.len > haystack.len) return null;
     if (needle.len == 0) return start_index;
@@ -818,7 +818,7 @@ pub fn indexOfIgnoreCasePos(haystack: []const u8, start_index: usize, needle: []
 
     return null;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -841,7 +841,7 @@ pub fn indexOfIgnoreCasePos(haystack: []const u8, start_index: usize, needle: []
 Consider using `indexOfIgnoreCasePos` instead of this, which will automatically use a
 more sophisticated algorithm on larger inputs.
 
-\`\`\`zig
+```zig
 pub fn indexOfIgnoreCasePosLinear(haystack: []const u8, start_index: usize, needle: []const u8) ?usize {
     var i: usize = start_index;
     const end = haystack.len - needle.len;
@@ -850,7 +850,7 @@ pub fn indexOfIgnoreCasePosLinear(haystack: []const u8, start_index: usize, need
     }
     return null;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -872,7 +872,7 @@ pub fn indexOfIgnoreCasePosLinear(haystack: []const u8, start_index: usize, need
 
 Returns the lexicographical order of two slices. O(n).
 
-\`\`\`zig
+```zig
 pub fn orderIgnoreCase(lhs: []const u8, rhs: []const u8) std.math.Order {
     const n = @min(lhs.len, rhs.len);
     var i: usize = 0;
@@ -885,7 +885,7 @@ pub fn orderIgnoreCase(lhs: []const u8, rhs: []const u8) std.math.Order {
     }
     return std.math.order(lhs.len, rhs.len);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -906,11 +906,11 @@ pub fn orderIgnoreCase(lhs: []const u8, rhs: []const u8) std.math.Order {
 
 Returns whether the lexicographical order of `lhs` is lower than `rhs`.
 
-\`\`\`zig
+```zig
 pub fn lessThanIgnoreCase(lhs: []const u8, rhs: []const u8) bool {
     return orderIgnoreCase(lhs, rhs) == .lt;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -931,14 +931,14 @@ pub fn lessThanIgnoreCase(lhs: []const u8, rhs: []const u8) bool {
 
 Replaces non-ASCII bytes with hex escapes.
 
-\`\`\`zig
+```zig
 pub fn hexEscape(bytes: []const u8, case: std.fmt.Case) std.fmt.Formatter(HexEscape, HexEscape.format) {
     return .{ .data = .{ .bytes = bytes, .charset = switch (case) {
         .lower => HexEscape.lower_charset,
         .upper => HexEscape.upper_charset,
     } } };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -951,3 +951,4 @@ pub fn hexEscape(bytes: []const u8, case: std.fmt.Case) std.fmt.Formatter(HexEsc
 </details>
 
 ---
+

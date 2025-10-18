@@ -52,7 +52,7 @@ Does not do perfect grammar and character class checking, but should be robust a
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Format = struct {
     uri: *const Uri,
     flags: Flags = .{},
@@ -88,7 +88,7 @@ pub const Format = struct {
         return writeToStream(f.uri, writer, f.flags);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -108,9 +108,9 @@ pub const Format = struct {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const host_name_max = 255
-\`\`\`
+```
 
 </details>
 
@@ -121,7 +121,7 @@ pub const host_name_max = 255
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Component = union(enum) {
     /// Invalid characters in this component must be percent encoded
     /// before being printed as part of a URI.
@@ -242,7 +242,7 @@ pub const Component = union(enum) {
         try w.writeAll(raw[start..]);
     }
 }
-\`\`\`
+```
 
 </details>
 
@@ -262,14 +262,14 @@ Suggested buffer length: `host_name_max`.
 See also:
 * `getHostAlloc`
 
-\`\`\`zig
+```zig
 pub fn getHost(uri: Uri, buffer: []u8) error{ UriMissingHost, UriHostTooLong }![]const u8 {
     const component = uri.host orelse return error.UriMissingHost;
     return component.toRaw(buffer) catch |err| switch (err) {
         error.NoSpaceLeft => return error.UriHostTooLong,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -298,14 +298,14 @@ Returned value may point into `buffer` or be the original string.
 See also:
 * `getHost`
 
-\`\`\`zig
+```zig
 pub fn getHostAlloc(uri: Uri, arena: Allocator) error{ UriMissingHost, UriHostTooLong, OutOfMemory }![]const u8 {
     const component = uri.host orelse return error.UriMissingHost;
     const result = try component.toRawMaybeAlloc(arena);
     if (result.len > host_name_max) return error.UriHostTooLong;
     return result;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -319,9 +319,9 @@ pub fn getHostAlloc(uri: Uri, arena: Allocator) error{ UriMissingHost, UriHostTo
 [^fn-gethostalloc-return-0]:
     Return type for `getHostAlloc`:
 
-    \`\`\`zig
+    ```zig
     error{ UriMissingHost, UriHostTooLong, OutOfMemory }![]const u8
-    \`\`\`
+    ```
 
 **Possible Errors:**
 
@@ -342,7 +342,7 @@ Percent decodes all %XX where XX is a valid hex number.
 `output` may alias `input` if `output.ptr <= input.ptr`.
 Mutates and returns a subslice of `output`.
 
-\`\`\`zig
+```zig
 pub fn percentDecodeBackwards(output: []u8, input: []const u8) []u8 {
     var input_index = input.len;
     var output_index = output.len;
@@ -364,7 +364,7 @@ pub fn percentDecodeBackwards(output: []u8, input: []const u8) []u8 {
     }
     return output[output_index..];
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -386,11 +386,11 @@ pub fn percentDecodeBackwards(output: []u8, input: []const u8) []u8 {
 Percent decodes all %XX where XX is a valid hex number.
 Mutates and returns a subslice of `buffer`.
 
-\`\`\`zig
+```zig
 pub fn percentDecodeInPlace(buffer: []u8) []u8 {
     return percentDecodeBackwards(buffer, buffer);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -413,7 +413,7 @@ some forms of URIs in the wild, such as HTTP Location headers.
 The return value will contain strings pointing into the original `text`.
 Each component that is provided, will be non-`null`.
 
-\`\`\`zig
+```zig
 pub fn parseAfterScheme(scheme: []const u8, text: []const u8) ParseError!Uri {
     var uri: Uri = .{ .scheme = scheme, .path = undefined };
     var i: usize = 0;
@@ -489,7 +489,7 @@ pub fn parseAfterScheme(scheme: []const u8, text: []const u8) ParseError!Uri {
 
     return uri;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -508,11 +508,11 @@ pub fn parseAfterScheme(scheme: []const u8, text: []const u8) ParseError!Uri {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn format(uri: *const Uri, writer: *Writer) Writer.Error!void {
     return writeToStream(uri, writer, .all);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -531,7 +531,7 @@ pub fn format(uri: *const Uri, writer: *Writer) Writer.Error!void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn writeToStream(uri: *const Uri, writer: *Writer, flags: Format.Flags) Writer.Error!void {
     if (flags.scheme) {
         try writer.print("{s}:", .{uri.scheme});
@@ -574,7 +574,7 @@ pub fn writeToStream(uri: *const Uri, writer: *Writer, flags: Format.Flags) Writ
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -594,11 +594,11 @@ pub fn writeToStream(uri: *const Uri, writer: *Writer, flags: Format.Flags) Writ
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn fmt(uri: *const Uri, flags: Format.Flags) std.fmt.Formatter(Format, Format.default) {
     return .{ .data = .{ .uri = uri, .flags = flags } };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -620,7 +620,7 @@ pub fn fmt(uri: *const Uri, flags: Format.Flags) std.fmt.Formatter(Format, Forma
 The return value will contain strings pointing into the original `text`.
 Each component that is provided will be non-`null`.
 
-\`\`\`zig
+```zig
 pub fn parse(text: []const u8) ParseError!Uri {
     const end = for (text, 0..) |byte, i| {
         if (!isSchemeChar(byte)) break i;
@@ -630,7 +630,7 @@ pub fn parse(text: []const u8) ParseError!Uri {
     if (text[end] != ':') return error.UnexpectedCharacter;
     return parseAfterScheme(text[0..end], text[end + 1 ..]);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -658,7 +658,7 @@ If a merge needs to take place, the newly constructed path will be stored
 in `aux_buf.*` just after the copied location, and `aux_buf.*` will be
 modified to only contain the remaining unused space.
 
-\`\`\`zig
+```zig
 pub fn resolveInPlace(base: Uri, new_len: usize, aux_buf: *[]u8) ResolveInPlaceError!Uri {
     const new = aux_buf.*[0..new_len];
     const new_parsed = parse(new) catch |err| (parseAfterScheme("", new) catch return err);
@@ -710,7 +710,7 @@ pub fn resolveInPlace(base: Uri, new_len: usize, aux_buf: *[]u8) ResolveInPlaceE
         .fragment = new_parsed.fragment,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -732,9 +732,9 @@ pub fn resolveInPlace(base: Uri, new_len: usize, aux_buf: *[]u8) ResolveInPlaceE
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const ParseError = error{ UnexpectedCharacter, InvalidFormat, InvalidPort }
-\`\`\`
+```
 
 **Errors:**
 
@@ -751,9 +751,9 @@ pub const ParseError = error{ UnexpectedCharacter, InvalidFormat, InvalidPort }
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const ResolveInPlaceError = ParseError || error{NoSpaceLeft}
-\`\`\`
+```
 
 **Errors:**
 
@@ -762,3 +762,4 @@ pub const ResolveInPlaceError = ParseError || error{NoSpaceLeft}
 </details>
 
 ---
+

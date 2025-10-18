@@ -93,7 +93,7 @@ corresponds to a virtual memory address of the program counter. Combined
 with debug information, those values can be converted into a resolved
 source location, including file, line, and column.
 
-\`\`\`zig
+```zig
 pub const SourceLocation = struct {
     line: u64,
     column: u64,
@@ -105,7 +105,7 @@ pub const SourceLocation = struct {
         .file_name = &.{},
     };
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -124,13 +124,13 @@ pub const SourceLocation = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Symbol = struct {
     name: []const u8 = "???",
     compile_unit_name: []const u8 = "???",
     source_location: ?SourceLocation = null,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -149,7 +149,7 @@ pub const Symbol = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const StackIterator = struct {
     // Skip every frame before this address is found.
     first_address: ?usize,
@@ -349,7 +349,7 @@ pub const StackIterator = struct {
         return new_pc;
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -364,14 +364,14 @@ pub const StackIterator = struct {
 [^type-stackiterator-unwind-state-type-0]:
     Type for field `unwind_state` of `StackIterator`:
 
-    \`\`\`zig
+    ```zig
     if (have_ucontext) ?struct {
             debug_info: *SelfInfo,
             dwarf_context: SelfInfo.UnwindContext,
             last_error: ?UnwindError = null,
             failed: bool = false,
         } else void
-    \`\`\`
+    ```
 
 </details>
 
@@ -382,7 +382,7 @@ pub const StackIterator = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const SafetyLock = struct {
     state: State = if (runtime_safety) .unlocked else .unknown,
 
@@ -410,7 +410,7 @@ pub const SafetyLock = struct {
         assert(l.state == .locked);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -429,9 +429,9 @@ pub const SafetyLock = struct {
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const MemoryAccessor = @import("debug/MemoryAccessor.zig")
-\`\`\`
+```
 
 > **Module:** `debug/MemoryAccessor.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/debug/MemoryAccessor.zig)
 
@@ -444,9 +444,9 @@ pub const MemoryAccessor = @import("debug/MemoryAccessor.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const FixedBufferReader = @import("debug/FixedBufferReader.zig")
-\`\`\`
+```
 
 > **Module:** `debug/FixedBufferReader.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/debug/FixedBufferReader.zig)
 
@@ -459,9 +459,9 @@ pub const FixedBufferReader = @import("debug/FixedBufferReader.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Dwarf = @import("debug/Dwarf.zig")
-\`\`\`
+```
 
 > **Module:** `debug/Dwarf.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/debug/Dwarf.zig)
 
@@ -474,9 +474,9 @@ pub const Dwarf = @import("debug/Dwarf.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Pdb = @import("debug/Pdb.zig")
-\`\`\`
+```
 
 > **Module:** `debug/Pdb.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/debug/Pdb.zig)
 
@@ -489,9 +489,9 @@ pub const Pdb = @import("debug/Pdb.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const SelfInfo = @import("debug/SelfInfo.zig")
-\`\`\`
+```
 
 > **Module:** `debug/SelfInfo.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/debug/SelfInfo.zig)
 
@@ -504,9 +504,9 @@ pub const SelfInfo = @import("debug/SelfInfo.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Info = @import("debug/Info.zig")
-\`\`\`
+```
 
 > **Module:** `debug/Info.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/debug/Info.zig)
 
@@ -519,9 +519,9 @@ pub const Info = @import("debug/Info.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Coverage = @import("debug/Coverage.zig")
-\`\`\`
+```
 
 > **Module:** `debug/Coverage.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/debug/Coverage.zig)
 
@@ -534,9 +534,9 @@ pub const Coverage = @import("debug/Coverage.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const simple_panic = @import("debug/simple_panic.zig")
-\`\`\`
+```
 
 > **Module:** `debug/simple_panic.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/debug/simple_panic.zig)
 
@@ -549,9 +549,9 @@ pub const simple_panic = @import("debug/simple_panic.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const no_panic = @import("debug/no_panic.zig")
-\`\`\`
+```
 
 > **Module:** `debug/no_panic.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/debug/no_panic.zig)
 
@@ -574,12 +574,12 @@ Deprecated because it returns the optimization mode of the standard
 library, when the caller probably wants to use the optimization mode of
 their own module.
 
-\`\`\`zig
+```zig
 pub const runtime_safety = switch (builtin.mode) {
     .Debug, .ReleaseSafe => true,
     .ReleaseFast, .ReleaseSmall => false,
 }
-\`\`\`
+```
 
 </details>
 
@@ -590,7 +590,7 @@ pub const runtime_safety = switch (builtin.mode) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sys_can_stack_trace = switch (builtin.cpu.arch) {
     // Observed to go into an infinite loop.
     // TODO: Make this work.
@@ -616,7 +616,7 @@ pub const sys_can_stack_trace = switch (builtin.cpu.arch) {
 
     else => true,
 }
-\`\`\`
+```
 
 </details>
 
@@ -627,9 +627,9 @@ pub const sys_can_stack_trace = switch (builtin.cpu.arch) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const have_ucontext = posix.ucontext_t != void
-\`\`\`
+```
 
 </details>
 
@@ -644,7 +644,7 @@ Platform-specific thread state. This contains register state, and on some platfo
 information about the stack. This is not safe to trivially copy, because some platforms
 use internal pointers within this structure. To make a copy, use `copyContext`.
 
-\`\`\`zig
+```zig
 pub const ThreadContext = blk: {
     if (native_os == .windows) {
         break :blk windows.CONTEXT;
@@ -654,7 +654,7 @@ pub const ThreadContext = blk: {
         break :blk void;
     }
 }
-\`\`\`
+```
 
 </details>
 
@@ -665,9 +665,9 @@ pub const ThreadContext = blk: {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const have_getcontext = @TypeOf(posix.system.getcontext) != void
-\`\`\`
+```
 
 </details>
 
@@ -678,12 +678,12 @@ pub const have_getcontext = @TypeOf(posix.system.getcontext) != void
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UnwindError = if (have_ucontext)
     @typeInfo(@typeInfo(@TypeOf(StackIterator.next_unwind)).@"fn".return_type.?).error_union.error_set
 else
     void
-\`\`\`
+```
 
 </details>
 
@@ -696,7 +696,7 @@ else
 
 Whether or not the current target can print useful debug information when a segfault occurs.
 
-\`\`\`zig
+```zig
 pub const have_segfault_handling_support = switch (native_os) {
     .linux,
     .macos,
@@ -709,7 +709,7 @@ pub const have_segfault_handling_support = switch (native_os) {
     .freebsd, .openbsd => have_ucontext,
     else => false,
 }
-\`\`\`
+```
 
 </details>
 
@@ -720,9 +720,9 @@ pub const have_segfault_handling_support = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const default_enable_segfault_handler = runtime_safety and have_segfault_handling_support
-\`\`\`
+```
 
 </details>
 
@@ -741,9 +741,9 @@ In release mode, it is size 0 and all methods are no-ops.
 This is a pre-made type with default settings.
 For more advanced usage, see `ConfigurableTrace`.
 
-\`\`\`zig
+```zig
 pub const Trace = ConfigurableTrace(2, 4, builtin.mode == .Debug)
-\`\`\`
+```
 
 </details>
 
@@ -760,7 +760,7 @@ A fully-featured panic handler namespace which lowers all panics to calls to `pa
 Safety panics will use formatted printing to provide a meaningful error message.
 The signature of `panicFn` should match that of `defaultPanic`.
 
-\`\`\`zig
+```zig
 pub fn FullPanic(comptime panicFn: fn ([]const u8, ?usize) noreturn) type {
     return struct {
         pub const call = panicFn;
@@ -870,7 +870,7 @@ pub fn FullPanic(comptime panicFn: fn ([]const u8, ?usize) noreturn) type {
         }
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -892,11 +892,11 @@ Allows the caller to freely write to stderr until `unlockStdErr` is called.
 
 During the lock, any `std.Progress` information is cleared from the terminal.
 
-\`\`\`zig
+```zig
 pub fn lockStdErr() void {
     std.Progress.lockStdErr();
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -913,11 +913,11 @@ pub fn lockStdErr() void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn unlockStdErr() void {
     std.Progress.unlockStdErr();
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -941,11 +941,11 @@ During the lock, any `std.Progress` information is cleared from the terminal.
 Returns a `Writer` with empty buffer, meaning that it is
 in fact unbuffered and does not need to be flushed.
 
-\`\`\`zig
+```zig
 pub fn lockStderrWriter(buffer: []u8) *Writer {
     return std.Progress.lockStderrWriter(buffer);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -963,11 +963,11 @@ pub fn lockStderrWriter(buffer: []u8) *Writer {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn unlockStderrWriter() void {
     std.Progress.unlockStderrWriter();
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -990,14 +990,14 @@ debugging". Use `std.log` functions for proper logging.
 Uses a 64-byte buffer for formatted printing which is flushed before this
 function returns.
 
-\`\`\`zig
+```zig
 pub fn print(comptime fmt: []const u8, args: anytype) void {
     var buffer: [64]u8 = undefined;
     const bw = lockStderrWriter(&buffer);
     defer unlockStderrWriter();
     nosuspend bw.print(fmt, args) catch return;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1016,7 +1016,7 @@ pub fn print(comptime fmt: []const u8, args: anytype) void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn getSelfDebugInfo() !*SelfInfo {
     if (self_debug_info) |*info| {
         return info;
@@ -1025,7 +1025,7 @@ pub fn getSelfDebugInfo() !*SelfInfo {
         return &self_debug_info.?;
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1045,14 +1045,14 @@ pub fn getSelfDebugInfo() !*SelfInfo {
 Tries to print a hexadecimal view of the bytes, unbuffered, and ignores any error returned.
 Obtains the stderr mutex while dumping.
 
-\`\`\`zig
+```zig
 pub fn dumpHex(bytes: []const u8) void {
     const bw = lockStderrWriter(&.{});
     defer unlockStderrWriter();
     const ttyconf = std.io.tty.detectConfig(.stderr());
     dumpHexFallible(bw, ttyconf, bytes) catch {};
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1072,7 +1072,7 @@ pub fn dumpHex(bytes: []const u8) void {
 
 Prints a hexadecimal view of the bytes, returning any error that occurs.
 
-\`\`\`zig
+```zig
 pub fn dumpHexFallible(bw: *Writer, ttyconf: std.io.tty.Config, bytes: []const u8) !void {
     var chunks = mem.window(u8, bytes, 16, 16);
     while (chunks.next()) |window| {
@@ -1121,7 +1121,7 @@ pub fn dumpHexFallible(bw: *Writer, ttyconf: std.io.tty.Config, bytes: []const u
         try bw.writeByte('\n');
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1143,13 +1143,13 @@ pub fn dumpHexFallible(bw: *Writer, ttyconf: std.io.tty.Config, bytes: []const u
 
 Tries to print the current stack trace to stderr, unbuffered, and ignores any error returned.
 
-\`\`\`zig
+```zig
 pub fn dumpCurrentStackTrace(start_addr: ?usize) void {
     const stderr = lockStderrWriter(&.{});
     defer unlockStderrWriter();
     nosuspend dumpCurrentStackTraceToWriter(start_addr, stderr) catch return;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1169,7 +1169,7 @@ pub fn dumpCurrentStackTrace(start_addr: ?usize) void {
 
 Prints the current stack trace to the provided writer.
 
-\`\`\`zig
+```zig
 pub fn dumpCurrentStackTraceToWriter(start_addr: ?usize, writer: *Writer) !void {
     if (builtin.target.cpu.arch.isWasm()) {
         if (native_os == .wasi) {
@@ -1190,7 +1190,7 @@ pub fn dumpCurrentStackTraceToWriter(start_addr: ?usize, writer: *Writer) !void 
         return;
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1211,13 +1211,13 @@ pub fn dumpCurrentStackTraceToWriter(start_addr: ?usize, writer: *Writer) !void 
 
 Copies one context to another, updating any internal pointers
 
-\`\`\`zig
+```zig
 pub fn copyContext(source: *const ThreadContext, dest: *ThreadContext) void {
     if (!have_ucontext) return {};
     dest.* = source.*;
     relocateContext(dest);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1238,7 +1238,7 @@ pub fn copyContext(source: *const ThreadContext, dest: *ThreadContext) void {
 
 Updates any internal pointers in the context to reflect its current location
 
-\`\`\`zig
+```zig
 pub fn relocateContext(context: *ThreadContext) void {
     return switch (native_os) {
         .macos => {
@@ -1247,7 +1247,7 @@ pub fn relocateContext(context: *ThreadContext) void {
         else => {},
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1271,7 +1271,7 @@ state after the platform `getcontext` function returns.
 It is valid to call this if the platform doesn't have context capturing support,
 in that case false will be returned.
 
-\`\`\`zig
+```zig
 pub inline fn getContext(context: *ThreadContext) bool {
     if (native_os == .windows) {
         context.* = std.mem.zeroes(windows.CONTEXT);
@@ -1292,7 +1292,7 @@ pub inline fn getContext(context: *ThreadContext) bool {
 
     return result;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1314,7 +1314,7 @@ Tries to print the stack trace starting from the supplied base pointer to stderr
 unbuffered, and ignores any error returned.
 TODO multithreaded awareness
 
-\`\`\`zig
+```zig
 pub fn dumpStackTraceFromBase(context: *ThreadContext, stderr: *Writer) void {
     nosuspend {
         if (builtin.target.cpu.arch.isWasm()) {
@@ -1367,7 +1367,7 @@ pub fn dumpStackTraceFromBase(context: *ThreadContext, stderr: *Writer) void {
         } else printLastUnwindError(&it, debug_info, stderr, tty_config);
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1393,7 +1393,7 @@ capture that many stack frames exactly, and then look for the first address,
 chopping off the irrelevant frames and shifting so that the returned addresses pointer
 equals the passed in addresses pointer.
 
-\`\`\`zig
+```zig
 pub fn captureStackTrace(first_address: ?usize, stack_trace: *std.builtin.StackTrace) void {
     if (native_os == .windows) {
         const addrs = stack_trace.instruction_addresses;
@@ -1434,7 +1434,7 @@ pub fn captureStackTrace(first_address: ?usize, stack_trace: *std.builtin.StackT
         stack_trace.index = stack_trace.instruction_addresses.len;
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1456,7 +1456,7 @@ pub fn captureStackTrace(first_address: ?usize, stack_trace: *std.builtin.StackT
 Tries to print a stack trace to stderr, unbuffered, and ignores any error returned.
 TODO multithreaded awareness
 
-\`\`\`zig
+```zig
 pub fn dumpStackTrace(stack_trace: std.builtin.StackTrace) void {
     nosuspend {
         if (builtin.target.cpu.arch.isWasm()) {
@@ -1483,7 +1483,7 @@ pub fn dumpStackTrace(stack_trace: std.builtin.StackTrace) void {
         };
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1515,11 +1515,11 @@ this function, because this function may not detect a test failure in
 ReleaseFast and ReleaseSmall mode. Outside of a test block, this assert
 function is the correct function to use.
 
-\`\`\`zig
+```zig
 pub fn assert(ok: bool) void {
     if (!ok) unreachable; // assertion failure
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1540,12 +1540,12 @@ pub fn assert(ok: bool) void {
 Invokes detectable illegal behavior when the provided slice is not mapped
 or lacks read permissions.
 
-\`\`\`zig
+```zig
 pub fn assertReadable(slice: []const volatile u8) void {
     if (!runtime_safety) return;
     for (slice) |*byte| _ = byte.*;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1566,12 +1566,12 @@ pub fn assertReadable(slice: []const volatile u8) void {
 Invokes detectable illegal behavior when the provided array is not aligned
 to the provided amount.
 
-\`\`\`zig
+```zig
 pub fn assertAligned(ptr: anytype, comptime alignment: std.mem.Alignment) void {
     const aligned_ptr: *align(alignment.toByteUnits()) anyopaque = @ptrCast(@alignCast(ptr));
     _ = aligned_ptr;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1592,12 +1592,12 @@ pub fn assertAligned(ptr: anytype, comptime alignment: std.mem.Alignment) void {
 
 Equivalent to `@panic` but with a formatted message.
 
-\`\`\`zig
+```zig
 pub fn panic(comptime format: []const u8, args: anytype) noreturn {
     @branchHint(.cold);
     panicExtra(@returnAddress(), format, args);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1619,7 +1619,7 @@ pub fn panic(comptime format: []const u8, args: anytype) noreturn {
 Equivalent to `@panic` but with a formatted message, and with an explicitly
 provided return address.
 
-\`\`\`zig
+```zig
 pub fn panicExtra(
     ret_addr: ?usize,
     comptime format: []const u8,
@@ -1640,7 +1640,7 @@ pub fn panicExtra(
     };
     std.builtin.panic.call(msg, ret_addr);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1662,7 +1662,7 @@ pub fn panicExtra(
 
 Dumps a stack trace to standard error, then aborts.
 
-\`\`\`zig
+```zig
 pub fn defaultPanic(
     msg: []const u8,
     first_trace_addr: ?usize,
@@ -1773,7 +1773,7 @@ pub fn defaultPanic(
 
     posix.abort();
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1792,7 +1792,7 @@ pub fn defaultPanic(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn writeStackTrace(
     stack_trace: std.builtin.StackTrace,
     writer: *Writer,
@@ -1819,7 +1819,7 @@ pub fn writeStackTrace(
         tty_config.setColor(writer, .reset) catch {};
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1840,7 +1840,7 @@ pub fn writeStackTrace(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn writeCurrentStackTrace(
     writer: *Writer,
     debug_info: *SelfInfo,
@@ -1872,7 +1872,7 @@ pub fn writeCurrentStackTrace(
         try printSourceAtAddress(debug_info, writer, address, tty_config);
     } else printLastUnwindError(&it, debug_info, writer, tty_config);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1893,7 +1893,7 @@ pub fn writeCurrentStackTrace(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub noinline fn walkStackWindows(addresses: []usize, existing_context: ?*const windows.CONTEXT) usize {
     if (builtin.cpu.arch == .x86) {
         // RtlVirtualUnwind doesn't exist on x86
@@ -1949,7 +1949,7 @@ pub noinline fn walkStackWindows(addresses: []usize, existing_context: ?*const w
 
     return i;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1968,7 +1968,7 @@ pub noinline fn walkStackWindows(addresses: []usize, existing_context: ?*const w
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn writeStackTraceWindows(
     writer: *Writer,
     debug_info: *SelfInfo,
@@ -1989,7 +1989,7 @@ pub fn writeStackTraceWindows(
         try printSourceAtAddress(debug_info, writer, addr - 1, tty_config);
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2011,7 +2011,7 @@ pub fn writeStackTraceWindows(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn printSourceAtAddress(debug_info: *SelfInfo, writer: *Writer, address: usize, tty_config: io.tty.Config) !void {
     const module = debug_info.getModuleForAddress(address) catch |err| switch (err) {
         error.MissingDebugInfo, error.InvalidDebugInfo => return printUnknownSource(debug_info, writer, address, tty_config),
@@ -2034,7 +2034,7 @@ pub fn printSourceAtAddress(debug_info: *SelfInfo, writer: *Writer, address: usi
         printLineFromFileAnyOs,
     );
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2055,13 +2055,13 @@ pub fn printSourceAtAddress(debug_info: *SelfInfo, writer: *Writer, address: usi
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn maybeEnableSegfaultHandler() void {
     if (enable_segfault_handler) {
         attachSegfaultHandler();
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2078,14 +2078,14 @@ pub fn maybeEnableSegfaultHandler() void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn updateSegfaultHandler(act: ?*const posix.Sigaction) void {
     posix.sigaction(posix.SIG.SEGV, act, null);
     posix.sigaction(posix.SIG.ILL, act, null);
     posix.sigaction(posix.SIG.BUS, act, null);
     posix.sigaction(posix.SIG.FPE, act, null);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2105,7 +2105,7 @@ pub fn updateSegfaultHandler(act: ?*const posix.Sigaction) void {
 
 Attaches a global SIGSEGV handler which calls `@panic("segmentation fault");`
 
-\`\`\`zig
+```zig
 pub fn attachSegfaultHandler() void {
     if (!have_segfault_handling_support) {
         @compileError("segfault handler not supported for this target");
@@ -2121,7 +2121,7 @@ pub fn attachSegfaultHandler() void {
     };
     updateSegfaultHandler(&act);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2138,14 +2138,14 @@ pub fn attachSegfaultHandler() void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn dumpStackPointerAddr(prefix: []const u8) void {
     const sp = asm (""
         : [argc] "={rsp}" (-> usize),
     );
     print("{s} sp = 0x{x}\n", .{ prefix, sp });
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2163,7 +2163,7 @@ pub fn dumpStackPointerAddr(prefix: []const u8) void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn ConfigurableTrace(comptime size: usize, comptime stack_frame_count: usize, comptime is_enabled: bool) type {
     return struct {
         addrs: [actual_size][stack_frame_count]usize,
@@ -2260,7 +2260,7 @@ pub fn ConfigurableTrace(comptime size: usize, comptime stack_frame_count: usize
         }
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2285,13 +2285,13 @@ Detect whether the program is being executed in the Valgrind virtual machine.
 When Valgrind integrations are disabled, this returns comptime-known false.
 Otherwise, the result is runtime-known.
 
-\`\`\`zig
+```zig
 pub inline fn inValgrind() bool {
     if (@inComptime()) return false;
     if (!builtin.valgrind_support) return false;
     return std.valgrind.runningOnValgrind() > 0;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2302,3 +2302,4 @@ pub inline fn inValgrind() bool {
 </details>
 
 ---
+

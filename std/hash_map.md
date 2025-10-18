@@ -45,7 +45,7 @@
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-\`\`\`zig
+```zig
 pub const StringContext = struct {
     pub fn hash(self: @This(), s: []const u8) u64 {
         _ = self;
@@ -56,7 +56,7 @@ pub const StringContext = struct {
         return eqlString(a, b);
     }
 }
-\`\`\`
+```
 
 </details>
 
@@ -67,7 +67,7 @@ pub const StringContext = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const StringIndexContext = struct {
     bytes: *const std.ArrayListUnmanaged(u8),
 
@@ -79,7 +79,7 @@ pub const StringIndexContext = struct {
         return hashString(mem.sliceTo(ctx.bytes.items[key..], 0));
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -96,7 +96,7 @@ pub const StringIndexContext = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const StringIndexAdapter = struct {
     bytes: *const std.ArrayListUnmanaged(u8),
 
@@ -109,7 +109,7 @@ pub const StringIndexAdapter = struct {
         return hashString(adapted_key);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -128,9 +128,9 @@ pub const StringIndexAdapter = struct {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const default_max_load_percentage = 80
-\`\`\`
+```
 
 </details>
 
@@ -143,7 +143,7 @@ pub const default_max_load_percentage = 80
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn getAutoHashFn(comptime K: type, comptime Context: type) (fn (Context, K) u64) {
     comptime {
         assert(@hasDecl(std, "StringHashMap")); // detect when the following message needs updated
@@ -169,7 +169,7 @@ pub fn getAutoHashFn(comptime K: type, comptime Context: type) (fn (Context, K) 
         }
     }.hash;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -188,7 +188,7 @@ pub fn getAutoHashFn(comptime K: type, comptime Context: type) (fn (Context, K) 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn getAutoEqlFn(comptime K: type, comptime Context: type) (fn (Context, K, K) bool) {
     return struct {
         fn eql(ctx: Context, a: K, b: K) bool {
@@ -197,7 +197,7 @@ pub fn getAutoEqlFn(comptime K: type, comptime Context: type) (fn (Context, K, K
         }
     }.eql;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -216,11 +216,11 @@ pub fn getAutoEqlFn(comptime K: type, comptime Context: type) (fn (Context, K, K
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn AutoHashMap(comptime K: type, comptime V: type) type {
     return HashMap(K, V, AutoContext(K), default_max_load_percentage);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -239,11 +239,11 @@ pub fn AutoHashMap(comptime K: type, comptime V: type) type {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn AutoHashMapUnmanaged(comptime K: type, comptime V: type) type {
     return HashMapUnmanaged(K, V, AutoContext(K), default_max_load_percentage);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -262,14 +262,14 @@ pub fn AutoHashMapUnmanaged(comptime K: type, comptime V: type) type {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn AutoContext(comptime K: type) type {
     return struct {
         pub const hash = getAutoHashFn(K, @This());
         pub const eql = getAutoEqlFn(K, @This());
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -291,11 +291,11 @@ Builtin hashmap for strings as keys.
 Key memory is managed by the caller.  Keys and values
 will not automatically be freed.
 
-\`\`\`zig
+```zig
 pub fn StringHashMap(comptime V: type) type {
     return HashMap([]const u8, V, StringContext, default_max_load_percentage);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -316,11 +316,11 @@ pub fn StringHashMap(comptime V: type) type {
 Key memory is managed by the caller.  Keys and values
 will not automatically be freed.
 
-\`\`\`zig
+```zig
 pub fn StringHashMapUnmanaged(comptime V: type) type {
     return HashMapUnmanaged([]const u8, V, StringContext, default_max_load_percentage);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -338,11 +338,11 @@ pub fn StringHashMapUnmanaged(comptime V: type) type {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn eqlString(a: []const u8, b: []const u8) bool {
     return mem.eql(u8, a, b);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -361,11 +361,11 @@ pub fn eqlString(a: []const u8, b: []const u8) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn hashString(s: []const u8) u64 {
     return std.hash.Wyhash.hash(0, s);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -399,7 +399,7 @@ take a pseudo key instead of a key.  Their context must have the functions:
   hash(self, PseudoKey) u64
   eql(self, PseudoKey, K) bool
 
-\`\`\`zig
+```zig
 pub fn HashMap(
     comptime K: type,
     comptime V: type,
@@ -758,7 +758,7 @@ pub fn HashMap(
         }
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -791,7 +791,7 @@ Deletions are achieved with tombstones.
 
 Default initialization of this struct is deprecated; use `.empty` instead.
 
-\`\`\`zig
+```zig
 pub fn HashMapUnmanaged(
     comptime K: type,
     comptime V: type,
@@ -1825,7 +1825,7 @@ pub fn HashMapUnmanaged(
         }
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1840,3 +1840,4 @@ pub fn HashMapUnmanaged(
 </details>
 
 ---
+

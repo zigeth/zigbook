@@ -65,12 +65,12 @@ This page syncs automatically from `std/http.md` in the repository. Edit the sou
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Version = enum {
     @"HTTP/1.0",
     @"HTTP/1.1",
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -94,7 +94,7 @@ https://datatracker.ietf.org/doc/html/rfc7231#section-4 Initial definition
 
 https://datatracker.ietf.org/doc/html/rfc5789#section-2 PATCH
 
-\`\`\`zig
+```zig
 pub const Method = enum {
     GET,
     HEAD,
@@ -163,7 +163,7 @@ pub const Method = enum {
         };
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -190,7 +190,7 @@ pub const Method = enum {
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 
-\`\`\`zig
+```zig
 pub const Status = enum(u10) {
     @"continue" = 100, // RFC7231, Section 6.2.1
     switching_protocols = 101, // RFC7231, Section 6.2.2
@@ -367,7 +367,7 @@ pub const Status = enum(u10) {
         try std.testing.expectEqual(Status.Class.client_error, Status.not_found.class());
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -448,12 +448,12 @@ pub const Status = enum(u10) {
 
 compression is intentionally omitted here since it is handled in `ContentEncoding`.
 
-\`\`\`zig
+```zig
 pub const TransferEncoding = enum {
     chunked,
     none,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -471,7 +471,7 @@ pub const TransferEncoding = enum {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ContentEncoding = enum {
     zstd,
     gzip,
@@ -500,7 +500,7 @@ pub const ContentEncoding = enum {
         };
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -521,12 +521,12 @@ pub const ContentEncoding = enum {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Connection = enum {
     keep_alive,
     close,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -544,12 +544,12 @@ pub const Connection = enum {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Header = struct {
     name: []const u8,
     value: []const u8,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -567,7 +567,7 @@ pub const Header = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Reader = struct {
     in: *std.Io.Reader,
     /// This is preallocated memory that might be used by `bodyReader`. That
@@ -957,7 +957,7 @@ pub const Reader = struct {
         }
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -981,7 +981,7 @@ pub const Reader = struct {
 
 Request or response body.
 
-\`\`\`zig
+```zig
 pub const BodyWriter = struct {
     /// Until the lifetime of `BodyWriter` ends, it is illegal to modify the
     /// state of this other than via methods of `BodyWriter`.
@@ -1279,7 +1279,7 @@ pub const BodyWriter = struct {
         }
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1300,9 +1300,9 @@ pub const BodyWriter = struct {
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Client = @import("http/Client.zig")
-\`\`\`
+```
 
 > **Module:** `http/Client.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/http/Client.zig)
 
@@ -1315,9 +1315,9 @@ pub const Client = @import("http/Client.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Server = @import("http/Server.zig")
-\`\`\`
+```
 
 > **Module:** `http/Server.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/http/Server.zig)
 
@@ -1330,9 +1330,9 @@ pub const Server = @import("http/Server.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const HeadParser = @import("http/HeadParser.zig")
-\`\`\`
+```
 
 > **Module:** `http/HeadParser.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/http/HeadParser.zig)
 
@@ -1345,9 +1345,9 @@ pub const HeadParser = @import("http/HeadParser.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ChunkParser = @import("http/ChunkParser.zig")
-\`\`\`
+```
 
 > **Module:** `http/ChunkParser.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/http/ChunkParser.zig)
 
@@ -1360,9 +1360,9 @@ pub const ChunkParser = @import("http/ChunkParser.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const HeaderIterator = @import("http/HeaderIterator.zig")
-\`\`\`
+```
 
 > **Module:** `http/HeaderIterator.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/http/HeaderIterator.zig)
 
@@ -1377,7 +1377,7 @@ pub const HeaderIterator = @import("http/HeaderIterator.zig")
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Decompress = union(enum) {
     flate: std.compress.flate.Decompress,
     zstd: std.compress.zstd.Decompress,
@@ -1410,8 +1410,10 @@ pub const Decompress = union(enum) {
         }
     }
 }
-\`\`\`
+```
 
 </details>
 
 ---
+
+

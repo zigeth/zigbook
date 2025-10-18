@@ -68,7 +68,7 @@ Base64 encoding/decoding as specified by
 
 Base64 codecs
 
-\`\`\`zig
+```zig
 pub const Codecs = struct {
     alphabet_chars: [64]u8,
     pad_char: ?u8,
@@ -76,7 +76,7 @@ pub const Codecs = struct {
     Encoder: Base64Encoder,
     Decoder: Base64Decoder,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -97,7 +97,7 @@ pub const Codecs = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Base64Encoder = struct {
     alphabet_chars: [64]u8,
     pad_char: ?u8,
@@ -183,7 +183,7 @@ pub const Base64Encoder = struct {
         return dest[0..out_len];
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -201,7 +201,7 @@ pub const Base64Encoder = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Base64Decoder = struct {
     const invalid_char: u8 = 0xff;
     const invalid_char_tst: u32 = 0xff000000;
@@ -332,7 +332,7 @@ pub const Base64Decoder = struct {
         }
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -351,7 +351,7 @@ pub const Base64Decoder = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Base64DecoderWithIgnore = struct {
     decoder: Base64Decoder,
     char_is_ignored: [256]bool,
@@ -431,7 +431,7 @@ pub const Base64DecoderWithIgnore = struct {
         return dest_idx;
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -454,9 +454,9 @@ pub const Base64DecoderWithIgnore = struct {
 The Base64 alphabet defined in
 [RFC 4648 section 4](https://datatracker.ietf.org/doc/html/rfc4648#section-4).
 
-\`\`\`zig
+```zig
 pub const standard_alphabet_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".*
-\`\`\`
+```
 
 </details>
 
@@ -470,7 +470,7 @@ pub const standard_alphabet_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
 Standard Base64 codecs, with padding, as defined in
 [RFC 4648 section 4](https://datatracker.ietf.org/doc/html/rfc4648#section-4).
 
-\`\`\`zig
+```zig
 pub const standard = Codecs{
     .alphabet_chars = standard_alphabet_chars,
     .pad_char = '=',
@@ -478,7 +478,7 @@ pub const standard = Codecs{
     .Encoder = Base64Encoder.init(standard_alphabet_chars, '='),
     .Decoder = Base64Decoder.init(standard_alphabet_chars, '='),
 }
-\`\`\`
+```
 
 </details>
 
@@ -492,7 +492,7 @@ pub const standard = Codecs{
 Standard Base64 codecs, without padding, as defined in
 [RFC 4648 section 3.2](https://datatracker.ietf.org/doc/html/rfc4648#section-3.2).
 
-\`\`\`zig
+```zig
 pub const standard_no_pad = Codecs{
     .alphabet_chars = standard_alphabet_chars,
     .pad_char = null,
@@ -500,7 +500,7 @@ pub const standard_no_pad = Codecs{
     .Encoder = Base64Encoder.init(standard_alphabet_chars, null),
     .Decoder = Base64Decoder.init(standard_alphabet_chars, null),
 }
-\`\`\`
+```
 
 </details>
 
@@ -514,9 +514,9 @@ pub const standard_no_pad = Codecs{
 The URL-safe Base64 alphabet defined in
 [RFC 4648 section 5](https://datatracker.ietf.org/doc/html/rfc4648#section-5).
 
-\`\`\`zig
+```zig
 pub const url_safe_alphabet_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_".*
-\`\`\`
+```
 
 </details>
 
@@ -530,7 +530,7 @@ pub const url_safe_alphabet_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
 URL-safe Base64 codecs, with padding, as defined in
 [RFC 4648 section 5](https://datatracker.ietf.org/doc/html/rfc4648#section-5).
 
-\`\`\`zig
+```zig
 pub const url_safe = Codecs{
     .alphabet_chars = url_safe_alphabet_chars,
     .pad_char = '=',
@@ -538,7 +538,7 @@ pub const url_safe = Codecs{
     .Encoder = Base64Encoder.init(url_safe_alphabet_chars, '='),
     .Decoder = Base64Decoder.init(url_safe_alphabet_chars, '='),
 }
-\`\`\`
+```
 
 </details>
 
@@ -552,7 +552,7 @@ pub const url_safe = Codecs{
 URL-safe Base64 codecs, without padding, as defined in
 [RFC 4648 section 3.2](https://datatracker.ietf.org/doc/html/rfc4648#section-3.2).
 
-\`\`\`zig
+```zig
 pub const url_safe_no_pad = Codecs{
     .alphabet_chars = url_safe_alphabet_chars,
     .pad_char = null,
@@ -560,7 +560,7 @@ pub const url_safe_no_pad = Codecs{
     .Encoder = Base64Encoder.init(url_safe_alphabet_chars, null),
     .Decoder = Base64Decoder.init(url_safe_alphabet_chars, null),
 }
-\`\`\`
+```
 
 </details>
 
@@ -573,13 +573,13 @@ pub const url_safe_no_pad = Codecs{
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const Error = error{
     InvalidCharacter,
     InvalidPadding,
     NoSpaceLeft,
 }
-\`\`\`
+```
 
 **Errors:**
 
@@ -590,3 +590,5 @@ pub const Error = error{
 </details>
 
 ---
+
+

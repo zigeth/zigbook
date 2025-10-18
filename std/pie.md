@@ -27,7 +27,7 @@
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn relocate(phdrs: []const elf.Phdr) void {
     @setRuntimeSafety(false);
     @disableInstrumentation();
@@ -128,7 +128,7 @@ pub fn relocate(phdrs: []const elf.Phdr) void {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -140,3 +140,4 @@ pub fn relocate(phdrs: []const elf.Phdr) void {
 </details>
 
 ---
+

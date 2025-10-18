@@ -1,0 +1,40 @@
+{
+  "name": "zigbook-docs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "lint": "eslint .",
+    "sync:std": "node ./scripts/sync-std-docs.mjs"
+  },
+  "dependencies": {
+    "@nuxtjs/google-fonts": "latest",
+    "@nuxtjs/robots": "latest",
+    "@nuxtjs/sitemap": "latest",
+    "better-sqlite3": "^12.4.1",
+    "docus": "latest",
+    "nuxt": "^4.1.2",
+    "nuxt-llms": "latest",
+    "nuxt-og-image": "latest",
+    "nuxt-schema-org": "latest",
+    "tailwindcss": "^4.1.0"
+  },
+  "devDependencies": {
+    "@nuxt/eslint-config": "latest",
+    "@tailwindcss/postcss": "^4.1.0",
+    "@tailwindcss/vite": "^4.1.0",
+    "@types/node": "latest",
+    "autoprefixer": "latest",
+    "eslint": "latest",
+    "eslint-plugin-vue": "latest",
+    "postcss": "latest",
+    "postcss-import": "latest",
+    "prettier": "latest",
+    "typescript": "latest",
+    "vue-tsc": "latest"
+  }
+}

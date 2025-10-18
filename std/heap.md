@@ -66,9 +66,9 @@
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Check = enum { ok, leak }
-\`\`\`
+```
 
 **Fields:**
 
@@ -88,9 +88,9 @@ pub const Check = enum { ok, leak }
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const SmpAllocator = @import("heap/SmpAllocator.zig")
-\`\`\`
+```
 
 > **Module:** `heap/SmpAllocator.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/heap/SmpAllocator.zig)
 
@@ -103,9 +103,9 @@ pub const SmpAllocator = @import("heap/SmpAllocator.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const FixedBufferAllocator = @import("heap/FixedBufferAllocator.zig")
-\`\`\`
+```
 
 > **Module:** `heap/FixedBufferAllocator.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/heap/FixedBufferAllocator.zig)
 
@@ -118,9 +118,9 @@ pub const FixedBufferAllocator = @import("heap/FixedBufferAllocator.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const PageAllocator = @import("heap/PageAllocator.zig")
-\`\`\`
+```
 
 > **Module:** `heap/PageAllocator.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/heap/PageAllocator.zig)
 
@@ -133,9 +133,9 @@ pub const PageAllocator = @import("heap/PageAllocator.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ThreadSafeAllocator = @import("heap/ThreadSafeAllocator.zig")
-\`\`\`
+```
 
 > **Module:** `heap/ThreadSafeAllocator.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/heap/ThreadSafeAllocator.zig)
 
@@ -148,9 +148,9 @@ pub const ThreadSafeAllocator = @import("heap/ThreadSafeAllocator.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const WasmAllocator = @import("heap/WasmAllocator.zig")
-\`\`\`
+```
 
 > **Module:** `heap/WasmAllocator.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/heap/WasmAllocator.zig)
 
@@ -167,9 +167,9 @@ pub const WasmAllocator = @import("heap/WasmAllocator.zig")
 
 TODO Utilize this on Windows.
 
-\`\`\`zig
+```zig
 pub var next_mmap_addr_hint: ?[*]align(page_size_min) u8 = null
-\`\`\`
+```
 
 </details>
 
@@ -182,9 +182,9 @@ pub var next_mmap_addr_hint: ?[*]align(page_size_min) u8 = null
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ArenaAllocator = @import("heap/arena_allocator.zig").ArenaAllocator
-\`\`\`
+```
 
 </details>
 
@@ -195,9 +195,9 @@ pub const ArenaAllocator = @import("heap/arena_allocator.zig").ArenaAllocator
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SbrkAllocator = @import("heap/sbrk_allocator.zig").SbrkAllocator
-\`\`\`
+```
 
 </details>
 
@@ -208,9 +208,9 @@ pub const SbrkAllocator = @import("heap/sbrk_allocator.zig").SbrkAllocator
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DebugAllocatorConfig = @import("heap/debug_allocator.zig").Config
-\`\`\`
+```
 
 </details>
 
@@ -221,9 +221,9 @@ pub const DebugAllocatorConfig = @import("heap/debug_allocator.zig").Config
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DebugAllocator = @import("heap/debug_allocator.zig").DebugAllocator
-\`\`\`
+```
 
 </details>
 
@@ -236,9 +236,9 @@ pub const DebugAllocator = @import("heap/debug_allocator.zig").DebugAllocator
 
 Deprecated; to be removed after 0.14.0 is tagged.
 
-\`\`\`zig
+```zig
 pub const GeneralPurposeAllocatorConfig = DebugAllocatorConfig
-\`\`\`
+```
 
 </details>
 
@@ -251,9 +251,9 @@ pub const GeneralPurposeAllocatorConfig = DebugAllocatorConfig
 
 Deprecated; to be removed after 0.14.0 is tagged.
 
-\`\`\`zig
+```zig
 pub const GeneralPurposeAllocator = DebugAllocator
-\`\`\`
+```
 
 </details>
 
@@ -264,9 +264,9 @@ pub const GeneralPurposeAllocator = DebugAllocator
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MemoryPool = memory_pool.MemoryPool
-\`\`\`
+```
 
 </details>
 
@@ -277,9 +277,9 @@ pub const MemoryPool = memory_pool.MemoryPool
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MemoryPoolAligned = memory_pool.MemoryPoolAligned
-\`\`\`
+```
 
 </details>
 
@@ -290,9 +290,9 @@ pub const MemoryPoolAligned = memory_pool.MemoryPoolAligned
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MemoryPoolExtra = memory_pool.MemoryPoolExtra
-\`\`\`
+```
 
 </details>
 
@@ -303,9 +303,9 @@ pub const MemoryPoolExtra = memory_pool.MemoryPoolExtra
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MemoryPoolOptions = memory_pool.Options
-\`\`\`
+```
 
 </details>
 
@@ -326,10 +326,10 @@ This value can be overridden via `std.options.page_size_min`.
 On many systems, the actual page size can only be determined at runtime
 with `pageSize`.
 
-\`\`\`zig
+```zig
 pub const page_size_min: usize = std.options.page_size_min orelse (page_size_min_default orelse
     @compileError(@tagName(builtin.cpu.arch) ++ "-" ++ @tagName(builtin.os.tag) ++ " has unknown page_size_min; populate std.options.page_size_min"))
-\`\`\`
+```
 
 </details>
 
@@ -348,12 +348,12 @@ option.
 
 The actual page size can only be determined at runtime with `pageSize`.
 
-\`\`\`zig
+```zig
 pub const page_size_max: usize = std.options.page_size_max orelse (page_size_max_default orelse if (builtin.os.tag == .freestanding or builtin.os.tag == .other)
     @compileError("freestanding/other page_size_max must provided with std.options.page_size_max")
 else
     @compileError(@tagName(builtin.cpu.arch) ++ "-" ++ @tagName(builtin.os.tag) ++ " has unknown page_size_max; populate std.options.page_size_max"))
-\`\`\`
+```
 
 </details>
 
@@ -368,12 +368,12 @@ Supports the full Allocator interface, including alignment, and exploiting
 `malloc_usable_size` if available. For an allocator that directly calls
 `malloc`/`free`, see `raw_c_allocator`.
 
-\`\`\`zig
+```zig
 pub const c_allocator: Allocator = .{
     .ptr = undefined,
     .vtable = &CAllocator.vtable,
 }
-\`\`\`
+```
 
 </details>
 
@@ -390,12 +390,12 @@ This allocator is safe to use as the backing allocator with
 `ArenaAllocator` for example and is more optimal in such a case than
 `c_allocator`.
 
-\`\`\`zig
+```zig
 pub const raw_c_allocator: Allocator = .{
     .ptr = undefined,
     .vtable = &raw_c_allocator_vtable,
 }
-\`\`\`
+```
 
 </details>
 
@@ -413,7 +413,7 @@ Otherwise, it falls back to the preferred singleton for the target.
 
 Thread-safe.
 
-\`\`\`zig
+```zig
 pub const page_allocator: Allocator = if (@hasDecl(root, "os") and
     @hasDecl(root.os, "heap") and
     @hasDecl(root.os.heap, "page_allocator"))
@@ -428,7 +428,7 @@ else if (builtin.target.cpu.arch.isWasm()) .{
     .ptr = undefined,
     .vtable = &PageAllocator.vtable,
 }
-\`\`\`
+```
 
 </details>
 
@@ -439,12 +439,12 @@ else if (builtin.target.cpu.arch.isWasm()) .{
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const smp_allocator: Allocator = .{
     .ptr = undefined,
     .vtable = &SmpAllocator.vtable,
 }
-\`\`\`
+```
 
 </details>
 
@@ -461,12 +461,12 @@ this will be the implementation automatically selected by
 and wasm64 architectures.
 Until then, it is available here to play with.
 
-\`\`\`zig
+```zig
 pub const wasm_allocator: Allocator = .{
     .ptr = undefined,
     .vtable = &WasmAllocator.vtable,
 }
-\`\`\`
+```
 
 </details>
 
@@ -483,12 +483,12 @@ If the page size is comptime-known, return value is comptime.
 Otherwise, calls `std.options.queryPageSize` which by default queries the
 host operating system at runtime.
 
-\`\`\`zig
+```zig
 pub inline fn pageSize() usize {
     if (page_size_min == page_size_max) return page_size_min;
     return std.options.queryPageSize();
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -508,7 +508,7 @@ pub inline fn pageSize() usize {
 The default implementation of `std.options.queryPageSize`.
 Asserts that the page size is within `page_size_min` and `page_size_max`
 
-\`\`\`zig
+```zig
 pub fn defaultQueryPageSize() usize {
     const global = struct {
         var cached_result: std.atomic.Value(usize) = .init(0);
@@ -553,7 +553,7 @@ pub fn defaultQueryPageSize() usize {
 
     return size;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -574,7 +574,7 @@ Returns a `StackFallbackAllocator` allocating using either a
 `FixedBufferAllocator` on an array of size `size` and falling back to
 `fallback_allocator` if that fails.
 
-\`\`\`zig
+```zig
 pub fn stackFallback(comptime size: usize, fallback_allocator: Allocator) StackFallbackAllocator(size) {
     return StackFallbackAllocator(size){
         .buffer = undefined,
@@ -582,7 +582,7 @@ pub fn stackFallback(comptime size: usize, fallback_allocator: Allocator) StackF
         .fixed_buffer_allocator = undefined,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -606,7 +606,7 @@ An allocator that attempts to allocate using a
 allocation fails, it will fall back to using
 `fallback_allocator`. Easily created with `stackFallback`.
 
-\`\`\`zig
+```zig
 pub fn StackFallbackAllocator(comptime size: usize) type {
     return struct {
         const Self = @This();
@@ -698,7 +698,7 @@ pub fn StackFallbackAllocator(comptime size: usize) type {
         }
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -718,7 +718,7 @@ pub fn StackFallbackAllocator(comptime size: usize) type {
 
 This one should not try alignments that exceed what C malloc can handle.
 
-\`\`\`zig
+```zig
 pub fn testAllocator(base_allocator: mem.Allocator) !void {
     var validationAllocator = mem.validationWrap(base_allocator);
     const allocator = validationAllocator.allocator();
@@ -767,7 +767,7 @@ pub fn testAllocator(base_allocator: mem.Allocator) !void {
     }
     allocator.free(oversize);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -785,7 +785,7 @@ pub fn testAllocator(base_allocator: mem.Allocator) !void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn testAllocatorAligned(base_allocator: mem.Allocator) !void {
     var validationAllocator = mem.validationWrap(base_allocator);
     const allocator = validationAllocator.allocator();
@@ -812,7 +812,7 @@ pub fn testAllocatorAligned(base_allocator: mem.Allocator) !void {
         try testing.expect(allocator.resize(slice, 0));
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -830,7 +830,7 @@ pub fn testAllocatorAligned(base_allocator: mem.Allocator) !void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn testAllocatorLargeAlignment(base_allocator: mem.Allocator) !void {
     var validationAllocator = mem.validationWrap(base_allocator);
     const allocator = validationAllocator.allocator();
@@ -859,7 +859,7 @@ pub fn testAllocatorLargeAlignment(base_allocator: mem.Allocator) !void {
 
     allocator.free(slice);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -877,7 +877,7 @@ pub fn testAllocatorLargeAlignment(base_allocator: mem.Allocator) !void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn testAllocatorAlignedShrink(base_allocator: mem.Allocator) !void {
     var validationAllocator = mem.validationWrap(base_allocator);
     const allocator = validationAllocator.allocator();
@@ -909,7 +909,7 @@ pub fn testAllocatorAlignedShrink(base_allocator: mem.Allocator) !void {
     try testing.expect(slice[0] == 0x12);
     try testing.expect(slice[60] == 0x34);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -921,3 +921,4 @@ pub fn testAllocatorAlignedShrink(base_allocator: mem.Allocator) !void {
 </details>
 
 ---
+

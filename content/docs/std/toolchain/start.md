@@ -51,7 +51,7 @@ This page syncs automatically from `std/start.md` in the repository. Edit the so
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const simplified_logic = switch (builtin.zig_backend) {
     .stage2_aarch64,
     .stage2_arm,
@@ -62,7 +62,7 @@ pub const simplified_logic = switch (builtin.zig_backend) {
     => true,
     else => false,
 }
-\`\`\`
+```
 
 </details>
 
@@ -75,7 +75,7 @@ pub const simplified_logic = switch (builtin.zig_backend) {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub inline fn callMain() u8 {
     const ReturnType = @typeInfo(@TypeOf(root.main)).@"fn".return_type.?;
 
@@ -115,7 +115,7 @@ pub inline fn callMain() u8 {
         },
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -132,7 +132,7 @@ pub inline fn callMain() u8 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn call_wWinMain() std.os.windows.INT {
     const peb = std.os.windows.peb();
     const MAIN_HINSTANCE = @typeInfo(@TypeOf(root.wWinMain)).@"fn".params[0].type.?;
@@ -166,7 +166,7 @@ pub fn call_wWinMain() std.os.windows.INT {
     // second parameter hPrevInstance, MSDN: "This parameter is always NULL"
     return root.wWinMain(hInstance, null, lpCmdLine, nCmdShow);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -177,3 +177,5 @@ pub fn call_wWinMain() std.os.windows.INT {
 </details>
 
 ---
+
+

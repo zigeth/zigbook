@@ -97,7 +97,7 @@ This page syncs automatically from `std/coff.md` in the repository. Edit the sou
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const CoffHeaderFlags = packed struct {
     /// Image only, Windows CE, and Microsoft Windows NT and later.
     /// This indicates that the file does not contain base relocations
@@ -158,7 +158,7 @@ pub const CoffHeaderFlags = packed struct {
     /// Big endian: the MSB precedes the LSB in memory. This flag is deprecated and should be zero.
     BYTES_REVERSED_HI: u1 = 0,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -190,7 +190,7 @@ pub const CoffHeaderFlags = packed struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const CoffHeader = extern struct {
     /// The number that identifies the type of target machine.
     machine: MachineType,
@@ -218,7 +218,7 @@ pub const CoffHeader = extern struct {
     /// The flags that indicate the attributes of the file.
     flags: CoffHeaderFlags,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -241,7 +241,7 @@ pub const CoffHeader = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const DllFlags = packed struct {
     _reserved_0: u5 = 0,
 
@@ -278,7 +278,7 @@ pub const DllFlags = packed struct {
     /// Terminal Server aware.
     TERMINAL_SERVER_AWARE: u1 = 0,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -306,7 +306,7 @@ pub const DllFlags = packed struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Subsystem = enum(u16) {
     /// An unknown subsystem
     UNKNOWN = 0,
@@ -352,7 +352,7 @@ pub const Subsystem = enum(u16) {
 
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -383,7 +383,7 @@ pub const Subsystem = enum(u16) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const OptionalHeader = extern struct {
     magic: u16,
     major_linker_version: u8,
@@ -394,7 +394,7 @@ pub const OptionalHeader = extern struct {
     address_of_entry_point: u32,
     base_of_code: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -418,7 +418,7 @@ pub const OptionalHeader = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const OptionalHeaderPE32 = extern struct {
     magic: u16,
     major_linker_version: u8,
@@ -451,7 +451,7 @@ pub const OptionalHeaderPE32 = extern struct {
     loader_flags: u32,
     number_of_rva_and_sizes: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -497,7 +497,7 @@ pub const OptionalHeaderPE32 = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const OptionalHeaderPE64 = extern struct {
     magic: u16,
     major_linker_version: u8,
@@ -529,7 +529,7 @@ pub const OptionalHeaderPE64 = extern struct {
     loader_flags: u32,
     number_of_rva_and_sizes: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -574,7 +574,7 @@ pub const OptionalHeaderPE64 = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const DirectoryEntry = enum(u16) {
     /// Export Directory
     EXPORT = 0,
@@ -623,7 +623,7 @@ pub const DirectoryEntry = enum(u16) {
 
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -655,12 +655,12 @@ pub const DirectoryEntry = enum(u16) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ImageDataDirectory = extern struct {
     virtual_address: u32,
     size: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -678,7 +678,7 @@ pub const ImageDataDirectory = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const BaseRelocationDirectoryEntry = extern struct {
     /// The image base plus the page RVA is added to each offset to create the VA where the base relocation must be applied.
     page_rva: u32,
@@ -686,7 +686,7 @@ pub const BaseRelocationDirectoryEntry = extern struct {
     /// The total number of bytes in the base relocation block, including the Page RVA and Block Size fields and the Type/Offset fields that follow.
     block_size: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -704,7 +704,7 @@ pub const BaseRelocationDirectoryEntry = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const BaseRelocation = packed struct {
     /// Stored in the remaining 12 bits of the WORD, an offset from the starting address that was specified in the Page RVA field for the block.
     /// This offset specifies where the base relocation is to be applied.
@@ -713,7 +713,7 @@ pub const BaseRelocation = packed struct {
     /// Stored in the high 4 bits of the WORD, a value that indicates the type of base relocation to be applied.
     type: BaseRelocationType,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -731,7 +731,7 @@ pub const BaseRelocation = packed struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const BaseRelocationType = enum(u4) {
     /// The base relocation is skipped. This type can be used to pad a block.
     ABSOLUTE = 0,
@@ -794,7 +794,7 @@ pub const BaseRelocationType = enum(u4) {
 
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -822,7 +822,7 @@ pub const BaseRelocationType = enum(u4) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const DebugDirectoryEntry = extern struct {
     characteristics: u32,
     time_date_stamp: u32,
@@ -833,7 +833,7 @@ pub const DebugDirectoryEntry = extern struct {
     address_of_raw_data: u32,
     pointer_to_raw_data: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -857,7 +857,7 @@ pub const DebugDirectoryEntry = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const DebugType = enum(u32) {
     UNKNOWN = 0,
     COFF = 1,
@@ -879,7 +879,7 @@ pub const DebugType = enum(u32) {
 
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -913,7 +913,7 @@ pub const DebugType = enum(u32) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ImportDirectoryEntry = extern struct {
     /// The RVA of the import lookup table.
     /// This table contains a name or ordinal for each import.
@@ -935,7 +935,7 @@ pub const ImportDirectoryEntry = extern struct {
     /// The contents of this table are identical to the contents of the import lookup table until the image is bound.
     import_address_table_rva: u32,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -956,7 +956,7 @@ pub const ImportDirectoryEntry = extern struct {
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-\`\`\`zig
+```zig
 pub const ImportLookupEntry32 = struct {
     pub const ByName = packed struct {
         name_table_rva: u31,
@@ -981,7 +981,7 @@ pub const ImportLookupEntry32 = struct {
         return @as(ByOrdinal, @bitCast(raw));
     }
 }
-\`\`\`
+```
 
 </details>
 
@@ -992,7 +992,7 @@ pub const ImportLookupEntry32 = struct {
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-\`\`\`zig
+```zig
 pub const ImportLookupEntry64 = struct {
     pub const ByName = packed struct {
         name_table_rva: u31,
@@ -1018,7 +1018,7 @@ pub const ImportLookupEntry64 = struct {
         return @as(ByOrdinal, @bitCast(raw));
     }
 }
-\`\`\`
+```
 
 </details>
 
@@ -1032,7 +1032,7 @@ pub const ImportLookupEntry64 = struct {
 Every name ends with a NULL byte. IF the NULL byte does not fall on
 2byte boundary, the entry structure is padded to ensure 2byte alignment.
 
-\`\`\`zig
+```zig
 pub const ImportHintNameEntry = extern struct {
     /// An index into the export name pointer table.
     /// A match is attempted first with this value. If it fails, a binary search is performed on the DLL's export name pointer table.
@@ -1042,7 +1042,7 @@ pub const ImportHintNameEntry = extern struct {
     /// Variable length...
     name: [1]u8,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1060,7 +1060,7 @@ pub const ImportHintNameEntry = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const SectionHeader = extern struct {
     name: [8]u8,
     virtual_size: u32,
@@ -1105,7 +1105,7 @@ pub const SectionHeader = extern struct {
         return self.flags.LNK_COMDAT == 0b1;
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1131,7 +1131,7 @@ pub const SectionHeader = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const SectionHeaderFlags = packed struct {
     _reserved_0: u3 = 0,
 
@@ -1228,7 +1228,7 @@ pub const SectionHeaderFlags = packed struct {
     /// The section can be written to.
     MEM_WRITE: u1 = 0,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1270,7 +1270,7 @@ pub const SectionHeaderFlags = packed struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Symbol = struct {
     name: [8]u8,
     value: u32,
@@ -1295,7 +1295,7 @@ pub const Symbol = struct {
         return offset;
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1317,7 +1317,7 @@ pub const Symbol = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const SectionNumber = enum(u16) {
     /// The symbol record is not yet assigned a section.
     /// A value of zero indicates that a reference to an external symbol is defined elsewhere.
@@ -1332,7 +1332,7 @@ pub const SectionNumber = enum(u16) {
     DEBUG = 0xfffe,
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1352,12 +1352,12 @@ pub const SectionNumber = enum(u16) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const SymType = packed struct {
     complex_type: ComplexType,
     base_type: BaseType,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1375,7 +1375,7 @@ pub const SymType = packed struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const BaseType = enum(u8) {
     /// No type information or unknown base type. Microsoft tools use this setting
     NULL = 0,
@@ -1427,7 +1427,7 @@ pub const BaseType = enum(u8) {
 
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1460,7 +1460,7 @@ pub const BaseType = enum(u8) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ComplexType = enum(u8) {
     /// No derived type; the symbol is a simple scalar variable.
     NULL = 0,
@@ -1476,7 +1476,7 @@ pub const ComplexType = enum(u8) {
 
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1497,7 +1497,7 @@ pub const ComplexType = enum(u8) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const StorageClass = enum(u8) {
     /// A special symbol that represents the end of function, for debugging purposes.
     END_OF_FUNCTION = 0xff,
@@ -1592,7 +1592,7 @@ pub const StorageClass = enum(u8) {
 
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1636,7 +1636,7 @@ pub const StorageClass = enum(u8) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const FunctionDefinition = struct {
     /// The symbol-table index of the corresponding .bf (begin function) symbol record.
     tag_index: u32,
@@ -1655,7 +1655,7 @@ pub const FunctionDefinition = struct {
 
     unused: [2]u8,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1676,7 +1676,7 @@ pub const FunctionDefinition = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const SectionDefinition = struct {
     /// The size of section data; the same as SizeOfRawData in the section header.
     length: u32,
@@ -1698,7 +1698,7 @@ pub const SectionDefinition = struct {
 
     unused: [3]u8,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1721,7 +1721,7 @@ pub const SectionDefinition = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const FileDefinition = struct {
     /// An ANSI string that gives the name of the source file.
     /// This is padded with nulls if it is less than the maximum length.
@@ -1732,7 +1732,7 @@ pub const FileDefinition = struct {
         return self.file_name[0..len];
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1749,7 +1749,7 @@ pub const FileDefinition = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const WeakExternalDefinition = struct {
     /// The symbol-table index of sym2, the symbol to be linked if sym1 is not found.
     tag_index: u32,
@@ -1761,7 +1761,7 @@ pub const WeakExternalDefinition = struct {
 
     unused: [10]u8,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1780,7 +1780,7 @@ pub const WeakExternalDefinition = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const WeakExternalFlag = enum(u32) {
     SEARCH_NOLIBRARY = 1,
     SEARCH_LIBRARY = 2,
@@ -1788,7 +1788,7 @@ pub const WeakExternalFlag = enum(u32) {
     ANTI_DEPENDENCY = 4,
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1809,7 +1809,7 @@ pub const WeakExternalFlag = enum(u32) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ComdatSelection = enum(u8) {
     /// Not a COMDAT section.
     NONE = 0,
@@ -1843,7 +1843,7 @@ pub const ComdatSelection = enum(u8) {
 
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1867,7 +1867,7 @@ pub const ComdatSelection = enum(u8) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const DebugInfoDefinition = struct {
     unused_1: [4]u8,
 
@@ -1883,7 +1883,7 @@ pub const DebugInfoDefinition = struct {
 
     unused_3: [2]u8,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1904,7 +1904,7 @@ pub const DebugInfoDefinition = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const MachineType = enum(u16) {
     UNKNOWN = 0x0,
     /// Alpha AXP, 32-bit address space
@@ -1984,7 +1984,7 @@ pub const MachineType = enum(u16) {
 
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2039,7 +2039,7 @@ pub const MachineType = enum(u16) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Coff = struct {
     data: []const u8,
     // Set if `data` is backed by the image as loaded by the loader
@@ -2256,7 +2256,7 @@ pub const Coff = struct {
         return allocator.dupe(u8, section_data);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2278,7 +2278,7 @@ pub const Coff = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Symtab = struct {
     buffer: []const u8,
 
@@ -2397,7 +2397,7 @@ pub const Symtab = struct {
         return Slice{ .buffer = self.buffer[offset..][0..llen], .num = num };
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2414,7 +2414,7 @@ pub const Symtab = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Strtab = struct {
     buffer: []const u8,
 
@@ -2423,7 +2423,7 @@ pub const Strtab = struct {
         return mem.sliceTo(@as([*:0]const u8, @ptrCast(self.buffer.ptr + off)), 0);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2440,7 +2440,7 @@ pub const Strtab = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ImportHeader = extern struct {
     sig1: MachineType,
     sig2: u16,
@@ -2455,7 +2455,7 @@ pub const ImportHeader = extern struct {
         reserved: u11,
     },
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2474,13 +2474,13 @@ pub const ImportHeader = extern struct {
 [^type-importheader-types-type-0]:
     Type for field `types` of `ImportHeader`:
 
-    \`\`\`zig
+    ```zig
     packed struct {
             type: ImportType,
             name_type: ImportNameType,
             reserved: u11,
         }
-    \`\`\`
+    ```
 
 </details>
 
@@ -2491,7 +2491,7 @@ pub const ImportHeader = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ImportType = enum(u2) {
     /// Executable code.
     CODE = 0,
@@ -2501,7 +2501,7 @@ pub const ImportType = enum(u2) {
     CONST = 2,
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2521,7 +2521,7 @@ pub const ImportType = enum(u2) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ImportNameType = enum(u3) {
     /// The import is by ordinal. This indicates that the value in the Ordinal/Hint
     /// field of the import header is the import's ordinal. If this constant is not
@@ -2538,7 +2538,7 @@ pub const ImportNameType = enum(u3) {
     NAME_EXPORTAS = 4,
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2560,13 +2560,13 @@ pub const ImportNameType = enum(u3) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Relocation = extern struct {
     virtual_address: u32,
     symbol_table_index: u32,
     type: u16,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2585,7 +2585,7 @@ pub const Relocation = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ImageRelAmd64 = enum(u16) {
     /// The relocation is ignored.
     absolute = 0,
@@ -2642,7 +2642,7 @@ pub const ImageRelAmd64 = enum(u16) {
 
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2676,7 +2676,7 @@ pub const ImageRelAmd64 = enum(u16) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ImageRelArm64 = enum(u16) {
     /// The relocation is ignored.
     absolute = 0,
@@ -2736,7 +2736,7 @@ pub const ImageRelArm64 = enum(u16) {
 
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2773,9 +2773,9 @@ pub const ImageRelArm64 = enum(u16) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const IMAGE_NT_OPTIONAL_HDR32_MAGIC = 0x10b
-\`\`\`
+```
 
 </details>
 
@@ -2786,9 +2786,9 @@ pub const IMAGE_NT_OPTIONAL_HDR32_MAGIC = 0x10b
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const IMAGE_NT_OPTIONAL_HDR64_MAGIC = 0x20b
-\`\`\`
+```
 
 </details>
 
@@ -2799,9 +2799,9 @@ pub const IMAGE_NT_OPTIONAL_HDR64_MAGIC = 0x20b
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const IMAGE_NUMBEROF_DIRECTORY_ENTRIES = 16
-\`\`\`
+```
 
 </details>
 
@@ -2814,7 +2814,7 @@ pub const IMAGE_NUMBEROF_DIRECTORY_ENTRIES = 16
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const CoffError = error{
     InvalidPEMagic,
     InvalidPEHeader,
@@ -2823,7 +2823,7 @@ pub const CoffError = error{
     MissingCoffSection,
     MissingStringTable,
 }
-\`\`\`
+```
 
 **Errors:**
 
@@ -2837,3 +2837,5 @@ pub const CoffError = error{
 </details>
 
 ---
+
+

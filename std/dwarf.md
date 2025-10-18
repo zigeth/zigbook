@@ -54,9 +54,9 @@ an implementation of parsing and caching DWARF information, see
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Format = enum { @"32", @"64" }
-\`\`\`
+```
 
 **Fields:**
 
@@ -74,7 +74,7 @@ pub const Format = enum { @"32", @"64" }
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-\`\`\`zig
+```zig
 pub const LLE = struct {
     pub const end_of_list = 0x00;
     pub const base_addressx = 0x01;
@@ -86,7 +86,7 @@ pub const LLE = struct {
     pub const start_end = 0x07;
     pub const start_length = 0x08;
 }
-\`\`\`
+```
 
 </details>
 
@@ -97,7 +97,7 @@ pub const LLE = struct {
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-\`\`\`zig
+```zig
 pub const CFA = struct {
     pub const advance_loc = 0x40;
     pub const offset = 0x80;
@@ -139,7 +139,7 @@ pub const CFA = struct {
     pub const GNU_args_size = 0x2e;
     pub const GNU_negative_offset_extended = 0x2f;
 }
-\`\`\`
+```
 
 </details>
 
@@ -150,12 +150,12 @@ pub const CFA = struct {
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-\`\`\`zig
+```zig
 pub const CHILDREN = struct {
     pub const no = 0x00;
     pub const yes = 0x01;
 }
-\`\`\`
+```
 
 </details>
 
@@ -166,7 +166,7 @@ pub const CHILDREN = struct {
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-\`\`\`zig
+```zig
 pub const LNS = struct {
     pub const extended_op = 0x00;
     pub const copy = 0x01;
@@ -182,7 +182,7 @@ pub const LNS = struct {
     pub const set_epilogue_begin = 0x0b;
     pub const set_isa = 0x0c;
 }
-\`\`\`
+```
 
 </details>
 
@@ -193,7 +193,7 @@ pub const LNS = struct {
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-\`\`\`zig
+```zig
 pub const LNE = struct {
     pub const padding = 0x00;
     pub const end_sequence = 0x01;
@@ -206,7 +206,7 @@ pub const LNE = struct {
     // Zig extensions
     pub const ZIG_set_decl = 0xec;
 }
-\`\`\`
+```
 
 </details>
 
@@ -217,7 +217,7 @@ pub const LNE = struct {
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-\`\`\`zig
+```zig
 pub const UT = struct {
     pub const compile = 0x01;
     pub const @"type" = 0x02;
@@ -229,7 +229,7 @@ pub const UT = struct {
     pub const lo_user = 0x80;
     pub const hi_user = 0xff;
 }
-\`\`\`
+```
 
 </details>
 
@@ -240,7 +240,7 @@ pub const UT = struct {
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-\`\`\`zig
+```zig
 pub const LNCT = struct {
     pub const path = 0x1;
     pub const directory_index = 0x2;
@@ -253,7 +253,7 @@ pub const LNCT = struct {
 
     pub const LLVM_source = 0x2001;
 }
-\`\`\`
+```
 
 </details>
 
@@ -264,7 +264,7 @@ pub const LNCT = struct {
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-\`\`\`zig
+```zig
 pub const RLE = struct {
     pub const end_of_list = 0x00;
     pub const base_addressx = 0x01;
@@ -275,7 +275,7 @@ pub const RLE = struct {
     pub const start_end = 0x06;
     pub const start_length = 0x07;
 }
-\`\`\`
+```
 
 </details>
 
@@ -286,7 +286,7 @@ pub const RLE = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const CC = enum(u8) {
     normal = 0x1,
     program = 0x2,
@@ -326,7 +326,7 @@ pub const CC = enum(u8) {
     pub const lo_user = 0x40;
     pub const hi_user = 0xff;
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -372,13 +372,13 @@ pub const CC = enum(u8) {
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-\`\`\`zig
+```zig
 pub const ACCESS = struct {
     pub const public = 0x01;
     pub const protected = 0x02;
     pub const private = 0x03;
 }
-\`\`\`
+```
 
 </details>
 
@@ -391,9 +391,9 @@ pub const ACCESS = struct {
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const TAG = @import("dwarf/TAG.zig")
-\`\`\`
+```
 
 > **Module:** `dwarf/TAG.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/dwarf/TAG.zig)
 
@@ -406,9 +406,9 @@ pub const TAG = @import("dwarf/TAG.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const AT = @import("dwarf/AT.zig")
-\`\`\`
+```
 
 > **Module:** `dwarf/AT.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/dwarf/AT.zig)
 
@@ -421,9 +421,9 @@ pub const AT = @import("dwarf/AT.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const OP = @import("dwarf/OP.zig")
-\`\`\`
+```
 
 > **Module:** `dwarf/OP.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/dwarf/OP.zig)
 
@@ -436,9 +436,9 @@ pub const OP = @import("dwarf/OP.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const LANG = @import("dwarf/LANG.zig")
-\`\`\`
+```
 
 > **Module:** `dwarf/LANG.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/dwarf/LANG.zig)
 
@@ -451,9 +451,9 @@ pub const LANG = @import("dwarf/LANG.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const FORM = @import("dwarf/FORM.zig")
-\`\`\`
+```
 
 > **Module:** `dwarf/FORM.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/dwarf/FORM.zig)
 
@@ -466,9 +466,9 @@ pub const FORM = @import("dwarf/FORM.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ATE = @import("dwarf/ATE.zig")
-\`\`\`
+```
 
 > **Module:** `dwarf/ATE.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/dwarf/ATE.zig)
 
@@ -481,12 +481,13 @@ pub const ATE = @import("dwarf/ATE.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const EH = @import("dwarf/EH.zig")
-\`\`\`
+```
 
 > **Module:** `dwarf/EH.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/dwarf/EH.zig)
 
 </details>
 
 ---
+

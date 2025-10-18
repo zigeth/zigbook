@@ -47,7 +47,7 @@
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-\`\`\`zig
+```zig
 pub const StringContext = struct {
     pub fn hash(self: @This(), s: []const u8) u32 {
         _ = self;
@@ -59,7 +59,7 @@ pub const StringContext = struct {
         return eqlString(a, b);
     }
 }
-\`\`\`
+```
 
 </details>
 
@@ -83,9 +83,9 @@ be removed and `ArrayHashMapUnmanaged` will be a deprecated alias. After
 Zig 0.15.0 is released, the deprecated alias `ArrayHashMapUnmanaged` will
 be removed.
 
-\`\`\`zig
+```zig
 pub const ArrayHashMap = ArrayHashMapWithAllocator
-\`\`\`
+```
 
 </details>
 
@@ -102,11 +102,11 @@ An `ArrayHashMap` with default hash and equal functions.
 
 See `AutoContext` for a description of the hash and equal implementations.
 
-\`\`\`zig
+```zig
 pub fn AutoArrayHashMap(comptime K: type, comptime V: type) type {
     return ArrayHashMap(K, V, AutoContext(K), !autoEqlIsCheap(K));
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -129,11 +129,11 @@ An `ArrayHashMapUnmanaged` with default hash and equal functions.
 
 See `AutoContext` for a description of the hash and equal implementations.
 
-\`\`\`zig
+```zig
 pub fn AutoArrayHashMapUnmanaged(comptime K: type, comptime V: type) type {
     return ArrayHashMapUnmanaged(K, V, AutoContext(K), !autoEqlIsCheap(K));
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -154,11 +154,11 @@ pub fn AutoArrayHashMapUnmanaged(comptime K: type, comptime V: type) type {
 
 An `ArrayHashMap` with strings as keys.
 
-\`\`\`zig
+```zig
 pub fn StringArrayHashMap(comptime V: type) type {
     return ArrayHashMap([]const u8, V, StringContext, true);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -178,11 +178,11 @@ pub fn StringArrayHashMap(comptime V: type) type {
 
 An `ArrayHashMapUnmanaged` with strings as keys.
 
-\`\`\`zig
+```zig
 pub fn StringArrayHashMapUnmanaged(comptime V: type) type {
     return ArrayHashMapUnmanaged([]const u8, V, StringContext, true);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -200,11 +200,11 @@ pub fn StringArrayHashMapUnmanaged(comptime V: type) type {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn eqlString(a: []const u8, b: []const u8) bool {
     return mem.eql(u8, a, b);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -223,11 +223,11 @@ pub fn eqlString(a: []const u8, b: []const u8) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn hashString(s: []const u8) u32 {
     return @as(u32, @truncate(std.hash.Wyhash.hash(0, s)));
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -260,7 +260,7 @@ the (well defined) behavior when mixing insertions and deletions with iteration.
 See `ArrayHashMapUnmanaged` for a variant of this data structure that accepts an
 `Allocator` as a parameter when needed rather than storing it.
 
-\`\`\`zig
+```zig
 pub fn ArrayHashMapWithAllocator(
     comptime K: type,
     comptime V: type,
@@ -678,7 +678,7 @@ pub fn ArrayHashMapWithAllocator(
         }
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -724,7 +724,7 @@ only a single pointer-sized integer.
 
 Default initialization of this struct is deprecated; use `.empty` instead.
 
-\`\`\`zig
+```zig
 pub fn ArrayHashMapUnmanaged(
     comptime K: type,
     comptime V: type,
@@ -2210,7 +2210,7 @@ pub fn ArrayHashMapUnmanaged(
         }
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2231,7 +2231,7 @@ pub fn ArrayHashMapUnmanaged(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn getHashPtrAddrFn(comptime K: type, comptime Context: type) (fn (Context, K) u32) {
     return struct {
         fn hash(ctx: Context, key: K) u32 {
@@ -2240,7 +2240,7 @@ pub fn getHashPtrAddrFn(comptime K: type, comptime Context: type) (fn (Context, 
         }
     }.hash;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2259,7 +2259,7 @@ pub fn getHashPtrAddrFn(comptime K: type, comptime Context: type) (fn (Context, 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn getTrivialEqlFn(comptime K: type, comptime Context: type) (fn (Context, K, K) bool) {
     return struct {
         fn eql(ctx: Context, a: K, b: K) bool {
@@ -2268,7 +2268,7 @@ pub fn getTrivialEqlFn(comptime K: type, comptime Context: type) (fn (Context, K
         }
     }.eql;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2287,14 +2287,14 @@ pub fn getTrivialEqlFn(comptime K: type, comptime Context: type) (fn (Context, K
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn AutoContext(comptime K: type) type {
     return struct {
         pub const hash = getAutoHashFn(K, @This());
         pub const eql = getAutoEqlFn(K, @This());
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2312,7 +2312,7 @@ pub fn AutoContext(comptime K: type) type {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn getAutoHashFn(comptime K: type, comptime Context: type) (fn (Context, K) u32) {
     return struct {
         fn hash(ctx: Context, key: K) u32 {
@@ -2327,7 +2327,7 @@ pub fn getAutoHashFn(comptime K: type, comptime Context: type) (fn (Context, K) 
         }
     }.hash;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2346,7 +2346,7 @@ pub fn getAutoHashFn(comptime K: type, comptime Context: type) (fn (Context, K) 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn getAutoEqlFn(comptime K: type, comptime Context: type) (fn (Context, K, K, usize) bool) {
     return struct {
         fn eql(ctx: Context, a: K, b: K, b_index: usize) bool {
@@ -2356,7 +2356,7 @@ pub fn getAutoEqlFn(comptime K: type, comptime Context: type) (fn (Context, K, K
         }
     }.eql;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2375,7 +2375,7 @@ pub fn getAutoEqlFn(comptime K: type, comptime Context: type) (fn (Context, K, K
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn autoEqlIsCheap(comptime K: type) bool {
     return switch (@typeInfo(K)) {
         .bool,
@@ -2393,7 +2393,7 @@ pub fn autoEqlIsCheap(comptime K: type) bool {
         else => false,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2411,7 +2411,7 @@ pub fn autoEqlIsCheap(comptime K: type) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn getAutoHashStratFn(comptime K: type, comptime Context: type, comptime strategy: std.hash.Strategy) (fn (Context, K) u32) {
     return struct {
         fn hash(ctx: Context, key: K) u32 {
@@ -2422,7 +2422,7 @@ pub fn getAutoHashStratFn(comptime K: type, comptime Context: type, comptime str
         }
     }.hash;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2436,3 +2436,4 @@ pub fn getAutoHashStratFn(comptime K: type, comptime Context: type, comptime str
 </details>
 
 ---
+

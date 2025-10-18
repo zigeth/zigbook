@@ -835,9 +835,9 @@ This page syncs automatically from `std/c.md` in the repository. Edit the source
 
 Used by libc to communicate failure. Not actually part of the underlying syscall.
 
-\`\`\`zig
+```zig
 pub const MAP_FAILED: *anyopaque = @ptrFromInt(maxInt(usize))
-\`\`\`
+```
 
 </details>
 
@@ -848,9 +848,9 @@ pub const MAP_FAILED: *anyopaque = @ptrFromInt(maxInt(usize))
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-\`\`\`zig
+```zig
 pub const DIR = opaque {}
-\`\`\`
+```
 
 </details>
 
@@ -861,9 +861,9 @@ pub const DIR = opaque {}
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-\`\`\`zig
+```zig
 pub const FILE = opaque {}
-\`\`\`
+```
 
 </details>
 
@@ -878,7 +878,7 @@ These are implementation defined but share identical values in at least musl and
 - https://git.musl-libc.org/cgit/musl/tree/include/locale.h?id=ab31e9d6a0fa7c5c408856c89df2dfb12c344039#n18
 - https://sourceware.org/git/?p=glibc.git;a=blob;f=locale/bits/locale.h;h=0fcbb66114be5fef0577dc9047256eb508c45919;hb=c90cfce849d010474e8cccf3e5bff49a2c8b141f#l26
 
-\`\`\`zig
+```zig
 pub const LC = enum(c_int) {
     CTYPE = 0,
     NUMERIC = 1,
@@ -895,7 +895,7 @@ pub const LC = enum(c_int) {
     IDENTIFICATION = 12,
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -936,9 +936,9 @@ on this operating system. However when building object files or libraries,
 the system libc won't be linked until the final executable. So we
 export a weak symbol here, to be overridden by the real one.
 
-\`\`\`zig
+```zig
 pub extern var _mh_execute_header: mach_hdr
-\`\`\`
+```
 
 </details>
 
@@ -949,9 +949,9 @@ pub extern var _mh_execute_header: mach_hdr
 <details class="declaration-card" open>
 <summary>Variable – Expand to inspect the definition and usage details.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" var environ: [*:null]?[*:0]u8
-\`\`\`
+```
 
 </details>
 
@@ -964,9 +964,9 @@ pub extern "c" var environ: [*:null]?[*:0]u8
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const iovec = std.posix.iovec
-\`\`\`
+```
 
 </details>
 
@@ -977,9 +977,9 @@ pub const iovec = std.posix.iovec
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const iovec_const = std.posix.iovec_const
-\`\`\`
+```
 
 </details>
 
@@ -990,9 +990,9 @@ pub const iovec_const = std.posix.iovec_const
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const LOCK = std.posix.LOCK
-\`\`\`
+```
 
 </details>
 
@@ -1003,9 +1003,9 @@ pub const LOCK = std.posix.LOCK
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const winsize = std.posix.winsize
-\`\`\`
+```
 
 </details>
 
@@ -1016,7 +1016,7 @@ pub const winsize = std.posix.winsize
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ino_t = switch (native_os) {
     .linux => linux.ino_t,
     .emscripten => emscripten.ino_t,
@@ -1026,7 +1026,7 @@ pub const ino_t = switch (native_os) {
     // https://github.com/SerenityOS/serenity/blob/b98f537f117b341788023ab82e0c11ca9ae29a57/Kernel/API/POSIX/sys/types.h#L38
     else => u64,
 }
-\`\`\`
+```
 
 </details>
 
@@ -1037,14 +1037,14 @@ pub const ino_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const off_t = switch (native_os) {
     .linux => linux.off_t,
     .emscripten => emscripten.off_t,
     // https://github.com/SerenityOS/serenity/blob/b98f537f117b341788023ab82e0c11ca9ae29a57/Kernel/API/POSIX/sys/types.h#L39
     else => i64,
 }
-\`\`\`
+```
 
 </details>
 
@@ -1055,7 +1055,7 @@ pub const off_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const timespec = switch (native_os) {
     .linux => linux.timespec,
     .emscripten => emscripten.timespec,
@@ -1096,7 +1096,7 @@ pub const timespec = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -1107,7 +1107,7 @@ pub const timespec = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const dev_t = switch (native_os) {
     .linux => linux.dev_t,
     .emscripten => emscripten.dev_t,
@@ -1117,7 +1117,7 @@ pub const dev_t = switch (native_os) {
     .netbsd, .freebsd, .serenity => u64,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -1128,7 +1128,7 @@ pub const dev_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mode_t = switch (native_os) {
     .linux => linux.mode_t,
     .emscripten => emscripten.mode_t,
@@ -1137,7 +1137,7 @@ pub const mode_t = switch (native_os) {
     .freebsd, .macos, .ios, .tvos, .watchos, .visionos, .dragonfly, .serenity => u16,
     else => u0,
 }
-\`\`\`
+```
 
 </details>
 
@@ -1148,7 +1148,7 @@ pub const mode_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const nlink_t = switch (native_os) {
     .linux => linux.nlink_t,
     .emscripten => emscripten.nlink_t,
@@ -1159,7 +1159,7 @@ pub const nlink_t = switch (native_os) {
     .haiku => i32,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -1170,14 +1170,14 @@ pub const nlink_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const uid_t = switch (native_os) {
     .linux => linux.uid_t,
     .emscripten => emscripten.uid_t,
     // https://github.com/SerenityOS/serenity/blob/b98f537f117b341788023ab82e0c11ca9ae29a57/Kernel/API/POSIX/sys/types.h#L28
     else => u32,
 }
-\`\`\`
+```
 
 </details>
 
@@ -1188,14 +1188,14 @@ pub const uid_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const gid_t = switch (native_os) {
     .linux => linux.gid_t,
     .emscripten => emscripten.gid_t,
     // https://github.com/SerenityOS/serenity/blob/b98f537f117b341788023ab82e0c11ca9ae29a57/Kernel/API/POSIX/sys/types.h#L29
     else => u32,
 }
-\`\`\`
+```
 
 </details>
 
@@ -1206,7 +1206,7 @@ pub const gid_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const blksize_t = switch (native_os) {
     .linux => linux.blksize_t,
     .emscripten => emscripten.blksize_t,
@@ -1215,7 +1215,7 @@ pub const blksize_t = switch (native_os) {
     .serenity => u64,
     else => i32,
 }
-\`\`\`
+```
 
 </details>
 
@@ -1226,7 +1226,7 @@ pub const blksize_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const passwd = switch (native_os) {
     // https://github.com/SerenityOS/serenity/blob/7442cfb5072b74a62c0e061e6e9ff44fda08780d/Userland/Libraries/LibC/pwd.h#L15-L23
     .linux, .serenity => extern struct {
@@ -1265,7 +1265,7 @@ pub const passwd = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -1276,7 +1276,7 @@ pub const passwd = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const group = switch (native_os) {
     .linux, .freebsd, .openbsd, .dragonfly, .netbsd, .macos => extern struct {
         name: ?[*:0]const u8,
@@ -1286,7 +1286,7 @@ pub const group = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -1297,7 +1297,7 @@ pub const group = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const blkcnt_t = switch (native_os) {
     .linux => linux.blkcnt_t,
     .emscripten => emscripten.blkcnt_t,
@@ -1306,7 +1306,7 @@ pub const blkcnt_t = switch (native_os) {
     .serenity => u64,
     else => i64,
 }
-\`\`\`
+```
 
 </details>
 
@@ -1317,7 +1317,7 @@ pub const blkcnt_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const fd_t = switch (native_os) {
     .linux => linux.fd_t,
     .wasi => wasi.fd_t,
@@ -1325,7 +1325,7 @@ pub const fd_t = switch (native_os) {
     .serenity => c_int,
     else => i32,
 }
-\`\`\`
+```
 
 </details>
 
@@ -1336,12 +1336,12 @@ pub const fd_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ARCH = switch (native_os) {
     .linux => linux.ARCH,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -1352,9 +1352,9 @@ pub const ARCH = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const TIMERFD_CLOCK = timerfd_clockid_t
-\`\`\`
+```
 
 </details>
 
@@ -1365,7 +1365,7 @@ pub const TIMERFD_CLOCK = timerfd_clockid_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const timerfd_clockid_t = switch (native_os) {
     .freebsd => enum(u32) {
         REALTIME = 0,
@@ -1375,7 +1375,7 @@ pub const timerfd_clockid_t = switch (native_os) {
     .linux => linux.timerfd_clockid_t,
     else => clockid_t,
 }
-\`\`\`
+```
 
 </details>
 
@@ -1386,9 +1386,9 @@ pub const timerfd_clockid_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CLOCK = clockid_t
-\`\`\`
+```
 
 </details>
 
@@ -1399,7 +1399,7 @@ pub const CLOCK = clockid_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const clockid_t = switch (native_os) {
     .linux, .emscripten => linux.clockid_t,
     .wasi => wasi.clockid_t,
@@ -1487,7 +1487,7 @@ pub const clockid_t = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -1498,13 +1498,13 @@ pub const clockid_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CPU_COUNT = switch (native_os) {
     .linux => linux.CPU_COUNT,
     .emscripten => emscripten.CPU_COUNT,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -1515,7 +1515,7 @@ pub const CPU_COUNT = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const E = switch (native_os) {
     .linux => linux.E,
     .emscripten => emscripten.E,
@@ -1970,7 +1970,7 @@ pub const E = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -1981,12 +1981,12 @@ pub const E = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf_Symndx = switch (native_os) {
     .linux => linux.Elf_Symndx,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -1999,7 +1999,7 @@ pub const Elf_Symndx = switch (native_os) {
 
 Command flags for fcntl(2).
 
-\`\`\`zig
+```zig
 pub const F = switch (native_os) {
     .linux => linux.F,
     .emscripten => emscripten.F,
@@ -2386,7 +2386,7 @@ pub const F = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -2397,13 +2397,13 @@ pub const F = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const FD_CLOEXEC = switch (native_os) {
     .linux => linux.FD_CLOEXEC,
     .emscripten => emscripten.FD_CLOEXEC,
     else => 1,
 }
-\`\`\`
+```
 
 </details>
 
@@ -2416,13 +2416,13 @@ pub const FD_CLOEXEC = switch (native_os) {
 
 Test for existence of file.
 
-\`\`\`zig
+```zig
 pub const F_OK = switch (native_os) {
     .linux => linux.F_OK,
     .emscripten => emscripten.F_OK,
     else => 0,
 }
-\`\`\`
+```
 
 </details>
 
@@ -2435,13 +2435,13 @@ pub const F_OK = switch (native_os) {
 
 Test for execute or search permission.
 
-\`\`\`zig
+```zig
 pub const X_OK = switch (native_os) {
     .linux => linux.X_OK,
     .emscripten => emscripten.X_OK,
     else => 1,
 }
-\`\`\`
+```
 
 </details>
 
@@ -2454,13 +2454,13 @@ pub const X_OK = switch (native_os) {
 
 Test for write permission.
 
-\`\`\`zig
+```zig
 pub const W_OK = switch (native_os) {
     .linux => linux.W_OK,
     .emscripten => emscripten.W_OK,
     else => 2,
 }
-\`\`\`
+```
 
 </details>
 
@@ -2473,13 +2473,13 @@ pub const W_OK = switch (native_os) {
 
 Test for read permission.
 
-\`\`\`zig
+```zig
 pub const R_OK = switch (native_os) {
     .linux => linux.R_OK,
     .emscripten => emscripten.R_OK,
     else => 4,
 }
-\`\`\`
+```
 
 </details>
 
@@ -2490,7 +2490,7 @@ pub const R_OK = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Flock = switch (native_os) {
     .linux => linux.Flock,
     .emscripten => emscripten.Flock,
@@ -2543,7 +2543,7 @@ pub const Flock = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -2554,7 +2554,7 @@ pub const Flock = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const HOST_NAME_MAX = switch (native_os) {
     .linux => linux.HOST_NAME_MAX,
     .macos, .ios, .tvos, .watchos, .visionos => 72,
@@ -2563,7 +2563,7 @@ pub const HOST_NAME_MAX = switch (native_os) {
     .serenity => 64,
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -2574,7 +2574,7 @@ pub const HOST_NAME_MAX = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const IOV_MAX = switch (native_os) {
     .linux => linux.IOV_MAX,
     .emscripten => emscripten.IOV_MAX,
@@ -2584,7 +2584,7 @@ pub const IOV_MAX = switch (native_os) {
     .dragonfly, .netbsd, .freebsd => KERN.IOV_MAX,
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -2595,7 +2595,7 @@ pub const IOV_MAX = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CTL = switch (native_os) {
     .freebsd => struct {
         pub const KERN = 1;
@@ -2634,7 +2634,7 @@ pub const CTL = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -2645,7 +2645,7 @@ pub const CTL = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const KERN = switch (native_os) {
     .freebsd => struct {
         /// struct: process entries
@@ -2820,7 +2820,7 @@ pub const KERN = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -2831,7 +2831,7 @@ pub const KERN = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MADV = switch (native_os) {
     .linux => linux.MADV,
     .emscripten => emscripten.MADV,
@@ -2912,7 +2912,7 @@ pub const MADV = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -2923,7 +2923,7 @@ pub const MADV = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MSF = switch (native_os) {
     .linux => linux.MSF,
     .emscripten => emscripten.MSF,
@@ -2949,7 +2949,7 @@ pub const MSF = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -2960,7 +2960,7 @@ pub const MSF = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const NAME_MAX = switch (native_os) {
     .linux => linux.NAME_MAX,
     .emscripten => emscripten.NAME_MAX,
@@ -2971,7 +2971,7 @@ pub const NAME_MAX = switch (native_os) {
     .haiku, .openbsd, .dragonfly, .netbsd, .solaris, .illumos, .freebsd, .macos, .ios, .tvos, .watchos, .visionos, .serenity => 255,
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -2982,7 +2982,7 @@ pub const NAME_MAX = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const PATH_MAX = switch (native_os) {
     .linux => linux.PATH_MAX,
     .emscripten => emscripten.PATH_MAX,
@@ -2991,7 +2991,7 @@ pub const PATH_MAX = switch (native_os) {
     .openbsd, .haiku, .dragonfly, .netbsd, .solaris, .illumos, .freebsd, .macos, .ios, .tvos, .watchos, .visionos, .serenity => 1024,
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -3002,7 +3002,7 @@ pub const PATH_MAX = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const POLL = switch (native_os) {
     .linux => linux.POLL,
     .emscripten => emscripten.POLL,
@@ -3147,7 +3147,7 @@ pub const POLL = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -3160,7 +3160,7 @@ pub const POLL = switch (native_os) {
 
 Basic memory protection flags
 
-\`\`\`zig
+```zig
 pub const PROT = switch (native_os) {
     .linux => linux.PROT,
     .emscripten => emscripten.PROT,
@@ -3193,7 +3193,7 @@ pub const PROT = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -3204,7 +3204,7 @@ pub const PROT = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const REG = switch (native_os) {
     .linux => linux.REG,
     .emscripten => emscripten.REG,
@@ -3309,7 +3309,7 @@ pub const REG = switch (native_os) {
     },
     else => struct {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -3320,7 +3320,7 @@ pub const REG = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const RLIM = switch (native_os) {
     .linux => linux.RLIM,
     .emscripten => emscripten.RLIM,
@@ -3340,7 +3340,7 @@ pub const RLIM = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -3351,7 +3351,7 @@ pub const RLIM = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const S = switch (native_os) {
     .linux => linux.S,
     .emscripten => emscripten.S,
@@ -3854,7 +3854,7 @@ pub const S = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -3865,7 +3865,7 @@ pub const S = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SA = switch (native_os) {
     .linux => linux.SA,
     .emscripten => emscripten.SA,
@@ -3958,7 +3958,7 @@ pub const SA = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -3969,7 +3969,7 @@ pub const SA = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sigval_t = switch (native_os) {
     .netbsd, .solaris, .illumos => extern union {
         int: i32,
@@ -3977,7 +3977,7 @@ pub const sigval_t = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -3988,12 +3988,12 @@ pub const sigval_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SC = switch (native_os) {
     .linux => linux.SC,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -4004,7 +4004,7 @@ pub const SC = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _SC = if (builtin.abi.isAndroid()) enum(c_int) {
     PAGESIZE = 39,
     NPROCESSORS_ONLN = 97,
@@ -4057,7 +4057,7 @@ pub const _SC = if (builtin.abi.isAndroid()) enum(c_int) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -4068,7 +4068,7 @@ pub const _SC = if (builtin.abi.isAndroid()) enum(c_int) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SEEK = switch (native_os) {
     .linux => linux.SEEK,
     .emscripten => emscripten.SEEK,
@@ -4092,7 +4092,7 @@ pub const SEEK = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -4103,7 +4103,7 @@ pub const SEEK = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SHUT = switch (native_os) {
     .linux => linux.SHUT,
     .emscripten => emscripten.SHUT,
@@ -4114,7 +4114,7 @@ pub const SHUT = switch (native_os) {
         pub const RDWR = 2;
     },
 }
-\`\`\`
+```
 
 </details>
 
@@ -4127,7 +4127,7 @@ pub const SHUT = switch (native_os) {
 
 Signal types
 
-\`\`\`zig
+```zig
 pub const SIG = switch (native_os) {
     .linux => linux.SIG,
     .emscripten => emscripten.SIG,
@@ -4617,7 +4617,7 @@ pub const SIG = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -4628,7 +4628,7 @@ pub const SIG = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SIOCGIFINDEX = switch (native_os) {
     .linux => linux.SIOCGIFINDEX,
     .emscripten => emscripten.SIOCGIFINDEX,
@@ -4637,7 +4637,7 @@ pub const SIOCGIFINDEX = switch (native_os) {
     .serenity => 34,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -4648,13 +4648,13 @@ pub const SIOCGIFINDEX = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const STDIN_FILENO = switch (native_os) {
     .linux => linux.STDIN_FILENO,
     .emscripten => emscripten.STDIN_FILENO,
     else => 0,
 }
-\`\`\`
+```
 
 </details>
 
@@ -4665,13 +4665,13 @@ pub const STDIN_FILENO = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const STDOUT_FILENO = switch (native_os) {
     .linux => linux.STDOUT_FILENO,
     .emscripten => emscripten.STDOUT_FILENO,
     else => 1,
 }
-\`\`\`
+```
 
 </details>
 
@@ -4682,13 +4682,13 @@ pub const STDOUT_FILENO = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const STDERR_FILENO = switch (native_os) {
     .linux => linux.STDERR_FILENO,
     .emscripten => emscripten.STDERR_FILENO,
     else => 2,
 }
-\`\`\`
+```
 
 </details>
 
@@ -4699,12 +4699,12 @@ pub const STDERR_FILENO = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SYS = switch (native_os) {
     .linux => linux.SYS,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -4717,7 +4717,7 @@ pub const SYS = switch (native_os) {
 
 Renamed from `sigaction` to `Sigaction` to avoid conflict with function name.
 
-\`\`\`zig
+```zig
 pub const Sigaction = switch (native_os) {
     .linux => switch (native_arch) {
         .mips,
@@ -4852,7 +4852,7 @@ pub const Sigaction = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -4863,7 +4863,7 @@ pub const Sigaction = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const T = switch (native_os) {
     .linux => linux.T,
     .macos, .ios, .tvos, .watchos, .visionos => struct {
@@ -5255,7 +5255,7 @@ pub const T = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -5266,13 +5266,13 @@ pub const T = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const IOCPARM_MASK = switch (native_os) {
     .windows => ws2_32.IOCPARM_MASK,
     .macos, .ios, .tvos, .watchos, .visionos => 0x1fff,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -5283,9 +5283,9 @@ pub const IOCPARM_MASK = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const TCSA = std.posix.TCSA
-\`\`\`
+```
 
 </details>
 
@@ -5296,12 +5296,12 @@ pub const TCSA = std.posix.TCSA
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const TFD = switch (native_os) {
     .linux => linux.TFD,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -5312,12 +5312,12 @@ pub const TFD = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const VDSO = switch (native_os) {
     .linux => linux.VDSO,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -5328,7 +5328,7 @@ pub const VDSO = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const W = switch (native_os) {
     .linux => linux.W,
     .emscripten => emscripten.W,
@@ -5587,7 +5587,7 @@ pub const W = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -5598,7 +5598,7 @@ pub const W = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const clock_t = switch (native_os) {
     .linux => linux.clock_t,
     .emscripten => emscripten.clock_t,
@@ -5611,7 +5611,7 @@ pub const clock_t = switch (native_os) {
     .serenity => u64,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -5622,13 +5622,13 @@ pub const clock_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const cpu_set_t = switch (native_os) {
     .linux => linux.cpu_set_t,
     .emscripten => emscripten.cpu_set_t,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -5639,7 +5639,7 @@ pub const cpu_set_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const dl_phdr_info = switch (native_os) {
     .linux => linux.dl_phdr_info,
     .emscripten => emscripten.dl_phdr_info,
@@ -5678,7 +5678,7 @@ pub const dl_phdr_info = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -5689,12 +5689,12 @@ pub const dl_phdr_info = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const epoll_event = switch (native_os) {
     .linux => linux.epoll_event,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -5705,7 +5705,7 @@ pub const epoll_event = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ifreq = switch (native_os) {
     .linux => linux.ifreq,
     .emscripten => emscripten.ifreq,
@@ -5732,7 +5732,7 @@ pub const ifreq = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -5743,7 +5743,7 @@ pub const ifreq = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const itimerspec = switch (native_os) {
     .linux => linux.itimerspec,
     .haiku => extern struct {
@@ -5752,7 +5752,7 @@ pub const itimerspec = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -5763,7 +5763,7 @@ pub const itimerspec = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const msghdr = switch (native_os) {
     .linux => linux.msghdr,
     .openbsd,
@@ -5808,7 +5808,7 @@ pub const msghdr = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -5819,7 +5819,7 @@ pub const msghdr = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const msghdr_const = switch (native_os) {
     .linux => linux.msghdr_const,
     .openbsd,
@@ -5863,7 +5863,7 @@ pub const msghdr_const = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -5874,7 +5874,7 @@ pub const msghdr_const = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const nfds_t = switch (native_os) {
     .linux => linux.nfds_t,
     .emscripten => emscripten.nfds_t,
@@ -5885,7 +5885,7 @@ pub const nfds_t = switch (native_os) {
     .serenity => c_uint,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -5896,12 +5896,12 @@ pub const nfds_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const perf_event_attr = switch (native_os) {
     .linux => linux.perf_event_attr,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -5912,7 +5912,7 @@ pub const perf_event_attr = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pid_t = switch (native_os) {
     .linux => linux.pid_t,
     .emscripten => emscripten.pid_t,
@@ -5921,7 +5921,7 @@ pub const pid_t = switch (native_os) {
     .serenity => c_int,
     else => i32,
 }
-\`\`\`
+```
 
 </details>
 
@@ -5932,7 +5932,7 @@ pub const pid_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pollfd = switch (native_os) {
     .linux => linux.pollfd,
     .emscripten => emscripten.pollfd,
@@ -5949,7 +5949,7 @@ pub const pollfd = switch (native_os) {
         revents: i16,
     },
 }
-\`\`\`
+```
 
 </details>
 
@@ -5960,7 +5960,7 @@ pub const pollfd = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const rlim_t = switch (native_os) {
     .linux => linux.rlim_t,
     .emscripten => emscripten.rlim_t,
@@ -5970,7 +5970,7 @@ pub const rlim_t = switch (native_os) {
     .serenity => usize,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -5981,7 +5981,7 @@ pub const rlim_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const rlimit = switch (native_os) {
     .linux, .emscripten => linux.rlimit,
     .windows => void,
@@ -5993,7 +5993,7 @@ pub const rlimit = switch (native_os) {
         max: rlim_t,
     },
 }
-\`\`\`
+```
 
 </details>
 
@@ -6004,7 +6004,7 @@ pub const rlimit = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const rlimit_resource = switch (native_os) {
     .linux => linux.rlimit_resource,
     .emscripten => emscripten.rlimit_resource,
@@ -6112,7 +6112,7 @@ pub const rlimit_resource = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -6123,7 +6123,7 @@ pub const rlimit_resource = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const rusage = switch (native_os) {
     .linux => linux.rusage,
     .emscripten => emscripten.rusage,
@@ -6194,7 +6194,7 @@ pub const rusage = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -6205,7 +6205,7 @@ pub const rusage = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const siginfo_t = switch (native_os) {
     .linux => linux.siginfo_t,
     .emscripten => emscripten.siginfo_t,
@@ -6394,7 +6394,7 @@ pub const siginfo_t = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -6405,7 +6405,7 @@ pub const siginfo_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sigset_t = switch (native_os) {
     .linux => [1024 / @bitSizeOf(c_ulong)]c_ulong, // glibc and musl present a 1024-bit sigset_t, while kernel's is 128-bit or less.
     .emscripten => emscripten.sigset_t,
@@ -6418,7 +6418,7 @@ pub const sigset_t = switch (native_os) {
     .haiku => u64,
     else => u0,
 }
-\`\`\`
+```
 
 </details>
 
@@ -6429,7 +6429,7 @@ pub const sigset_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sigval = switch (native_os) {
     .linux => linux.sigval,
     // https://github.com/SerenityOS/serenity/blob/ec492a1a0819e6239ea44156825c4ee7234ca3db/Kernel/API/POSIX/signal.h#L22-L25
@@ -6439,7 +6439,7 @@ pub const sigval = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -6450,7 +6450,7 @@ pub const sigval = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const addrinfo = if (builtin.abi.isAndroid()) extern struct {
     flags: AI,
     family: i32,
@@ -6526,7 +6526,7 @@ pub const addrinfo = if (builtin.abi.isAndroid()) extern struct {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -6537,7 +6537,7 @@ pub const addrinfo = if (builtin.abi.isAndroid()) extern struct {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sockaddr = switch (native_os) {
     .linux, .emscripten => linux.sockaddr,
     .windows => ws2_32.sockaddr,
@@ -6873,7 +6873,7 @@ pub const sockaddr = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -6884,14 +6884,14 @@ pub const sockaddr = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const socklen_t = switch (native_os) {
     .linux, .emscripten => linux.socklen_t,
     .windows => ws2_32.socklen_t,
     // https://github.com/SerenityOS/serenity/blob/b98f537f117b341788023ab82e0c11ca9ae29a57/Kernel/API/POSIX/sys/types.h#L57
     else => u32,
 }
-\`\`\`
+```
 
 </details>
 
@@ -6902,9 +6902,9 @@ pub const socklen_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const in_port_t = u16
-\`\`\`
+```
 
 </details>
 
@@ -6915,7 +6915,7 @@ pub const in_port_t = u16
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sa_family_t = switch (native_os) {
     .linux, .emscripten => linux.sa_family_t,
     .windows => ws2_32.ADDRESS_FAMILY,
@@ -6924,7 +6924,7 @@ pub const sa_family_t = switch (native_os) {
     .solaris, .illumos, .serenity => u16,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -6935,7 +6935,7 @@ pub const sa_family_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AF = if (builtin.abi.isAndroid()) struct {
     pub const UNSPEC = 0;
     pub const UNIX = 1;
@@ -7223,7 +7223,7 @@ pub const AF = if (builtin.abi.isAndroid()) struct {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -7234,7 +7234,7 @@ pub const AF = if (builtin.abi.isAndroid()) struct {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const PF = if (builtin.abi.isAndroid()) struct {
     pub const UNSPEC = AF.UNSPEC;
     pub const UNIX = AF.UNIX;
@@ -7513,7 +7513,7 @@ pub const PF = if (builtin.abi.isAndroid()) struct {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -7524,7 +7524,7 @@ pub const PF = if (builtin.abi.isAndroid()) struct {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT = switch (native_os) {
     .linux => linux.DT,
     // https://github.com/SerenityOS/serenity/blob/1262a7d1424d0d2e89d80644409721cbf056ab17/Kernel/API/POSIX/dirent.h#L16-L35
@@ -7553,7 +7553,7 @@ pub const DT = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -7564,7 +7564,7 @@ pub const DT = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MSG = switch (native_os) {
     .linux => linux.MSG,
     .emscripten => emscripten.MSG,
@@ -7635,7 +7635,7 @@ pub const MSG = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -7646,7 +7646,7 @@ pub const MSG = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SOCK = switch (native_os) {
     .linux => linux.SOCK,
     .emscripten => emscripten.SOCK,
@@ -7751,7 +7751,7 @@ pub const SOCK = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -7762,7 +7762,7 @@ pub const SOCK = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const TCP = switch (native_os) {
     .macos => darwin.TCP,
     .linux => linux.TCP,
@@ -7775,7 +7775,7 @@ pub const TCP = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -7786,7 +7786,7 @@ pub const TCP = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const IPPROTO = switch (native_os) {
     .linux, .emscripten => linux.IPPROTO,
     .windows => ws2_32.IPPROTO,
@@ -8385,7 +8385,7 @@ pub const IPPROTO = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -8396,7 +8396,7 @@ pub const IPPROTO = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SOL = switch (native_os) {
     .linux => linux.SOL,
     .emscripten => emscripten.SOL,
@@ -8416,7 +8416,7 @@ pub const SOL = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -8427,7 +8427,7 @@ pub const SOL = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SO = switch (native_os) {
     .linux => linux.SO,
     .emscripten => emscripten.SO,
@@ -8667,7 +8667,7 @@ pub const SO = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -8678,7 +8678,7 @@ pub const SO = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SOMAXCONN = switch (native_os) {
     .linux => linux.SOMAXCONN,
     .windows => ws2_32.SOMAXCONN,
@@ -8687,7 +8687,7 @@ pub const SOMAXCONN = switch (native_os) {
     .openbsd => 28,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -8698,7 +8698,7 @@ pub const SOMAXCONN = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const IFNAMESIZE = switch (native_os) {
     .linux => linux.IFNAMESIZE,
     .emscripten => emscripten.IFNAMESIZE,
@@ -8708,7 +8708,7 @@ pub const IFNAMESIZE = switch (native_os) {
     .solaris, .illumos => 32,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -8719,7 +8719,7 @@ pub const IFNAMESIZE = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const stack_t = switch (native_os) {
     .linux => linux.stack_t,
     .emscripten => emscripten.stack_t,
@@ -8743,7 +8743,7 @@ pub const stack_t = switch (native_os) {
         flags: i32,
     },
 }
-\`\`\`
+```
 
 </details>
 
@@ -8754,7 +8754,7 @@ pub const stack_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const time_t = switch (native_os) {
     .linux => linux.time_t,
     .emscripten => emscripten.time_t,
@@ -8762,7 +8762,7 @@ pub const time_t = switch (native_os) {
     // https://github.com/SerenityOS/serenity/blob/b98f537f117b341788023ab82e0c11ca9ae29a57/Kernel/API/POSIX/sys/types.h#L47
     else => i64,
 }
-\`\`\`
+```
 
 </details>
 
@@ -8773,7 +8773,7 @@ pub const time_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const suseconds_t = switch (native_os) {
     // https://github.com/SerenityOS/serenity/blob/b98f537f117b341788023ab82e0c11ca9ae29a57/Kernel/API/POSIX/sys/types.h#L49
     .solaris, .illumos, .serenity => i64,
@@ -8782,7 +8782,7 @@ pub const suseconds_t = switch (native_os) {
     .haiku => i32,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -8793,7 +8793,7 @@ pub const suseconds_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const timeval = switch (native_os) {
     .linux => linux.timeval,
     .emscripten => emscripten.timeval,
@@ -8818,7 +8818,7 @@ pub const timeval = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -8829,7 +8829,7 @@ pub const timeval = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const timezone = switch (native_os) {
     .linux => linux.timezone,
     .emscripten => emscripten.timezone,
@@ -8844,7 +8844,7 @@ pub const timezone = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -8855,7 +8855,7 @@ pub const timezone = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ucontext_t = switch (native_os) {
     .linux => linux.ucontext_t, // std.os.linux.ucontext_t is currently glibc-compatible, but it should probably not be.
     .emscripten => emscripten.ucontext_t,
@@ -8920,7 +8920,7 @@ pub const ucontext_t = switch (native_os) {
     .openbsd => openbsd.ucontext_t,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -8931,7 +8931,7 @@ pub const ucontext_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mcontext_t = switch (native_os) {
     .linux => linux.mcontext_t,
     .emscripten => emscripten.mcontext_t,
@@ -9066,7 +9066,7 @@ pub const mcontext_t = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -9077,12 +9077,12 @@ pub const mcontext_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const user_desc = switch (native_os) {
     .linux => linux.user_desc,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -9093,7 +9093,7 @@ pub const user_desc = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const utsname = switch (native_os) {
     .linux => linux.utsname,
     .emscripten => emscripten.utsname,
@@ -9124,7 +9124,7 @@ pub const utsname = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -9135,12 +9135,12 @@ pub const utsname = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const PR = switch (native_os) {
     .linux => linux.PR,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -9151,7 +9151,7 @@ pub const PR = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _errno = switch (native_os) {
     .linux => switch (native_abi) {
         .android, .androideabi => private.__errno,
@@ -9168,7 +9168,7 @@ pub const _errno = switch (native_os) {
     .serenity => private.__errno_location,
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -9179,7 +9179,7 @@ pub const _errno = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const RTLD = switch (native_os) {
     .linux, .emscripten => packed struct(u32) {
         LAZY: bool = false,
@@ -9264,7 +9264,7 @@ pub const RTLD = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -9275,7 +9275,7 @@ pub const RTLD = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const dirent = switch (native_os) {
     .linux, .emscripten => extern struct {
         ino: ino_t,
@@ -9356,7 +9356,7 @@ pub const dirent = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -9367,7 +9367,7 @@ pub const dirent = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MAXNAMLEN = switch (native_os) {
     .netbsd, .solaris, .illumos => 511,
     // https://github.com/SerenityOS/serenity/blob/1262a7d1424d0d2e89d80644409721cbf056ab17/Kernel/API/POSIX/dirent.h#L37
@@ -9375,7 +9375,7 @@ pub const MAXNAMLEN = switch (native_os) {
     .openbsd => 255,
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -9386,7 +9386,7 @@ pub const MAXNAMLEN = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const dirent64 = switch (native_os) {
     .linux => extern struct {
         ino: c_ulong,
@@ -9397,7 +9397,7 @@ pub const dirent64 = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -9408,7 +9408,7 @@ pub const dirent64 = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AI = if (builtin.abi.isAndroid()) packed struct(u32) {
     PASSIVE: bool = false,
     CANONNAME: bool = false,
@@ -9489,7 +9489,7 @@ pub const AI = if (builtin.abi.isAndroid()) packed struct(u32) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -9500,7 +9500,7 @@ pub const AI = if (builtin.abi.isAndroid()) packed struct(u32) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const NI = switch (native_os) {
     .linux, .emscripten => packed struct(u32) {
         NUMERICHOST: bool = false,
@@ -9533,7 +9533,7 @@ pub const NI = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -9544,7 +9544,7 @@ pub const NI = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const EAI = if (builtin.abi.isAndroid()) enum(c_int) {
     /// address family for hostname not supported
     ADDRFAMILY = 1,
@@ -9712,7 +9712,7 @@ pub const EAI = if (builtin.abi.isAndroid()) enum(c_int) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -9723,9 +9723,9 @@ pub const EAI = if (builtin.abi.isAndroid()) enum(c_int) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const dl_iterate_phdr_callback = *const fn (info: *dl_phdr_info, size: usize, data: ?*anyopaque) callconv(.c) c_int
-\`\`\`
+```
 
 </details>
 
@@ -9736,7 +9736,7 @@ pub const dl_iterate_phdr_callback = *const fn (info: *dl_phdr_info, size: usize
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Stat = switch (native_os) {
     .linux => switch (native_arch) {
         .sparc64 => extern struct {
@@ -10184,7 +10184,7 @@ pub const Stat = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -10195,7 +10195,7 @@ pub const Stat = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pthread_mutex_t = switch (native_os) {
     .linux => extern struct {
         data: [data_len]u8 align(@alignOf(usize)) = [_]u8{0} ** data_len,
@@ -10264,7 +10264,7 @@ pub const pthread_mutex_t = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -10275,7 +10275,7 @@ pub const pthread_mutex_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pthread_cond_t = switch (native_os) {
     .linux => extern struct {
         data: [48]u8 align(@alignOf(usize)) = [_]u8{0} ** 48,
@@ -10323,7 +10323,7 @@ pub const pthread_cond_t = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -10334,7 +10334,7 @@ pub const pthread_cond_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pthread_rwlock_t = switch (native_os) {
     .linux => switch (native_abi) {
         .android, .androideabi => switch (@sizeOf(usize)) {
@@ -10396,7 +10396,7 @@ pub const pthread_rwlock_t = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -10407,7 +10407,7 @@ pub const pthread_rwlock_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pthread_attr_t = switch (native_os) {
     .linux, .emscripten, .dragonfly => extern struct {
         __size: [56]u8,
@@ -10438,7 +10438,7 @@ pub const pthread_attr_t = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -10449,7 +10449,7 @@ pub const pthread_attr_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pthread_key_t = switch (native_os) {
     .linux, .emscripten => c_uint,
     .macos, .ios, .tvos, .watchos, .visionos => c_ulong,
@@ -10457,7 +10457,7 @@ pub const pthread_key_t = switch (native_os) {
     .openbsd, .solaris, .illumos, .serenity => c_int,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -10468,7 +10468,7 @@ pub const pthread_key_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const padded_pthread_spin_t = switch (native_os) {
     .netbsd => switch (builtin.cpu.arch) {
         .x86, .x86_64 => u32,
@@ -10477,7 +10477,7 @@ pub const padded_pthread_spin_t = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -10488,7 +10488,7 @@ pub const padded_pthread_spin_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pthread_spin_t = switch (native_os) {
     .netbsd => switch (builtin.cpu.arch) {
         .aarch64, .aarch64_be => u8,
@@ -10502,7 +10502,7 @@ pub const pthread_spin_t = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -10513,7 +10513,7 @@ pub const pthread_spin_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sem_t = switch (native_os) {
     .linux, .emscripten => extern struct {
         __size: [4 * @sizeOf(usize)]u8 align(@alignOf(usize)),
@@ -10551,7 +10551,7 @@ pub const sem_t = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -10564,7 +10564,7 @@ pub const sem_t = switch (native_os) {
 
 Renamed from `kevent` to `Kevent` to avoid conflict with function name.
 
-\`\`\`zig
+```zig
 pub const Kevent = switch (native_os) {
     .netbsd => extern struct {
         ident: usize,
@@ -10628,7 +10628,7 @@ pub const Kevent = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -10639,12 +10639,12 @@ pub const Kevent = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const port_t = switch (native_os) {
     .solaris, .illumos => c_int,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -10655,7 +10655,7 @@ pub const port_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const port_event = switch (native_os) {
     .solaris, .illumos => extern struct {
         events: u32,
@@ -10669,7 +10669,7 @@ pub const port_event = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -10680,7 +10680,7 @@ pub const port_event = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT = switch (native_os) {
     .linux => linux.AT,
     .windows => struct {
@@ -10806,7 +10806,7 @@ pub const AT = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -10817,7 +10817,7 @@ pub const AT = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const O = switch (native_os) {
     .linux => linux.O,
     .emscripten => packed struct(u32) {
@@ -11049,7 +11049,7 @@ pub const O = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -11060,7 +11060,7 @@ pub const O = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MAP = switch (native_os) {
     .linux => linux.MAP,
     .emscripten => packed struct(u32) {
@@ -11214,7 +11214,7 @@ pub const MAP = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -11225,12 +11225,12 @@ pub const MAP = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MREMAP = switch (native_os) {
     .linux => linux.MREMAP,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -11241,9 +11241,9 @@ pub const MREMAP = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const cc_t = u8
-\`\`\`
+```
 
 </details>
 
@@ -11256,7 +11256,7 @@ pub const cc_t = u8
 
 Indices into the `cc` array in the `termios` struct.
 
-\`\`\`zig
+```zig
 pub const V = switch (native_os) {
     .linux => linux.V,
     .macos, .ios, .tvos, .watchos, .visionos, .netbsd, .openbsd => enum {
@@ -11376,7 +11376,7 @@ pub const V = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -11387,7 +11387,7 @@ pub const V = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const NCCS = switch (native_os) {
     .linux => linux.NCCS,
     .macos, .ios, .tvos, .watchos, .visionos, .freebsd, .netbsd, .openbsd, .dragonfly => 20,
@@ -11397,7 +11397,7 @@ pub const NCCS = switch (native_os) {
     .emscripten, .wasi, .serenity => 32,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -11408,7 +11408,7 @@ pub const NCCS = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const termios = switch (native_os) {
     .linux => linux.termios,
     .macos, .ios, .tvos, .watchos, .visionos => extern struct {
@@ -11459,7 +11459,7 @@ pub const termios = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -11470,7 +11470,7 @@ pub const termios = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const tc_iflag_t = switch (native_os) {
     .linux => linux.tc_iflag_t,
     .macos, .ios, .tvos, .watchos, .visionos => packed struct(u64) {
@@ -11581,7 +11581,7 @@ pub const tc_iflag_t = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -11592,7 +11592,7 @@ pub const tc_iflag_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const tc_oflag_t = switch (native_os) {
     .linux => linux.tc_oflag_t,
     .macos, .ios, .tvos, .watchos, .visionos => packed struct(u64) {
@@ -11684,7 +11684,7 @@ pub const tc_oflag_t = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -11695,13 +11695,13 @@ pub const tc_oflag_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CSIZE = switch (native_os) {
     .linux => linux.CSIZE,
     .haiku => enum(u1) { CS7, CS8 },
     else => enum(u2) { CS5, CS6, CS7, CS8 },
 }
-\`\`\`
+```
 
 </details>
 
@@ -11712,7 +11712,7 @@ pub const CSIZE = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const tc_cflag_t = switch (native_os) {
     .linux => linux.tc_cflag_t,
     .macos, .ios, .tvos, .watchos, .visionos => packed struct(u64) {
@@ -11861,7 +11861,7 @@ pub const tc_cflag_t = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -11872,7 +11872,7 @@ pub const tc_cflag_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const tc_lflag_t = switch (native_os) {
     .linux => linux.tc_lflag_t,
     .macos, .ios, .tvos, .watchos, .visionos => packed struct(u64) {
@@ -12019,7 +12019,7 @@ pub const tc_lflag_t = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -12030,7 +12030,7 @@ pub const tc_lflag_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const speed_t = switch (native_os) {
     .linux => linux.speed_t,
     .macos, .ios, .tvos, .watchos, .visionos, .openbsd => enum(u64) {
@@ -12213,7 +12213,7 @@ pub const speed_t = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -12224,9 +12224,9 @@ pub const speed_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const whence_t = if (native_os == .wasi) std.os.wasi.whence_t else c_int
-\`\`\`
+```
 
 </details>
 
@@ -12237,13 +12237,13 @@ pub const whence_t = if (native_os == .wasi) std.os.wasi.whence_t else c_int
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sig_atomic_t = switch (native_os) {
     // https://github.com/SerenityOS/serenity/blob/ec492a1a0819e6239ea44156825c4ee7234ca3db/Kernel/API/POSIX/signal.h#L20
     .serenity => u32,
     else => c_int,
 }
-\`\`\`
+```
 
 </details>
 
@@ -12256,7 +12256,7 @@ pub const sig_atomic_t = switch (native_os) {
 
 maximum signal number + 1
 
-\`\`\`zig
+```zig
 pub const NSIG = switch (native_os) {
     .linux => linux.NSIG,
     .windows => 23,
@@ -12268,7 +12268,7 @@ pub const NSIG = switch (native_os) {
     .openbsd, .serenity => 33,
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -12279,7 +12279,7 @@ pub const NSIG = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MINSIGSTKSZ = switch (native_os) {
     .macos, .ios, .tvos, .watchos, .visionos => 32768,
     .freebsd => switch (builtin.cpu.arch) {
@@ -12294,7 +12294,7 @@ pub const MINSIGSTKSZ = switch (native_os) {
     .serenity => 4096,
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -12305,7 +12305,7 @@ pub const MINSIGSTKSZ = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SIGSTKSZ = switch (native_os) {
     .macos, .ios, .tvos, .watchos, .visionos => 131072,
     .netbsd, .freebsd => MINSIGSTKSZ + 32768,
@@ -12316,7 +12316,7 @@ pub const SIGSTKSZ = switch (native_os) {
     .serenity => 32768,
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -12327,7 +12327,7 @@ pub const SIGSTKSZ = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SS = switch (native_os) {
     .linux => linux.SS,
     .openbsd, .macos, .ios, .tvos, .watchos, .visionos, .netbsd, .freebsd => struct {
@@ -12341,7 +12341,7 @@ pub const SS = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -12352,7 +12352,7 @@ pub const SS = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const EV = switch (native_os) {
     .macos, .ios, .tvos, .watchos, .visionos => struct {
         /// add event to kq (implies enable)
@@ -12492,7 +12492,7 @@ pub const EV = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -12503,7 +12503,7 @@ pub const EV = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const EVFILT = switch (native_os) {
     .macos, .ios, .tvos, .watchos, .visionos => struct {
         pub const READ = -1;
@@ -12624,7 +12624,7 @@ pub const EVFILT = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -12635,7 +12635,7 @@ pub const EVFILT = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const NOTE = switch (native_os) {
     .macos, .ios, .tvos, .watchos, .visionos => struct {
         /// On input, TRIGGER causes the event to be triggered for output.
@@ -12870,7 +12870,7 @@ pub const NOTE = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -12881,13 +12881,13 @@ pub const NOTE = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const FUTEX = switch (native_os) {
     .openbsd => openbsd.FUTEX,
     .serenity => serenity.FUTEX,
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -12898,12 +12898,12 @@ pub const FUTEX = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const close = switch (native_os) {
     .macos, .ios, .tvos, .watchos, .visionos => darwin.@"close$NOCANCEL",
     else => private.close,
 }
-\`\`\`
+```
 
 </details>
 
@@ -12914,12 +12914,12 @@ pub const close = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const clock_getres = switch (native_os) {
     .netbsd => private.__clock_getres50,
     else => private.clock_getres,
 }
-\`\`\`
+```
 
 </details>
 
@@ -12930,12 +12930,12 @@ pub const clock_getres = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const clock_gettime = switch (native_os) {
     .netbsd => private.__clock_gettime50,
     else => private.clock_gettime,
 }
-\`\`\`
+```
 
 </details>
 
@@ -12946,7 +12946,7 @@ pub const clock_gettime = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const fstat = switch (native_os) {
     .macos => switch (native_arch) {
         .x86_64 => private.@"fstat$INODE64",
@@ -12955,7 +12955,7 @@ pub const fstat = switch (native_os) {
     .netbsd => private.__fstat50,
     else => private.fstat,
 }
-\`\`\`
+```
 
 </details>
 
@@ -12966,7 +12966,7 @@ pub const fstat = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const fstatat = switch (native_os) {
     .macos => switch (native_arch) {
         .x86_64 => private.@"fstatat$INODE64",
@@ -12974,7 +12974,7 @@ pub const fstatat = switch (native_os) {
     },
     else => private.fstatat,
 }
-\`\`\`
+```
 
 </details>
 
@@ -12985,13 +12985,13 @@ pub const fstatat = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const arc4random_buf = switch (native_os) {
     .linux => if (builtin.abi.isAndroid()) private.arc4random_buf else {},
     .dragonfly, .netbsd, .freebsd, .solaris, .openbsd, .macos, .ios, .tvos, .watchos, .visionos => private.arc4random_buf,
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -13002,13 +13002,13 @@ pub const arc4random_buf = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const getentropy = switch (native_os) {
     .linux => if (builtin.abi.isAndroid() and versionCheck(.{ .major = 28, .minor = 0, .patch = 0 })) private.getentropy else {},
     .emscripten => private.getentropy,
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -13019,7 +13019,7 @@ pub const getentropy = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const getrandom = switch (native_os) {
     .freebsd => private.getrandom,
     .linux => if (builtin.abi.isMusl() or
@@ -13029,7 +13029,7 @@ pub const getrandom = switch (native_os) {
     else {},
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -13040,14 +13040,14 @@ pub const getrandom = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sendfile = switch (native_os) {
     .freebsd => freebsd.sendfile,
     .macos, .ios, .tvos, .watchos, .visionos => darwin.sendfile,
     .linux => private.sendfile,
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -13058,12 +13058,12 @@ pub const sendfile = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sigaltstack = switch (native_os) {
     .netbsd => private.__sigaltstack14,
     else => private.sigaltstack,
 }
-\`\`\`
+```
 
 </details>
 
@@ -13074,12 +13074,12 @@ pub const sigaltstack = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pipe2 = switch (native_os) {
     .dragonfly, .emscripten, .netbsd, .freebsd, .solaris, .illumos, .openbsd, .linux, .serenity => private.pipe2,
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -13090,13 +13090,13 @@ pub const pipe2 = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const copy_file_range = switch (native_os) {
     .linux => private.copy_file_range,
     .freebsd => freebsd.copy_file_range,
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -13107,12 +13107,12 @@ pub const copy_file_range = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const getdirentries = switch (native_os) {
     .macos, .ios, .tvos, .watchos, .visionos => private.__getdirentries64,
     else => private.getdirentries,
 }
-\`\`\`
+```
 
 </details>
 
@@ -13123,12 +13123,12 @@ pub const getdirentries = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const getdents = switch (native_os) {
     .netbsd => private.__getdents30,
     else => private.getdents,
 }
-\`\`\`
+```
 
 </details>
 
@@ -13139,12 +13139,12 @@ pub const getdents = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const getrusage = switch (native_os) {
     .netbsd => private.__getrusage50,
     else => private.getrusage,
 }
-\`\`\`
+```
 
 </details>
 
@@ -13155,12 +13155,12 @@ pub const getrusage = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const gettimeofday = switch (native_os) {
     .netbsd => private.__gettimeofday50,
     else => private.gettimeofday,
 }
-\`\`\`
+```
 
 </details>
 
@@ -13171,12 +13171,12 @@ pub const gettimeofday = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const msync = switch (native_os) {
     .netbsd => private.__msync13,
     else => private.msync,
 }
-\`\`\`
+```
 
 </details>
 
@@ -13187,12 +13187,12 @@ pub const msync = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const nanosleep = switch (native_os) {
     .netbsd => private.__nanosleep50,
     else => private.nanosleep,
 }
-\`\`\`
+```
 
 </details>
 
@@ -13203,7 +13203,7 @@ pub const nanosleep = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const readdir = switch (native_os) {
     .macos => switch (native_arch) {
         .x86_64 => private.@"readdir$INODE64",
@@ -13212,7 +13212,7 @@ pub const readdir = switch (native_os) {
     .windows => {},
     else => private.readdir,
 }
-\`\`\`
+```
 
 </details>
 
@@ -13223,12 +13223,12 @@ pub const readdir = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const realpath = switch (native_os) {
     .macos, .ios, .tvos, .watchos, .visionos => private.@"realpath$DARWIN_EXTSN",
     else => private.realpath,
 }
-\`\`\`
+```
 
 </details>
 
@@ -13239,12 +13239,12 @@ pub const realpath = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sched_yield = switch (native_os) {
     .netbsd => private.__libc_thr_yield,
     else => private.sched_yield,
 }
-\`\`\`
+```
 
 </details>
 
@@ -13255,12 +13255,12 @@ pub const sched_yield = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sigaction = switch (native_os) {
     .netbsd => private.__sigaction14,
     else => private.sigaction,
 }
-\`\`\`
+```
 
 </details>
 
@@ -13271,12 +13271,12 @@ pub const sigaction = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sigfillset = switch (native_os) {
     .netbsd => private.__sigfillset14,
     else => private.sigfillset,
 }
-\`\`\`
+```
 
 </details>
 
@@ -13287,9 +13287,9 @@ pub const sigfillset = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sigaddset = private.sigaddset
-\`\`\`
+```
 
 </details>
 
@@ -13300,12 +13300,12 @@ pub const sigaddset = private.sigaddset
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sigemptyset = switch (native_os) {
     .netbsd => private.__sigemptyset14,
     else => private.sigemptyset,
 }
-\`\`\`
+```
 
 </details>
 
@@ -13316,9 +13316,9 @@ pub const sigemptyset = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sigdelset = private.sigdelset
-\`\`\`
+```
 
 </details>
 
@@ -13329,9 +13329,9 @@ pub const sigdelset = private.sigdelset
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sigismember = private.sigismember
-\`\`\`
+```
 
 </details>
 
@@ -13342,12 +13342,12 @@ pub const sigismember = private.sigismember
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sigprocmask = switch (native_os) {
     .netbsd => private.__sigprocmask14,
     else => private.sigprocmask,
 }
-\`\`\`
+```
 
 </details>
 
@@ -13358,12 +13358,12 @@ pub const sigprocmask = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const socket = switch (native_os) {
     .netbsd => private.__socket30,
     else => private.socket,
 }
-\`\`\`
+```
 
 </details>
 
@@ -13374,7 +13374,7 @@ pub const socket = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const stat = switch (native_os) {
     .macos => switch (native_arch) {
         .x86_64 => private.@"stat$INODE64",
@@ -13382,7 +13382,7 @@ pub const stat = switch (native_os) {
     },
     else => private.stat,
 }
-\`\`\`
+```
 
 </details>
 
@@ -13393,12 +13393,12 @@ pub const stat = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _msize = switch (native_os) {
     .windows => private._msize,
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -13409,12 +13409,12 @@ pub const _msize = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const malloc_size = switch (native_os) {
     .macos, .ios, .tvos, .watchos, .visionos, .serenity => private.malloc_size,
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -13425,12 +13425,12 @@ pub const malloc_size = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const malloc_usable_size = switch (native_os) {
     .freebsd, .linux, .serenity => private.malloc_usable_size,
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -13441,12 +13441,12 @@ pub const malloc_usable_size = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const posix_memalign = switch (native_os) {
     .dragonfly, .netbsd, .freebsd, .solaris, .openbsd, .linux, .macos, .ios, .tvos, .watchos, .visionos, .serenity => private.posix_memalign,
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -13457,12 +13457,12 @@ pub const posix_memalign = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sysconf = switch (native_os) {
     .solaris => solaris.sysconf,
     else => private.sysconf,
 }
-\`\`\`
+```
 
 </details>
 
@@ -13473,7 +13473,7 @@ pub const sysconf = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sf_hdtr = switch (native_os) {
     .freebsd, .macos, .ios, .tvos, .watchos, .visionos => extern struct {
         headers: ?[*]const iovec_const,
@@ -13483,7 +13483,7 @@ pub const sf_hdtr = switch (native_os) {
     },
     else => void,
 }
-\`\`\`
+```
 
 </details>
 
@@ -13494,12 +13494,12 @@ pub const sf_hdtr = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const flock = switch (native_os) {
     .windows, .wasi => {},
     else => private.flock,
 }
-\`\`\`
+```
 
 </details>
 
@@ -13510,13 +13510,13 @@ pub const flock = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const futex = switch (native_os) {
     .openbsd => openbsd.futex,
     .serenity => serenity.futex,
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -13527,7 +13527,7 @@ pub const futex = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const fork = switch (native_os) {
     .dragonfly,
     .freebsd,
@@ -13546,7 +13546,7 @@ pub const fork = switch (native_os) {
     => private.fork,
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -13557,14 +13557,14 @@ pub const fork = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pthread_setname_np = switch (native_os) {
     .macos, .ios, .tvos, .watchos, .visionos => darwin.pthread_setname_np,
     .solaris, .illumos => solaris.pthread_setname_np,
     .netbsd => netbsd.pthread_setname_np,
     else => private.pthread_setname_np,
 }
-\`\`\`
+```
 
 </details>
 
@@ -13575,12 +13575,12 @@ pub const pthread_setname_np = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pthread_threadid_np = switch (native_os) {
     .macos, .ios, .tvos, .watchos, .visionos => private.pthread_threadid_np,
     else => {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -13591,9 +13591,9 @@ pub const pthread_threadid_np = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const PTHREAD_MUTEX_INITIALIZER = pthread_mutex_t{}
-\`\`\`
+```
 
 </details>
 
@@ -13604,9 +13604,9 @@ pub const PTHREAD_MUTEX_INITIALIZER = pthread_mutex_t{}
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const PTHREAD_COND_INITIALIZER = pthread_cond_t{}
-\`\`\`
+```
 
 </details>
 
@@ -13617,13 +13617,13 @@ pub const PTHREAD_COND_INITIALIZER = pthread_cond_t{}
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pthread_t = switch (native_os) {
     // https://github.com/SerenityOS/serenity/blob/b98f537f117b341788023ab82e0c11ca9ae29a57/Kernel/API/POSIX/sys/types.h#L64
     .serenity => c_int,
     else => *opaque {},
 }
-\`\`\`
+```
 
 </details>
 
@@ -13634,14 +13634,14 @@ pub const pthread_t = switch (native_os) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const getcontext = if (builtin.target.abi.isAndroid() or builtin.target.os.tag == .openbsd or builtin.target.os.tag == .haiku)
 {} // libc does not implement getcontext
     else if (native_os == .linux and builtin.target.abi.isMusl())
         linux.getcontext
     else
         private.getcontext
-\`\`\`
+```
 
 </details>
 
@@ -13652,7 +13652,7 @@ pub const getcontext = if (builtin.target.abi.isAndroid() or builtin.target.os.t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const max_align_t = if (native_abi == .msvc or native_abi == .itanium)
     f64
 else if (native_os.isDarwin())
@@ -13662,7 +13662,7 @@ else
         a: c_longlong,
         b: c_longdouble,
     }
-\`\`\`
+```
 
 </details>
 
@@ -13673,9 +13673,9 @@ else
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const intmax_t = i64
-\`\`\`
+```
 
 </details>
 
@@ -13686,9 +13686,9 @@ pub const intmax_t = i64
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const uintmax_t = u64
-\`\`\`
+```
 
 </details>
 
@@ -13699,9 +13699,9 @@ pub const uintmax_t = u64
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AF_SUN = solaris.AF_SUN
-\`\`\`
+```
 
 </details>
 
@@ -13712,9 +13712,9 @@ pub const AF_SUN = solaris.AF_SUN
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_SUN = solaris.AT_SUN
-\`\`\`
+```
 
 </details>
 
@@ -13725,9 +13725,9 @@ pub const AT_SUN = solaris.AT_SUN
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const FILE_EVENT = solaris.FILE_EVENT
-\`\`\`
+```
 
 </details>
 
@@ -13738,9 +13738,9 @@ pub const FILE_EVENT = solaris.FILE_EVENT
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const GETCONTEXT = solaris.GETCONTEXT
-\`\`\`
+```
 
 </details>
 
@@ -13751,9 +13751,9 @@ pub const GETCONTEXT = solaris.GETCONTEXT
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const GETUSTACK = solaris.GETUSTACK
-\`\`\`
+```
 
 </details>
 
@@ -13764,9 +13764,9 @@ pub const GETUSTACK = solaris.GETUSTACK
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const PORT_ALERT = solaris.PORT_ALERT
-\`\`\`
+```
 
 </details>
 
@@ -13777,9 +13777,9 @@ pub const PORT_ALERT = solaris.PORT_ALERT
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const PORT_SOURCE = solaris.PORT_SOURCE
-\`\`\`
+```
 
 </details>
 
@@ -13790,9 +13790,9 @@ pub const PORT_SOURCE = solaris.PORT_SOURCE
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const POSIX_FADV = solaris.POSIX_FADV
-\`\`\`
+```
 
 </details>
 
@@ -13803,9 +13803,9 @@ pub const POSIX_FADV = solaris.POSIX_FADV
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SCM = solaris.SCM
-\`\`\`
+```
 
 </details>
 
@@ -13816,9 +13816,9 @@ pub const SCM = solaris.SCM
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SETCONTEXT = solaris.SETCONTEXT
-\`\`\`
+```
 
 </details>
 
@@ -13829,9 +13829,9 @@ pub const SETCONTEXT = solaris.SETCONTEXT
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SETUSTACK = solaris.GETUSTACK
-\`\`\`
+```
 
 </details>
 
@@ -13842,9 +13842,9 @@ pub const SETUSTACK = solaris.GETUSTACK
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SFD = solaris.SFD
-\`\`\`
+```
 
 </details>
 
@@ -13855,9 +13855,9 @@ pub const SFD = solaris.SFD
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const cmsghdr = solaris.cmsghdr
-\`\`\`
+```
 
 </details>
 
@@ -13868,9 +13868,9 @@ pub const cmsghdr = solaris.cmsghdr
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ctid_t = solaris.ctid_t
-\`\`\`
+```
 
 </details>
 
@@ -13881,9 +13881,9 @@ pub const ctid_t = solaris.ctid_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const file_obj = solaris.file_obj
-\`\`\`
+```
 
 </details>
 
@@ -13894,9 +13894,9 @@ pub const file_obj = solaris.file_obj
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const fpregset_t = solaris.fpregset_t
-\`\`\`
+```
 
 </details>
 
@@ -13907,9 +13907,9 @@ pub const fpregset_t = solaris.fpregset_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const id_t = solaris.id_t
-\`\`\`
+```
 
 </details>
 
@@ -13920,9 +13920,9 @@ pub const id_t = solaris.id_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const lif_ifinfo_req = solaris.lif_ifinfo_req
-\`\`\`
+```
 
 </details>
 
@@ -13933,9 +13933,9 @@ pub const lif_ifinfo_req = solaris.lif_ifinfo_req
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const lif_nd_req = solaris.lif_nd_req
-\`\`\`
+```
 
 </details>
 
@@ -13946,9 +13946,9 @@ pub const lif_nd_req = solaris.lif_nd_req
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const lifreq = solaris.lifreq
-\`\`\`
+```
 
 </details>
 
@@ -13959,9 +13959,9 @@ pub const lifreq = solaris.lifreq
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const major_t = solaris.major_t
-\`\`\`
+```
 
 </details>
 
@@ -13972,9 +13972,9 @@ pub const major_t = solaris.major_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const minor_t = solaris.minor_t
-\`\`\`
+```
 
 </details>
 
@@ -13985,9 +13985,9 @@ pub const minor_t = solaris.minor_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const poolid_t = solaris.poolid_t
-\`\`\`
+```
 
 </details>
 
@@ -13998,9 +13998,9 @@ pub const poolid_t = solaris.poolid_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const port_notify = solaris.port_notify
-\`\`\`
+```
 
 </details>
 
@@ -14011,9 +14011,9 @@ pub const port_notify = solaris.port_notify
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const priority = solaris.priority
-\`\`\`
+```
 
 </details>
 
@@ -14024,9 +14024,9 @@ pub const priority = solaris.priority
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const procfs = solaris.procfs
-\`\`\`
+```
 
 </details>
 
@@ -14037,9 +14037,9 @@ pub const procfs = solaris.procfs
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const projid_t = solaris.projid_t
-\`\`\`
+```
 
 </details>
 
@@ -14050,9 +14050,9 @@ pub const projid_t = solaris.projid_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const signalfd_siginfo = solaris.signalfd_siginfo
-\`\`\`
+```
 
 </details>
 
@@ -14063,9 +14063,9 @@ pub const signalfd_siginfo = solaris.signalfd_siginfo
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const taskid_t = solaris.taskid_t
-\`\`\`
+```
 
 </details>
 
@@ -14076,9 +14076,9 @@ pub const taskid_t = solaris.taskid_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const zoneid_t = solaris.zoneid_t
-\`\`\`
+```
 
 </details>
 
@@ -14089,9 +14089,9 @@ pub const zoneid_t = solaris.zoneid_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DirEnt = haiku.DirEnt
-\`\`\`
+```
 
 </details>
 
@@ -14102,9 +14102,9 @@ pub const DirEnt = haiku.DirEnt
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _get_next_area_info = haiku._get_next_area_info
-\`\`\`
+```
 
 </details>
 
@@ -14115,9 +14115,9 @@ pub const _get_next_area_info = haiku._get_next_area_info
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _get_next_image_info = haiku._get_next_image_info
-\`\`\`
+```
 
 </details>
 
@@ -14128,9 +14128,9 @@ pub const _get_next_image_info = haiku._get_next_image_info
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _get_team_info = haiku._get_team_info
-\`\`\`
+```
 
 </details>
 
@@ -14141,9 +14141,9 @@ pub const _get_team_info = haiku._get_team_info
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _kern_get_current_team = haiku._kern_get_current_team
-\`\`\`
+```
 
 </details>
 
@@ -14154,9 +14154,9 @@ pub const _kern_get_current_team = haiku._kern_get_current_team
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _kern_open_dir = haiku._kern_open_dir
-\`\`\`
+```
 
 </details>
 
@@ -14167,9 +14167,9 @@ pub const _kern_open_dir = haiku._kern_open_dir
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _kern_read_dir = haiku._kern_read_dir
-\`\`\`
+```
 
 </details>
 
@@ -14180,9 +14180,9 @@ pub const _kern_read_dir = haiku._kern_read_dir
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _kern_read_stat = haiku._kern_read_stat
-\`\`\`
+```
 
 </details>
 
@@ -14193,9 +14193,9 @@ pub const _kern_read_stat = haiku._kern_read_stat
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _kern_rewind_dir = haiku._kern_rewind_dir
-\`\`\`
+```
 
 </details>
 
@@ -14206,9 +14206,9 @@ pub const _kern_rewind_dir = haiku._kern_rewind_dir
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const area_id = haiku.area_id
-\`\`\`
+```
 
 </details>
 
@@ -14219,9 +14219,9 @@ pub const area_id = haiku.area_id
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const area_info = haiku.area_info
-\`\`\`
+```
 
 </details>
 
@@ -14232,9 +14232,9 @@ pub const area_info = haiku.area_info
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const directory_which = haiku.directory_which
-\`\`\`
+```
 
 </details>
 
@@ -14245,9 +14245,9 @@ pub const directory_which = haiku.directory_which
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const find_directory = haiku.find_directory
-\`\`\`
+```
 
 </details>
 
@@ -14258,9 +14258,9 @@ pub const find_directory = haiku.find_directory
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const find_thread = haiku.find_thread
-\`\`\`
+```
 
 </details>
 
@@ -14271,9 +14271,9 @@ pub const find_thread = haiku.find_thread
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const get_system_info = haiku.get_system_info
-\`\`\`
+```
 
 </details>
 
@@ -14284,9 +14284,9 @@ pub const get_system_info = haiku.get_system_info
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const image_info = haiku.image_info
-\`\`\`
+```
 
 </details>
 
@@ -14297,9 +14297,9 @@ pub const image_info = haiku.image_info
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const port_id = haiku.port_id
-\`\`\`
+```
 
 </details>
 
@@ -14310,9 +14310,9 @@ pub const port_id = haiku.port_id
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sem_id = haiku.sem_id
-\`\`\`
+```
 
 </details>
 
@@ -14323,9 +14323,9 @@ pub const sem_id = haiku.sem_id
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const status_t = haiku.status_t
-\`\`\`
+```
 
 </details>
 
@@ -14336,9 +14336,9 @@ pub const status_t = haiku.status_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const system_info = haiku.system_info
-\`\`\`
+```
 
 </details>
 
@@ -14349,9 +14349,9 @@ pub const system_info = haiku.system_info
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const team_id = haiku.team_id
-\`\`\`
+```
 
 </details>
 
@@ -14362,9 +14362,9 @@ pub const team_id = haiku.team_id
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const team_info = haiku.team_info
-\`\`\`
+```
 
 </details>
 
@@ -14375,9 +14375,9 @@ pub const team_info = haiku.team_info
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const thread_id = haiku.thread_id
-\`\`\`
+```
 
 </details>
 
@@ -14388,9 +14388,9 @@ pub const thread_id = haiku.thread_id
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AUTH = openbsd.AUTH
-\`\`\`
+```
 
 </details>
 
@@ -14401,9 +14401,9 @@ pub const AUTH = openbsd.AUTH
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const BI = openbsd.BI
-\`\`\`
+```
 
 </details>
 
@@ -14414,9 +14414,9 @@ pub const BI = openbsd.BI
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const HW = openbsd.HW
-\`\`\`
+```
 
 </details>
 
@@ -14427,9 +14427,9 @@ pub const HW = openbsd.HW
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const PTHREAD_STACK_MIN = openbsd.PTHREAD_STACK_MIN
-\`\`\`
+```
 
 </details>
 
@@ -14440,9 +14440,9 @@ pub const PTHREAD_STACK_MIN = openbsd.PTHREAD_STACK_MIN
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const TCFLUSH = openbsd.TCFLUSH
-\`\`\`
+```
 
 </details>
 
@@ -14453,9 +14453,9 @@ pub const TCFLUSH = openbsd.TCFLUSH
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const TCIO = openbsd.TCIO
-\`\`\`
+```
 
 </details>
 
@@ -14466,9 +14466,9 @@ pub const TCIO = openbsd.TCIO
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_approval = openbsd.auth_approval
-\`\`\`
+```
 
 </details>
 
@@ -14479,9 +14479,9 @@ pub const auth_approval = openbsd.auth_approval
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_call = openbsd.auth_call
-\`\`\`
+```
 
 </details>
 
@@ -14492,9 +14492,9 @@ pub const auth_call = openbsd.auth_call
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_cat = openbsd.auth_cat
-\`\`\`
+```
 
 </details>
 
@@ -14505,9 +14505,9 @@ pub const auth_cat = openbsd.auth_cat
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_challenge = openbsd.auth_challenge
-\`\`\`
+```
 
 </details>
 
@@ -14518,9 +14518,9 @@ pub const auth_challenge = openbsd.auth_challenge
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_check_change = openbsd.auth_check_change
-\`\`\`
+```
 
 </details>
 
@@ -14531,9 +14531,9 @@ pub const auth_check_change = openbsd.auth_check_change
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_check_expire = openbsd.auth_check_expire
-\`\`\`
+```
 
 </details>
 
@@ -14544,9 +14544,9 @@ pub const auth_check_expire = openbsd.auth_check_expire
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_checknologin = openbsd.auth_checknologin
-\`\`\`
+```
 
 </details>
 
@@ -14557,9 +14557,9 @@ pub const auth_checknologin = openbsd.auth_checknologin
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_clean = openbsd.auth_clean
-\`\`\`
+```
 
 </details>
 
@@ -14570,9 +14570,9 @@ pub const auth_clean = openbsd.auth_clean
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_close = openbsd.auth_close
-\`\`\`
+```
 
 </details>
 
@@ -14583,9 +14583,9 @@ pub const auth_close = openbsd.auth_close
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_clrenv = openbsd.auth_clrenv
-\`\`\`
+```
 
 </details>
 
@@ -14596,9 +14596,9 @@ pub const auth_clrenv = openbsd.auth_clrenv
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_clroption = openbsd.auth_clroption
-\`\`\`
+```
 
 </details>
 
@@ -14609,9 +14609,9 @@ pub const auth_clroption = openbsd.auth_clroption
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_clroptions = openbsd.auth_clroptions
-\`\`\`
+```
 
 </details>
 
@@ -14622,9 +14622,9 @@ pub const auth_clroptions = openbsd.auth_clroptions
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_getitem = openbsd.auth_getitem
-\`\`\`
+```
 
 </details>
 
@@ -14635,9 +14635,9 @@ pub const auth_getitem = openbsd.auth_getitem
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_getpwd = openbsd.auth_getpwd
-\`\`\`
+```
 
 </details>
 
@@ -14648,9 +14648,9 @@ pub const auth_getpwd = openbsd.auth_getpwd
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_getstate = openbsd.auth_getstate
-\`\`\`
+```
 
 </details>
 
@@ -14661,9 +14661,9 @@ pub const auth_getstate = openbsd.auth_getstate
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_getvalue = openbsd.auth_getvalue
-\`\`\`
+```
 
 </details>
 
@@ -14674,9 +14674,9 @@ pub const auth_getvalue = openbsd.auth_getvalue
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_item_t = openbsd.auth_item_t
-\`\`\`
+```
 
 </details>
 
@@ -14687,9 +14687,9 @@ pub const auth_item_t = openbsd.auth_item_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_mkvalue = openbsd.auth_mkvalue
-\`\`\`
+```
 
 </details>
 
@@ -14700,9 +14700,9 @@ pub const auth_mkvalue = openbsd.auth_mkvalue
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_open = openbsd.auth_open
-\`\`\`
+```
 
 </details>
 
@@ -14713,9 +14713,9 @@ pub const auth_open = openbsd.auth_open
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_session_t = openbsd.auth_session_t
-\`\`\`
+```
 
 </details>
 
@@ -14726,9 +14726,9 @@ pub const auth_session_t = openbsd.auth_session_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_setdata = openbsd.auth_setdata
-\`\`\`
+```
 
 </details>
 
@@ -14739,9 +14739,9 @@ pub const auth_setdata = openbsd.auth_setdata
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_setenv = openbsd.auth_setenv
-\`\`\`
+```
 
 </details>
 
@@ -14752,9 +14752,9 @@ pub const auth_setenv = openbsd.auth_setenv
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_setitem = openbsd.auth_setitem
-\`\`\`
+```
 
 </details>
 
@@ -14765,9 +14765,9 @@ pub const auth_setitem = openbsd.auth_setitem
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_setoption = openbsd.auth_setoption
-\`\`\`
+```
 
 </details>
 
@@ -14778,9 +14778,9 @@ pub const auth_setoption = openbsd.auth_setoption
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_setpwd = openbsd.auth_setpwd
-\`\`\`
+```
 
 </details>
 
@@ -14791,9 +14791,9 @@ pub const auth_setpwd = openbsd.auth_setpwd
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_setstate = openbsd.auth_setstate
-\`\`\`
+```
 
 </details>
 
@@ -14804,9 +14804,9 @@ pub const auth_setstate = openbsd.auth_setstate
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_userchallenge = openbsd.auth_userchallenge
-\`\`\`
+```
 
 </details>
 
@@ -14817,9 +14817,9 @@ pub const auth_userchallenge = openbsd.auth_userchallenge
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_usercheck = openbsd.auth_usercheck
-\`\`\`
+```
 
 </details>
 
@@ -14830,9 +14830,9 @@ pub const auth_usercheck = openbsd.auth_usercheck
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_userokay = openbsd.auth_userokay
-\`\`\`
+```
 
 </details>
 
@@ -14843,9 +14843,9 @@ pub const auth_userokay = openbsd.auth_userokay
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_userresponse = openbsd.auth_userresponse
-\`\`\`
+```
 
 </details>
 
@@ -14856,9 +14856,9 @@ pub const auth_userresponse = openbsd.auth_userresponse
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const auth_verify = openbsd.auth_verify
-\`\`\`
+```
 
 </details>
 
@@ -14869,9 +14869,9 @@ pub const auth_verify = openbsd.auth_verify
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const bcrypt = openbsd.bcrypt
-\`\`\`
+```
 
 </details>
 
@@ -14882,9 +14882,9 @@ pub const bcrypt = openbsd.bcrypt
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const bcrypt_checkpass = openbsd.bcrypt_checkpass
-\`\`\`
+```
 
 </details>
 
@@ -14895,9 +14895,9 @@ pub const bcrypt_checkpass = openbsd.bcrypt_checkpass
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const bcrypt_gensalt = openbsd.bcrypt_gensalt
-\`\`\`
+```
 
 </details>
 
@@ -14908,9 +14908,9 @@ pub const bcrypt_gensalt = openbsd.bcrypt_gensalt
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const bcrypt_newhash = openbsd.bcrypt_newhash
-\`\`\`
+```
 
 </details>
 
@@ -14921,9 +14921,9 @@ pub const bcrypt_newhash = openbsd.bcrypt_newhash
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const getpwnam_shadow = openbsd.getpwnam_shadow
-\`\`\`
+```
 
 </details>
 
@@ -14934,9 +14934,9 @@ pub const getpwnam_shadow = openbsd.getpwnam_shadow
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const getpwuid_shadow = openbsd.getpwuid_shadow
-\`\`\`
+```
 
 </details>
 
@@ -14947,9 +14947,9 @@ pub const getpwuid_shadow = openbsd.getpwuid_shadow
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const getthrid = openbsd.getthrid
-\`\`\`
+```
 
 </details>
 
@@ -14960,9 +14960,9 @@ pub const getthrid = openbsd.getthrid
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const login_cap_t = openbsd.login_cap_t
-\`\`\`
+```
 
 </details>
 
@@ -14973,9 +14973,9 @@ pub const login_cap_t = openbsd.login_cap_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const login_close = openbsd.login_close
-\`\`\`
+```
 
 </details>
 
@@ -14986,9 +14986,9 @@ pub const login_close = openbsd.login_close
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const login_getcapbool = openbsd.login_getcapbool
-\`\`\`
+```
 
 </details>
 
@@ -14999,9 +14999,9 @@ pub const login_getcapbool = openbsd.login_getcapbool
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const login_getcapnum = openbsd.login_getcapnum
-\`\`\`
+```
 
 </details>
 
@@ -15012,9 +15012,9 @@ pub const login_getcapnum = openbsd.login_getcapnum
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const login_getcapsize = openbsd.login_getcapsize
-\`\`\`
+```
 
 </details>
 
@@ -15025,9 +15025,9 @@ pub const login_getcapsize = openbsd.login_getcapsize
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const login_getcapstr = openbsd.login_getcapstr
-\`\`\`
+```
 
 </details>
 
@@ -15038,9 +15038,9 @@ pub const login_getcapstr = openbsd.login_getcapstr
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const login_getcaptime = openbsd.login_getcaptime
-\`\`\`
+```
 
 </details>
 
@@ -15051,9 +15051,9 @@ pub const login_getcaptime = openbsd.login_getcaptime
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const login_getclass = openbsd.login_getclass
-\`\`\`
+```
 
 </details>
 
@@ -15064,9 +15064,9 @@ pub const login_getclass = openbsd.login_getclass
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const login_getstyle = openbsd.login_getstyle
-\`\`\`
+```
 
 </details>
 
@@ -15077,9 +15077,9 @@ pub const login_getstyle = openbsd.login_getstyle
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pledge = openbsd.pledge
-\`\`\`
+```
 
 </details>
 
@@ -15090,9 +15090,9 @@ pub const pledge = openbsd.pledge
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pthread_spinlock_t = openbsd.pthread_spinlock_t
-\`\`\`
+```
 
 </details>
 
@@ -15103,9 +15103,9 @@ pub const pthread_spinlock_t = openbsd.pthread_spinlock_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pw_dup = openbsd.pw_dup
-\`\`\`
+```
 
 </details>
 
@@ -15116,9 +15116,9 @@ pub const pw_dup = openbsd.pw_dup
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const setclasscontext = openbsd.setclasscontext
-\`\`\`
+```
 
 </details>
 
@@ -15129,9 +15129,9 @@ pub const setclasscontext = openbsd.setclasscontext
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const setpassent = openbsd.setpassent
-\`\`\`
+```
 
 </details>
 
@@ -15142,9 +15142,9 @@ pub const setpassent = openbsd.setpassent
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const setusercontext = openbsd.setusercontext
-\`\`\`
+```
 
 </details>
 
@@ -15155,9 +15155,9 @@ pub const setusercontext = openbsd.setusercontext
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const uid_from_user = openbsd.uid_from_user
-\`\`\`
+```
 
 </details>
 
@@ -15168,9 +15168,9 @@ pub const uid_from_user = openbsd.uid_from_user
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const unveil = openbsd.unveil
-\`\`\`
+```
 
 </details>
 
@@ -15181,9 +15181,9 @@ pub const unveil = openbsd.unveil
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const user_from_uid = openbsd.user_from_uid
-\`\`\`
+```
 
 </details>
 
@@ -15194,9 +15194,9 @@ pub const user_from_uid = openbsd.user_from_uid
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CAP_RIGHTS_VERSION = freebsd.CAP_RIGHTS_VERSION
-\`\`\`
+```
 
 </details>
 
@@ -15207,9 +15207,9 @@ pub const CAP_RIGHTS_VERSION = freebsd.CAP_RIGHTS_VERSION
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const KINFO_FILE_SIZE = freebsd.KINFO_FILE_SIZE
-\`\`\`
+```
 
 </details>
 
@@ -15220,9 +15220,9 @@ pub const KINFO_FILE_SIZE = freebsd.KINFO_FILE_SIZE
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MFD = freebsd.MFD
-\`\`\`
+```
 
 </details>
 
@@ -15233,9 +15233,9 @@ pub const MFD = freebsd.MFD
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UMTX_ABSTIME = freebsd.UMTX_ABSTIME
-\`\`\`
+```
 
 </details>
 
@@ -15246,9 +15246,9 @@ pub const UMTX_ABSTIME = freebsd.UMTX_ABSTIME
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UMTX_OP = freebsd.UMTX_OP
-\`\`\`
+```
 
 </details>
 
@@ -15259,9 +15259,9 @@ pub const UMTX_OP = freebsd.UMTX_OP
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _umtx_op = freebsd._umtx_op
-\`\`\`
+```
 
 </details>
 
@@ -15272,9 +15272,9 @@ pub const _umtx_op = freebsd._umtx_op
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _umtx_time = freebsd._umtx_time
-\`\`\`
+```
 
 </details>
 
@@ -15285,9 +15285,9 @@ pub const _umtx_time = freebsd._umtx_time
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const cap_rights = freebsd.cap_rights
-\`\`\`
+```
 
 </details>
 
@@ -15298,9 +15298,9 @@ pub const cap_rights = freebsd.cap_rights
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const fflags_t = freebsd.fflags_t
-\`\`\`
+```
 
 </details>
 
@@ -15311,9 +15311,9 @@ pub const fflags_t = freebsd.fflags_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const fsblkcnt_t = freebsd.fsblkcnt_t
-\`\`\`
+```
 
 </details>
 
@@ -15324,9 +15324,9 @@ pub const fsblkcnt_t = freebsd.fsblkcnt_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const fsfilcnt_t = freebsd.fsfilcnt_t
-\`\`\`
+```
 
 </details>
 
@@ -15337,9 +15337,9 @@ pub const fsfilcnt_t = freebsd.fsfilcnt_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const kinfo_file = freebsd.kinfo_file
-\`\`\`
+```
 
 </details>
 
@@ -15350,9 +15350,9 @@ pub const kinfo_file = freebsd.kinfo_file
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const kinfo_getfile = freebsd.kinfo_getfile
-\`\`\`
+```
 
 </details>
 
@@ -15363,9 +15363,9 @@ pub const kinfo_getfile = freebsd.kinfo_getfile
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const COPYFILE = darwin.COPYFILE
-\`\`\`
+```
 
 </details>
 
@@ -15376,9 +15376,9 @@ pub const COPYFILE = darwin.COPYFILE
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const CPUFAMILY = darwin.CPUFAMILY
-\`\`\`
+```
 
 </details>
 
@@ -15389,9 +15389,9 @@ pub const CPUFAMILY = darwin.CPUFAMILY
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const PT = darwin.PT
-\`\`\`
+```
 
 </details>
 
@@ -15402,9 +15402,9 @@ pub const PT = darwin.PT
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DB_RECORDTYPE = darwin.DB_RECORDTYPE
-\`\`\`
+```
 
 </details>
 
@@ -15415,9 +15415,9 @@ pub const DB_RECORDTYPE = darwin.DB_RECORDTYPE
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const EXC = darwin.EXC
-\`\`\`
+```
 
 </details>
 
@@ -15428,9 +15428,9 @@ pub const EXC = darwin.EXC
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const EXCEPTION = darwin.EXCEPTION
-\`\`\`
+```
 
 </details>
 
@@ -15441,9 +15441,9 @@ pub const EXCEPTION = darwin.EXCEPTION
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MACH_MSG_TYPE = darwin.MACH_MSG_TYPE
-\`\`\`
+```
 
 </details>
 
@@ -15454,9 +15454,9 @@ pub const MACH_MSG_TYPE = darwin.MACH_MSG_TYPE
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MACH_PORT_RIGHT = darwin.MACH_PORT_RIGHT
-\`\`\`
+```
 
 </details>
 
@@ -15467,9 +15467,9 @@ pub const MACH_PORT_RIGHT = darwin.MACH_PORT_RIGHT
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MACH_TASK_BASIC_INFO = darwin.MACH_TASK_BASIC_INFO
-\`\`\`
+```
 
 </details>
 
@@ -15480,9 +15480,9 @@ pub const MACH_TASK_BASIC_INFO = darwin.MACH_TASK_BASIC_INFO
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MACH_TASK_BASIC_INFO_COUNT = darwin.MACH_TASK_BASIC_INFO_COUNT
-\`\`\`
+```
 
 </details>
 
@@ -15493,9 +15493,9 @@ pub const MACH_TASK_BASIC_INFO_COUNT = darwin.MACH_TASK_BASIC_INFO_COUNT
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MATTR = darwin.MATTR
-\`\`\`
+```
 
 </details>
 
@@ -15506,9 +15506,9 @@ pub const MATTR = darwin.MATTR
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const NSVersionOfRunTimeLibrary = darwin.NSVersionOfRunTimeLibrary
-\`\`\`
+```
 
 </details>
 
@@ -15519,9 +15519,9 @@ pub const NSVersionOfRunTimeLibrary = darwin.NSVersionOfRunTimeLibrary
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const OPEN_MAX = darwin.OPEN_MAX
-\`\`\`
+```
 
 </details>
 
@@ -15532,9 +15532,9 @@ pub const OPEN_MAX = darwin.OPEN_MAX
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const POSIX_SPAWN = darwin.POSIX_SPAWN
-\`\`\`
+```
 
 </details>
 
@@ -15545,9 +15545,9 @@ pub const POSIX_SPAWN = darwin.POSIX_SPAWN
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const TASK_NULL = darwin.TASK_NULL
-\`\`\`
+```
 
 </details>
 
@@ -15558,9 +15558,9 @@ pub const TASK_NULL = darwin.TASK_NULL
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const TASK_VM_INFO = darwin.TASK_VM_INFO
-\`\`\`
+```
 
 </details>
 
@@ -15571,9 +15571,9 @@ pub const TASK_VM_INFO = darwin.TASK_VM_INFO
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const TASK_VM_INFO_COUNT = darwin.TASK_VM_INFO_COUNT
-\`\`\`
+```
 
 </details>
 
@@ -15584,9 +15584,9 @@ pub const TASK_VM_INFO_COUNT = darwin.TASK_VM_INFO_COUNT
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const THREAD_BASIC_INFO = darwin.THREAD_BASIC_INFO
-\`\`\`
+```
 
 </details>
 
@@ -15597,9 +15597,9 @@ pub const THREAD_BASIC_INFO = darwin.THREAD_BASIC_INFO
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const THREAD_BASIC_INFO_COUNT = darwin.THREAD_BASIC_INFO_COUNT
-\`\`\`
+```
 
 </details>
 
@@ -15610,9 +15610,9 @@ pub const THREAD_BASIC_INFO_COUNT = darwin.THREAD_BASIC_INFO_COUNT
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const THREAD_IDENTIFIER_INFO_COUNT = darwin.THREAD_IDENTIFIER_INFO_COUNT
-\`\`\`
+```
 
 </details>
 
@@ -15623,9 +15623,9 @@ pub const THREAD_IDENTIFIER_INFO_COUNT = darwin.THREAD_IDENTIFIER_INFO_COUNT
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const THREAD_NULL = darwin.THREAD_NULL
-\`\`\`
+```
 
 </details>
 
@@ -15636,9 +15636,9 @@ pub const THREAD_NULL = darwin.THREAD_NULL
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const THREAD_STATE_NONE = darwin.THREAD_STATE_NONE
-\`\`\`
+```
 
 </details>
 
@@ -15649,9 +15649,9 @@ pub const THREAD_STATE_NONE = darwin.THREAD_STATE_NONE
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const UL = darwin.UL
-\`\`\`
+```
 
 </details>
 
@@ -15662,9 +15662,9 @@ pub const UL = darwin.UL
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const VM = darwin.VM
-\`\`\`
+```
 
 </details>
 
@@ -15675,9 +15675,9 @@ pub const VM = darwin.VM
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _NSGetExecutablePath = darwin._NSGetExecutablePath
-\`\`\`
+```
 
 </details>
 
@@ -15688,9 +15688,9 @@ pub const _NSGetExecutablePath = darwin._NSGetExecutablePath
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const __getdirentries64 = darwin.__getdirentries64
-\`\`\`
+```
 
 </details>
 
@@ -15701,9 +15701,9 @@ pub const __getdirentries64 = darwin.__getdirentries64
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const __ulock_wait = darwin.__ulock_wait
-\`\`\`
+```
 
 </details>
 
@@ -15714,9 +15714,9 @@ pub const __ulock_wait = darwin.__ulock_wait
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const __ulock_wait2 = darwin.__ulock_wait2
-\`\`\`
+```
 
 </details>
 
@@ -15727,9 +15727,9 @@ pub const __ulock_wait2 = darwin.__ulock_wait2
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const __ulock_wake = darwin.__ulock_wake
-\`\`\`
+```
 
 </details>
 
@@ -15740,9 +15740,9 @@ pub const __ulock_wake = darwin.__ulock_wake
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _dyld_get_image_header = darwin._dyld_get_image_header
-\`\`\`
+```
 
 </details>
 
@@ -15753,9 +15753,9 @@ pub const _dyld_get_image_header = darwin._dyld_get_image_header
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _dyld_get_image_name = darwin._dyld_get_image_name
-\`\`\`
+```
 
 </details>
 
@@ -15766,9 +15766,9 @@ pub const _dyld_get_image_name = darwin._dyld_get_image_name
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _dyld_get_image_vmaddr_slide = darwin._dyld_get_image_vmaddr_slide
-\`\`\`
+```
 
 </details>
 
@@ -15779,9 +15779,9 @@ pub const _dyld_get_image_vmaddr_slide = darwin._dyld_get_image_vmaddr_slide
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _dyld_image_count = darwin._dyld_image_count
-\`\`\`
+```
 
 </details>
 
@@ -15792,9 +15792,9 @@ pub const _dyld_image_count = darwin._dyld_image_count
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _host_page_size = darwin._host_page_size
-\`\`\`
+```
 
 </details>
 
@@ -15805,9 +15805,9 @@ pub const _host_page_size = darwin._host_page_size
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const clock_get_time = darwin.clock_get_time
-\`\`\`
+```
 
 </details>
 
@@ -15818,9 +15818,9 @@ pub const clock_get_time = darwin.clock_get_time
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const @"close$NOCANCEL" = darwin.@"close$NOCANCEL"
-\`\`\`
+```
 
 </details>
 
@@ -15831,9 +15831,9 @@ pub const @"close$NOCANCEL" = darwin.@"close$NOCANCEL"
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const dispatch_release = darwin.dispatch_release
-\`\`\`
+```
 
 </details>
 
@@ -15844,9 +15844,9 @@ pub const dispatch_release = darwin.dispatch_release
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const dispatch_semaphore_create = darwin.dispatch_semaphore_create
-\`\`\`
+```
 
 </details>
 
@@ -15857,9 +15857,9 @@ pub const dispatch_semaphore_create = darwin.dispatch_semaphore_create
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const dispatch_semaphore_signal = darwin.dispatch_semaphore_signal
-\`\`\`
+```
 
 </details>
 
@@ -15870,9 +15870,9 @@ pub const dispatch_semaphore_signal = darwin.dispatch_semaphore_signal
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const dispatch_semaphore_wait = darwin.dispatch_semaphore_wait
-\`\`\`
+```
 
 </details>
 
@@ -15883,9 +15883,9 @@ pub const dispatch_semaphore_wait = darwin.dispatch_semaphore_wait
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const dispatch_time = darwin.dispatch_time
-\`\`\`
+```
 
 </details>
 
@@ -15896,9 +15896,9 @@ pub const dispatch_time = darwin.dispatch_time
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const fcopyfile = darwin.fcopyfile
-\`\`\`
+```
 
 </details>
 
@@ -15909,9 +15909,9 @@ pub const fcopyfile = darwin.fcopyfile
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const host_t = darwin.host_t
-\`\`\`
+```
 
 </details>
 
@@ -15922,9 +15922,9 @@ pub const host_t = darwin.host_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ipc_space_t = darwin.ipc_space_t
-\`\`\`
+```
 
 </details>
 
@@ -15935,9 +15935,9 @@ pub const ipc_space_t = darwin.ipc_space_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ipc_space_port_t = darwin.ipc_space_port_t
-\`\`\`
+```
 
 </details>
 
@@ -15948,9 +15948,9 @@ pub const ipc_space_port_t = darwin.ipc_space_port_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const kern_return_t = darwin.kern_return_t
-\`\`\`
+```
 
 </details>
 
@@ -15961,9 +15961,9 @@ pub const kern_return_t = darwin.kern_return_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const vm_size_t = darwin.vm_size_t
-\`\`\`
+```
 
 </details>
 
@@ -15974,9 +15974,9 @@ pub const vm_size_t = darwin.vm_size_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const kevent64 = darwin.kevent64
-\`\`\`
+```
 
 </details>
 
@@ -15987,9 +15987,9 @@ pub const kevent64 = darwin.kevent64
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const kevent64_s = darwin.kevent64_s
-\`\`\`
+```
 
 </details>
 
@@ -16000,9 +16000,9 @@ pub const kevent64_s = darwin.kevent64_s
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_absolute_time = darwin.mach_absolute_time
-\`\`\`
+```
 
 </details>
 
@@ -16013,9 +16013,9 @@ pub const mach_absolute_time = darwin.mach_absolute_time
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_continuous_time = darwin.mach_continuous_time
-\`\`\`
+```
 
 </details>
 
@@ -16026,9 +16026,9 @@ pub const mach_continuous_time = darwin.mach_continuous_time
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_hdr = darwin.mach_hdr
-\`\`\`
+```
 
 </details>
 
@@ -16039,9 +16039,9 @@ pub const mach_hdr = darwin.mach_hdr
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_host_self = darwin.mach_host_self
-\`\`\`
+```
 
 </details>
 
@@ -16052,9 +16052,9 @@ pub const mach_host_self = darwin.mach_host_self
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_msg = darwin.mach_msg
-\`\`\`
+```
 
 </details>
 
@@ -16065,9 +16065,9 @@ pub const mach_msg = darwin.mach_msg
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_msg_type_number_t = darwin.mach_msg_type_number_t
-\`\`\`
+```
 
 </details>
 
@@ -16078,9 +16078,9 @@ pub const mach_msg_type_number_t = darwin.mach_msg_type_number_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_port_allocate = darwin.mach_port_allocate
-\`\`\`
+```
 
 </details>
 
@@ -16091,9 +16091,9 @@ pub const mach_port_allocate = darwin.mach_port_allocate
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_port_array_t = darwin.mach_port_array_t
-\`\`\`
+```
 
 </details>
 
@@ -16104,9 +16104,9 @@ pub const mach_port_array_t = darwin.mach_port_array_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_port_deallocate = darwin.mach_port_deallocate
-\`\`\`
+```
 
 </details>
 
@@ -16117,9 +16117,9 @@ pub const mach_port_deallocate = darwin.mach_port_deallocate
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_port_insert_right = darwin.mach_port_insert_right
-\`\`\`
+```
 
 </details>
 
@@ -16130,9 +16130,9 @@ pub const mach_port_insert_right = darwin.mach_port_insert_right
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_port_name_t = darwin.mach_port_name_t
-\`\`\`
+```
 
 </details>
 
@@ -16143,9 +16143,9 @@ pub const mach_port_name_t = darwin.mach_port_name_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_port_t = darwin.mach_port_t
-\`\`\`
+```
 
 </details>
 
@@ -16156,9 +16156,9 @@ pub const mach_port_t = darwin.mach_port_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_task_basic_info = darwin.mach_task_basic_info
-\`\`\`
+```
 
 </details>
 
@@ -16169,9 +16169,9 @@ pub const mach_task_basic_info = darwin.mach_task_basic_info
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_task_self = darwin.mach_task_self
-\`\`\`
+```
 
 </details>
 
@@ -16182,9 +16182,9 @@ pub const mach_task_self = darwin.mach_task_self
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_timebase_info = darwin.mach_timebase_info
-\`\`\`
+```
 
 </details>
 
@@ -16195,9 +16195,9 @@ pub const mach_timebase_info = darwin.mach_timebase_info
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_timebase_info_data = darwin.mach_timebase_info_data
-\`\`\`
+```
 
 </details>
 
@@ -16208,9 +16208,9 @@ pub const mach_timebase_info_data = darwin.mach_timebase_info_data
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_vm_address_t = darwin.mach_vm_address_t
-\`\`\`
+```
 
 </details>
 
@@ -16221,9 +16221,9 @@ pub const mach_vm_address_t = darwin.mach_vm_address_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_vm_protect = darwin.mach_vm_protect
-\`\`\`
+```
 
 </details>
 
@@ -16234,9 +16234,9 @@ pub const mach_vm_protect = darwin.mach_vm_protect
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_vm_read = darwin.mach_vm_read
-\`\`\`
+```
 
 </details>
 
@@ -16247,9 +16247,9 @@ pub const mach_vm_read = darwin.mach_vm_read
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_vm_region = darwin.mach_vm_region
-\`\`\`
+```
 
 </details>
 
@@ -16260,9 +16260,9 @@ pub const mach_vm_region = darwin.mach_vm_region
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_vm_region_recurse = darwin.mach_vm_region_recurse
-\`\`\`
+```
 
 </details>
 
@@ -16273,9 +16273,9 @@ pub const mach_vm_region_recurse = darwin.mach_vm_region_recurse
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_vm_size_t = darwin.mach_vm_size_t
-\`\`\`
+```
 
 </details>
 
@@ -16286,9 +16286,9 @@ pub const mach_vm_size_t = darwin.mach_vm_size_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_vm_write = darwin.mach_vm_write
-\`\`\`
+```
 
 </details>
 
@@ -16299,9 +16299,9 @@ pub const mach_vm_write = darwin.mach_vm_write
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const natural_t = darwin.natural_t
-\`\`\`
+```
 
 </details>
 
@@ -16312,9 +16312,9 @@ pub const natural_t = darwin.natural_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const os_log_create = darwin.os_log_create
-\`\`\`
+```
 
 </details>
 
@@ -16325,9 +16325,9 @@ pub const os_log_create = darwin.os_log_create
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const os_log_type_enabled = darwin.os_log_type_enabled
-\`\`\`
+```
 
 </details>
 
@@ -16338,9 +16338,9 @@ pub const os_log_type_enabled = darwin.os_log_type_enabled
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const os_signpost_enabled = darwin.os_signpost_enabled
-\`\`\`
+```
 
 </details>
 
@@ -16351,9 +16351,9 @@ pub const os_signpost_enabled = darwin.os_signpost_enabled
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const os_signpost_id_generate = darwin.os_signpost_id_generate
-\`\`\`
+```
 
 </details>
 
@@ -16364,9 +16364,9 @@ pub const os_signpost_id_generate = darwin.os_signpost_id_generate
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const os_signpost_id_make_with_pointer = darwin.os_signpost_id_make_with_pointer
-\`\`\`
+```
 
 </details>
 
@@ -16377,9 +16377,9 @@ pub const os_signpost_id_make_with_pointer = darwin.os_signpost_id_make_with_poi
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const os_signpost_interval_begin = darwin.os_signpost_interval_begin
-\`\`\`
+```
 
 </details>
 
@@ -16390,9 +16390,9 @@ pub const os_signpost_interval_begin = darwin.os_signpost_interval_begin
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const os_signpost_interval_end = darwin.os_signpost_interval_end
-\`\`\`
+```
 
 </details>
 
@@ -16403,9 +16403,9 @@ pub const os_signpost_interval_end = darwin.os_signpost_interval_end
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const os_unfair_lock = darwin.os_unfair_lock
-\`\`\`
+```
 
 </details>
 
@@ -16416,9 +16416,9 @@ pub const os_unfair_lock = darwin.os_unfair_lock
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const os_unfair_lock_assert_not_owner = darwin.os_unfair_lock_assert_not_owner
-\`\`\`
+```
 
 </details>
 
@@ -16429,9 +16429,9 @@ pub const os_unfair_lock_assert_not_owner = darwin.os_unfair_lock_assert_not_own
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const os_unfair_lock_assert_owner = darwin.os_unfair_lock_assert_owner
-\`\`\`
+```
 
 </details>
 
@@ -16442,9 +16442,9 @@ pub const os_unfair_lock_assert_owner = darwin.os_unfair_lock_assert_owner
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const os_unfair_lock_lock = darwin.os_unfair_lock_lock
-\`\`\`
+```
 
 </details>
 
@@ -16455,9 +16455,9 @@ pub const os_unfair_lock_lock = darwin.os_unfair_lock_lock
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const os_unfair_lock_trylock = darwin.os_unfair_lock_trylock
-\`\`\`
+```
 
 </details>
 
@@ -16468,9 +16468,9 @@ pub const os_unfair_lock_trylock = darwin.os_unfair_lock_trylock
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const os_unfair_lock_unlock = darwin.os_unfair_lock_unlock
-\`\`\`
+```
 
 </details>
 
@@ -16481,9 +16481,9 @@ pub const os_unfair_lock_unlock = darwin.os_unfair_lock_unlock
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pid_for_task = darwin.pid_for_task
-\`\`\`
+```
 
 </details>
 
@@ -16494,9 +16494,9 @@ pub const pid_for_task = darwin.pid_for_task
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const posix_spawn = darwin.posix_spawn
-\`\`\`
+```
 
 </details>
 
@@ -16507,9 +16507,9 @@ pub const posix_spawn = darwin.posix_spawn
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const posix_spawn_file_actions_addchdir_np = darwin.posix_spawn_file_actions_addchdir_np
-\`\`\`
+```
 
 </details>
 
@@ -16520,9 +16520,9 @@ pub const posix_spawn_file_actions_addchdir_np = darwin.posix_spawn_file_actions
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const posix_spawn_file_actions_addclose = darwin.posix_spawn_file_actions_addclose
-\`\`\`
+```
 
 </details>
 
@@ -16533,9 +16533,9 @@ pub const posix_spawn_file_actions_addclose = darwin.posix_spawn_file_actions_ad
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const posix_spawn_file_actions_adddup2 = darwin.posix_spawn_file_actions_adddup2
-\`\`\`
+```
 
 </details>
 
@@ -16546,9 +16546,9 @@ pub const posix_spawn_file_actions_adddup2 = darwin.posix_spawn_file_actions_add
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const posix_spawn_file_actions_addfchdir_np = darwin.posix_spawn_file_actions_addfchdir_np
-\`\`\`
+```
 
 </details>
 
@@ -16559,9 +16559,9 @@ pub const posix_spawn_file_actions_addfchdir_np = darwin.posix_spawn_file_action
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const posix_spawn_file_actions_addinherit_np = darwin.posix_spawn_file_actions_addinherit_np
-\`\`\`
+```
 
 </details>
 
@@ -16572,9 +16572,9 @@ pub const posix_spawn_file_actions_addinherit_np = darwin.posix_spawn_file_actio
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const posix_spawn_file_actions_addopen = darwin.posix_spawn_file_actions_addopen
-\`\`\`
+```
 
 </details>
 
@@ -16585,9 +16585,9 @@ pub const posix_spawn_file_actions_addopen = darwin.posix_spawn_file_actions_add
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const posix_spawn_file_actions_destroy = darwin.posix_spawn_file_actions_destroy
-\`\`\`
+```
 
 </details>
 
@@ -16598,9 +16598,9 @@ pub const posix_spawn_file_actions_destroy = darwin.posix_spawn_file_actions_des
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const posix_spawn_file_actions_init = darwin.posix_spawn_file_actions_init
-\`\`\`
+```
 
 </details>
 
@@ -16611,9 +16611,9 @@ pub const posix_spawn_file_actions_init = darwin.posix_spawn_file_actions_init
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const posix_spawn_file_actions_t = darwin.posix_spawn_file_actions_t
-\`\`\`
+```
 
 </details>
 
@@ -16624,9 +16624,9 @@ pub const posix_spawn_file_actions_t = darwin.posix_spawn_file_actions_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const posix_spawnattr_destroy = darwin.posix_spawnattr_destroy
-\`\`\`
+```
 
 </details>
 
@@ -16637,9 +16637,9 @@ pub const posix_spawnattr_destroy = darwin.posix_spawnattr_destroy
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const posix_spawnattr_getflags = darwin.posix_spawnattr_getflags
-\`\`\`
+```
 
 </details>
 
@@ -16650,9 +16650,9 @@ pub const posix_spawnattr_getflags = darwin.posix_spawnattr_getflags
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const posix_spawnattr_init = darwin.posix_spawnattr_init
-\`\`\`
+```
 
 </details>
 
@@ -16663,9 +16663,9 @@ pub const posix_spawnattr_init = darwin.posix_spawnattr_init
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const posix_spawnattr_setflags = darwin.posix_spawnattr_setflags
-\`\`\`
+```
 
 </details>
 
@@ -16676,9 +16676,9 @@ pub const posix_spawnattr_setflags = darwin.posix_spawnattr_setflags
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const posix_spawnattr_t = darwin.posix_spawnattr_t
-\`\`\`
+```
 
 </details>
 
@@ -16689,9 +16689,9 @@ pub const posix_spawnattr_t = darwin.posix_spawnattr_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const posix_spawnp = darwin.posix_spawnp
-\`\`\`
+```
 
 </details>
 
@@ -16702,9 +16702,9 @@ pub const posix_spawnp = darwin.posix_spawnp
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pthread_attr_get_qos_class_np = darwin.pthread_attr_get_qos_class_np
-\`\`\`
+```
 
 </details>
 
@@ -16715,9 +16715,9 @@ pub const pthread_attr_get_qos_class_np = darwin.pthread_attr_get_qos_class_np
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pthread_attr_set_qos_class_np = darwin.pthread_attr_set_qos_class_np
-\`\`\`
+```
 
 </details>
 
@@ -16728,9 +16728,9 @@ pub const pthread_attr_set_qos_class_np = darwin.pthread_attr_set_qos_class_np
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pthread_get_qos_class_np = darwin.pthread_get_qos_class_np
-\`\`\`
+```
 
 </details>
 
@@ -16741,9 +16741,9 @@ pub const pthread_get_qos_class_np = darwin.pthread_get_qos_class_np
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pthread_set_qos_class_self_np = darwin.pthread_set_qos_class_self_np
-\`\`\`
+```
 
 </details>
 
@@ -16754,9 +16754,9 @@ pub const pthread_set_qos_class_self_np = darwin.pthread_set_qos_class_self_np
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ptrace = darwin.ptrace
-\`\`\`
+```
 
 </details>
 
@@ -16767,9 +16767,9 @@ pub const ptrace = darwin.ptrace
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const task_for_pid = darwin.task_for_pid
-\`\`\`
+```
 
 </details>
 
@@ -16780,9 +16780,9 @@ pub const task_for_pid = darwin.task_for_pid
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const task_get_exception_ports = darwin.task_get_exception_ports
-\`\`\`
+```
 
 </details>
 
@@ -16793,9 +16793,9 @@ pub const task_get_exception_ports = darwin.task_get_exception_ports
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const task_info = darwin.task_info
-\`\`\`
+```
 
 </details>
 
@@ -16806,9 +16806,9 @@ pub const task_info = darwin.task_info
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const task_info_t = darwin.task_info_t
-\`\`\`
+```
 
 </details>
 
@@ -16819,9 +16819,9 @@ pub const task_info_t = darwin.task_info_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const task_resume = darwin.task_resume
-\`\`\`
+```
 
 </details>
 
@@ -16832,9 +16832,9 @@ pub const task_resume = darwin.task_resume
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const task_set_exception_ports = darwin.task_set_exception_ports
-\`\`\`
+```
 
 </details>
 
@@ -16845,9 +16845,9 @@ pub const task_set_exception_ports = darwin.task_set_exception_ports
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const task_suspend = darwin.task_suspend
-\`\`\`
+```
 
 </details>
 
@@ -16858,9 +16858,9 @@ pub const task_suspend = darwin.task_suspend
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const task_threads = darwin.task_threads
-\`\`\`
+```
 
 </details>
 
@@ -16871,9 +16871,9 @@ pub const task_threads = darwin.task_threads
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const task_vm_info_data_t = darwin.task_vm_info_data_t
-\`\`\`
+```
 
 </details>
 
@@ -16884,9 +16884,9 @@ pub const task_vm_info_data_t = darwin.task_vm_info_data_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const thread_basic_info = darwin.thread_basic_info
-\`\`\`
+```
 
 </details>
 
@@ -16897,9 +16897,9 @@ pub const thread_basic_info = darwin.thread_basic_info
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const thread_get_state = darwin.thread_get_state
-\`\`\`
+```
 
 </details>
 
@@ -16910,9 +16910,9 @@ pub const thread_get_state = darwin.thread_get_state
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const thread_identifier_info = darwin.thread_identifier_info
-\`\`\`
+```
 
 </details>
 
@@ -16923,9 +16923,9 @@ pub const thread_identifier_info = darwin.thread_identifier_info
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const thread_info = darwin.thread_info
-\`\`\`
+```
 
 </details>
 
@@ -16936,9 +16936,9 @@ pub const thread_info = darwin.thread_info
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const thread_info_t = darwin.thread_info_t
-\`\`\`
+```
 
 </details>
 
@@ -16949,9 +16949,9 @@ pub const thread_info_t = darwin.thread_info_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const thread_resume = darwin.thread_resume
-\`\`\`
+```
 
 </details>
 
@@ -16962,9 +16962,9 @@ pub const thread_resume = darwin.thread_resume
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const thread_set_state = darwin.thread_set_state
-\`\`\`
+```
 
 </details>
 
@@ -16975,9 +16975,9 @@ pub const thread_set_state = darwin.thread_set_state
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const vm_deallocate = darwin.vm_deallocate
-\`\`\`
+```
 
 </details>
 
@@ -16988,9 +16988,9 @@ pub const vm_deallocate = darwin.vm_deallocate
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const vm_machine_attribute = darwin.vm_machine_attribute
-\`\`\`
+```
 
 </details>
 
@@ -17001,9 +17001,9 @@ pub const vm_machine_attribute = darwin.vm_machine_attribute
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const vm_machine_attribute_val_t = darwin.vm_machine_attribute_val_t
-\`\`\`
+```
 
 </details>
 
@@ -17014,9 +17014,9 @@ pub const vm_machine_attribute_val_t = darwin.vm_machine_attribute_val_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const vm_map_t = darwin.vm_map_t
-\`\`\`
+```
 
 </details>
 
@@ -17027,9 +17027,9 @@ pub const vm_map_t = darwin.vm_map_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const vm_offset_t = darwin.vm_offset_t
-\`\`\`
+```
 
 </details>
 
@@ -17040,9 +17040,9 @@ pub const vm_offset_t = darwin.vm_offset_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const vm_prot_t = darwin.vm_prot_t
-\`\`\`
+```
 
 </details>
 
@@ -17053,9 +17053,9 @@ pub const vm_prot_t = darwin.vm_prot_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const vm_region_basic_info_64 = darwin.vm_region_basic_info_64
-\`\`\`
+```
 
 </details>
 
@@ -17066,9 +17066,9 @@ pub const vm_region_basic_info_64 = darwin.vm_region_basic_info_64
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const vm_region_extended_info = darwin.vm_region_extended_info
-\`\`\`
+```
 
 </details>
 
@@ -17079,9 +17079,9 @@ pub const vm_region_extended_info = darwin.vm_region_extended_info
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const vm_region_info_t = darwin.vm_region_info_t
-\`\`\`
+```
 
 </details>
 
@@ -17092,9 +17092,9 @@ pub const vm_region_info_t = darwin.vm_region_info_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const vm_region_recurse_info_t = darwin.vm_region_recurse_info_t
-\`\`\`
+```
 
 </details>
 
@@ -17105,9 +17105,9 @@ pub const vm_region_recurse_info_t = darwin.vm_region_recurse_info_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const vm_region_submap_info_64 = darwin.vm_region_submap_info_64
-\`\`\`
+```
 
 </details>
 
@@ -17118,9 +17118,9 @@ pub const vm_region_submap_info_64 = darwin.vm_region_submap_info_64
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const vm_region_submap_short_info_64 = darwin.vm_region_submap_short_info_64
-\`\`\`
+```
 
 </details>
 
@@ -17131,9 +17131,9 @@ pub const vm_region_submap_short_info_64 = darwin.vm_region_submap_short_info_64
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const vm_region_top_info = darwin.vm_region_top_info
-\`\`\`
+```
 
 </details>
 
@@ -17144,9 +17144,9 @@ pub const vm_region_top_info = darwin.vm_region_top_info
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const caddr_t = darwin.caddr_t
-\`\`\`
+```
 
 </details>
 
@@ -17157,9 +17157,9 @@ pub const caddr_t = darwin.caddr_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const exception_behavior_array_t = darwin.exception_behavior_array_t
-\`\`\`
+```
 
 </details>
 
@@ -17170,9 +17170,9 @@ pub const exception_behavior_array_t = darwin.exception_behavior_array_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const exception_behavior_t = darwin.exception_behavior_t
-\`\`\`
+```
 
 </details>
 
@@ -17183,9 +17183,9 @@ pub const exception_behavior_t = darwin.exception_behavior_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const exception_data_t = darwin.exception_data_t
-\`\`\`
+```
 
 </details>
 
@@ -17196,9 +17196,9 @@ pub const exception_data_t = darwin.exception_data_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const exception_data_type_t = darwin.exception_data_type_t
-\`\`\`
+```
 
 </details>
 
@@ -17209,9 +17209,9 @@ pub const exception_data_type_t = darwin.exception_data_type_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const exception_flavor_array_t = darwin.exception_flavor_array_t
-\`\`\`
+```
 
 </details>
 
@@ -17222,9 +17222,9 @@ pub const exception_flavor_array_t = darwin.exception_flavor_array_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const exception_handler_array_t = darwin.exception_handler_array_t
-\`\`\`
+```
 
 </details>
 
@@ -17235,9 +17235,9 @@ pub const exception_handler_array_t = darwin.exception_handler_array_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const exception_handler_t = darwin.exception_handler_t
-\`\`\`
+```
 
 </details>
 
@@ -17248,9 +17248,9 @@ pub const exception_handler_t = darwin.exception_handler_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const exception_mask_array_t = darwin.exception_mask_array_t
-\`\`\`
+```
 
 </details>
 
@@ -17261,9 +17261,9 @@ pub const exception_mask_array_t = darwin.exception_mask_array_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const exception_mask_t = darwin.exception_mask_t
-\`\`\`
+```
 
 </details>
 
@@ -17274,9 +17274,9 @@ pub const exception_mask_t = darwin.exception_mask_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const exception_port_array_t = darwin.exception_port_array_t
-\`\`\`
+```
 
 </details>
 
@@ -17287,9 +17287,9 @@ pub const exception_port_array_t = darwin.exception_port_array_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const exception_port_t = darwin.exception_port_t
-\`\`\`
+```
 
 </details>
 
@@ -17300,9 +17300,9 @@ pub const exception_port_t = darwin.exception_port_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_exception_data_t = darwin.mach_exception_data_t
-\`\`\`
+```
 
 </details>
 
@@ -17313,9 +17313,9 @@ pub const mach_exception_data_t = darwin.mach_exception_data_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_exception_data_type_t = darwin.mach_exception_data_type_t
-\`\`\`
+```
 
 </details>
 
@@ -17326,9 +17326,9 @@ pub const mach_exception_data_type_t = darwin.mach_exception_data_type_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_msg_bits_t = darwin.mach_msg_bits_t
-\`\`\`
+```
 
 </details>
 
@@ -17339,9 +17339,9 @@ pub const mach_msg_bits_t = darwin.mach_msg_bits_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_msg_id_t = darwin.mach_msg_id_t
-\`\`\`
+```
 
 </details>
 
@@ -17352,9 +17352,9 @@ pub const mach_msg_id_t = darwin.mach_msg_id_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_msg_option_t = darwin.mach_msg_option_t
-\`\`\`
+```
 
 </details>
 
@@ -17365,9 +17365,9 @@ pub const mach_msg_option_t = darwin.mach_msg_option_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_msg_size_t = darwin.mach_msg_size_t
-\`\`\`
+```
 
 </details>
 
@@ -17378,9 +17378,9 @@ pub const mach_msg_size_t = darwin.mach_msg_size_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_msg_timeout_t = darwin.mach_msg_timeout_t
-\`\`\`
+```
 
 </details>
 
@@ -17391,9 +17391,9 @@ pub const mach_msg_timeout_t = darwin.mach_msg_timeout_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_msg_type_name_t = darwin.mach_msg_type_name_t
-\`\`\`
+```
 
 </details>
 
@@ -17404,9 +17404,9 @@ pub const mach_msg_type_name_t = darwin.mach_msg_type_name_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const mach_port_right_t = darwin.mach_port_right_t
-\`\`\`
+```
 
 </details>
 
@@ -17417,9 +17417,9 @@ pub const mach_port_right_t = darwin.mach_port_right_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const memory_object_offset_t = darwin.memory_object_offset_t
-\`\`\`
+```
 
 </details>
 
@@ -17430,9 +17430,9 @@ pub const memory_object_offset_t = darwin.memory_object_offset_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const policy_t = darwin.policy_t
-\`\`\`
+```
 
 </details>
 
@@ -17443,9 +17443,9 @@ pub const policy_t = darwin.policy_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const task_policy_flavor_t = darwin.task_policy_flavor_t
-\`\`\`
+```
 
 </details>
 
@@ -17456,9 +17456,9 @@ pub const task_policy_flavor_t = darwin.task_policy_flavor_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const task_policy_t = darwin.task_policy_t
-\`\`\`
+```
 
 </details>
 
@@ -17469,9 +17469,9 @@ pub const task_policy_t = darwin.task_policy_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const task_t = darwin.task_t
-\`\`\`
+```
 
 </details>
 
@@ -17482,9 +17482,9 @@ pub const task_t = darwin.task_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const thread_act_t = darwin.thread_act_t
-\`\`\`
+```
 
 </details>
 
@@ -17495,9 +17495,9 @@ pub const thread_act_t = darwin.thread_act_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const thread_flavor_t = darwin.thread_flavor_t
-\`\`\`
+```
 
 </details>
 
@@ -17508,9 +17508,9 @@ pub const thread_flavor_t = darwin.thread_flavor_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const thread_port_t = darwin.thread_port_t
-\`\`\`
+```
 
 </details>
 
@@ -17521,9 +17521,9 @@ pub const thread_port_t = darwin.thread_port_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const thread_state_flavor_t = darwin.thread_state_flavor_t
-\`\`\`
+```
 
 </details>
 
@@ -17534,9 +17534,9 @@ pub const thread_state_flavor_t = darwin.thread_state_flavor_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const thread_state_t = darwin.thread_state_t
-\`\`\`
+```
 
 </details>
 
@@ -17547,9 +17547,9 @@ pub const thread_state_t = darwin.thread_state_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const thread_t = darwin.thread_t
-\`\`\`
+```
 
 </details>
 
@@ -17560,9 +17560,9 @@ pub const thread_t = darwin.thread_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const time_value_t = darwin.time_value_t
-\`\`\`
+```
 
 </details>
 
@@ -17573,9 +17573,9 @@ pub const time_value_t = darwin.time_value_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const vm32_object_id_t = darwin.vm32_object_id_t
-\`\`\`
+```
 
 </details>
 
@@ -17586,9 +17586,9 @@ pub const vm32_object_id_t = darwin.vm32_object_id_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const vm_behavior_t = darwin.vm_behavior_t
-\`\`\`
+```
 
 </details>
 
@@ -17599,9 +17599,9 @@ pub const vm_behavior_t = darwin.vm_behavior_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const vm_inherit_t = darwin.vm_inherit_t
-\`\`\`
+```
 
 </details>
 
@@ -17612,9 +17612,9 @@ pub const vm_inherit_t = darwin.vm_inherit_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const vm_map_read_t = darwin.vm_map_read_t
-\`\`\`
+```
 
 </details>
 
@@ -17625,9 +17625,9 @@ pub const vm_map_read_t = darwin.vm_map_read_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const vm_object_id_t = darwin.vm_object_id_t
-\`\`\`
+```
 
 </details>
 
@@ -17638,9 +17638,9 @@ pub const vm_object_id_t = darwin.vm_object_id_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const vm_region_flavor_t = darwin.vm_region_flavor_t
-\`\`\`
+```
 
 </details>
 
@@ -17651,9 +17651,9 @@ pub const vm_region_flavor_t = darwin.vm_region_flavor_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _ksiginfo = netbsd._ksiginfo
-\`\`\`
+```
 
 </details>
 
@@ -17664,9 +17664,9 @@ pub const _ksiginfo = netbsd._ksiginfo
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const _lwp_self = netbsd._lwp_self
-\`\`\`
+```
 
 </details>
 
@@ -17677,9 +17677,9 @@ pub const _lwp_self = netbsd._lwp_self
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const lwpid_t = netbsd.lwpid_t
-\`\`\`
+```
 
 </details>
 
@@ -17690,9 +17690,9 @@ pub const lwpid_t = netbsd.lwpid_t
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const lwp_gettid = dragonfly.lwp_gettid
-\`\`\`
+```
 
 </details>
 
@@ -17703,9 +17703,9 @@ pub const lwp_gettid = dragonfly.lwp_gettid
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const umtx_sleep = dragonfly.umtx_sleep
-\`\`\`
+```
 
 </details>
 
@@ -17716,9 +17716,9 @@ pub const umtx_sleep = dragonfly.umtx_sleep
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const umtx_wakeup = dragonfly.umtx_wakeup
-\`\`\`
+```
 
 </details>
 
@@ -17729,9 +17729,9 @@ pub const umtx_wakeup = dragonfly.umtx_wakeup
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const PERF_EVENT = serenity.PERF_EVENT
-\`\`\`
+```
 
 </details>
 
@@ -17742,9 +17742,9 @@ pub const PERF_EVENT = serenity.PERF_EVENT
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const disown = serenity.disown
-\`\`\`
+```
 
 </details>
 
@@ -17755,9 +17755,9 @@ pub const disown = serenity.disown
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const profiling_enable = serenity.profiling_enable
-\`\`\`
+```
 
 </details>
 
@@ -17768,9 +17768,9 @@ pub const profiling_enable = serenity.profiling_enable
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const profiling_disable = serenity.profiling_disable
-\`\`\`
+```
 
 </details>
 
@@ -17781,9 +17781,9 @@ pub const profiling_disable = serenity.profiling_disable
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const profiling_free_buffer = serenity.profiling_free_buffer
-\`\`\`
+```
 
 </details>
 
@@ -17794,9 +17794,9 @@ pub const profiling_free_buffer = serenity.profiling_free_buffer
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const futex_wait = serenity.futex_wait
-\`\`\`
+```
 
 </details>
 
@@ -17807,9 +17807,9 @@ pub const futex_wait = serenity.futex_wait
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const futex_wake = serenity.futex_wake
-\`\`\`
+```
 
 </details>
 
@@ -17820,9 +17820,9 @@ pub const futex_wake = serenity.futex_wake
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const purge = serenity.purge
-\`\`\`
+```
 
 </details>
 
@@ -17833,9 +17833,9 @@ pub const purge = serenity.purge
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const perf_event = serenity.perf_event
-\`\`\`
+```
 
 </details>
 
@@ -17846,9 +17846,9 @@ pub const perf_event = serenity.perf_event
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const perf_register_string = serenity.perf_register_string
-\`\`\`
+```
 
 </details>
 
@@ -17859,9 +17859,9 @@ pub const perf_register_string = serenity.perf_register_string
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const get_stack_bounds = serenity.get_stack_bounds
-\`\`\`
+```
 
 </details>
 
@@ -17872,9 +17872,9 @@ pub const get_stack_bounds = serenity.get_stack_bounds
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const anon_create = serenity.anon_create
-\`\`\`
+```
 
 </details>
 
@@ -17885,9 +17885,9 @@ pub const anon_create = serenity.anon_create
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const serenity_readlink = serenity.serenity_readlink
-\`\`\`
+```
 
 </details>
 
@@ -17898,9 +17898,9 @@ pub const serenity_readlink = serenity.serenity_readlink
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const serenity_open = serenity.serenity_open
-\`\`\`
+```
 
 </details>
 
@@ -17911,9 +17911,9 @@ pub const serenity_open = serenity.serenity_open
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const getkeymap = serenity.getkeymap
-\`\`\`
+```
 
 </details>
 
@@ -17924,9 +17924,9 @@ pub const getkeymap = serenity.getkeymap
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const setkeymap = serenity.setkeymap
-\`\`\`
+```
 
 </details>
 
@@ -17947,7 +17947,7 @@ pub const setkeymap = serenity.setkeymap
   equal to `version.major`, ignoring other components.
 * If linking a libc other than these, returns `false`.
 
-\`\`\`zig
+```zig
 pub inline fn versionCheck(comptime version: std.SemanticVersion) bool {
     return comptime blk: {
         if (!builtin.link_libc) break :blk false;
@@ -17965,7 +17965,7 @@ pub inline fn versionCheck(comptime version: std.SemanticVersion) bool {
         }
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -17983,9 +17983,9 @@ pub inline fn versionCheck(comptime version: std.SemanticVersion) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn opendir(pathname: [*:0]const u8) ?*DIR
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18003,9 +18003,9 @@ pub extern "c" fn opendir(pathname: [*:0]const u8) ?*DIR
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn fdopendir(fd: c_int) ?*DIR
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18023,9 +18023,9 @@ pub extern "c" fn fdopendir(fd: c_int) ?*DIR
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn rewinddir(dp: *DIR) void
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18043,9 +18043,9 @@ pub extern "c" fn rewinddir(dp: *DIR) void
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn closedir(dp: *DIR) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18063,9 +18063,9 @@ pub extern "c" fn closedir(dp: *DIR) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn telldir(dp: *DIR) c_long
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18083,9 +18083,9 @@ pub extern "c" fn telldir(dp: *DIR) c_long
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn seekdir(dp: *DIR, loc: c_long) void
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18104,9 +18104,9 @@ pub extern "c" fn seekdir(dp: *DIR, loc: c_long) void
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn sigwait(set: ?*sigset_t, sig: ?*c_int) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18125,9 +18125,9 @@ pub extern "c" fn sigwait(set: ?*sigset_t, sig: ?*c_int) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn alarm(seconds: c_uint) c_uint
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18145,9 +18145,9 @@ pub extern "c" fn alarm(seconds: c_uint) c_uint
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getpwent() ?*passwd
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18164,9 +18164,9 @@ pub extern "c" fn getpwent() ?*passwd
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn endpwent() void
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18183,9 +18183,9 @@ pub extern "c" fn endpwent() void
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn setpwent() void
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18202,9 +18202,9 @@ pub extern "c" fn setpwent() void
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getpwnam(name: [*:0]const u8) ?*passwd
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18222,9 +18222,9 @@ pub extern "c" fn getpwnam(name: [*:0]const u8) ?*passwd
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getpwnam_r(name: [*:0]const u8, pwd: *passwd, buf: [*]u8, buflen: usize, result: *?*passwd) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18246,9 +18246,9 @@ pub extern "c" fn getpwnam_r(name: [*:0]const u8, pwd: *passwd, buf: [*]u8, bufl
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getpwuid(uid: uid_t) ?*passwd
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18266,9 +18266,9 @@ pub extern "c" fn getpwuid(uid: uid_t) ?*passwd
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getpwuid_r(uid: uid_t, pwd: *passwd, buf: [*]u8, buflen: usize, result: *?*passwd) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18290,9 +18290,9 @@ pub extern "c" fn getpwuid_r(uid: uid_t, pwd: *passwd, buf: [*]u8, buflen: usize
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getgrent() ?*group
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18309,9 +18309,9 @@ pub extern "c" fn getgrent() ?*group
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn setgrent() void
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18328,9 +18328,9 @@ pub extern "c" fn setgrent() void
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn endgrent() void
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18347,9 +18347,9 @@ pub extern "c" fn endgrent() void
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getgrnam(name: [*:0]const u8) ?*passwd
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18367,9 +18367,9 @@ pub extern "c" fn getgrnam(name: [*:0]const u8) ?*passwd
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getgrnam_r(name: [*:0]const u8, grp: *group, buf: [*]u8, buflen: usize, result: *?*group) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18391,9 +18391,9 @@ pub extern "c" fn getgrnam_r(name: [*:0]const u8, grp: *group, buf: [*]u8, bufle
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getgrgid(gid: gid_t) ?*group
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18411,9 +18411,9 @@ pub extern "c" fn getgrgid(gid: gid_t) ?*group
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getgrgid_r(gid: gid_t, grp: *group, buf: [*]u8, buflen: usize, result: *?*group) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18435,9 +18435,9 @@ pub extern "c" fn getgrgid_r(gid: gid_t, grp: *group, buf: [*]u8, buflen: usize,
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getrlimit64(resource: rlimit_resource, rlim: *rlimit) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18456,9 +18456,9 @@ pub extern "c" fn getrlimit64(resource: rlimit_resource, rlim: *rlimit) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn lseek64(fd: fd_t, offset: i64, whence: c_int) i64
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18478,9 +18478,9 @@ pub extern "c" fn lseek64(fd: fd_t, offset: i64, whence: c_int) i64
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn mmap64(addr: ?*align(page_size) anyopaque, len: usize, prot: c_uint, flags: c_uint, fd: fd_t, offset: i64) *anyopaque
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18503,9 +18503,9 @@ pub extern "c" fn mmap64(addr: ?*align(page_size) anyopaque, len: usize, prot: c
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn open64(path: [*:0]const u8, oflag: O, ...) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18524,9 +18524,9 @@ pub extern "c" fn open64(path: [*:0]const u8, oflag: O, ...) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn openat64(fd: c_int, path: [*:0]const u8, oflag: O, ...) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18546,9 +18546,9 @@ pub extern "c" fn openat64(fd: c_int, path: [*:0]const u8, oflag: O, ...) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pread64(fd: fd_t, buf: [*]u8, nbyte: usize, offset: i64) isize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18569,9 +18569,9 @@ pub extern "c" fn pread64(fd: fd_t, buf: [*]u8, nbyte: usize, offset: i64) isize
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn preadv64(fd: c_int, iov: [*]const iovec, iovcnt: c_uint, offset: i64) isize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18592,9 +18592,9 @@ pub extern "c" fn preadv64(fd: c_int, iov: [*]const iovec, iovcnt: c_uint, offse
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pwrite64(fd: fd_t, buf: [*]const u8, nbyte: usize, offset: i64) isize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18615,9 +18615,9 @@ pub extern "c" fn pwrite64(fd: fd_t, buf: [*]const u8, nbyte: usize, offset: i64
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pwritev64(fd: c_int, iov: [*]const iovec_const, iovcnt: c_uint, offset: i64) isize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18638,9 +18638,9 @@ pub extern "c" fn pwritev64(fd: c_int, iov: [*]const iovec_const, iovcnt: c_uint
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn sendfile64(out_fd: fd_t, in_fd: fd_t, offset: ?*i64, count: usize) isize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18661,9 +18661,9 @@ pub extern "c" fn sendfile64(out_fd: fd_t, in_fd: fd_t, offset: ?*i64, count: us
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn setrlimit64(resource: rlimit_resource, rlim: *const rlimit) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18682,9 +18682,9 @@ pub extern "c" fn setrlimit64(resource: rlimit_resource, rlim: *const rlimit) c_
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn sched_getaffinity(pid: c_int, size: usize, set: *cpu_set_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18704,9 +18704,9 @@ pub extern "c" fn sched_getaffinity(pid: c_int, size: usize, set: *cpu_set_t) c_
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn eventfd(initval: c_uint, flags: c_uint) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18725,9 +18725,9 @@ pub extern "c" fn eventfd(initval: c_uint, flags: c_uint) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn epoll_ctl(epfd: fd_t, op: c_uint, fd: fd_t, event: ?*epoll_event) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18748,9 +18748,9 @@ pub extern "c" fn epoll_ctl(epfd: fd_t, op: c_uint, fd: fd_t, event: ?*epoll_eve
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn epoll_create1(flags: c_uint) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18768,9 +18768,9 @@ pub extern "c" fn epoll_create1(flags: c_uint) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn epoll_wait(epfd: fd_t, events: [*]epoll_event, maxevents: c_uint, timeout: c_int) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18791,7 +18791,7 @@ pub extern "c" fn epoll_wait(epfd: fd_t, events: [*]epoll_event, maxevents: c_ui
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn epoll_pwait(
     epfd: fd_t,
     events: [*]epoll_event,
@@ -18799,7 +18799,7 @@ pub extern "c" fn epoll_pwait(
     timeout: c_int,
     sigmask: *const sigset_t,
 ) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18821,9 +18821,9 @@ pub extern "c" fn epoll_pwait(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn timerfd_create(clockid: timerfd_clockid_t, flags: c_int) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18842,14 +18842,14 @@ pub extern "c" fn timerfd_create(clockid: timerfd_clockid_t, flags: c_int) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn timerfd_settime(
     fd: c_int,
     flags: c_int,
     new_value: *const itimerspec,
     old_value: ?*itimerspec,
 ) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18870,9 +18870,9 @@ pub extern "c" fn timerfd_settime(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn timerfd_gettime(fd: c_int, curr_value: *itimerspec) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18891,9 +18891,9 @@ pub extern "c" fn timerfd_gettime(fd: c_int, curr_value: *itimerspec) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn inotify_init1(flags: c_uint) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18911,9 +18911,9 @@ pub extern "c" fn inotify_init1(flags: c_uint) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn inotify_add_watch(fd: fd_t, pathname: [*:0]const u8, mask: u32) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18933,9 +18933,9 @@ pub extern "c" fn inotify_add_watch(fd: fd_t, pathname: [*:0]const u8, mask: u32
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn inotify_rm_watch(fd: fd_t, wd: c_int) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18954,9 +18954,9 @@ pub extern "c" fn inotify_rm_watch(fd: fd_t, wd: c_int) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn fstat64(fd: fd_t, buf: *Stat) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18975,9 +18975,9 @@ pub extern "c" fn fstat64(fd: fd_t, buf: *Stat) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn fstatat64(dirfd: fd_t, noalias path: [*:0]const u8, noalias stat_buf: *Stat, flags: u32) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -18998,9 +18998,9 @@ pub extern "c" fn fstatat64(dirfd: fd_t, noalias path: [*:0]const u8, noalias st
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn fallocate64(fd: fd_t, mode: c_int, offset: off_t, len: off_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19021,9 +19021,9 @@ pub extern "c" fn fallocate64(fd: fd_t, mode: c_int, offset: off_t, len: off_t) 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn fopen64(noalias filename: [*:0]const u8, noalias modes: [*:0]const u8) ?*FILE
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19042,9 +19042,9 @@ pub extern "c" fn fopen64(noalias filename: [*:0]const u8, noalias modes: [*:0]c
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn ftruncate64(fd: c_int, length: off_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19063,9 +19063,9 @@ pub extern "c" fn ftruncate64(fd: c_int, length: off_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn fallocate(fd: fd_t, mode: c_int, offset: off_t, len: off_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19088,9 +19088,9 @@ pub extern "c" fn fallocate(fd: fd_t, mode: c_int, offset: off_t, len: off_t) c_
 
 See std.elf for constants for this
 
-\`\`\`zig
+```zig
 pub extern "c" fn getauxval(__type: c_ulong) c_ulong
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19108,9 +19108,9 @@ pub extern "c" fn getauxval(__type: c_ulong) c_ulong
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn dl_iterate_phdr(callback: dl_iterate_phdr_callback, data: ?*anyopaque) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19129,9 +19129,9 @@ pub extern "c" fn dl_iterate_phdr(callback: dl_iterate_phdr_callback, data: ?*an
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn memfd_create(name: [*:0]const u8, flags: c_uint) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19150,9 +19150,9 @@ pub extern "c" fn memfd_create(name: [*:0]const u8, flags: c_uint) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn signalfd(fd: fd_t, mask: *const sigset_t, flags: u32) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19172,9 +19172,9 @@ pub extern "c" fn signalfd(fd: fd_t, mask: *const sigset_t, flags: u32) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn prlimit(pid: pid_t, resource: rlimit_resource, new_limit: *const rlimit, old_limit: *rlimit) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19195,13 +19195,13 @@ pub extern "c" fn prlimit(pid: pid_t, resource: rlimit_resource, new_limit: *con
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn mincore(
     addr: *align(page_size) anyopaque,
     length: usize,
     vec: [*]u8,
 ) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19221,13 +19221,13 @@ pub extern "c" fn mincore(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn madvise(
     addr: *align(page_size) anyopaque,
     length: usize,
     advice: u32,
 ) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19249,7 +19249,7 @@ pub extern "c" fn madvise(
 
 Zig's version of SIGRTMIN.  Actually a function.
 
-\`\`\`zig
+```zig
 pub fn sigrtmin() u8 {
     return switch (native_os) {
         .freebsd => 65,
@@ -19257,7 +19257,7 @@ pub fn sigrtmin() u8 {
         else => @truncate(@as(c_uint, @bitCast(private.__libc_current_sigrtmin()))),
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19276,7 +19276,7 @@ pub fn sigrtmin() u8 {
 
 Zig's version of SIGRTMAX.  Actually a function.
 
-\`\`\`zig
+```zig
 pub fn sigrtmax() u8 {
     return switch (native_os) {
         .freebsd => 126,
@@ -19284,7 +19284,7 @@ pub fn sigrtmax() u8 {
         else => @truncate(@as(c_uint, @bitCast(private.__libc_current_sigrtmax()))),
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19301,9 +19301,9 @@ pub fn sigrtmax() u8 {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn fopen(noalias filename: [*:0]const u8, noalias modes: [*:0]const u8) ?*FILE
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19322,9 +19322,9 @@ pub extern "c" fn fopen(noalias filename: [*:0]const u8, noalias modes: [*:0]con
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn fclose(stream: *FILE) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19342,9 +19342,9 @@ pub extern "c" fn fclose(stream: *FILE) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn fwrite(noalias ptr: [*]const u8, size_of_type: usize, item_count: usize, noalias stream: *FILE) usize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19365,9 +19365,9 @@ pub extern "c" fn fwrite(noalias ptr: [*]const u8, size_of_type: usize, item_cou
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn fread(noalias ptr: [*]u8, size_of_type: usize, item_count: usize, noalias stream: *FILE) usize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19388,9 +19388,9 @@ pub extern "c" fn fread(noalias ptr: [*]u8, size_of_type: usize, item_count: usi
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn printf(format: [*:0]const u8, ...) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19408,9 +19408,9 @@ pub extern "c" fn printf(format: [*:0]const u8, ...) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn abort() noreturn
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19427,9 +19427,9 @@ pub extern "c" fn abort() noreturn
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn exit(code: c_int) noreturn
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19447,9 +19447,9 @@ pub extern "c" fn exit(code: c_int) noreturn
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn _exit(code: c_int) noreturn
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19467,9 +19467,9 @@ pub extern "c" fn _exit(code: c_int) noreturn
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn isatty(fd: fd_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19487,9 +19487,9 @@ pub extern "c" fn isatty(fd: fd_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn lseek(fd: fd_t, offset: off_t, whence: whence_t) off_t
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19509,9 +19509,9 @@ pub extern "c" fn lseek(fd: fd_t, offset: off_t, whence: whence_t) off_t
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn open(path: [*:0]const u8, oflag: O, ...) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19530,9 +19530,9 @@ pub extern "c" fn open(path: [*:0]const u8, oflag: O, ...) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn openat(fd: c_int, path: [*:0]const u8, oflag: O, ...) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19552,9 +19552,9 @@ pub extern "c" fn openat(fd: c_int, path: [*:0]const u8, oflag: O, ...) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn ftruncate(fd: c_int, length: off_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19573,9 +19573,9 @@ pub extern "c" fn ftruncate(fd: c_int, length: off_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn raise(sig: c_int) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19593,9 +19593,9 @@ pub extern "c" fn raise(sig: c_int) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn read(fd: fd_t, buf: [*]u8, nbyte: usize) isize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19615,9 +19615,9 @@ pub extern "c" fn read(fd: fd_t, buf: [*]u8, nbyte: usize) isize
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn readv(fd: c_int, iov: [*]const iovec, iovcnt: c_uint) isize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19637,9 +19637,9 @@ pub extern "c" fn readv(fd: c_int, iov: [*]const iovec, iovcnt: c_uint) isize
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pread(fd: fd_t, buf: [*]u8, nbyte: usize, offset: off_t) isize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19660,9 +19660,9 @@ pub extern "c" fn pread(fd: fd_t, buf: [*]u8, nbyte: usize, offset: off_t) isize
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn preadv(fd: c_int, iov: [*]const iovec, iovcnt: c_uint, offset: off_t) isize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19683,9 +19683,9 @@ pub extern "c" fn preadv(fd: c_int, iov: [*]const iovec, iovcnt: c_uint, offset:
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn writev(fd: c_int, iov: [*]const iovec_const, iovcnt: c_uint) isize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19705,9 +19705,9 @@ pub extern "c" fn writev(fd: c_int, iov: [*]const iovec_const, iovcnt: c_uint) i
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pwritev(fd: c_int, iov: [*]const iovec_const, iovcnt: c_uint, offset: off_t) isize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19728,9 +19728,9 @@ pub extern "c" fn pwritev(fd: c_int, iov: [*]const iovec_const, iovcnt: c_uint, 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn write(fd: fd_t, buf: [*]const u8, nbyte: usize) isize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19750,9 +19750,9 @@ pub extern "c" fn write(fd: fd_t, buf: [*]const u8, nbyte: usize) isize
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pwrite(fd: fd_t, buf: [*]const u8, nbyte: usize, offset: off_t) isize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19773,9 +19773,9 @@ pub extern "c" fn pwrite(fd: fd_t, buf: [*]const u8, nbyte: usize, offset: off_t
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn mmap(addr: ?*align(page_size) anyopaque, len: usize, prot: c_uint, flags: MAP, fd: fd_t, offset: off_t) *anyopaque
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19798,9 +19798,9 @@ pub extern "c" fn mmap(addr: ?*align(page_size) anyopaque, len: usize, prot: c_u
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn munmap(addr: *align(page_size) const anyopaque, len: usize) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19819,9 +19819,9 @@ pub extern "c" fn munmap(addr: *align(page_size) const anyopaque, len: usize) c_
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn mremap(addr: ?*align(page_size) const anyopaque, old_len: usize, new_len: usize, flags: MREMAP, ...) *anyopaque
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19842,9 +19842,9 @@ pub extern "c" fn mremap(addr: ?*align(page_size) const anyopaque, old_len: usiz
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn mprotect(addr: *align(page_size) anyopaque, len: usize, prot: c_uint) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19864,9 +19864,9 @@ pub extern "c" fn mprotect(addr: *align(page_size) anyopaque, len: usize, prot: 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn link(oldpath: [*:0]const u8, newpath: [*:0]const u8) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19885,9 +19885,9 @@ pub extern "c" fn link(oldpath: [*:0]const u8, newpath: [*:0]const u8) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn linkat(oldfd: fd_t, oldpath: [*:0]const u8, newfd: fd_t, newpath: [*:0]const u8, flags: c_int) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19909,9 +19909,9 @@ pub extern "c" fn linkat(oldfd: fd_t, oldpath: [*:0]const u8, newfd: fd_t, newpa
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn unlink(path: [*:0]const u8) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19929,9 +19929,9 @@ pub extern "c" fn unlink(path: [*:0]const u8) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn unlinkat(dirfd: fd_t, path: [*:0]const u8, flags: c_uint) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19951,9 +19951,9 @@ pub extern "c" fn unlinkat(dirfd: fd_t, path: [*:0]const u8, flags: c_uint) c_in
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getcwd(buf: [*]u8, size: usize) ?[*]u8
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19972,9 +19972,9 @@ pub extern "c" fn getcwd(buf: [*]u8, size: usize) ?[*]u8
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn waitpid(pid: pid_t, status: ?*c_int, options: c_int) pid_t
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -19994,9 +19994,9 @@ pub extern "c" fn waitpid(pid: pid_t, status: ?*c_int, options: c_int) pid_t
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn wait4(pid: pid_t, status: ?*c_int, options: c_int, ru: ?*rusage) pid_t
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20017,9 +20017,9 @@ pub extern "c" fn wait4(pid: pid_t, status: ?*c_int, options: c_int, ru: ?*rusag
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn access(path: [*:0]const u8, mode: c_uint) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20038,9 +20038,9 @@ pub extern "c" fn access(path: [*:0]const u8, mode: c_uint) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn faccessat(dirfd: fd_t, path: [*:0]const u8, mode: c_uint, flags: c_uint) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20061,9 +20061,9 @@ pub extern "c" fn faccessat(dirfd: fd_t, path: [*:0]const u8, mode: c_uint, flag
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pipe(fds: *[2]fd_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20081,9 +20081,9 @@ pub extern "c" fn pipe(fds: *[2]fd_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn mkdir(path: [*:0]const u8, mode: mode_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20102,9 +20102,9 @@ pub extern "c" fn mkdir(path: [*:0]const u8, mode: mode_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn mkdirat(dirfd: fd_t, path: [*:0]const u8, mode: mode_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20124,9 +20124,9 @@ pub extern "c" fn mkdirat(dirfd: fd_t, path: [*:0]const u8, mode: mode_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn symlink(existing: [*:0]const u8, new: [*:0]const u8) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20145,9 +20145,9 @@ pub extern "c" fn symlink(existing: [*:0]const u8, new: [*:0]const u8) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn symlinkat(oldpath: [*:0]const u8, newdirfd: fd_t, newpath: [*:0]const u8) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20167,9 +20167,9 @@ pub extern "c" fn symlinkat(oldpath: [*:0]const u8, newdirfd: fd_t, newpath: [*:
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn rename(old: [*:0]const u8, new: [*:0]const u8) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20188,9 +20188,9 @@ pub extern "c" fn rename(old: [*:0]const u8, new: [*:0]const u8) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn renameat(olddirfd: fd_t, old: [*:0]const u8, newdirfd: fd_t, new: [*:0]const u8) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20211,9 +20211,9 @@ pub extern "c" fn renameat(olddirfd: fd_t, old: [*:0]const u8, newdirfd: fd_t, n
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn chdir(path: [*:0]const u8) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20231,9 +20231,9 @@ pub extern "c" fn chdir(path: [*:0]const u8) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn fchdir(fd: fd_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20251,9 +20251,9 @@ pub extern "c" fn fchdir(fd: fd_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn execve(path: [*:0]const u8, argv: [*:null]const ?[*:0]const u8, envp: [*:null]const ?[*:0]const u8) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20273,9 +20273,9 @@ pub extern "c" fn execve(path: [*:0]const u8, argv: [*:null]const ?[*:0]const u8
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn dup(fd: fd_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20293,9 +20293,9 @@ pub extern "c" fn dup(fd: fd_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn dup2(old_fd: fd_t, new_fd: fd_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20314,9 +20314,9 @@ pub extern "c" fn dup2(old_fd: fd_t, new_fd: fd_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn dup3(old: c_int, new: c_int, flags: c_uint) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20336,9 +20336,9 @@ pub extern "c" fn dup3(old: c_int, new: c_int, flags: c_uint) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn readlink(noalias path: [*:0]const u8, noalias buf: [*]u8, bufsize: usize) isize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20358,9 +20358,9 @@ pub extern "c" fn readlink(noalias path: [*:0]const u8, noalias buf: [*]u8, bufs
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn readlinkat(dirfd: fd_t, noalias path: [*:0]const u8, noalias buf: [*]u8, bufsize: usize) isize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20381,9 +20381,9 @@ pub extern "c" fn readlinkat(dirfd: fd_t, noalias path: [*:0]const u8, noalias b
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn chmod(path: [*:0]const u8, mode: mode_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20402,9 +20402,9 @@ pub extern "c" fn chmod(path: [*:0]const u8, mode: mode_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn fchmod(fd: fd_t, mode: mode_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20423,9 +20423,9 @@ pub extern "c" fn fchmod(fd: fd_t, mode: mode_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn fchmodat(fd: fd_t, path: [*:0]const u8, mode: mode_t, flags: c_uint) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20446,9 +20446,9 @@ pub extern "c" fn fchmodat(fd: fd_t, path: [*:0]const u8, mode: mode_t, flags: c
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn fchown(fd: fd_t, owner: uid_t, group: gid_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20468,9 +20468,9 @@ pub extern "c" fn fchown(fd: fd_t, owner: uid_t, group: gid_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn umask(mode: mode_t) mode_t
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20488,9 +20488,9 @@ pub extern "c" fn umask(mode: mode_t) mode_t
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn rmdir(path: [*:0]const u8) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20508,9 +20508,9 @@ pub extern "c" fn rmdir(path: [*:0]const u8) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getenv(name: [*:0]const u8) ?[*:0]u8
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20528,9 +20528,9 @@ pub extern "c" fn getenv(name: [*:0]const u8) ?[*:0]u8
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn sysctl(name: [*]const c_int, namelen: c_uint, oldp: ?*anyopaque, oldlenp: ?*usize, newp: ?*anyopaque, newlen: usize) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20553,9 +20553,9 @@ pub extern "c" fn sysctl(name: [*]const c_int, namelen: c_uint, oldp: ?*anyopaqu
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn sysctlbyname(name: [*:0]const u8, oldp: ?*anyopaque, oldlenp: ?*usize, newp: ?*anyopaque, newlen: usize) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20577,9 +20577,9 @@ pub extern "c" fn sysctlbyname(name: [*:0]const u8, oldp: ?*anyopaque, oldlenp: 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn sysctlnametomib(name: [*:0]const u8, mibp: ?*c_int, sizep: ?*usize) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20599,9 +20599,9 @@ pub extern "c" fn sysctlnametomib(name: [*:0]const u8, mibp: ?*c_int, sizep: ?*u
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn tcgetattr(fd: fd_t, termios_p: *termios) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20620,9 +20620,9 @@ pub extern "c" fn tcgetattr(fd: fd_t, termios_p: *termios) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn tcsetattr(fd: fd_t, optional_action: TCSA, termios_p: *const termios) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20642,9 +20642,9 @@ pub extern "c" fn tcsetattr(fd: fd_t, optional_action: TCSA, termios_p: *const t
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn fcntl(fd: fd_t, cmd: c_int, ...) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20663,9 +20663,9 @@ pub extern "c" fn fcntl(fd: fd_t, cmd: c_int, ...) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn ioctl(fd: fd_t, request: c_int, ...) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20684,9 +20684,9 @@ pub extern "c" fn ioctl(fd: fd_t, request: c_int, ...) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn uname(buf: *utsname) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20704,9 +20704,9 @@ pub extern "c" fn uname(buf: *utsname) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn gethostname(name: [*]u8, len: usize) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20725,9 +20725,9 @@ pub extern "c" fn gethostname(name: [*]u8, len: usize) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn shutdown(socket: fd_t, how: c_int) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20746,9 +20746,9 @@ pub extern "c" fn shutdown(socket: fd_t, how: c_int) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn bind(socket: fd_t, address: ?*const sockaddr, address_len: socklen_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20768,9 +20768,9 @@ pub extern "c" fn bind(socket: fd_t, address: ?*const sockaddr, address_len: soc
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn socketpair(domain: c_uint, sock_type: c_uint, protocol: c_uint, sv: *[2]fd_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20791,9 +20791,9 @@ pub extern "c" fn socketpair(domain: c_uint, sock_type: c_uint, protocol: c_uint
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn listen(sockfd: fd_t, backlog: c_uint) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20812,9 +20812,9 @@ pub extern "c" fn listen(sockfd: fd_t, backlog: c_uint) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getsockname(sockfd: fd_t, noalias addr: *sockaddr, noalias addrlen: *socklen_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20834,9 +20834,9 @@ pub extern "c" fn getsockname(sockfd: fd_t, noalias addr: *sockaddr, noalias add
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getpeername(sockfd: fd_t, noalias addr: *sockaddr, noalias addrlen: *socklen_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20856,9 +20856,9 @@ pub extern "c" fn getpeername(sockfd: fd_t, noalias addr: *sockaddr, noalias add
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn connect(sockfd: fd_t, sock_addr: *const sockaddr, addrlen: socklen_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20878,9 +20878,9 @@ pub extern "c" fn connect(sockfd: fd_t, sock_addr: *const sockaddr, addrlen: soc
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn accept(sockfd: fd_t, noalias addr: ?*sockaddr, noalias addrlen: ?*socklen_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20900,9 +20900,9 @@ pub extern "c" fn accept(sockfd: fd_t, noalias addr: ?*sockaddr, noalias addrlen
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn accept4(sockfd: fd_t, noalias addr: ?*sockaddr, noalias addrlen: ?*socklen_t, flags: c_uint) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20923,9 +20923,9 @@ pub extern "c" fn accept4(sockfd: fd_t, noalias addr: ?*sockaddr, noalias addrle
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getsockopt(sockfd: fd_t, level: i32, optname: u32, noalias optval: ?*anyopaque, noalias optlen: *socklen_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20947,9 +20947,9 @@ pub extern "c" fn getsockopt(sockfd: fd_t, level: i32, optname: u32, noalias opt
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn setsockopt(sockfd: fd_t, level: i32, optname: u32, optval: ?*const anyopaque, optlen: socklen_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20971,9 +20971,9 @@ pub extern "c" fn setsockopt(sockfd: fd_t, level: i32, optname: u32, optval: ?*c
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn send(sockfd: fd_t, buf: *const anyopaque, len: usize, flags: u32) isize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -20994,7 +20994,7 @@ pub extern "c" fn send(sockfd: fd_t, buf: *const anyopaque, len: usize, flags: u
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn sendto(
     sockfd: fd_t,
     buf: *const anyopaque,
@@ -21003,7 +21003,7 @@ pub extern "c" fn sendto(
     dest_addr: ?*const sockaddr,
     addrlen: socklen_t,
 ) isize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21026,9 +21026,9 @@ pub extern "c" fn sendto(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn sendmsg(sockfd: fd_t, msg: *const msghdr_const, flags: u32) isize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21048,14 +21048,14 @@ pub extern "c" fn sendmsg(sockfd: fd_t, msg: *const msghdr_const, flags: u32) is
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn recv(
     sockfd: fd_t,
     arg1: ?*anyopaque,
     arg2: usize,
     arg3: c_int,
 ) if (native_os == .windows) c_int else isize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21076,7 +21076,7 @@ pub extern "c" fn recv(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn recvfrom(
     sockfd: fd_t,
     noalias buf: *anyopaque,
@@ -21085,7 +21085,7 @@ pub extern "c" fn recvfrom(
     noalias src_addr: ?*sockaddr,
     noalias addrlen: ?*socklen_t,
 ) if (native_os == .windows) c_int else isize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21108,9 +21108,9 @@ pub extern "c" fn recvfrom(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn recvmsg(sockfd: fd_t, msg: *msghdr, flags: u32) isize
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21130,9 +21130,9 @@ pub extern "c" fn recvmsg(sockfd: fd_t, msg: *msghdr, flags: u32) isize
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn kill(pid: pid_t, sig: c_int) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21151,9 +21151,9 @@ pub extern "c" fn kill(pid: pid_t, sig: c_int) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn setuid(uid: uid_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21171,9 +21171,9 @@ pub extern "c" fn setuid(uid: uid_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn setgid(gid: gid_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21191,9 +21191,9 @@ pub extern "c" fn setgid(gid: gid_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn seteuid(euid: uid_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21211,9 +21211,9 @@ pub extern "c" fn seteuid(euid: uid_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn setegid(egid: gid_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21231,9 +21231,9 @@ pub extern "c" fn setegid(egid: gid_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn setreuid(ruid: uid_t, euid: uid_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21252,9 +21252,9 @@ pub extern "c" fn setreuid(ruid: uid_t, euid: uid_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn setregid(rgid: gid_t, egid: gid_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21273,9 +21273,9 @@ pub extern "c" fn setregid(rgid: gid_t, egid: gid_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn setresuid(ruid: uid_t, euid: uid_t, suid: uid_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21295,9 +21295,9 @@ pub extern "c" fn setresuid(ruid: uid_t, euid: uid_t, suid: uid_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn setresgid(rgid: gid_t, egid: gid_t, sgid: gid_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21317,9 +21317,9 @@ pub extern "c" fn setresgid(rgid: gid_t, egid: gid_t, sgid: gid_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn setpgid(pid: pid_t, pgid: pid_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21338,9 +21338,9 @@ pub extern "c" fn setpgid(pid: pid_t, pgid: pid_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getuid() uid_t
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21357,9 +21357,9 @@ pub extern "c" fn getuid() uid_t
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn geteuid() uid_t
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21376,9 +21376,9 @@ pub extern "c" fn geteuid() uid_t
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn malloc(usize) ?*anyopaque
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21395,9 +21395,9 @@ pub extern "c" fn malloc(usize) ?*anyopaque
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn calloc(usize, usize) ?*anyopaque
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21414,9 +21414,9 @@ pub extern "c" fn calloc(usize, usize) ?*anyopaque
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn realloc(?*anyopaque, usize) ?*anyopaque
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21433,9 +21433,9 @@ pub extern "c" fn realloc(?*anyopaque, usize) ?*anyopaque
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn free(?*anyopaque) void
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21452,9 +21452,9 @@ pub extern "c" fn free(?*anyopaque) void
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn futimes(fd: fd_t, times: ?*[2]timeval) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21473,9 +21473,9 @@ pub extern "c" fn futimes(fd: fd_t, times: ?*[2]timeval) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn utimes(path: [*:0]const u8, times: ?*[2]timeval) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21494,9 +21494,9 @@ pub extern "c" fn utimes(path: [*:0]const u8, times: ?*[2]timeval) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn utimensat(dirfd: fd_t, pathname: [*:0]const u8, times: ?*[2]timespec, flags: u32) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21517,9 +21517,9 @@ pub extern "c" fn utimensat(dirfd: fd_t, pathname: [*:0]const u8, times: ?*[2]ti
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn futimens(fd: fd_t, times: ?*const [2]timespec) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21538,14 +21538,14 @@ pub extern "c" fn futimens(fd: fd_t, times: ?*const [2]timespec) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_create(
     noalias newthread: *pthread_t,
     noalias attr: ?*const pthread_attr_t,
     start_routine: *const fn (?*anyopaque) callconv(.c) ?*anyopaque,
     noalias arg: ?*anyopaque,
 ) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21566,9 +21566,9 @@ pub extern "c" fn pthread_create(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_attr_init(attr: *pthread_attr_t) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21586,9 +21586,9 @@ pub extern "c" fn pthread_attr_init(attr: *pthread_attr_t) E
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_attr_setstack(attr: *pthread_attr_t, stackaddr: *anyopaque, stacksize: usize) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21608,9 +21608,9 @@ pub extern "c" fn pthread_attr_setstack(attr: *pthread_attr_t, stackaddr: *anyop
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_attr_setstacksize(attr: *pthread_attr_t, stacksize: usize) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21629,9 +21629,9 @@ pub extern "c" fn pthread_attr_setstacksize(attr: *pthread_attr_t, stacksize: us
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_attr_setguardsize(attr: *pthread_attr_t, guardsize: usize) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21650,9 +21650,9 @@ pub extern "c" fn pthread_attr_setguardsize(attr: *pthread_attr_t, guardsize: us
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_attr_destroy(attr: *pthread_attr_t) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21670,9 +21670,9 @@ pub extern "c" fn pthread_attr_destroy(attr: *pthread_attr_t) E
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_self() pthread_t
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21689,9 +21689,9 @@ pub extern "c" fn pthread_self() pthread_t
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_join(thread: pthread_t, arg_return: ?*?*anyopaque) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21710,9 +21710,9 @@ pub extern "c" fn pthread_join(thread: pthread_t, arg_return: ?*?*anyopaque) E
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_detach(thread: pthread_t) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21730,13 +21730,13 @@ pub extern "c" fn pthread_detach(thread: pthread_t) E
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_atfork(
     prepare: ?*const fn () callconv(.c) void,
     parent: ?*const fn () callconv(.c) void,
     child: ?*const fn () callconv(.c) void,
 ) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21756,12 +21756,12 @@ pub extern "c" fn pthread_atfork(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_key_create(
     key: *pthread_key_t,
     destructor: ?*const fn (value: *anyopaque) callconv(.c) void,
 ) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21780,9 +21780,9 @@ pub extern "c" fn pthread_key_create(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_key_delete(key: pthread_key_t) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21800,9 +21800,9 @@ pub extern "c" fn pthread_key_delete(key: pthread_key_t) E
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_getspecific(key: pthread_key_t) ?*anyopaque
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21820,9 +21820,9 @@ pub extern "c" fn pthread_getspecific(key: pthread_key_t) ?*anyopaque
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_setspecific(key: pthread_key_t, value: ?*anyopaque) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21841,9 +21841,9 @@ pub extern "c" fn pthread_setspecific(key: pthread_key_t, value: ?*anyopaque) c_
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_sigmask(how: c_int, set: *const sigset_t, oldset: *sigset_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21863,9 +21863,9 @@ pub extern "c" fn pthread_sigmask(how: c_int, set: *const sigset_t, oldset: *sig
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_getname_np(thread: pthread_t, name: [*:0]u8, len: usize) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21885,9 +21885,9 @@ pub extern "c" fn pthread_getname_np(thread: pthread_t, name: [*:0]u8, len: usiz
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn sem_init(sem: *sem_t, pshared: c_int, value: c_uint) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21907,9 +21907,9 @@ pub extern "c" fn sem_init(sem: *sem_t, pshared: c_int, value: c_uint) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn sem_destroy(sem: *sem_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21927,9 +21927,9 @@ pub extern "c" fn sem_destroy(sem: *sem_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn sem_open(name: [*:0]const u8, flag: c_int, mode: mode_t, value: c_uint) *sem_t
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21950,9 +21950,9 @@ pub extern "c" fn sem_open(name: [*:0]const u8, flag: c_int, mode: mode_t, value
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn sem_close(sem: *sem_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21970,9 +21970,9 @@ pub extern "c" fn sem_close(sem: *sem_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn sem_post(sem: *sem_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -21990,9 +21990,9 @@ pub extern "c" fn sem_post(sem: *sem_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn sem_wait(sem: *sem_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22010,9 +22010,9 @@ pub extern "c" fn sem_wait(sem: *sem_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn sem_trywait(sem: *sem_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22030,9 +22030,9 @@ pub extern "c" fn sem_trywait(sem: *sem_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn sem_timedwait(sem: *sem_t, abs_timeout: *const timespec) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22051,9 +22051,9 @@ pub extern "c" fn sem_timedwait(sem: *sem_t, abs_timeout: *const timespec) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn sem_getvalue(sem: *sem_t, sval: *c_int) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22072,9 +22072,9 @@ pub extern "c" fn sem_getvalue(sem: *sem_t, sval: *c_int) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn shm_open(name: [*:0]const u8, flag: c_int, mode: mode_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22094,9 +22094,9 @@ pub extern "c" fn shm_open(name: [*:0]const u8, flag: c_int, mode: mode_t) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn shm_unlink(name: [*:0]const u8) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22114,9 +22114,9 @@ pub extern "c" fn shm_unlink(name: [*:0]const u8) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn kqueue() c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22133,7 +22133,7 @@ pub extern "c" fn kqueue() c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn kevent(
     kq: c_int,
     changelist: [*]const Kevent,
@@ -22142,7 +22142,7 @@ pub extern "c" fn kevent(
     nevents: c_int,
     timeout: ?*const timespec,
 ) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22165,9 +22165,9 @@ pub extern "c" fn kevent(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn port_create() port_t
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22184,7 +22184,7 @@ pub extern "c" fn port_create() port_t
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn port_associate(
     port: port_t,
     source: u32,
@@ -22192,7 +22192,7 @@ pub extern "c" fn port_associate(
     events: u32,
     user_var: ?*anyopaque,
 ) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22214,9 +22214,9 @@ pub extern "c" fn port_associate(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn port_dissociate(port: port_t, source: u32, object: usize) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22236,9 +22236,9 @@ pub extern "c" fn port_dissociate(port: port_t, source: u32, object: usize) c_in
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn port_send(port: port_t, events: u32, user_var: ?*anyopaque) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22258,7 +22258,7 @@ pub extern "c" fn port_send(port: port_t, events: u32, user_var: ?*anyopaque) c_
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn port_sendn(
     ports: [*]port_t,
     errors: []u32,
@@ -22266,7 +22266,7 @@ pub extern "c" fn port_sendn(
     events: u32,
     user_var: ?*anyopaque,
 ) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22288,9 +22288,9 @@ pub extern "c" fn port_sendn(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn port_get(port: port_t, event: *port_event, timeout: ?*timespec) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22310,7 +22310,7 @@ pub extern "c" fn port_get(port: port_t, event: *port_event, timeout: ?*timespec
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn port_getn(
     port: port_t,
     event_list: []port_event,
@@ -22318,7 +22318,7 @@ pub extern "c" fn port_getn(
     events_retrieved: *u32,
     timeout: ?*timespec,
 ) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22340,9 +22340,9 @@ pub extern "c" fn port_getn(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn port_alert(port: port_t, flags: u32, events: u32, user_var: ?*anyopaque) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22363,7 +22363,7 @@ pub extern "c" fn port_alert(port: port_t, flags: u32, events: u32, user_var: ?*
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getaddrinfo(
     noalias node: ?[*:0]const u8,
     noalias service: ?[*:0]const u8,
@@ -22372,7 +22372,7 @@ pub extern "c" fn getaddrinfo(
     /// potentially crash if you pass it an undefined pointer
     noalias res: *?*addrinfo,
 ) EAI
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22393,9 +22393,9 @@ pub extern "c" fn getaddrinfo(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn freeaddrinfo(res: *addrinfo) void
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22413,7 +22413,7 @@ pub extern "c" fn freeaddrinfo(res: *addrinfo) void
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getnameinfo(
     noalias addr: *const sockaddr,
     addrlen: socklen_t,
@@ -22423,7 +22423,7 @@ pub extern "c" fn getnameinfo(
     servlen: socklen_t,
     flags: NI,
 ) EAI
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22447,9 +22447,9 @@ pub extern "c" fn getnameinfo(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn gai_strerror(errcode: EAI) [*:0]const u8
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22467,9 +22467,9 @@ pub extern "c" fn gai_strerror(errcode: EAI) [*:0]const u8
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn poll(fds: [*]pollfd, nfds: nfds_t, timeout: c_int) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22489,9 +22489,9 @@ pub extern "c" fn poll(fds: [*]pollfd, nfds: nfds_t, timeout: c_int) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn ppoll(fds: [*]pollfd, nfds: nfds_t, timeout: ?*const timespec, sigmask: ?*const sigset_t) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22512,7 +22512,7 @@ pub extern "c" fn ppoll(fds: [*]pollfd, nfds: nfds_t, timeout: ?*const timespec,
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn dn_expand(
     msg: [*:0]const u8,
     eomorig: [*:0]const u8,
@@ -22520,7 +22520,7 @@ pub extern "c" fn dn_expand(
     exp_dn: [*:0]u8,
     length: c_int,
 ) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22542,9 +22542,9 @@ pub extern "c" fn dn_expand(
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_mutex_lock(mutex: *pthread_mutex_t) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22562,9 +22562,9 @@ pub extern "c" fn pthread_mutex_lock(mutex: *pthread_mutex_t) E
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_mutex_unlock(mutex: *pthread_mutex_t) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22582,9 +22582,9 @@ pub extern "c" fn pthread_mutex_unlock(mutex: *pthread_mutex_t) E
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_mutex_trylock(mutex: *pthread_mutex_t) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22602,9 +22602,9 @@ pub extern "c" fn pthread_mutex_trylock(mutex: *pthread_mutex_t) E
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_mutex_destroy(mutex: *pthread_mutex_t) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22622,9 +22622,9 @@ pub extern "c" fn pthread_mutex_destroy(mutex: *pthread_mutex_t) E
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_cond_wait(noalias cond: *pthread_cond_t, noalias mutex: *pthread_mutex_t) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22643,9 +22643,9 @@ pub extern "c" fn pthread_cond_wait(noalias cond: *pthread_cond_t, noalias mutex
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_cond_timedwait(noalias cond: *pthread_cond_t, noalias mutex: *pthread_mutex_t, noalias abstime: *const timespec) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22665,9 +22665,9 @@ pub extern "c" fn pthread_cond_timedwait(noalias cond: *pthread_cond_t, noalias 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_cond_signal(cond: *pthread_cond_t) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22685,9 +22685,9 @@ pub extern "c" fn pthread_cond_signal(cond: *pthread_cond_t) E
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_cond_broadcast(cond: *pthread_cond_t) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22705,9 +22705,9 @@ pub extern "c" fn pthread_cond_broadcast(cond: *pthread_cond_t) E
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_cond_destroy(cond: *pthread_cond_t) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22725,9 +22725,9 @@ pub extern "c" fn pthread_cond_destroy(cond: *pthread_cond_t) E
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_rwlock_destroy(rwl: *pthread_rwlock_t) callconv(.c) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22745,9 +22745,9 @@ pub extern "c" fn pthread_rwlock_destroy(rwl: *pthread_rwlock_t) callconv(.c) E
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_rwlock_rdlock(rwl: *pthread_rwlock_t) callconv(.c) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22765,9 +22765,9 @@ pub extern "c" fn pthread_rwlock_rdlock(rwl: *pthread_rwlock_t) callconv(.c) E
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_rwlock_wrlock(rwl: *pthread_rwlock_t) callconv(.c) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22785,9 +22785,9 @@ pub extern "c" fn pthread_rwlock_wrlock(rwl: *pthread_rwlock_t) callconv(.c) E
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_rwlock_tryrdlock(rwl: *pthread_rwlock_t) callconv(.c) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22805,9 +22805,9 @@ pub extern "c" fn pthread_rwlock_tryrdlock(rwl: *pthread_rwlock_t) callconv(.c) 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_rwlock_trywrlock(rwl: *pthread_rwlock_t) callconv(.c) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22825,9 +22825,9 @@ pub extern "c" fn pthread_rwlock_trywrlock(rwl: *pthread_rwlock_t) callconv(.c) 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_rwlock_unlock(rwl: *pthread_rwlock_t) callconv(.c) E
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22845,9 +22845,9 @@ pub extern "c" fn pthread_rwlock_unlock(rwl: *pthread_rwlock_t) callconv(.c) E
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn dlopen(path: ?[*:0]const u8, mode: RTLD) ?*anyopaque
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22866,9 +22866,9 @@ pub extern "c" fn dlopen(path: ?[*:0]const u8, mode: RTLD) ?*anyopaque
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn dlclose(handle: *anyopaque) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22886,9 +22886,9 @@ pub extern "c" fn dlclose(handle: *anyopaque) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn dlsym(handle: ?*anyopaque, symbol: [*:0]const u8) ?*anyopaque
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22907,9 +22907,9 @@ pub extern "c" fn dlsym(handle: ?*anyopaque, symbol: [*:0]const u8) ?*anyopaque
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn dlerror() ?[*:0]u8
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22926,9 +22926,9 @@ pub extern "c" fn dlerror() ?[*:0]u8
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn sync() void
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22945,9 +22945,9 @@ pub extern "c" fn sync() void
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn syncfs(fd: c_int) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22965,9 +22965,9 @@ pub extern "c" fn syncfs(fd: c_int) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn fsync(fd: c_int) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -22985,9 +22985,9 @@ pub extern "c" fn fsync(fd: c_int) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn fdatasync(fd: c_int) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -23005,9 +23005,9 @@ pub extern "c" fn fdatasync(fd: c_int) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn prctl(option: c_int, ...) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -23025,9 +23025,9 @@ pub extern "c" fn prctl(option: c_int, ...) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getrlimit(resource: rlimit_resource, rlim: *rlimit) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -23046,9 +23046,9 @@ pub extern "c" fn getrlimit(resource: rlimit_resource, rlim: *rlimit) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn setrlimit(resource: rlimit_resource, rlim: *const rlimit) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -23067,9 +23067,9 @@ pub extern "c" fn setrlimit(resource: rlimit_resource, rlim: *const rlimit) c_in
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn fmemopen(noalias buf: ?*anyopaque, size: usize, noalias mode: [*:0]const u8) ?*FILE
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -23089,9 +23089,9 @@ pub extern "c" fn fmemopen(noalias buf: ?*anyopaque, size: usize, noalias mode: 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn syslog(priority: c_int, message: [*:0]const u8, ...) void
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -23110,9 +23110,9 @@ pub extern "c" fn syslog(priority: c_int, message: [*:0]const u8, ...) void
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn openlog(ident: [*:0]const u8, logopt: c_int, facility: c_int) void
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -23132,9 +23132,9 @@ pub extern "c" fn openlog(ident: [*:0]const u8, logopt: c_int, facility: c_int) 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn closelog() void
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -23151,9 +23151,9 @@ pub extern "c" fn closelog() void
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn setlogmask(maskpri: c_int) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -23171,9 +23171,9 @@ pub extern "c" fn setlogmask(maskpri: c_int) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn if_nametoindex([*:0]const u8) c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -23190,9 +23190,9 @@ pub extern "c" fn if_nametoindex([*:0]const u8) c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getpid() pid_t
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -23209,9 +23209,9 @@ pub extern "c" fn getpid() pid_t
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn getppid() pid_t
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -23228,9 +23228,9 @@ pub extern "c" fn getppid() pid_t
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn setsid() pid_t
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -23247,9 +23247,9 @@ pub extern "c" fn setsid() pid_t
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn setlocale(category: LC, locale: ?[*:0]const u8) ?[*:0]const u8
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -23268,9 +23268,9 @@ pub extern "c" fn setlocale(category: LC, locale: ?[*:0]const u8) ?[*:0]const u8
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_getthreadid_np() c_int
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -23287,9 +23287,9 @@ pub extern "c" fn pthread_getthreadid_np() c_int
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_set_name_np(thread: pthread_t, name: [*:0]const u8) void
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -23308,9 +23308,9 @@ pub extern "c" fn pthread_set_name_np(thread: pthread_t, name: [*:0]const u8) vo
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub extern "c" fn pthread_get_name_np(thread: pthread_t, name: [*:0]u8, len: usize) void
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -23324,3 +23324,5 @@ pub extern "c" fn pthread_get_name_np(thread: pthread_t, name: [*:0]u8, len: usi
 </details>
 
 ---
+
+

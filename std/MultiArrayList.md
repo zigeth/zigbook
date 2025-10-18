@@ -39,7 +39,7 @@ for the array of each field.  From the slice you can call
 `.items(.<field_name>)` to obtain a slice of field values.
 For unions you can call `.items(.tags)` or `.items(.data)`.
 
-\`\`\`zig
+```zig
 pub fn MultiArrayList(comptime T: type) type {
     return struct {
         bytes: [*]align(@alignOf(T)) u8 = undefined,
@@ -669,7 +669,7 @@ pub fn MultiArrayList(comptime T: type) type {
         }
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -681,3 +681,4 @@ pub fn MultiArrayList(comptime T: type) type {
 </details>
 
 ---
+

@@ -500,7 +500,7 @@ Executable and Linkable Format.
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Versym = packed struct(u16) {
     VERSION: u15,
     HIDDEN: bool,
@@ -508,7 +508,7 @@ pub const Versym = packed struct(u16) {
     pub const LOCAL: Versym = @bitCast(@intFromEnum(VER_NDX.LOCAL));
     pub const GLOBAL: Versym = @bitCast(@intFromEnum(VER_NDX.GLOBAL));
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -526,7 +526,7 @@ pub const Versym = packed struct(u16) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const VER_NDX = enum(u16) {
     /// Symbol is local
     LOCAL = 0,
@@ -539,7 +539,7 @@ pub const VER_NDX = enum(u16) {
     UNSPECIFIED = 0xffff,
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -563,7 +563,7 @@ pub const VER_NDX = enum(u16) {
 
 File types
 
-\`\`\`zig
+```zig
 pub const ET = enum(u16) {
     /// No file type
     NONE = 0,
@@ -594,7 +594,7 @@ pub const ET = enum(u16) {
     /// End of processor-specific codes
     pub const HIPROC = 0xffff;
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -618,7 +618,7 @@ pub const ET = enum(u16) {
 
 All integers are native endian.
 
-\`\`\`zig
+```zig
 pub const Header = struct {
     is_64: bool,
     endian: std.builtin.Endian,
@@ -715,7 +715,7 @@ pub const Header = struct {
         };
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -745,7 +745,7 @@ pub const Header = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ProgramHeaderIterator = struct {
     elf_header: Header,
     file_reader: *std.fs.File.Reader,
@@ -762,7 +762,7 @@ pub const ProgramHeaderIterator = struct {
         return takePhdr(&it.file_reader.interface, it.elf_header);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -781,7 +781,7 @@ pub const ProgramHeaderIterator = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ProgramHeaderBufferIterator = struct {
     elf_header: Header,
     buf: []const u8,
@@ -798,7 +798,7 @@ pub const ProgramHeaderBufferIterator = struct {
         return takePhdr(&reader, it.elf_header);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -817,7 +817,7 @@ pub const ProgramHeaderBufferIterator = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const SectionHeaderIterator = struct {
     elf_header: Header,
     file_reader: *std.fs.File.Reader,
@@ -834,7 +834,7 @@ pub const SectionHeaderIterator = struct {
         return takeShdr(&it.file_reader.interface, it.elf_header);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -853,7 +853,7 @@ pub const SectionHeaderIterator = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const SectionHeaderBufferIterator = struct {
     elf_header: Header,
     buf: []const u8,
@@ -870,7 +870,7 @@ pub const SectionHeaderBufferIterator = struct {
         return takeShdr(&reader, it.elf_header);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -889,7 +889,7 @@ pub const SectionHeaderBufferIterator = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_Ehdr = extern struct {
     e_ident: [EI_NIDENT]u8,
     e_type: ET,
@@ -906,7 +906,7 @@ pub const Elf32_Ehdr = extern struct {
     e_shnum: Half,
     e_shstrndx: Half,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -936,7 +936,7 @@ pub const Elf32_Ehdr = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf64_Ehdr = extern struct {
     e_ident: [EI_NIDENT]u8,
     e_type: ET,
@@ -953,7 +953,7 @@ pub const Elf64_Ehdr = extern struct {
     e_shnum: Half,
     e_shstrndx: Half,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -983,7 +983,7 @@ pub const Elf64_Ehdr = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_Phdr = extern struct {
     p_type: Word,
     p_offset: Elf32_Off,
@@ -994,7 +994,7 @@ pub const Elf32_Phdr = extern struct {
     p_flags: Word,
     p_align: Word,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1018,7 +1018,7 @@ pub const Elf32_Phdr = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf64_Phdr = extern struct {
     p_type: Word,
     p_flags: Word,
@@ -1029,7 +1029,7 @@ pub const Elf64_Phdr = extern struct {
     p_memsz: Elf64_Xword,
     p_align: Elf64_Xword,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1053,7 +1053,7 @@ pub const Elf64_Phdr = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_Shdr = extern struct {
     sh_name: Word,
     sh_type: Word,
@@ -1066,7 +1066,7 @@ pub const Elf32_Shdr = extern struct {
     sh_addralign: Word,
     sh_entsize: Word,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1092,7 +1092,7 @@ pub const Elf32_Shdr = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf64_Shdr = extern struct {
     sh_name: Word,
     sh_type: Word,
@@ -1105,7 +1105,7 @@ pub const Elf64_Shdr = extern struct {
     sh_addralign: Elf64_Xword,
     sh_entsize: Elf64_Xword,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1131,13 +1131,13 @@ pub const Elf64_Shdr = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_Chdr = extern struct {
     ch_type: COMPRESS,
     ch_size: Word,
     ch_addralign: Word,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1156,14 +1156,14 @@ pub const Elf32_Chdr = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf64_Chdr = extern struct {
     ch_type: COMPRESS,
     ch_reserved: Word = 0,
     ch_size: Elf64_Xword,
     ch_addralign: Elf64_Xword,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1183,7 +1183,7 @@ pub const Elf64_Chdr = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_Sym = extern struct {
     st_name: Word,
     st_value: Elf32_Addr,
@@ -1199,7 +1199,7 @@ pub const Elf32_Sym = extern struct {
         return @truncate(self.st_info >> 4);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1221,7 +1221,7 @@ pub const Elf32_Sym = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf64_Sym = extern struct {
     st_name: Word,
     st_info: u8,
@@ -1237,7 +1237,7 @@ pub const Elf64_Sym = extern struct {
         return @truncate(self.st_info >> 4);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1259,12 +1259,12 @@ pub const Elf64_Sym = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_Syminfo = extern struct {
     si_boundto: Half,
     si_flags: Half,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1282,12 +1282,12 @@ pub const Elf32_Syminfo = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf64_Syminfo = extern struct {
     si_boundto: Half,
     si_flags: Half,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1305,7 +1305,7 @@ pub const Elf64_Syminfo = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_Rel = extern struct {
     r_offset: Elf32_Addr,
     r_info: Word,
@@ -1317,7 +1317,7 @@ pub const Elf32_Rel = extern struct {
         return @truncate(self.r_info);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1335,7 +1335,7 @@ pub const Elf32_Rel = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf64_Rel = extern struct {
     r_offset: Elf64_Addr,
     r_info: Elf64_Xword,
@@ -1347,7 +1347,7 @@ pub const Elf64_Rel = extern struct {
         return @truncate(self.r_info);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1365,7 +1365,7 @@ pub const Elf64_Rel = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_Rela = extern struct {
     r_offset: Elf32_Addr,
     r_info: Word,
@@ -1378,7 +1378,7 @@ pub const Elf32_Rela = extern struct {
         return @truncate(self.r_info);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1397,7 +1397,7 @@ pub const Elf32_Rela = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf64_Rela = extern struct {
     r_offset: Elf64_Addr,
     r_info: Elf64_Xword,
@@ -1410,7 +1410,7 @@ pub const Elf64_Rela = extern struct {
         return @truncate(self.r_info);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1429,12 +1429,12 @@ pub const Elf64_Rela = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_Dyn = extern struct {
     d_tag: Sword,
     d_val: Elf32_Addr,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1452,12 +1452,12 @@ pub const Elf32_Dyn = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf64_Dyn = extern struct {
     d_tag: Elf64_Sxword,
     d_val: Elf64_Addr,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1475,7 +1475,7 @@ pub const Elf64_Dyn = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Verdef = extern struct {
     version: Half,
     flags: Half,
@@ -1485,7 +1485,7 @@ pub const Verdef = extern struct {
     aux: Word,
     next: Word,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1508,12 +1508,12 @@ pub const Verdef = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Verdaux = extern struct {
     name: Word,
     next: Word,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1531,7 +1531,7 @@ pub const Verdaux = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_Verneed = extern struct {
     vn_version: Half,
     vn_cnt: Half,
@@ -1539,7 +1539,7 @@ pub const Elf32_Verneed = extern struct {
     vn_aux: Word,
     vn_next: Word,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1560,7 +1560,7 @@ pub const Elf32_Verneed = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf64_Verneed = extern struct {
     vn_version: Half,
     vn_cnt: Half,
@@ -1568,7 +1568,7 @@ pub const Elf64_Verneed = extern struct {
     vn_aux: Word,
     vn_next: Word,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1589,7 +1589,7 @@ pub const Elf64_Verneed = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Vernaux = extern struct {
     hash: Word,
     flags: Half,
@@ -1597,7 +1597,7 @@ pub const Vernaux = extern struct {
     name: Word,
     next: Word,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1618,14 +1618,14 @@ pub const Vernaux = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_auxv_t = extern struct {
     a_type: u32,
     a_un: extern union {
         a_val: u32,
     },
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1638,11 +1638,11 @@ pub const Elf32_auxv_t = extern struct {
 [^type-elf32-auxv-t-a-un-type-0]:
     Type for field `a_un` of `Elf32_auxv_t`:
 
-    \`\`\`zig
+    ```zig
     extern union {
             a_val: u32,
         }
-    \`\`\`
+    ```
 
 </details>
 
@@ -1653,14 +1653,14 @@ pub const Elf32_auxv_t = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf64_auxv_t = extern struct {
     a_type: u64,
     a_un: extern union {
         a_val: u64,
     },
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1673,11 +1673,11 @@ pub const Elf64_auxv_t = extern struct {
 [^type-elf64-auxv-t-a-un-type-0]:
     Type for field `a_un` of `Elf64_auxv_t`:
 
-    \`\`\`zig
+    ```zig
     extern union {
             a_val: u64,
         }
-    \`\`\`
+    ```
 
 </details>
 
@@ -1688,13 +1688,13 @@ pub const Elf64_auxv_t = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_Nhdr = extern struct {
     n_namesz: Word,
     n_descsz: Word,
     n_type: Word,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1713,13 +1713,13 @@ pub const Elf32_Nhdr = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf64_Nhdr = extern struct {
     n_namesz: Word,
     n_descsz: Word,
     n_type: Word,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1738,7 +1738,7 @@ pub const Elf64_Nhdr = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_Move = extern struct {
     m_value: Elf32_Xword,
     m_info: Word,
@@ -1746,7 +1746,7 @@ pub const Elf32_Move = extern struct {
     m_repeat: Half,
     m_stride: Half,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1767,7 +1767,7 @@ pub const Elf32_Move = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf64_Move = extern struct {
     m_value: Elf64_Xword,
     m_info: Elf64_Xword,
@@ -1775,7 +1775,7 @@ pub const Elf64_Move = extern struct {
     m_repeat: Half,
     m_stride: Half,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1796,7 +1796,7 @@ pub const Elf64_Move = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_gptab = extern union {
     gt_header: extern struct {
         gt_current_g_value: Word,
@@ -1807,7 +1807,7 @@ pub const Elf32_gptab = extern union {
         gt_bytes: Word,
     },
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1820,22 +1820,22 @@ pub const Elf32_gptab = extern union {
 [^type-elf32-gptab-gt-header-type-0]:
     Type for field `gt_header` of `Elf32_gptab`:
 
-    \`\`\`zig
+    ```zig
     extern struct {
             gt_current_g_value: Word,
             gt_unused: Word,
         }
-    \`\`\`
+    ```
 
 [^type-elf32-gptab-gt-entry-type-1]:
     Type for field `gt_entry` of `Elf32_gptab`:
 
-    \`\`\`zig
+    ```zig
     extern struct {
             gt_g_value: Word,
             gt_bytes: Word,
         }
-    \`\`\`
+    ```
 
 </details>
 
@@ -1846,13 +1846,13 @@ pub const Elf32_gptab = extern union {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_RegInfo = extern struct {
     ri_gprmask: Word,
     ri_cprmask: [4]Word,
     ri_gp_value: Sword,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1871,14 +1871,14 @@ pub const Elf32_RegInfo = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf_Options = extern struct {
     kind: u8,
     size: u8,
     section: Elf32_Section,
     info: Word,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1898,12 +1898,12 @@ pub const Elf_Options = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf_Options_Hw = extern struct {
     hwp_flags1: Word,
     hwp_flags2: Word,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1921,7 +1921,7 @@ pub const Elf_Options_Hw = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_Lib = extern struct {
     l_name: Word,
     l_time_stamp: Word,
@@ -1929,7 +1929,7 @@ pub const Elf32_Lib = extern struct {
     l_version: Word,
     l_flags: Word,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1950,7 +1950,7 @@ pub const Elf32_Lib = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf64_Lib = extern struct {
     l_name: Word,
     l_time_stamp: Word,
@@ -1958,7 +1958,7 @@ pub const Elf64_Lib = extern struct {
     l_version: Word,
     l_flags: Word,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -1979,7 +1979,7 @@ pub const Elf64_Lib = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf_MIPS_ABIFlags_v0 = extern struct {
     version: Half,
     isa_level: u8,
@@ -1993,7 +1993,7 @@ pub const Elf_MIPS_ABIFlags_v0 = extern struct {
     flags1: Word,
     flags2: Word,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2020,7 +2020,7 @@ pub const Elf_MIPS_ABIFlags_v0 = extern struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const OSABI = enum(u8) {
     /// UNIX System V ABI
     NONE = 0,
@@ -2071,7 +2071,7 @@ pub const OSABI = enum(u8) {
 
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2116,7 +2116,7 @@ Machine architectures.
 See current registered ELF machine architectures at:
 http://www.sco.com/developers/gabi/latest/ch4.eheader.html
 
-\`\`\`zig
+```zig
 pub const EM = enum(u16) {
     /// No machine
     NONE = 0,
@@ -2579,7 +2579,7 @@ pub const EM = enum(u16) {
 
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2823,7 +2823,7 @@ pub const EM = enum(u16) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const COMPRESS = enum(u32) {
     ZLIB = 1,
     ZSTD = 2,
@@ -2833,7 +2833,7 @@ pub const COMPRESS = enum(u32) {
     HIPROC = 0x7fffffff,
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -2858,7 +2858,7 @@ pub const COMPRESS = enum(u32) {
 
 AMD x86-64 relocations.
 
-\`\`\`zig
+```zig
 pub const R_X86_64 = enum(u32) {
     /// No reloc
     NONE = 0,
@@ -2946,7 +2946,7 @@ pub const R_X86_64 = enum(u32) {
     REX_GOTPCRELX = 42,
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -3006,7 +3006,7 @@ pub const R_X86_64 = enum(u32) {
 
 AArch64 relocations.
 
-\`\`\`zig
+```zig
 pub const R_AARCH64 = enum(u32) {
     /// No relocation.
     NONE = 0,
@@ -3278,7 +3278,7 @@ pub const R_AARCH64 = enum(u32) {
     IRELATIVE = 1032,
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -3430,7 +3430,7 @@ pub const R_AARCH64 = enum(u32) {
 
 RISC-V relocations.
 
-\`\`\`zig
+```zig
 pub const R_RISCV = enum(u32) {
     NONE = 0,
     @"32" = 1,
@@ -3493,7 +3493,7 @@ pub const R_RISCV = enum(u32) {
     SUB_ULEB128 = 61,
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -3571,7 +3571,7 @@ pub const R_RISCV = enum(u32) {
 
 PowerPC64 relocations.
 
-\`\`\`zig
+```zig
 pub const R_PPC64 = enum(u32) {
     NONE = 0,
     ADDR32 = 1,
@@ -3687,7 +3687,7 @@ pub const R_PPC64 = enum(u32) {
     REL16_HA = 252,
     _,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -3816,14 +3816,14 @@ pub const R_PPC64 = enum(u32) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const STV = enum(u2) {
     DEFAULT = 0,
     INTERNAL = 1,
     HIDDEN = 2,
     PROTECTED = 3,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -3843,7 +3843,7 @@ pub const STV = enum(u2) {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const ar_hdr = extern struct {
     /// Member file name, sometimes / terminated.
     ar_name: [16]u8,
@@ -3910,7 +3910,7 @@ pub const ar_hdr = extern struct {
         return try std.fmt.parseInt(u32, trimmed[1..], 10);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -3933,7 +3933,7 @@ pub const ar_hdr = extern struct {
 <details class="declaration-card" open>
 <summary>Type Alias – Expand to see the underlying type and usage details.</summary>
 
-\`\`\`zig
+```zig
 pub const gnu_hash = struct {
 
     // See https://flapenguin.me/elf-dt-gnu-hash
@@ -3970,7 +3970,7 @@ pub const gnu_hash = struct {
         try std.testing.expectEqual(0x8ae9f18e, calculate("flapenguin.me"));
     }
 }
-\`\`\`
+```
 
 </details>
 
@@ -3983,9 +3983,9 @@ pub const gnu_hash = struct {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_NULL = 0
-\`\`\`
+```
 
 </details>
 
@@ -3996,9 +3996,9 @@ pub const AT_NULL = 0
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_IGNORE = 1
-\`\`\`
+```
 
 </details>
 
@@ -4009,9 +4009,9 @@ pub const AT_IGNORE = 1
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_EXECFD = 2
-\`\`\`
+```
 
 </details>
 
@@ -4022,9 +4022,9 @@ pub const AT_EXECFD = 2
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_PHDR = 3
-\`\`\`
+```
 
 </details>
 
@@ -4035,9 +4035,9 @@ pub const AT_PHDR = 3
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_PHENT = 4
-\`\`\`
+```
 
 </details>
 
@@ -4048,9 +4048,9 @@ pub const AT_PHENT = 4
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_PHNUM = 5
-\`\`\`
+```
 
 </details>
 
@@ -4061,9 +4061,9 @@ pub const AT_PHNUM = 5
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_PAGESZ = 6
-\`\`\`
+```
 
 </details>
 
@@ -4074,9 +4074,9 @@ pub const AT_PAGESZ = 6
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_BASE = 7
-\`\`\`
+```
 
 </details>
 
@@ -4087,9 +4087,9 @@ pub const AT_BASE = 7
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_FLAGS = 8
-\`\`\`
+```
 
 </details>
 
@@ -4100,9 +4100,9 @@ pub const AT_FLAGS = 8
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_ENTRY = 9
-\`\`\`
+```
 
 </details>
 
@@ -4113,9 +4113,9 @@ pub const AT_ENTRY = 9
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_NOTELF = 10
-\`\`\`
+```
 
 </details>
 
@@ -4126,9 +4126,9 @@ pub const AT_NOTELF = 10
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_UID = 11
-\`\`\`
+```
 
 </details>
 
@@ -4139,9 +4139,9 @@ pub const AT_UID = 11
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_EUID = 12
-\`\`\`
+```
 
 </details>
 
@@ -4152,9 +4152,9 @@ pub const AT_EUID = 12
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_GID = 13
-\`\`\`
+```
 
 </details>
 
@@ -4165,9 +4165,9 @@ pub const AT_GID = 13
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_EGID = 14
-\`\`\`
+```
 
 </details>
 
@@ -4178,9 +4178,9 @@ pub const AT_EGID = 14
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_CLKTCK = 17
-\`\`\`
+```
 
 </details>
 
@@ -4191,9 +4191,9 @@ pub const AT_CLKTCK = 17
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_PLATFORM = 15
-\`\`\`
+```
 
 </details>
 
@@ -4204,9 +4204,9 @@ pub const AT_PLATFORM = 15
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_HWCAP = 16
-\`\`\`
+```
 
 </details>
 
@@ -4217,9 +4217,9 @@ pub const AT_HWCAP = 16
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_FPUCW = 18
-\`\`\`
+```
 
 </details>
 
@@ -4230,9 +4230,9 @@ pub const AT_FPUCW = 18
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_DCACHEBSIZE = 19
-\`\`\`
+```
 
 </details>
 
@@ -4243,9 +4243,9 @@ pub const AT_DCACHEBSIZE = 19
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_ICACHEBSIZE = 20
-\`\`\`
+```
 
 </details>
 
@@ -4256,9 +4256,9 @@ pub const AT_ICACHEBSIZE = 20
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_UCACHEBSIZE = 21
-\`\`\`
+```
 
 </details>
 
@@ -4269,9 +4269,9 @@ pub const AT_UCACHEBSIZE = 21
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_IGNOREPPC = 22
-\`\`\`
+```
 
 </details>
 
@@ -4282,9 +4282,9 @@ pub const AT_IGNOREPPC = 22
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_SECURE = 23
-\`\`\`
+```
 
 </details>
 
@@ -4295,9 +4295,9 @@ pub const AT_SECURE = 23
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_BASE_PLATFORM = 24
-\`\`\`
+```
 
 </details>
 
@@ -4308,9 +4308,9 @@ pub const AT_BASE_PLATFORM = 24
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_RANDOM = 25
-\`\`\`
+```
 
 </details>
 
@@ -4321,9 +4321,9 @@ pub const AT_RANDOM = 25
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_HWCAP2 = 26
-\`\`\`
+```
 
 </details>
 
@@ -4334,9 +4334,9 @@ pub const AT_HWCAP2 = 26
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_EXECFN = 31
-\`\`\`
+```
 
 </details>
 
@@ -4347,9 +4347,9 @@ pub const AT_EXECFN = 31
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_SYSINFO = 32
-\`\`\`
+```
 
 </details>
 
@@ -4360,9 +4360,9 @@ pub const AT_SYSINFO = 32
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_SYSINFO_EHDR = 33
-\`\`\`
+```
 
 </details>
 
@@ -4373,9 +4373,9 @@ pub const AT_SYSINFO_EHDR = 33
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_L1I_CACHESHAPE = 34
-\`\`\`
+```
 
 </details>
 
@@ -4386,9 +4386,9 @@ pub const AT_L1I_CACHESHAPE = 34
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_L1D_CACHESHAPE = 35
-\`\`\`
+```
 
 </details>
 
@@ -4399,9 +4399,9 @@ pub const AT_L1D_CACHESHAPE = 35
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_L2_CACHESHAPE = 36
-\`\`\`
+```
 
 </details>
 
@@ -4412,9 +4412,9 @@ pub const AT_L2_CACHESHAPE = 36
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_L3_CACHESHAPE = 37
-\`\`\`
+```
 
 </details>
 
@@ -4425,9 +4425,9 @@ pub const AT_L3_CACHESHAPE = 37
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_L1I_CACHESIZE = 40
-\`\`\`
+```
 
 </details>
 
@@ -4438,9 +4438,9 @@ pub const AT_L1I_CACHESIZE = 40
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_L1I_CACHEGEOMETRY = 41
-\`\`\`
+```
 
 </details>
 
@@ -4451,9 +4451,9 @@ pub const AT_L1I_CACHEGEOMETRY = 41
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_L1D_CACHESIZE = 42
-\`\`\`
+```
 
 </details>
 
@@ -4464,9 +4464,9 @@ pub const AT_L1D_CACHESIZE = 42
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_L1D_CACHEGEOMETRY = 43
-\`\`\`
+```
 
 </details>
 
@@ -4477,9 +4477,9 @@ pub const AT_L1D_CACHEGEOMETRY = 43
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_L2_CACHESIZE = 44
-\`\`\`
+```
 
 </details>
 
@@ -4490,9 +4490,9 @@ pub const AT_L2_CACHESIZE = 44
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_L2_CACHEGEOMETRY = 45
-\`\`\`
+```
 
 </details>
 
@@ -4503,9 +4503,9 @@ pub const AT_L2_CACHEGEOMETRY = 45
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_L3_CACHESIZE = 46
-\`\`\`
+```
 
 </details>
 
@@ -4516,9 +4516,9 @@ pub const AT_L3_CACHESIZE = 46
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const AT_L3_CACHEGEOMETRY = 47
-\`\`\`
+```
 
 </details>
 
@@ -4529,9 +4529,9 @@ pub const AT_L3_CACHEGEOMETRY = 47
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_NULL = 0
-\`\`\`
+```
 
 </details>
 
@@ -4542,9 +4542,9 @@ pub const DT_NULL = 0
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_NEEDED = 1
-\`\`\`
+```
 
 </details>
 
@@ -4555,9 +4555,9 @@ pub const DT_NEEDED = 1
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_PLTRELSZ = 2
-\`\`\`
+```
 
 </details>
 
@@ -4568,9 +4568,9 @@ pub const DT_PLTRELSZ = 2
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_PLTGOT = 3
-\`\`\`
+```
 
 </details>
 
@@ -4581,9 +4581,9 @@ pub const DT_PLTGOT = 3
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_HASH = 4
-\`\`\`
+```
 
 </details>
 
@@ -4594,9 +4594,9 @@ pub const DT_HASH = 4
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_STRTAB = 5
-\`\`\`
+```
 
 </details>
 
@@ -4607,9 +4607,9 @@ pub const DT_STRTAB = 5
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_SYMTAB = 6
-\`\`\`
+```
 
 </details>
 
@@ -4620,9 +4620,9 @@ pub const DT_SYMTAB = 6
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_RELA = 7
-\`\`\`
+```
 
 </details>
 
@@ -4633,9 +4633,9 @@ pub const DT_RELA = 7
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_RELASZ = 8
-\`\`\`
+```
 
 </details>
 
@@ -4646,9 +4646,9 @@ pub const DT_RELASZ = 8
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_RELAENT = 9
-\`\`\`
+```
 
 </details>
 
@@ -4659,9 +4659,9 @@ pub const DT_RELAENT = 9
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_STRSZ = 10
-\`\`\`
+```
 
 </details>
 
@@ -4672,9 +4672,9 @@ pub const DT_STRSZ = 10
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_SYMENT = 11
-\`\`\`
+```
 
 </details>
 
@@ -4685,9 +4685,9 @@ pub const DT_SYMENT = 11
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_INIT = 12
-\`\`\`
+```
 
 </details>
 
@@ -4698,9 +4698,9 @@ pub const DT_INIT = 12
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_FINI = 13
-\`\`\`
+```
 
 </details>
 
@@ -4711,9 +4711,9 @@ pub const DT_FINI = 13
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_SONAME = 14
-\`\`\`
+```
 
 </details>
 
@@ -4724,9 +4724,9 @@ pub const DT_SONAME = 14
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_RPATH = 15
-\`\`\`
+```
 
 </details>
 
@@ -4737,9 +4737,9 @@ pub const DT_RPATH = 15
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_SYMBOLIC = 16
-\`\`\`
+```
 
 </details>
 
@@ -4750,9 +4750,9 @@ pub const DT_SYMBOLIC = 16
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_REL = 17
-\`\`\`
+```
 
 </details>
 
@@ -4763,9 +4763,9 @@ pub const DT_REL = 17
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_RELSZ = 18
-\`\`\`
+```
 
 </details>
 
@@ -4776,9 +4776,9 @@ pub const DT_RELSZ = 18
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_RELENT = 19
-\`\`\`
+```
 
 </details>
 
@@ -4789,9 +4789,9 @@ pub const DT_RELENT = 19
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_PLTREL = 20
-\`\`\`
+```
 
 </details>
 
@@ -4802,9 +4802,9 @@ pub const DT_PLTREL = 20
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_DEBUG = 21
-\`\`\`
+```
 
 </details>
 
@@ -4815,9 +4815,9 @@ pub const DT_DEBUG = 21
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_TEXTREL = 22
-\`\`\`
+```
 
 </details>
 
@@ -4828,9 +4828,9 @@ pub const DT_TEXTREL = 22
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_JMPREL = 23
-\`\`\`
+```
 
 </details>
 
@@ -4841,9 +4841,9 @@ pub const DT_JMPREL = 23
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_BIND_NOW = 24
-\`\`\`
+```
 
 </details>
 
@@ -4854,9 +4854,9 @@ pub const DT_BIND_NOW = 24
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_INIT_ARRAY = 25
-\`\`\`
+```
 
 </details>
 
@@ -4867,9 +4867,9 @@ pub const DT_INIT_ARRAY = 25
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_FINI_ARRAY = 26
-\`\`\`
+```
 
 </details>
 
@@ -4880,9 +4880,9 @@ pub const DT_FINI_ARRAY = 26
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_INIT_ARRAYSZ = 27
-\`\`\`
+```
 
 </details>
 
@@ -4893,9 +4893,9 @@ pub const DT_INIT_ARRAYSZ = 27
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_FINI_ARRAYSZ = 28
-\`\`\`
+```
 
 </details>
 
@@ -4906,9 +4906,9 @@ pub const DT_FINI_ARRAYSZ = 28
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_RUNPATH = 29
-\`\`\`
+```
 
 </details>
 
@@ -4919,9 +4919,9 @@ pub const DT_RUNPATH = 29
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_FLAGS = 30
-\`\`\`
+```
 
 </details>
 
@@ -4932,9 +4932,9 @@ pub const DT_FLAGS = 30
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_ENCODING = 32
-\`\`\`
+```
 
 </details>
 
@@ -4945,9 +4945,9 @@ pub const DT_ENCODING = 32
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_PREINIT_ARRAY = 32
-\`\`\`
+```
 
 </details>
 
@@ -4958,9 +4958,9 @@ pub const DT_PREINIT_ARRAY = 32
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_PREINIT_ARRAYSZ = 33
-\`\`\`
+```
 
 </details>
 
@@ -4971,9 +4971,9 @@ pub const DT_PREINIT_ARRAYSZ = 33
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_SYMTAB_SHNDX = 34
-\`\`\`
+```
 
 </details>
 
@@ -4984,9 +4984,9 @@ pub const DT_SYMTAB_SHNDX = 34
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_RELRSZ = 35
-\`\`\`
+```
 
 </details>
 
@@ -4997,9 +4997,9 @@ pub const DT_RELRSZ = 35
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_RELR = 36
-\`\`\`
+```
 
 </details>
 
@@ -5010,9 +5010,9 @@ pub const DT_RELR = 36
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_RELRENT = 37
-\`\`\`
+```
 
 </details>
 
@@ -5023,9 +5023,9 @@ pub const DT_RELRENT = 37
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_NUM = 38
-\`\`\`
+```
 
 </details>
 
@@ -5036,9 +5036,9 @@ pub const DT_NUM = 38
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_LOOS = 0x6000000d
-\`\`\`
+```
 
 </details>
 
@@ -5049,9 +5049,9 @@ pub const DT_LOOS = 0x6000000d
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_HIOS = 0x6ffff000
-\`\`\`
+```
 
 </details>
 
@@ -5062,9 +5062,9 @@ pub const DT_HIOS = 0x6ffff000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_LOPROC = 0x70000000
-\`\`\`
+```
 
 </details>
 
@@ -5075,9 +5075,9 @@ pub const DT_LOPROC = 0x70000000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_HIPROC = 0x7fffffff
-\`\`\`
+```
 
 </details>
 
@@ -5088,9 +5088,9 @@ pub const DT_HIPROC = 0x7fffffff
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_PROCNUM = DT_MIPS_NUM
-\`\`\`
+```
 
 </details>
 
@@ -5101,9 +5101,9 @@ pub const DT_PROCNUM = DT_MIPS_NUM
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_VALRNGLO = 0x6ffffd00
-\`\`\`
+```
 
 </details>
 
@@ -5114,9 +5114,9 @@ pub const DT_VALRNGLO = 0x6ffffd00
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_GNU_PRELINKED = 0x6ffffdf5
-\`\`\`
+```
 
 </details>
 
@@ -5127,9 +5127,9 @@ pub const DT_GNU_PRELINKED = 0x6ffffdf5
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_GNU_CONFLICTSZ = 0x6ffffdf6
-\`\`\`
+```
 
 </details>
 
@@ -5140,9 +5140,9 @@ pub const DT_GNU_CONFLICTSZ = 0x6ffffdf6
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_GNU_LIBLISTSZ = 0x6ffffdf7
-\`\`\`
+```
 
 </details>
 
@@ -5153,9 +5153,9 @@ pub const DT_GNU_LIBLISTSZ = 0x6ffffdf7
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_CHECKSUM = 0x6ffffdf8
-\`\`\`
+```
 
 </details>
 
@@ -5166,9 +5166,9 @@ pub const DT_CHECKSUM = 0x6ffffdf8
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_PLTPADSZ = 0x6ffffdf9
-\`\`\`
+```
 
 </details>
 
@@ -5179,9 +5179,9 @@ pub const DT_PLTPADSZ = 0x6ffffdf9
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MOVEENT = 0x6ffffdfa
-\`\`\`
+```
 
 </details>
 
@@ -5192,9 +5192,9 @@ pub const DT_MOVEENT = 0x6ffffdfa
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MOVESZ = 0x6ffffdfb
-\`\`\`
+```
 
 </details>
 
@@ -5205,9 +5205,9 @@ pub const DT_MOVESZ = 0x6ffffdfb
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_FEATURE_1 = 0x6ffffdfc
-\`\`\`
+```
 
 </details>
 
@@ -5218,9 +5218,9 @@ pub const DT_FEATURE_1 = 0x6ffffdfc
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_POSFLAG_1 = 0x6ffffdfd
-\`\`\`
+```
 
 </details>
 
@@ -5231,9 +5231,9 @@ pub const DT_POSFLAG_1 = 0x6ffffdfd
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_SYMINSZ = 0x6ffffdfe
-\`\`\`
+```
 
 </details>
 
@@ -5244,9 +5244,9 @@ pub const DT_SYMINSZ = 0x6ffffdfe
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_SYMINENT = 0x6ffffdff
-\`\`\`
+```
 
 </details>
 
@@ -5257,9 +5257,9 @@ pub const DT_SYMINENT = 0x6ffffdff
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_VALRNGHI = 0x6ffffdff
-\`\`\`
+```
 
 </details>
 
@@ -5270,9 +5270,9 @@ pub const DT_VALRNGHI = 0x6ffffdff
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_VALNUM = 12
-\`\`\`
+```
 
 </details>
 
@@ -5283,9 +5283,9 @@ pub const DT_VALNUM = 12
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_ADDRRNGLO = 0x6ffffe00
-\`\`\`
+```
 
 </details>
 
@@ -5296,9 +5296,9 @@ pub const DT_ADDRRNGLO = 0x6ffffe00
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_GNU_HASH = 0x6ffffef5
-\`\`\`
+```
 
 </details>
 
@@ -5309,9 +5309,9 @@ pub const DT_GNU_HASH = 0x6ffffef5
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_TLSDESC_PLT = 0x6ffffef6
-\`\`\`
+```
 
 </details>
 
@@ -5322,9 +5322,9 @@ pub const DT_TLSDESC_PLT = 0x6ffffef6
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_TLSDESC_GOT = 0x6ffffef7
-\`\`\`
+```
 
 </details>
 
@@ -5335,9 +5335,9 @@ pub const DT_TLSDESC_GOT = 0x6ffffef7
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_GNU_CONFLICT = 0x6ffffef8
-\`\`\`
+```
 
 </details>
 
@@ -5348,9 +5348,9 @@ pub const DT_GNU_CONFLICT = 0x6ffffef8
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_GNU_LIBLIST = 0x6ffffef9
-\`\`\`
+```
 
 </details>
 
@@ -5361,9 +5361,9 @@ pub const DT_GNU_LIBLIST = 0x6ffffef9
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_CONFIG = 0x6ffffefa
-\`\`\`
+```
 
 </details>
 
@@ -5374,9 +5374,9 @@ pub const DT_CONFIG = 0x6ffffefa
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_DEPAUDIT = 0x6ffffefb
-\`\`\`
+```
 
 </details>
 
@@ -5387,9 +5387,9 @@ pub const DT_DEPAUDIT = 0x6ffffefb
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_AUDIT = 0x6ffffefc
-\`\`\`
+```
 
 </details>
 
@@ -5400,9 +5400,9 @@ pub const DT_AUDIT = 0x6ffffefc
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_PLTPAD = 0x6ffffefd
-\`\`\`
+```
 
 </details>
 
@@ -5413,9 +5413,9 @@ pub const DT_PLTPAD = 0x6ffffefd
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MOVETAB = 0x6ffffefe
-\`\`\`
+```
 
 </details>
 
@@ -5426,9 +5426,9 @@ pub const DT_MOVETAB = 0x6ffffefe
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_SYMINFO = 0x6ffffeff
-\`\`\`
+```
 
 </details>
 
@@ -5439,9 +5439,9 @@ pub const DT_SYMINFO = 0x6ffffeff
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_ADDRRNGHI = 0x6ffffeff
-\`\`\`
+```
 
 </details>
 
@@ -5452,9 +5452,9 @@ pub const DT_ADDRRNGHI = 0x6ffffeff
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_ADDRNUM = 11
-\`\`\`
+```
 
 </details>
 
@@ -5465,9 +5465,9 @@ pub const DT_ADDRNUM = 11
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_VERSYM = 0x6ffffff0
-\`\`\`
+```
 
 </details>
 
@@ -5478,9 +5478,9 @@ pub const DT_VERSYM = 0x6ffffff0
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_RELACOUNT = 0x6ffffff9
-\`\`\`
+```
 
 </details>
 
@@ -5491,9 +5491,9 @@ pub const DT_RELACOUNT = 0x6ffffff9
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_RELCOUNT = 0x6ffffffa
-\`\`\`
+```
 
 </details>
 
@@ -5504,9 +5504,9 @@ pub const DT_RELCOUNT = 0x6ffffffa
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_FLAGS_1 = 0x6ffffffb
-\`\`\`
+```
 
 </details>
 
@@ -5517,9 +5517,9 @@ pub const DT_FLAGS_1 = 0x6ffffffb
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_VERDEF = 0x6ffffffc
-\`\`\`
+```
 
 </details>
 
@@ -5530,9 +5530,9 @@ pub const DT_VERDEF = 0x6ffffffc
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_VERDEFNUM = 0x6ffffffd
-\`\`\`
+```
 
 </details>
 
@@ -5543,9 +5543,9 @@ pub const DT_VERDEFNUM = 0x6ffffffd
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_VERNEED = 0x6ffffffe
-\`\`\`
+```
 
 </details>
 
@@ -5556,9 +5556,9 @@ pub const DT_VERNEED = 0x6ffffffe
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_VERNEEDNUM = 0x6fffffff
-\`\`\`
+```
 
 </details>
 
@@ -5569,9 +5569,9 @@ pub const DT_VERNEEDNUM = 0x6fffffff
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_VERSIONTAGNUM = 16
-\`\`\`
+```
 
 </details>
 
@@ -5582,9 +5582,9 @@ pub const DT_VERSIONTAGNUM = 16
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_AUXILIARY = 0x7ffffffd
-\`\`\`
+```
 
 </details>
 
@@ -5595,9 +5595,9 @@ pub const DT_AUXILIARY = 0x7ffffffd
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_FILTER = 0x7fffffff
-\`\`\`
+```
 
 </details>
 
@@ -5608,9 +5608,9 @@ pub const DT_FILTER = 0x7fffffff
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_EXTRANUM = 3
-\`\`\`
+```
 
 </details>
 
@@ -5621,9 +5621,9 @@ pub const DT_EXTRANUM = 3
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_SPARC_REGISTER = 0x70000001
-\`\`\`
+```
 
 </details>
 
@@ -5634,9 +5634,9 @@ pub const DT_SPARC_REGISTER = 0x70000001
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_SPARC_NUM = 2
-\`\`\`
+```
 
 </details>
 
@@ -5647,9 +5647,9 @@ pub const DT_SPARC_NUM = 2
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_RLD_VERSION = 0x70000001
-\`\`\`
+```
 
 </details>
 
@@ -5660,9 +5660,9 @@ pub const DT_MIPS_RLD_VERSION = 0x70000001
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_TIME_STAMP = 0x70000002
-\`\`\`
+```
 
 </details>
 
@@ -5673,9 +5673,9 @@ pub const DT_MIPS_TIME_STAMP = 0x70000002
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_ICHECKSUM = 0x70000003
-\`\`\`
+```
 
 </details>
 
@@ -5686,9 +5686,9 @@ pub const DT_MIPS_ICHECKSUM = 0x70000003
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_IVERSION = 0x70000004
-\`\`\`
+```
 
 </details>
 
@@ -5699,9 +5699,9 @@ pub const DT_MIPS_IVERSION = 0x70000004
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_FLAGS = 0x70000005
-\`\`\`
+```
 
 </details>
 
@@ -5712,9 +5712,9 @@ pub const DT_MIPS_FLAGS = 0x70000005
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_BASE_ADDRESS = 0x70000006
-\`\`\`
+```
 
 </details>
 
@@ -5725,9 +5725,9 @@ pub const DT_MIPS_BASE_ADDRESS = 0x70000006
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_MSYM = 0x70000007
-\`\`\`
+```
 
 </details>
 
@@ -5738,9 +5738,9 @@ pub const DT_MIPS_MSYM = 0x70000007
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_CONFLICT = 0x70000008
-\`\`\`
+```
 
 </details>
 
@@ -5751,9 +5751,9 @@ pub const DT_MIPS_CONFLICT = 0x70000008
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_LIBLIST = 0x70000009
-\`\`\`
+```
 
 </details>
 
@@ -5764,9 +5764,9 @@ pub const DT_MIPS_LIBLIST = 0x70000009
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_LOCAL_GOTNO = 0x7000000a
-\`\`\`
+```
 
 </details>
 
@@ -5777,9 +5777,9 @@ pub const DT_MIPS_LOCAL_GOTNO = 0x7000000a
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_CONFLICTNO = 0x7000000b
-\`\`\`
+```
 
 </details>
 
@@ -5790,9 +5790,9 @@ pub const DT_MIPS_CONFLICTNO = 0x7000000b
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_LIBLISTNO = 0x70000010
-\`\`\`
+```
 
 </details>
 
@@ -5803,9 +5803,9 @@ pub const DT_MIPS_LIBLISTNO = 0x70000010
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_SYMTABNO = 0x70000011
-\`\`\`
+```
 
 </details>
 
@@ -5816,9 +5816,9 @@ pub const DT_MIPS_SYMTABNO = 0x70000011
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_UNREFEXTNO = 0x70000012
-\`\`\`
+```
 
 </details>
 
@@ -5829,9 +5829,9 @@ pub const DT_MIPS_UNREFEXTNO = 0x70000012
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_GOTSYM = 0x70000013
-\`\`\`
+```
 
 </details>
 
@@ -5842,9 +5842,9 @@ pub const DT_MIPS_GOTSYM = 0x70000013
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_HIPAGENO = 0x70000014
-\`\`\`
+```
 
 </details>
 
@@ -5855,9 +5855,9 @@ pub const DT_MIPS_HIPAGENO = 0x70000014
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_RLD_MAP = 0x70000016
-\`\`\`
+```
 
 </details>
 
@@ -5868,9 +5868,9 @@ pub const DT_MIPS_RLD_MAP = 0x70000016
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_DELTA_CLASS = 0x70000017
-\`\`\`
+```
 
 </details>
 
@@ -5881,9 +5881,9 @@ pub const DT_MIPS_DELTA_CLASS = 0x70000017
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_DELTA_CLASS_NO = 0x70000018
-\`\`\`
+```
 
 </details>
 
@@ -5894,9 +5894,9 @@ pub const DT_MIPS_DELTA_CLASS_NO = 0x70000018
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_DELTA_INSTANCE = 0x70000019
-\`\`\`
+```
 
 </details>
 
@@ -5907,9 +5907,9 @@ pub const DT_MIPS_DELTA_INSTANCE = 0x70000019
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_DELTA_INSTANCE_NO = 0x7000001a
-\`\`\`
+```
 
 </details>
 
@@ -5920,9 +5920,9 @@ pub const DT_MIPS_DELTA_INSTANCE_NO = 0x7000001a
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_DELTA_RELOC = 0x7000001b
-\`\`\`
+```
 
 </details>
 
@@ -5933,9 +5933,9 @@ pub const DT_MIPS_DELTA_RELOC = 0x7000001b
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_DELTA_RELOC_NO = 0x7000001c
-\`\`\`
+```
 
 </details>
 
@@ -5946,9 +5946,9 @@ pub const DT_MIPS_DELTA_RELOC_NO = 0x7000001c
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_DELTA_SYM = 0x7000001d
-\`\`\`
+```
 
 </details>
 
@@ -5959,9 +5959,9 @@ pub const DT_MIPS_DELTA_SYM = 0x7000001d
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_DELTA_SYM_NO = 0x7000001e
-\`\`\`
+```
 
 </details>
 
@@ -5972,9 +5972,9 @@ pub const DT_MIPS_DELTA_SYM_NO = 0x7000001e
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_DELTA_CLASSSYM = 0x70000020
-\`\`\`
+```
 
 </details>
 
@@ -5985,9 +5985,9 @@ pub const DT_MIPS_DELTA_CLASSSYM = 0x70000020
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_DELTA_CLASSSYM_NO = 0x70000021
-\`\`\`
+```
 
 </details>
 
@@ -5998,9 +5998,9 @@ pub const DT_MIPS_DELTA_CLASSSYM_NO = 0x70000021
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_CXX_FLAGS = 0x70000022
-\`\`\`
+```
 
 </details>
 
@@ -6011,9 +6011,9 @@ pub const DT_MIPS_CXX_FLAGS = 0x70000022
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_PIXIE_INIT = 0x70000023
-\`\`\`
+```
 
 </details>
 
@@ -6024,9 +6024,9 @@ pub const DT_MIPS_PIXIE_INIT = 0x70000023
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_SYMBOL_LIB = 0x70000024
-\`\`\`
+```
 
 </details>
 
@@ -6037,9 +6037,9 @@ pub const DT_MIPS_SYMBOL_LIB = 0x70000024
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_LOCALPAGE_GOTIDX = 0x70000025
-\`\`\`
+```
 
 </details>
 
@@ -6050,9 +6050,9 @@ pub const DT_MIPS_LOCALPAGE_GOTIDX = 0x70000025
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_LOCAL_GOTIDX = 0x70000026
-\`\`\`
+```
 
 </details>
 
@@ -6063,9 +6063,9 @@ pub const DT_MIPS_LOCAL_GOTIDX = 0x70000026
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_HIDDEN_GOTIDX = 0x70000027
-\`\`\`
+```
 
 </details>
 
@@ -6076,9 +6076,9 @@ pub const DT_MIPS_HIDDEN_GOTIDX = 0x70000027
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_PROTECTED_GOTIDX = 0x70000028
-\`\`\`
+```
 
 </details>
 
@@ -6089,9 +6089,9 @@ pub const DT_MIPS_PROTECTED_GOTIDX = 0x70000028
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_OPTIONS = 0x70000029
-\`\`\`
+```
 
 </details>
 
@@ -6102,9 +6102,9 @@ pub const DT_MIPS_OPTIONS = 0x70000029
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_INTERFACE = 0x7000002a
-\`\`\`
+```
 
 </details>
 
@@ -6115,9 +6115,9 @@ pub const DT_MIPS_INTERFACE = 0x7000002a
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_DYNSTR_ALIGN = 0x7000002b
-\`\`\`
+```
 
 </details>
 
@@ -6128,9 +6128,9 @@ pub const DT_MIPS_DYNSTR_ALIGN = 0x7000002b
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_INTERFACE_SIZE = 0x7000002c
-\`\`\`
+```
 
 </details>
 
@@ -6141,9 +6141,9 @@ pub const DT_MIPS_INTERFACE_SIZE = 0x7000002c
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_RLD_TEXT_RESOLVE_ADDR = 0x7000002d
-\`\`\`
+```
 
 </details>
 
@@ -6154,9 +6154,9 @@ pub const DT_MIPS_RLD_TEXT_RESOLVE_ADDR = 0x7000002d
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_PERF_SUFFIX = 0x7000002e
-\`\`\`
+```
 
 </details>
 
@@ -6167,9 +6167,9 @@ pub const DT_MIPS_PERF_SUFFIX = 0x7000002e
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_COMPACT_SIZE = 0x7000002f
-\`\`\`
+```
 
 </details>
 
@@ -6180,9 +6180,9 @@ pub const DT_MIPS_COMPACT_SIZE = 0x7000002f
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_GP_VALUE = 0x70000030
-\`\`\`
+```
 
 </details>
 
@@ -6193,9 +6193,9 @@ pub const DT_MIPS_GP_VALUE = 0x70000030
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_AUX_DYNAMIC = 0x70000031
-\`\`\`
+```
 
 </details>
 
@@ -6206,9 +6206,9 @@ pub const DT_MIPS_AUX_DYNAMIC = 0x70000031
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_PLTGOT = 0x70000032
-\`\`\`
+```
 
 </details>
 
@@ -6219,9 +6219,9 @@ pub const DT_MIPS_PLTGOT = 0x70000032
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_RWPLT = 0x70000034
-\`\`\`
+```
 
 </details>
 
@@ -6232,9 +6232,9 @@ pub const DT_MIPS_RWPLT = 0x70000034
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_RLD_MAP_REL = 0x70000035
-\`\`\`
+```
 
 </details>
 
@@ -6245,9 +6245,9 @@ pub const DT_MIPS_RLD_MAP_REL = 0x70000035
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_MIPS_NUM = 0x36
-\`\`\`
+```
 
 </details>
 
@@ -6258,9 +6258,9 @@ pub const DT_MIPS_NUM = 0x36
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_ALPHA_PLTRO = (DT_LOPROC + 0)
-\`\`\`
+```
 
 </details>
 
@@ -6271,9 +6271,9 @@ pub const DT_ALPHA_PLTRO = (DT_LOPROC + 0)
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_ALPHA_NUM = 1
-\`\`\`
+```
 
 </details>
 
@@ -6284,9 +6284,9 @@ pub const DT_ALPHA_NUM = 1
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_PPC_GOT = (DT_LOPROC + 0)
-\`\`\`
+```
 
 </details>
 
@@ -6297,9 +6297,9 @@ pub const DT_PPC_GOT = (DT_LOPROC + 0)
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_PPC_OPT = (DT_LOPROC + 1)
-\`\`\`
+```
 
 </details>
 
@@ -6310,9 +6310,9 @@ pub const DT_PPC_OPT = (DT_LOPROC + 1)
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_PPC_NUM = 2
-\`\`\`
+```
 
 </details>
 
@@ -6323,9 +6323,9 @@ pub const DT_PPC_NUM = 2
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_PPC64_GLINK = (DT_LOPROC + 0)
-\`\`\`
+```
 
 </details>
 
@@ -6336,9 +6336,9 @@ pub const DT_PPC64_GLINK = (DT_LOPROC + 0)
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_PPC64_OPD = (DT_LOPROC + 1)
-\`\`\`
+```
 
 </details>
 
@@ -6349,9 +6349,9 @@ pub const DT_PPC64_OPD = (DT_LOPROC + 1)
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_PPC64_OPDSZ = (DT_LOPROC + 2)
-\`\`\`
+```
 
 </details>
 
@@ -6362,9 +6362,9 @@ pub const DT_PPC64_OPDSZ = (DT_LOPROC + 2)
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_PPC64_OPT = (DT_LOPROC + 3)
-\`\`\`
+```
 
 </details>
 
@@ -6375,9 +6375,9 @@ pub const DT_PPC64_OPT = (DT_LOPROC + 3)
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_PPC64_NUM = 4
-\`\`\`
+```
 
 </details>
 
@@ -6388,9 +6388,9 @@ pub const DT_PPC64_NUM = 4
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_IA_64_PLT_RESERVE = (DT_LOPROC + 0)
-\`\`\`
+```
 
 </details>
 
@@ -6401,9 +6401,9 @@ pub const DT_IA_64_PLT_RESERVE = (DT_LOPROC + 0)
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_IA_64_NUM = 1
-\`\`\`
+```
 
 </details>
 
@@ -6414,9 +6414,9 @@ pub const DT_IA_64_NUM = 1
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DT_NIOS2_GP = 0x70000002
-\`\`\`
+```
 
 </details>
 
@@ -6427,9 +6427,9 @@ pub const DT_NIOS2_GP = 0x70000002
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_ORIGIN = 0x00000001
-\`\`\`
+```
 
 </details>
 
@@ -6440,9 +6440,9 @@ pub const DF_ORIGIN = 0x00000001
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_SYMBOLIC = 0x00000002
-\`\`\`
+```
 
 </details>
 
@@ -6453,9 +6453,9 @@ pub const DF_SYMBOLIC = 0x00000002
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_TEXTREL = 0x00000004
-\`\`\`
+```
 
 </details>
 
@@ -6466,9 +6466,9 @@ pub const DF_TEXTREL = 0x00000004
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_BIND_NOW = 0x00000008
-\`\`\`
+```
 
 </details>
 
@@ -6479,9 +6479,9 @@ pub const DF_BIND_NOW = 0x00000008
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_STATIC_TLS = 0x00000010
-\`\`\`
+```
 
 </details>
 
@@ -6492,9 +6492,9 @@ pub const DF_STATIC_TLS = 0x00000010
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_NOW = 0x00000001
-\`\`\`
+```
 
 </details>
 
@@ -6505,9 +6505,9 @@ pub const DF_1_NOW = 0x00000001
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_GLOBAL = 0x00000002
-\`\`\`
+```
 
 </details>
 
@@ -6518,9 +6518,9 @@ pub const DF_1_GLOBAL = 0x00000002
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_GROUP = 0x00000004
-\`\`\`
+```
 
 </details>
 
@@ -6531,9 +6531,9 @@ pub const DF_1_GROUP = 0x00000004
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_NODELETE = 0x00000008
-\`\`\`
+```
 
 </details>
 
@@ -6544,9 +6544,9 @@ pub const DF_1_NODELETE = 0x00000008
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_LOADFLTR = 0x00000010
-\`\`\`
+```
 
 </details>
 
@@ -6557,9 +6557,9 @@ pub const DF_1_LOADFLTR = 0x00000010
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_INITFIRST = 0x00000020
-\`\`\`
+```
 
 </details>
 
@@ -6570,9 +6570,9 @@ pub const DF_1_INITFIRST = 0x00000020
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_NOOPEN = 0x00000040
-\`\`\`
+```
 
 </details>
 
@@ -6583,9 +6583,9 @@ pub const DF_1_NOOPEN = 0x00000040
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_ORIGIN = 0x00000080
-\`\`\`
+```
 
 </details>
 
@@ -6596,9 +6596,9 @@ pub const DF_1_ORIGIN = 0x00000080
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_DIRECT = 0x00000100
-\`\`\`
+```
 
 </details>
 
@@ -6609,9 +6609,9 @@ pub const DF_1_DIRECT = 0x00000100
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_TRANS = 0x00000200
-\`\`\`
+```
 
 </details>
 
@@ -6622,9 +6622,9 @@ pub const DF_1_TRANS = 0x00000200
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_INTERPOSE = 0x00000400
-\`\`\`
+```
 
 </details>
 
@@ -6635,9 +6635,9 @@ pub const DF_1_INTERPOSE = 0x00000400
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_NODEFLIB = 0x00000800
-\`\`\`
+```
 
 </details>
 
@@ -6648,9 +6648,9 @@ pub const DF_1_NODEFLIB = 0x00000800
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_NODUMP = 0x00001000
-\`\`\`
+```
 
 </details>
 
@@ -6661,9 +6661,9 @@ pub const DF_1_NODUMP = 0x00001000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_CONFALT = 0x00002000
-\`\`\`
+```
 
 </details>
 
@@ -6674,9 +6674,9 @@ pub const DF_1_CONFALT = 0x00002000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_ENDFILTEE = 0x00004000
-\`\`\`
+```
 
 </details>
 
@@ -6687,9 +6687,9 @@ pub const DF_1_ENDFILTEE = 0x00004000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_DISPRELDNE = 0x00008000
-\`\`\`
+```
 
 </details>
 
@@ -6700,9 +6700,9 @@ pub const DF_1_DISPRELDNE = 0x00008000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_DISPRELPND = 0x00010000
-\`\`\`
+```
 
 </details>
 
@@ -6713,9 +6713,9 @@ pub const DF_1_DISPRELPND = 0x00010000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_NODIRECT = 0x00020000
-\`\`\`
+```
 
 </details>
 
@@ -6726,9 +6726,9 @@ pub const DF_1_NODIRECT = 0x00020000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_IGNMULDEF = 0x00040000
-\`\`\`
+```
 
 </details>
 
@@ -6739,9 +6739,9 @@ pub const DF_1_IGNMULDEF = 0x00040000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_NOKSYMS = 0x00080000
-\`\`\`
+```
 
 </details>
 
@@ -6752,9 +6752,9 @@ pub const DF_1_NOKSYMS = 0x00080000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_NOHDR = 0x00100000
-\`\`\`
+```
 
 </details>
 
@@ -6765,9 +6765,9 @@ pub const DF_1_NOHDR = 0x00100000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_EDITED = 0x00200000
-\`\`\`
+```
 
 </details>
 
@@ -6778,9 +6778,9 @@ pub const DF_1_EDITED = 0x00200000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_NORELOC = 0x00400000
-\`\`\`
+```
 
 </details>
 
@@ -6791,9 +6791,9 @@ pub const DF_1_NORELOC = 0x00400000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_SYMINTPOSE = 0x00800000
-\`\`\`
+```
 
 </details>
 
@@ -6804,9 +6804,9 @@ pub const DF_1_SYMINTPOSE = 0x00800000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_GLOBAUDIT = 0x01000000
-\`\`\`
+```
 
 </details>
 
@@ -6817,9 +6817,9 @@ pub const DF_1_GLOBAUDIT = 0x01000000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_SINGLETON = 0x02000000
-\`\`\`
+```
 
 </details>
 
@@ -6830,9 +6830,9 @@ pub const DF_1_SINGLETON = 0x02000000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_STUB = 0x04000000
-\`\`\`
+```
 
 </details>
 
@@ -6843,9 +6843,9 @@ pub const DF_1_STUB = 0x04000000
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const DF_1_PIE = 0x08000000
-\`\`\`
+```
 
 </details>
 
@@ -6858,9 +6858,9 @@ pub const DF_1_PIE = 0x08000000
 
 Version definition of the file itself
 
-\`\`\`zig
+```zig
 pub const VER_FLG_BASE = 1
-\`\`\`
+```
 
 </details>
 
@@ -6873,9 +6873,9 @@ pub const VER_FLG_BASE = 1
 
 Weak version identifier
 
-\`\`\`zig
+```zig
 pub const VER_FLG_WEAK = 2
-\`\`\`
+```
 
 </details>
 
@@ -6888,9 +6888,9 @@ pub const VER_FLG_WEAK = 2
 
 Program header table entry unused
 
-\`\`\`zig
+```zig
 pub const PT_NULL = 0
-\`\`\`
+```
 
 </details>
 
@@ -6903,9 +6903,9 @@ pub const PT_NULL = 0
 
 Loadable program segment
 
-\`\`\`zig
+```zig
 pub const PT_LOAD = 1
-\`\`\`
+```
 
 </details>
 
@@ -6918,9 +6918,9 @@ pub const PT_LOAD = 1
 
 Dynamic linking information
 
-\`\`\`zig
+```zig
 pub const PT_DYNAMIC = 2
-\`\`\`
+```
 
 </details>
 
@@ -6933,9 +6933,9 @@ pub const PT_DYNAMIC = 2
 
 Program interpreter
 
-\`\`\`zig
+```zig
 pub const PT_INTERP = 3
-\`\`\`
+```
 
 </details>
 
@@ -6948,9 +6948,9 @@ pub const PT_INTERP = 3
 
 Auxiliary information
 
-\`\`\`zig
+```zig
 pub const PT_NOTE = 4
-\`\`\`
+```
 
 </details>
 
@@ -6963,9 +6963,9 @@ pub const PT_NOTE = 4
 
 Reserved
 
-\`\`\`zig
+```zig
 pub const PT_SHLIB = 5
-\`\`\`
+```
 
 </details>
 
@@ -6978,9 +6978,9 @@ pub const PT_SHLIB = 5
 
 Entry for header table itself
 
-\`\`\`zig
+```zig
 pub const PT_PHDR = 6
-\`\`\`
+```
 
 </details>
 
@@ -6993,9 +6993,9 @@ pub const PT_PHDR = 6
 
 Thread-local storage segment
 
-\`\`\`zig
+```zig
 pub const PT_TLS = 7
-\`\`\`
+```
 
 </details>
 
@@ -7008,9 +7008,9 @@ pub const PT_TLS = 7
 
 Number of defined types
 
-\`\`\`zig
+```zig
 pub const PT_NUM = 8
-\`\`\`
+```
 
 </details>
 
@@ -7023,9 +7023,9 @@ pub const PT_NUM = 8
 
 Start of OS-specific
 
-\`\`\`zig
+```zig
 pub const PT_LOOS = 0x60000000
-\`\`\`
+```
 
 </details>
 
@@ -7038,9 +7038,9 @@ pub const PT_LOOS = 0x60000000
 
 GCC .eh_frame_hdr segment
 
-\`\`\`zig
+```zig
 pub const PT_GNU_EH_FRAME = 0x6474e550
-\`\`\`
+```
 
 </details>
 
@@ -7053,9 +7053,9 @@ pub const PT_GNU_EH_FRAME = 0x6474e550
 
 Indicates stack executability
 
-\`\`\`zig
+```zig
 pub const PT_GNU_STACK = 0x6474e551
-\`\`\`
+```
 
 </details>
 
@@ -7068,9 +7068,9 @@ pub const PT_GNU_STACK = 0x6474e551
 
 Read-only after relocation
 
-\`\`\`zig
+```zig
 pub const PT_GNU_RELRO = 0x6474e552
-\`\`\`
+```
 
 </details>
 
@@ -7081,9 +7081,9 @@ pub const PT_GNU_RELRO = 0x6474e552
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const PT_LOSUNW = 0x6ffffffa
-\`\`\`
+```
 
 </details>
 
@@ -7096,9 +7096,9 @@ pub const PT_LOSUNW = 0x6ffffffa
 
 Sun specific segment
 
-\`\`\`zig
+```zig
 pub const PT_SUNWBSS = 0x6ffffffa
-\`\`\`
+```
 
 </details>
 
@@ -7111,9 +7111,9 @@ pub const PT_SUNWBSS = 0x6ffffffa
 
 Stack segment
 
-\`\`\`zig
+```zig
 pub const PT_SUNWSTACK = 0x6ffffffb
-\`\`\`
+```
 
 </details>
 
@@ -7124,9 +7124,9 @@ pub const PT_SUNWSTACK = 0x6ffffffb
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const PT_HISUNW = 0x6fffffff
-\`\`\`
+```
 
 </details>
 
@@ -7139,9 +7139,9 @@ pub const PT_HISUNW = 0x6fffffff
 
 End of OS-specific
 
-\`\`\`zig
+```zig
 pub const PT_HIOS = 0x6fffffff
-\`\`\`
+```
 
 </details>
 
@@ -7154,9 +7154,9 @@ pub const PT_HIOS = 0x6fffffff
 
 Start of processor-specific
 
-\`\`\`zig
+```zig
 pub const PT_LOPROC = 0x70000000
-\`\`\`
+```
 
 </details>
 
@@ -7169,9 +7169,9 @@ pub const PT_LOPROC = 0x70000000
 
 End of processor-specific
 
-\`\`\`zig
+```zig
 pub const PT_HIPROC = 0x7fffffff
-\`\`\`
+```
 
 </details>
 
@@ -7184,9 +7184,9 @@ pub const PT_HIPROC = 0x7fffffff
 
 Section header table entry unused
 
-\`\`\`zig
+```zig
 pub const SHT_NULL = 0
-\`\`\`
+```
 
 </details>
 
@@ -7199,9 +7199,9 @@ pub const SHT_NULL = 0
 
 Program data
 
-\`\`\`zig
+```zig
 pub const SHT_PROGBITS = 1
-\`\`\`
+```
 
 </details>
 
@@ -7214,9 +7214,9 @@ pub const SHT_PROGBITS = 1
 
 Symbol table
 
-\`\`\`zig
+```zig
 pub const SHT_SYMTAB = 2
-\`\`\`
+```
 
 </details>
 
@@ -7229,9 +7229,9 @@ pub const SHT_SYMTAB = 2
 
 String table
 
-\`\`\`zig
+```zig
 pub const SHT_STRTAB = 3
-\`\`\`
+```
 
 </details>
 
@@ -7244,9 +7244,9 @@ pub const SHT_STRTAB = 3
 
 Relocation entries with addends
 
-\`\`\`zig
+```zig
 pub const SHT_RELA = 4
-\`\`\`
+```
 
 </details>
 
@@ -7259,9 +7259,9 @@ pub const SHT_RELA = 4
 
 Symbol hash table
 
-\`\`\`zig
+```zig
 pub const SHT_HASH = 5
-\`\`\`
+```
 
 </details>
 
@@ -7274,9 +7274,9 @@ pub const SHT_HASH = 5
 
 Dynamic linking information
 
-\`\`\`zig
+```zig
 pub const SHT_DYNAMIC = 6
-\`\`\`
+```
 
 </details>
 
@@ -7289,9 +7289,9 @@ pub const SHT_DYNAMIC = 6
 
 Notes
 
-\`\`\`zig
+```zig
 pub const SHT_NOTE = 7
-\`\`\`
+```
 
 </details>
 
@@ -7304,9 +7304,9 @@ pub const SHT_NOTE = 7
 
 Program space with no data (bss)
 
-\`\`\`zig
+```zig
 pub const SHT_NOBITS = 8
-\`\`\`
+```
 
 </details>
 
@@ -7319,9 +7319,9 @@ pub const SHT_NOBITS = 8
 
 Relocation entries, no addends
 
-\`\`\`zig
+```zig
 pub const SHT_REL = 9
-\`\`\`
+```
 
 </details>
 
@@ -7334,9 +7334,9 @@ pub const SHT_REL = 9
 
 Reserved
 
-\`\`\`zig
+```zig
 pub const SHT_SHLIB = 10
-\`\`\`
+```
 
 </details>
 
@@ -7349,9 +7349,9 @@ pub const SHT_SHLIB = 10
 
 Dynamic linker symbol table
 
-\`\`\`zig
+```zig
 pub const SHT_DYNSYM = 11
-\`\`\`
+```
 
 </details>
 
@@ -7364,9 +7364,9 @@ pub const SHT_DYNSYM = 11
 
 Array of constructors
 
-\`\`\`zig
+```zig
 pub const SHT_INIT_ARRAY = 14
-\`\`\`
+```
 
 </details>
 
@@ -7379,9 +7379,9 @@ pub const SHT_INIT_ARRAY = 14
 
 Array of destructors
 
-\`\`\`zig
+```zig
 pub const SHT_FINI_ARRAY = 15
-\`\`\`
+```
 
 </details>
 
@@ -7394,9 +7394,9 @@ pub const SHT_FINI_ARRAY = 15
 
 Array of pre-constructors
 
-\`\`\`zig
+```zig
 pub const SHT_PREINIT_ARRAY = 16
-\`\`\`
+```
 
 </details>
 
@@ -7409,9 +7409,9 @@ pub const SHT_PREINIT_ARRAY = 16
 
 Section group
 
-\`\`\`zig
+```zig
 pub const SHT_GROUP = 17
-\`\`\`
+```
 
 </details>
 
@@ -7424,9 +7424,9 @@ pub const SHT_GROUP = 17
 
 Extended section indices
 
-\`\`\`zig
+```zig
 pub const SHT_SYMTAB_SHNDX = 18
-\`\`\`
+```
 
 </details>
 
@@ -7439,9 +7439,9 @@ pub const SHT_SYMTAB_SHNDX = 18
 
 Start of OS-specific
 
-\`\`\`zig
+```zig
 pub const SHT_LOOS = 0x60000000
-\`\`\`
+```
 
 </details>
 
@@ -7454,9 +7454,9 @@ pub const SHT_LOOS = 0x60000000
 
 LLVM address-significance table
 
-\`\`\`zig
+```zig
 pub const SHT_LLVM_ADDRSIG = 0x6fff4c03
-\`\`\`
+```
 
 </details>
 
@@ -7469,9 +7469,9 @@ pub const SHT_LLVM_ADDRSIG = 0x6fff4c03
 
 GNU hash table
 
-\`\`\`zig
+```zig
 pub const SHT_GNU_HASH = 0x6ffffff6
-\`\`\`
+```
 
 </details>
 
@@ -7484,9 +7484,9 @@ pub const SHT_GNU_HASH = 0x6ffffff6
 
 GNU version definition table
 
-\`\`\`zig
+```zig
 pub const SHT_GNU_VERDEF = 0x6ffffffd
-\`\`\`
+```
 
 </details>
 
@@ -7499,9 +7499,9 @@ pub const SHT_GNU_VERDEF = 0x6ffffffd
 
 GNU needed versions table
 
-\`\`\`zig
+```zig
 pub const SHT_GNU_VERNEED = 0x6ffffffe
-\`\`\`
+```
 
 </details>
 
@@ -7514,9 +7514,9 @@ pub const SHT_GNU_VERNEED = 0x6ffffffe
 
 GNU symbol version table
 
-\`\`\`zig
+```zig
 pub const SHT_GNU_VERSYM = 0x6fffffff
-\`\`\`
+```
 
 </details>
 
@@ -7529,9 +7529,9 @@ pub const SHT_GNU_VERSYM = 0x6fffffff
 
 End of OS-specific
 
-\`\`\`zig
+```zig
 pub const SHT_HIOS = 0x6fffffff
-\`\`\`
+```
 
 </details>
 
@@ -7544,9 +7544,9 @@ pub const SHT_HIOS = 0x6fffffff
 
 Start of processor-specific
 
-\`\`\`zig
+```zig
 pub const SHT_LOPROC = 0x70000000
-\`\`\`
+```
 
 </details>
 
@@ -7559,9 +7559,9 @@ pub const SHT_LOPROC = 0x70000000
 
 Unwind information
 
-\`\`\`zig
+```zig
 pub const SHT_X86_64_UNWIND = 0x70000001
-\`\`\`
+```
 
 </details>
 
@@ -7574,9 +7574,9 @@ pub const SHT_X86_64_UNWIND = 0x70000001
 
 End of processor-specific
 
-\`\`\`zig
+```zig
 pub const SHT_HIPROC = 0x7fffffff
-\`\`\`
+```
 
 </details>
 
@@ -7589,9 +7589,9 @@ pub const SHT_HIPROC = 0x7fffffff
 
 Start of application-specific
 
-\`\`\`zig
+```zig
 pub const SHT_LOUSER = 0x80000000
-\`\`\`
+```
 
 </details>
 
@@ -7604,9 +7604,9 @@ pub const SHT_LOUSER = 0x80000000
 
 End of application-specific
 
-\`\`\`zig
+```zig
 pub const SHT_HIUSER = 0xffffffff
-\`\`\`
+```
 
 </details>
 
@@ -7617,9 +7617,9 @@ pub const SHT_HIUSER = 0xffffffff
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const NT_GNU_BUILD_ID = 3
-\`\`\`
+```
 
 </details>
 
@@ -7632,9 +7632,9 @@ pub const NT_GNU_BUILD_ID = 3
 
 Local symbol
 
-\`\`\`zig
+```zig
 pub const STB_LOCAL = 0
-\`\`\`
+```
 
 </details>
 
@@ -7647,9 +7647,9 @@ pub const STB_LOCAL = 0
 
 Global symbol
 
-\`\`\`zig
+```zig
 pub const STB_GLOBAL = 1
-\`\`\`
+```
 
 </details>
 
@@ -7662,9 +7662,9 @@ pub const STB_GLOBAL = 1
 
 Weak symbol
 
-\`\`\`zig
+```zig
 pub const STB_WEAK = 2
-\`\`\`
+```
 
 </details>
 
@@ -7677,9 +7677,9 @@ pub const STB_WEAK = 2
 
 Number of defined types
 
-\`\`\`zig
+```zig
 pub const STB_NUM = 3
-\`\`\`
+```
 
 </details>
 
@@ -7692,9 +7692,9 @@ pub const STB_NUM = 3
 
 Start of OS-specific
 
-\`\`\`zig
+```zig
 pub const STB_LOOS = 10
-\`\`\`
+```
 
 </details>
 
@@ -7707,9 +7707,9 @@ pub const STB_LOOS = 10
 
 Unique symbol
 
-\`\`\`zig
+```zig
 pub const STB_GNU_UNIQUE = 10
-\`\`\`
+```
 
 </details>
 
@@ -7722,9 +7722,9 @@ pub const STB_GNU_UNIQUE = 10
 
 End of OS-specific
 
-\`\`\`zig
+```zig
 pub const STB_HIOS = 12
-\`\`\`
+```
 
 </details>
 
@@ -7737,9 +7737,9 @@ pub const STB_HIOS = 12
 
 Start of processor-specific
 
-\`\`\`zig
+```zig
 pub const STB_LOPROC = 13
-\`\`\`
+```
 
 </details>
 
@@ -7752,9 +7752,9 @@ pub const STB_LOPROC = 13
 
 End of processor-specific
 
-\`\`\`zig
+```zig
 pub const STB_HIPROC = 15
-\`\`\`
+```
 
 </details>
 
@@ -7765,9 +7765,9 @@ pub const STB_HIPROC = 15
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const STB_MIPS_SPLIT_COMMON = 13
-\`\`\`
+```
 
 </details>
 
@@ -7780,9 +7780,9 @@ pub const STB_MIPS_SPLIT_COMMON = 13
 
 Symbol type is unspecified
 
-\`\`\`zig
+```zig
 pub const STT_NOTYPE = 0
-\`\`\`
+```
 
 </details>
 
@@ -7795,9 +7795,9 @@ pub const STT_NOTYPE = 0
 
 Symbol is a data object
 
-\`\`\`zig
+```zig
 pub const STT_OBJECT = 1
-\`\`\`
+```
 
 </details>
 
@@ -7810,9 +7810,9 @@ pub const STT_OBJECT = 1
 
 Symbol is a code object
 
-\`\`\`zig
+```zig
 pub const STT_FUNC = 2
-\`\`\`
+```
 
 </details>
 
@@ -7825,9 +7825,9 @@ pub const STT_FUNC = 2
 
 Symbol associated with a section
 
-\`\`\`zig
+```zig
 pub const STT_SECTION = 3
-\`\`\`
+```
 
 </details>
 
@@ -7840,9 +7840,9 @@ pub const STT_SECTION = 3
 
 Symbol's name is file name
 
-\`\`\`zig
+```zig
 pub const STT_FILE = 4
-\`\`\`
+```
 
 </details>
 
@@ -7855,9 +7855,9 @@ pub const STT_FILE = 4
 
 Symbol is a common data object
 
-\`\`\`zig
+```zig
 pub const STT_COMMON = 5
-\`\`\`
+```
 
 </details>
 
@@ -7870,9 +7870,9 @@ pub const STT_COMMON = 5
 
 Symbol is thread-local data object
 
-\`\`\`zig
+```zig
 pub const STT_TLS = 6
-\`\`\`
+```
 
 </details>
 
@@ -7885,9 +7885,9 @@ pub const STT_TLS = 6
 
 Number of defined types
 
-\`\`\`zig
+```zig
 pub const STT_NUM = 7
-\`\`\`
+```
 
 </details>
 
@@ -7900,9 +7900,9 @@ pub const STT_NUM = 7
 
 Start of OS-specific
 
-\`\`\`zig
+```zig
 pub const STT_LOOS = 10
-\`\`\`
+```
 
 </details>
 
@@ -7915,9 +7915,9 @@ pub const STT_LOOS = 10
 
 Symbol is indirect code object
 
-\`\`\`zig
+```zig
 pub const STT_GNU_IFUNC = 10
-\`\`\`
+```
 
 </details>
 
@@ -7930,9 +7930,9 @@ pub const STT_GNU_IFUNC = 10
 
 End of OS-specific
 
-\`\`\`zig
+```zig
 pub const STT_HIOS = 12
-\`\`\`
+```
 
 </details>
 
@@ -7945,9 +7945,9 @@ pub const STT_HIOS = 12
 
 Start of processor-specific
 
-\`\`\`zig
+```zig
 pub const STT_LOPROC = 13
-\`\`\`
+```
 
 </details>
 
@@ -7960,9 +7960,9 @@ pub const STT_LOPROC = 13
 
 End of processor-specific
 
-\`\`\`zig
+```zig
 pub const STT_HIPROC = 15
-\`\`\`
+```
 
 </details>
 
@@ -7973,9 +7973,9 @@ pub const STT_HIPROC = 15
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const STT_SPARC_REGISTER = 13
-\`\`\`
+```
 
 </details>
 
@@ -7986,9 +7986,9 @@ pub const STT_SPARC_REGISTER = 13
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const STT_PARISC_MILLICODE = 13
-\`\`\`
+```
 
 </details>
 
@@ -7999,9 +7999,9 @@ pub const STT_PARISC_MILLICODE = 13
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const STT_HP_OPAQUE = (STT_LOOS + 0x1)
-\`\`\`
+```
 
 </details>
 
@@ -8012,9 +8012,9 @@ pub const STT_HP_OPAQUE = (STT_LOOS + 0x1)
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const STT_HP_STUB = (STT_LOOS + 0x2)
-\`\`\`
+```
 
 </details>
 
@@ -8025,9 +8025,9 @@ pub const STT_HP_STUB = (STT_LOOS + 0x2)
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const STT_ARM_TFUNC = STT_LOPROC
-\`\`\`
+```
 
 </details>
 
@@ -8038,9 +8038,9 @@ pub const STT_ARM_TFUNC = STT_LOPROC
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const STT_ARM_16BIT = STT_HIPROC
-\`\`\`
+```
 
 </details>
 
@@ -8051,9 +8051,9 @@ pub const STT_ARM_16BIT = STT_HIPROC
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const MAGIC = "\x7fELF"
-\`\`\`
+```
 
 </details>
 
@@ -8064,9 +8064,9 @@ pub const MAGIC = "\x7fELF"
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ELFCLASSNONE = 0
-\`\`\`
+```
 
 </details>
 
@@ -8077,9 +8077,9 @@ pub const ELFCLASSNONE = 0
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ELFCLASS32 = 1
-\`\`\`
+```
 
 </details>
 
@@ -8090,9 +8090,9 @@ pub const ELFCLASS32 = 1
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ELFCLASS64 = 2
-\`\`\`
+```
 
 </details>
 
@@ -8103,9 +8103,9 @@ pub const ELFCLASS64 = 2
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ELFCLASSNUM = 3
-\`\`\`
+```
 
 </details>
 
@@ -8116,9 +8116,9 @@ pub const ELFCLASSNUM = 3
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ELFDATANONE = 0
-\`\`\`
+```
 
 </details>
 
@@ -8129,9 +8129,9 @@ pub const ELFDATANONE = 0
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ELFDATA2LSB = 1
-\`\`\`
+```
 
 </details>
 
@@ -8142,9 +8142,9 @@ pub const ELFDATA2LSB = 1
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ELFDATA2MSB = 2
-\`\`\`
+```
 
 </details>
 
@@ -8155,9 +8155,9 @@ pub const ELFDATA2MSB = 2
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ELFDATANUM = 3
-\`\`\`
+```
 
 </details>
 
@@ -8168,9 +8168,9 @@ pub const ELFDATANUM = 3
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const EI_CLASS = 4
-\`\`\`
+```
 
 </details>
 
@@ -8181,9 +8181,9 @@ pub const EI_CLASS = 4
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const EI_DATA = 5
-\`\`\`
+```
 
 </details>
 
@@ -8194,9 +8194,9 @@ pub const EI_DATA = 5
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const EI_VERSION = 6
-\`\`\`
+```
 
 </details>
 
@@ -8207,9 +8207,9 @@ pub const EI_VERSION = 6
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const EI_OSABI = 7
-\`\`\`
+```
 
 </details>
 
@@ -8220,9 +8220,9 @@ pub const EI_OSABI = 7
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const EI_ABIVERSION = 8
-\`\`\`
+```
 
 </details>
 
@@ -8233,9 +8233,9 @@ pub const EI_ABIVERSION = 8
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const EI_PAD = 9
-\`\`\`
+```
 
 </details>
 
@@ -8246,9 +8246,9 @@ pub const EI_PAD = 9
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const EI_NIDENT = 16
-\`\`\`
+```
 
 </details>
 
@@ -8259,9 +8259,9 @@ pub const EI_NIDENT = 16
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Half = u16
-\`\`\`
+```
 
 </details>
 
@@ -8272,9 +8272,9 @@ pub const Half = u16
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Word = u32
-\`\`\`
+```
 
 </details>
 
@@ -8285,9 +8285,9 @@ pub const Word = u32
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Sword = i32
-\`\`\`
+```
 
 </details>
 
@@ -8298,9 +8298,9 @@ pub const Sword = i32
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_Xword = u64
-\`\`\`
+```
 
 </details>
 
@@ -8311,9 +8311,9 @@ pub const Elf32_Xword = u64
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_Sxword = i64
-\`\`\`
+```
 
 </details>
 
@@ -8324,9 +8324,9 @@ pub const Elf32_Sxword = i64
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf64_Xword = u64
-\`\`\`
+```
 
 </details>
 
@@ -8337,9 +8337,9 @@ pub const Elf64_Xword = u64
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf64_Sxword = i64
-\`\`\`
+```
 
 </details>
 
@@ -8350,9 +8350,9 @@ pub const Elf64_Sxword = i64
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_Addr = u32
-\`\`\`
+```
 
 </details>
 
@@ -8363,9 +8363,9 @@ pub const Elf32_Addr = u32
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf64_Addr = u64
-\`\`\`
+```
 
 </details>
 
@@ -8376,9 +8376,9 @@ pub const Elf64_Addr = u64
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_Off = u32
-\`\`\`
+```
 
 </details>
 
@@ -8389,9 +8389,9 @@ pub const Elf32_Off = u32
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf64_Off = u64
-\`\`\`
+```
 
 </details>
 
@@ -8402,9 +8402,9 @@ pub const Elf64_Off = u64
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_Section = u16
-\`\`\`
+```
 
 </details>
 
@@ -8415,9 +8415,9 @@ pub const Elf32_Section = u16
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf64_Section = u16
-\`\`\`
+```
 
 </details>
 
@@ -8428,9 +8428,9 @@ pub const Elf64_Section = u16
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_Relr = Word
-\`\`\`
+```
 
 </details>
 
@@ -8441,9 +8441,9 @@ pub const Elf32_Relr = Word
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf64_Relr = Elf64_Xword
-\`\`\`
+```
 
 </details>
 
@@ -8454,9 +8454,9 @@ pub const Elf64_Relr = Elf64_Xword
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Elf32_Conflict = Elf32_Addr
-\`\`\`
+```
 
 </details>
 
@@ -8467,13 +8467,13 @@ pub const Elf32_Conflict = Elf32_Addr
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Auxv = switch (@sizeOf(usize)) {
     4 => Elf32_auxv_t,
     8 => Elf64_auxv_t,
     else => @compileError("expected pointer size of 32 or 64"),
 }
-\`\`\`
+```
 
 </details>
 
@@ -8484,13 +8484,13 @@ pub const Auxv = switch (@sizeOf(usize)) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Ehdr = switch (@sizeOf(usize)) {
     4 => Elf32_Ehdr,
     8 => Elf64_Ehdr,
     else => @compileError("expected pointer size of 32 or 64"),
 }
-\`\`\`
+```
 
 </details>
 
@@ -8501,13 +8501,13 @@ pub const Ehdr = switch (@sizeOf(usize)) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Phdr = switch (@sizeOf(usize)) {
     4 => Elf32_Phdr,
     8 => Elf64_Phdr,
     else => @compileError("expected pointer size of 32 or 64"),
 }
-\`\`\`
+```
 
 </details>
 
@@ -8518,13 +8518,13 @@ pub const Phdr = switch (@sizeOf(usize)) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Dyn = switch (@sizeOf(usize)) {
     4 => Elf32_Dyn,
     8 => Elf64_Dyn,
     else => @compileError("expected pointer size of 32 or 64"),
 }
-\`\`\`
+```
 
 </details>
 
@@ -8535,13 +8535,13 @@ pub const Dyn = switch (@sizeOf(usize)) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Rel = switch (@sizeOf(usize)) {
     4 => Elf32_Rel,
     8 => Elf64_Rel,
     else => @compileError("expected pointer size of 32 or 64"),
 }
-\`\`\`
+```
 
 </details>
 
@@ -8552,13 +8552,13 @@ pub const Rel = switch (@sizeOf(usize)) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Rela = switch (@sizeOf(usize)) {
     4 => Elf32_Rela,
     8 => Elf64_Rela,
     else => @compileError("expected pointer size of 32 or 64"),
 }
-\`\`\`
+```
 
 </details>
 
@@ -8569,13 +8569,13 @@ pub const Rela = switch (@sizeOf(usize)) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Relr = switch (@sizeOf(usize)) {
     4 => Elf32_Relr,
     8 => Elf64_Relr,
     else => @compileError("expected pointer size of 32 or 64"),
 }
-\`\`\`
+```
 
 </details>
 
@@ -8586,13 +8586,13 @@ pub const Relr = switch (@sizeOf(usize)) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Shdr = switch (@sizeOf(usize)) {
     4 => Elf32_Shdr,
     8 => Elf64_Shdr,
     else => @compileError("expected pointer size of 32 or 64"),
 }
-\`\`\`
+```
 
 </details>
 
@@ -8603,13 +8603,13 @@ pub const Shdr = switch (@sizeOf(usize)) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Chdr = switch (@sizeOf(usize)) {
     4 => Elf32_Chdr,
     8 => Elf64_Chdr,
     else => @compileError("expected pointer size of 32 or 64"),
 }
-\`\`\`
+```
 
 </details>
 
@@ -8620,13 +8620,13 @@ pub const Chdr = switch (@sizeOf(usize)) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Sym = switch (@sizeOf(usize)) {
     4 => Elf32_Sym,
     8 => Elf64_Sym,
     else => @compileError("expected pointer size of 32 or 64"),
 }
-\`\`\`
+```
 
 </details>
 
@@ -8637,13 +8637,13 @@ pub const Sym = switch (@sizeOf(usize)) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Addr = switch (@sizeOf(usize)) {
     4 => Elf32_Addr,
     8 => Elf64_Addr,
     else => @compileError("expected pointer size of 32 or 64"),
 }
-\`\`\`
+```
 
 </details>
 
@@ -8654,9 +8654,9 @@ pub const Addr = switch (@sizeOf(usize)) {
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const GRP_COMDAT = 1
-\`\`\`
+```
 
 </details>
 
@@ -8669,9 +8669,9 @@ pub const GRP_COMDAT = 1
 
 Section data should be writable during execution.
 
-\`\`\`zig
+```zig
 pub const SHF_WRITE = 0x1
-\`\`\`
+```
 
 </details>
 
@@ -8684,9 +8684,9 @@ pub const SHF_WRITE = 0x1
 
 Section occupies memory during program execution.
 
-\`\`\`zig
+```zig
 pub const SHF_ALLOC = 0x2
-\`\`\`
+```
 
 </details>
 
@@ -8699,9 +8699,9 @@ pub const SHF_ALLOC = 0x2
 
 Section contains executable machine instructions.
 
-\`\`\`zig
+```zig
 pub const SHF_EXECINSTR = 0x4
-\`\`\`
+```
 
 </details>
 
@@ -8714,9 +8714,9 @@ pub const SHF_EXECINSTR = 0x4
 
 The data in this section may be merged.
 
-\`\`\`zig
+```zig
 pub const SHF_MERGE = 0x10
-\`\`\`
+```
 
 </details>
 
@@ -8729,9 +8729,9 @@ pub const SHF_MERGE = 0x10
 
 The data in this section is null-terminated strings.
 
-\`\`\`zig
+```zig
 pub const SHF_STRINGS = 0x20
-\`\`\`
+```
 
 </details>
 
@@ -8744,9 +8744,9 @@ pub const SHF_STRINGS = 0x20
 
 A field in this section holds a section header table index.
 
-\`\`\`zig
+```zig
 pub const SHF_INFO_LINK = 0x40
-\`\`\`
+```
 
 </details>
 
@@ -8759,9 +8759,9 @@ pub const SHF_INFO_LINK = 0x40
 
 Adds special ordering requirements for link editors.
 
-\`\`\`zig
+```zig
 pub const SHF_LINK_ORDER = 0x80
-\`\`\`
+```
 
 </details>
 
@@ -8775,9 +8775,9 @@ pub const SHF_LINK_ORDER = 0x80
 This section requires special OS-specific processing to avoid incorrect
 behavior.
 
-\`\`\`zig
+```zig
 pub const SHF_OS_NONCONFORMING = 0x100
-\`\`\`
+```
 
 </details>
 
@@ -8790,9 +8790,9 @@ pub const SHF_OS_NONCONFORMING = 0x100
 
 This section is a member of a section group.
 
-\`\`\`zig
+```zig
 pub const SHF_GROUP = 0x200
-\`\`\`
+```
 
 </details>
 
@@ -8805,9 +8805,9 @@ pub const SHF_GROUP = 0x200
 
 This section holds Thread-Local Storage.
 
-\`\`\`zig
+```zig
 pub const SHF_TLS = 0x400
-\`\`\`
+```
 
 </details>
 
@@ -8820,9 +8820,9 @@ pub const SHF_TLS = 0x400
 
 Identifies a section containing compressed data.
 
-\`\`\`zig
+```zig
 pub const SHF_COMPRESSED = 0x800
-\`\`\`
+```
 
 </details>
 
@@ -8835,9 +8835,9 @@ pub const SHF_COMPRESSED = 0x800
 
 Not to be GCed by the linker
 
-\`\`\`zig
+```zig
 pub const SHF_GNU_RETAIN = 0x200000
-\`\`\`
+```
 
 </details>
 
@@ -8850,9 +8850,9 @@ pub const SHF_GNU_RETAIN = 0x200000
 
 This section is excluded from the final executable or shared library.
 
-\`\`\`zig
+```zig
 pub const SHF_EXCLUDE = 0x80000000
-\`\`\`
+```
 
 </details>
 
@@ -8865,9 +8865,9 @@ pub const SHF_EXCLUDE = 0x80000000
 
 Start of target-specific flags.
 
-\`\`\`zig
+```zig
 pub const SHF_MASKOS = 0x0ff00000
-\`\`\`
+```
 
 </details>
 
@@ -8880,9 +8880,9 @@ pub const SHF_MASKOS = 0x0ff00000
 
 Bits indicating processor-specific flags.
 
-\`\`\`zig
+```zig
 pub const SHF_MASKPROC = 0xf0000000
-\`\`\`
+```
 
 </details>
 
@@ -8897,9 +8897,9 @@ All sections with the "d" flag are grouped together by the linker to form
 the data section and the dp register is set to the start of the section by
 the boot code.
 
-\`\`\`zig
+```zig
 pub const XCORE_SHF_DP_SECTION = 0x10000000
-\`\`\`
+```
 
 </details>
 
@@ -8914,9 +8914,9 @@ All sections with the "c" flag are grouped together by the linker to form
 the constant pool and the cp register is set to the start of the constant
 pool by the boot code.
 
-\`\`\`zig
+```zig
 pub const XCORE_SHF_CP_SECTION = 0x20000000
-\`\`\`
+```
 
 </details>
 
@@ -8935,9 +8935,9 @@ sets this flag besides being able to refer to data in a section that does
 not set it; likewise, a small code model object can refer only to code in a
 section that does not set this flag.
 
-\`\`\`zig
+```zig
 pub const SHF_X86_64_LARGE = 0x10000000
-\`\`\`
+```
 
 </details>
 
@@ -8951,9 +8951,9 @@ pub const SHF_X86_64_LARGE = 0x10000000
 All sections with the GPREL flag are grouped into a global data area
 for faster accesses
 
-\`\`\`zig
+```zig
 pub const SHF_HEX_GPREL = 0x10000000
-\`\`\`
+```
 
 </details>
 
@@ -8967,9 +8967,9 @@ pub const SHF_HEX_GPREL = 0x10000000
 Section contains text/data which may be replicated in other sections.
 Linker must retain only one copy.
 
-\`\`\`zig
+```zig
 pub const SHF_MIPS_NODUPES = 0x01000000
-\`\`\`
+```
 
 </details>
 
@@ -8982,9 +8982,9 @@ pub const SHF_MIPS_NODUPES = 0x01000000
 
 Linker must generate implicit hidden weak names.
 
-\`\`\`zig
+```zig
 pub const SHF_MIPS_NAMES = 0x02000000
-\`\`\`
+```
 
 </details>
 
@@ -8997,9 +8997,9 @@ pub const SHF_MIPS_NAMES = 0x02000000
 
 Section data local to process.
 
-\`\`\`zig
+```zig
 pub const SHF_MIPS_LOCAL = 0x04000000
-\`\`\`
+```
 
 </details>
 
@@ -9012,9 +9012,9 @@ pub const SHF_MIPS_LOCAL = 0x04000000
 
 Do not strip this section.
 
-\`\`\`zig
+```zig
 pub const SHF_MIPS_NOSTRIP = 0x08000000
-\`\`\`
+```
 
 </details>
 
@@ -9027,9 +9027,9 @@ pub const SHF_MIPS_NOSTRIP = 0x08000000
 
 Section must be part of global data area.
 
-\`\`\`zig
+```zig
 pub const SHF_MIPS_GPREL = 0x10000000
-\`\`\`
+```
 
 </details>
 
@@ -9042,9 +9042,9 @@ pub const SHF_MIPS_GPREL = 0x10000000
 
 This section should be merged.
 
-\`\`\`zig
+```zig
 pub const SHF_MIPS_MERGE = 0x20000000
-\`\`\`
+```
 
 </details>
 
@@ -9057,9 +9057,9 @@ pub const SHF_MIPS_MERGE = 0x20000000
 
 Address size to be inferred from section entry size.
 
-\`\`\`zig
+```zig
 pub const SHF_MIPS_ADDR = 0x40000000
-\`\`\`
+```
 
 </details>
 
@@ -9072,9 +9072,9 @@ pub const SHF_MIPS_ADDR = 0x40000000
 
 Section data is string data by default.
 
-\`\`\`zig
+```zig
 pub const SHF_MIPS_STRING = 0x80000000
-\`\`\`
+```
 
 </details>
 
@@ -9087,9 +9087,9 @@ pub const SHF_MIPS_STRING = 0x80000000
 
 Make code section unreadable when in execute-only mode
 
-\`\`\`zig
+```zig
 pub const SHF_ARM_PURECODE = 0x2000000
-\`\`\`
+```
 
 </details>
 
@@ -9102,9 +9102,9 @@ pub const SHF_ARM_PURECODE = 0x2000000
 
 Execute
 
-\`\`\`zig
+```zig
 pub const PF_X = 1
-\`\`\`
+```
 
 </details>
 
@@ -9117,9 +9117,9 @@ pub const PF_X = 1
 
 Write
 
-\`\`\`zig
+```zig
 pub const PF_W = 2
-\`\`\`
+```
 
 </details>
 
@@ -9132,9 +9132,9 @@ pub const PF_W = 2
 
 Read
 
-\`\`\`zig
+```zig
 pub const PF_R = 4
-\`\`\`
+```
 
 </details>
 
@@ -9147,9 +9147,9 @@ pub const PF_R = 4
 
 Bits for operating system-specific semantics.
 
-\`\`\`zig
+```zig
 pub const PF_MASKOS = 0x0ff00000
-\`\`\`
+```
 
 </details>
 
@@ -9162,9 +9162,9 @@ pub const PF_MASKOS = 0x0ff00000
 
 Bits for processor-specific semantics.
 
-\`\`\`zig
+```zig
 pub const PF_MASKPROC = 0xf0000000
-\`\`\`
+```
 
 </details>
 
@@ -9177,9 +9177,9 @@ pub const PF_MASKPROC = 0xf0000000
 
 Undefined section
 
-\`\`\`zig
+```zig
 pub const SHN_UNDEF = 0
-\`\`\`
+```
 
 </details>
 
@@ -9192,9 +9192,9 @@ pub const SHN_UNDEF = 0
 
 Start of reserved indices
 
-\`\`\`zig
+```zig
 pub const SHN_LORESERVE = 0xff00
-\`\`\`
+```
 
 </details>
 
@@ -9207,9 +9207,9 @@ pub const SHN_LORESERVE = 0xff00
 
 Start of processor-specific
 
-\`\`\`zig
+```zig
 pub const SHN_LOPROC = 0xff00
-\`\`\`
+```
 
 </details>
 
@@ -9222,9 +9222,9 @@ pub const SHN_LOPROC = 0xff00
 
 End of processor-specific
 
-\`\`\`zig
+```zig
 pub const SHN_HIPROC = 0xff1f
-\`\`\`
+```
 
 </details>
 
@@ -9235,9 +9235,9 @@ pub const SHN_HIPROC = 0xff1f
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SHN_LIVEPATCH = 0xff20
-\`\`\`
+```
 
 </details>
 
@@ -9250,9 +9250,9 @@ pub const SHN_LIVEPATCH = 0xff20
 
 Associated symbol is absolute
 
-\`\`\`zig
+```zig
 pub const SHN_ABS = 0xfff1
-\`\`\`
+```
 
 </details>
 
@@ -9265,9 +9265,9 @@ pub const SHN_ABS = 0xfff1
 
 Associated symbol is common
 
-\`\`\`zig
+```zig
 pub const SHN_COMMON = 0xfff2
-\`\`\`
+```
 
 </details>
 
@@ -9280,9 +9280,9 @@ pub const SHN_COMMON = 0xfff2
 
 End of reserved indices
 
-\`\`\`zig
+```zig
 pub const SHN_HIRESERVE = 0xffff
-\`\`\`
+```
 
 </details>
 
@@ -9295,9 +9295,9 @@ pub const SHN_HIRESERVE = 0xffff
 
 String that begins an archive file.
 
-\`\`\`zig
+```zig
 pub const ARMAG = "!<arch>\n"
-\`\`\`
+```
 
 </details>
 
@@ -9310,9 +9310,9 @@ pub const ARMAG = "!<arch>\n"
 
 String in ar_fmag at the end of each header.
 
-\`\`\`zig
+```zig
 pub const ARFMAG = "`\n"
-\`\`\`
+```
 
 </details>
 
@@ -9325,9 +9325,9 @@ pub const ARFMAG = "`\n"
 
 32-bit symtab identifier
 
-\`\`\`zig
+```zig
 pub const SYMNAME = genSpecialMemberName("/")
-\`\`\`
+```
 
 </details>
 
@@ -9340,9 +9340,9 @@ pub const SYMNAME = genSpecialMemberName("/")
 
 Strtab identifier
 
-\`\`\`zig
+```zig
 pub const STRNAME = genSpecialMemberName("//")
-\`\`\`
+```
 
 </details>
 
@@ -9355,9 +9355,9 @@ pub const STRNAME = genSpecialMemberName("//")
 
 64-bit symtab identifier
 
-\`\`\`zig
+```zig
 pub const SYM64NAME = genSpecialMemberName("/SYM64/")
-\`\`\`
+```
 
 </details>
 
@@ -9368,9 +9368,9 @@ pub const SYM64NAME = genSpecialMemberName("/SYM64/")
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SYMDEFNAME = genSpecialMemberName("__.SYMDEF")
-\`\`\`
+```
 
 </details>
 
@@ -9381,10 +9381,12 @@ pub const SYMDEFNAME = genSpecialMemberName("__.SYMDEF")
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const SYMDEFSORTEDNAME = genSpecialMemberName("__.SYMDEF SORTED")
-\`\`\`
+```
 
 </details>
 
 ---
+
+

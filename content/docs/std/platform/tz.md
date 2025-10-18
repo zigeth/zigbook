@@ -50,12 +50,12 @@ This page syncs automatically from `std/tz.md` in the repository. Edit the sourc
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Transition = struct {
     ts: i64,
     timetype: *Timetype,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -73,7 +73,7 @@ pub const Transition = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Timetype = struct {
     offset: i32,
     flags: u8,
@@ -95,7 +95,7 @@ pub const Timetype = struct {
         return (self.flags & 0x04) > 0;
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -114,12 +114,12 @@ pub const Timetype = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Leapsecond = struct {
     occurrence: i48,
     correction: i16,
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -137,7 +137,7 @@ pub const Leapsecond = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Tz = struct {
     allocator: std.mem.Allocator,
     transitions: []const Transition,
@@ -317,7 +317,7 @@ pub const Tz = struct {
         self.allocator.free(self.timetypes);
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -332,3 +332,5 @@ pub const Tz = struct {
 </details>
 
 ---
+
+

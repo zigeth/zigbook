@@ -81,7 +81,7 @@ This page syncs automatically from `std/testing.md` in the repository. Edit the 
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const TmpDir = struct {
     dir: std.fs.Dir,
     parent_dir: std.fs.Dir,
@@ -97,7 +97,7 @@ pub const TmpDir = struct {
         self.* = undefined;
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -116,11 +116,11 @@ pub const TmpDir = struct {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const FuzzInputOptions = struct {
     corpus: []const []const u8 = &.{},
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -139,7 +139,7 @@ pub const FuzzInputOptions = struct {
 
 A `std.Io.Reader` that writes a predetermined list of buffers during `stream`.
 
-\`\`\`zig
+```zig
 pub const Reader = struct {
     calls: []const Call,
     interface: std.Io.Reader,
@@ -180,7 +180,7 @@ pub const Reader = struct {
         return n;
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -203,9 +203,9 @@ pub const Reader = struct {
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const FailingAllocator = @import("testing/FailingAllocator.zig")
-\`\`\`
+```
 
 > **Module:** `testing/FailingAllocator.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/testing/FailingAllocator.zig)
 
@@ -223,9 +223,9 @@ pub const FailingAllocator = @import("testing/FailingAllocator.zig")
 Provides deterministic randomness in unit tests.
 Initialized on startup. Read-only after that.
 
-\`\`\`zig
+```zig
 pub var random_seed: u32 = 0
-\`\`\`
+```
 
 </details>
 
@@ -236,7 +236,7 @@ pub var random_seed: u32 = 0
 <details class="declaration-card" open>
 <summary>Variable – Expand to inspect the definition and usage details.</summary>
 
-\`\`\`zig
+```zig
 pub var allocator_instance: std.heap.GeneralPurposeAllocator(.{
     .stack_trace_frames = if (std.debug.sys_can_stack_trace) 10 else 0,
     .resize_stack_traces = true,
@@ -248,7 +248,7 @@ pub var allocator_instance: std.heap.GeneralPurposeAllocator(.{
     if (!builtin.is_test) @compileError("testing allocator used when not testing");
     break :b .init;
 }
-\`\`\`
+```
 
 </details>
 
@@ -261,9 +261,9 @@ pub var allocator_instance: std.heap.GeneralPurposeAllocator(.{
 
 TODO https://github.com/ziglang/zig/issues/5738
 
-\`\`\`zig
+```zig
 pub var log_level = std.log.Level.warn
-\`\`\`
+```
 
 </details>
 
@@ -276,9 +276,9 @@ pub var log_level = std.log.Level.warn
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const failing_allocator = failing_allocator_instance.allocator()
-\`\`\`
+```
 
 </details>
 
@@ -291,9 +291,9 @@ pub const failing_allocator = failing_allocator_instance.allocator()
 
 This should only be used in temporary test programs.
 
-\`\`\`zig
+```zig
 pub const allocator = allocator_instance.allocator()
-\`\`\`
+```
 
 </details>
 
@@ -304,7 +304,7 @@ pub const allocator = allocator_instance.allocator()
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const backend_can_print = switch (builtin.zig_backend) {
     .stage2_aarch64,
     .stage2_powerpc,
@@ -313,7 +313,7 @@ pub const backend_can_print = switch (builtin.zig_backend) {
     => false,
     else => true,
 }
-\`\`\`
+```
 
 </details>
 
@@ -329,7 +329,7 @@ pub const backend_can_print = switch (builtin.zig_backend) {
 This function is intended to be used only in tests. It prints diagnostics to stderr
 and then returns a test failure error when actual_error_union is not expected_error.
 
-\`\`\`zig
+```zig
 pub fn expectError(expected_error: anyerror, actual_error_union: anytype) !void {
     if (actual_error_union) |actual_payload| {
         print("expected error.{s}, found {any}\n", .{ @errorName(expected_error), actual_payload });
@@ -344,7 +344,7 @@ pub fn expectError(expected_error: anyerror, actual_error_union: anytype) !void 
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -368,12 +368,12 @@ equal, prints diagnostics to stderr to show exactly how they are not equal,
 then returns a test failure error.
 `actual` and `expected` are coerced to a common type using peer type resolution.
 
-\`\`\`zig
+```zig
 pub inline fn expectEqual(expected: anytype, actual: anytype) !void {
     const T = @TypeOf(expected, actual);
     return expectEqualInner(T, expected, actual);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -397,7 +397,7 @@ and its arguments does not equal the expected text, it prints diagnostics to std
 they are not equal, then returns an error. It depends on `expectEqualStrings` for printing
 diagnostics.
 
-\`\`\`zig
+```zig
 pub fn expectFmt(expected: []const u8, comptime template: []const u8, args: anytype) !void {
     if (@inComptime()) {
         var buffer: [std.fmt.count(template, args)]u8 = undefined;
@@ -407,7 +407,7 @@ pub fn expectFmt(expected: []const u8, comptime template: []const u8, args: anyt
     defer allocator.free(actual);
     return expectEqualStrings(expected, actual);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -434,12 +434,12 @@ See `math.approxEqAbs` for more information on the tolerance parameter.
 The types must be floating-point.
 `actual` and `expected` are coerced to a common type using peer type resolution.
 
-\`\`\`zig
+```zig
 pub inline fn expectApproxEqAbs(expected: anytype, actual: anytype, tolerance: anytype) !void {
     const T = @TypeOf(expected, actual, tolerance);
     return expectApproxEqAbsInner(T, expected, actual, tolerance);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -466,12 +466,12 @@ See `math.approxEqRel` for more information on the tolerance parameter.
 The types must be floating-point.
 `actual` and `expected` are coerced to a common type using peer type resolution.
 
-\`\`\`zig
+```zig
 pub inline fn expectApproxEqRel(expected: anytype, actual: anytype, tolerance: anytype) !void {
     const T = @TypeOf(expected, actual, tolerance);
     return expectApproxEqRelInner(T, expected, actual, tolerance);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -497,7 +497,7 @@ the differences highlighted in red), then returns a test failure error.
 The colorized output is optional and controlled by the return of `std.io.tty.detectConfig()`.
 If your inputs are UTF-8 encoded strings, consider calling `expectEqualStrings` instead.
 
-\`\`\`zig
+```zig
 pub fn expectEqualSlices(comptime T: type, expected: []const T, actual: []const T) !void {
     const diff_index: usize = diff_index: {
         const shortest = @min(expected.len, actual.len);
@@ -513,7 +513,7 @@ pub fn expectEqualSlices(comptime T: type, expected: []const T, actual: []const 
     failEqualSlices(T, expected, actual, diff_index, stderr_w) catch {};
     return error.TestExpectedEqual;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -536,7 +536,7 @@ pub fn expectEqualSlices(comptime T: type, expected: []const T, actual: []const 
 This function is intended to be used only in tests. Checks that two slices or two arrays are equal,
 including that their sentinel (if any) are the same. Will error if given another type.
 
-\`\`\`zig
+```zig
 pub fn expectEqualSentinel(comptime T: type, comptime sentinel: T, expected: [:sentinel]const T, actual: [:sentinel]const T) !void {
     try expectEqualSlices(T, expected, actual);
 
@@ -576,7 +576,7 @@ pub fn expectEqualSentinel(comptime T: type, comptime sentinel: T, expected: [:s
         return error.TestExpectedEqual;
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -600,11 +600,11 @@ pub fn expectEqualSentinel(comptime T: type, comptime sentinel: T, expected: [:s
 This function is intended to be used only in tests.
 When `ok` is false, returns a test failure error.
 
-\`\`\`zig
+```zig
 pub fn expect(ok: bool) !void {
     if (!ok) return error.TestUnexpectedResult;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -622,7 +622,7 @@ pub fn expect(ok: bool) !void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn tmpDir(opts: std.fs.Dir.OpenOptions) TmpDir {
     var random_bytes: [TmpDir.random_bytes_count]u8 = undefined;
     std.crypto.random.bytes(&random_bytes);
@@ -644,7 +644,7 @@ pub fn tmpDir(opts: std.fs.Dir.OpenOptions) TmpDir {
         .sub_path = sub_path,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -662,7 +662,7 @@ pub fn tmpDir(opts: std.fs.Dir.OpenOptions) TmpDir {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn expectEqualStrings(expected: []const u8, actual: []const u8) !void {
     if (std.mem.indexOfDiff(u8, actual, expected)) |diff_index| {
         if (@inComptime()) {
@@ -691,7 +691,7 @@ pub fn expectEqualStrings(expected: []const u8, actual: []const u8) !void {
         return error.TestExpectedEqual;
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -710,7 +710,7 @@ pub fn expectEqualStrings(expected: []const u8, actual: []const u8) !void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn expectStringStartsWith(actual: []const u8, expected_starts_with: []const u8) !void {
     if (std.mem.startsWith(u8, actual, expected_starts_with))
         return;
@@ -730,7 +730,7 @@ pub fn expectStringStartsWith(actual: []const u8, expected_starts_with: []const 
 
     return error.TestExpectedStartsWith;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -749,7 +749,7 @@ pub fn expectStringStartsWith(actual: []const u8, expected_starts_with: []const 
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn expectStringEndsWith(actual: []const u8, expected_ends_with: []const u8) !void {
     if (std.mem.endsWith(u8, actual, expected_ends_with))
         return;
@@ -769,7 +769,7 @@ pub fn expectStringEndsWith(actual: []const u8, expected_ends_with: []const u8) 
 
     return error.TestExpectedEndsWith;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -802,12 +802,12 @@ Pointer values are deeply equal if values they point to are deeply equal.
 Note: Self-referential structs are supported (e.g. things like std.SinglyLinkedList)
 but may cause infinite recursion or stack overflow when a container has a pointer to itself.
 
-\`\`\`zig
+```zig
 pub inline fn expectEqualDeep(expected: anytype, actual: anytype) error{TestExpectedEqual}!void {
     const T = @TypeOf(expected, actual);
     return expectEqualDeepInner(T, expected, actual);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -863,7 +863,7 @@ Expects that `test_fn` has a deterministic number of memory allocations:
 Here's an example using a simple test case that will cause a leak when the
 allocation of `bar` fails (but will pass normally):
 
-\`\`\`zig
+```zig
 test {
     const length: usize = 10;
     const allocator = std.testing.allocator;
@@ -873,12 +873,12 @@ test {
     allocator.free(foo);
     allocator.free(bar);
 }
-\`\`\`
+```
 
 The test case can be converted to something that this function can use by
 doing:
 
-\`\`\`zig
+```zig
 fn testImpl(allocator: std.mem.Allocator, length: usize) !void {
     var foo = try allocator.alloc(u8, length);
     var bar = try allocator.alloc(u8, length);
@@ -892,21 +892,21 @@ test {
     const allocator = std.testing.allocator;
     try std.testing.checkAllAllocationFailures(allocator, testImpl, .{length});
 }
-\`\`\`
+```
 
 Running this test will show that `foo` is leaked when the allocation of
 `bar` fails. The simplest fix, in this case, would be to use defer like so:
 
-\`\`\`zig
+```zig
 fn testImpl(allocator: std.mem.Allocator, length: usize) !void {
     var foo = try allocator.alloc(u8, length);
     defer allocator.free(foo);
     var bar = try allocator.alloc(u8, length);
     defer allocator.free(bar);
 }
-\`\`\`
+```
 
-\`\`\`zig
+```zig
 pub fn checkAllAllocationFailures(backing_allocator: std.mem.Allocator, comptime test_fn: anytype, extra_args: anytype) !void {
     switch (@typeInfo(@typeInfo(@TypeOf(test_fn)).@"fn".return_type.?)) {
         .error_union => |info| {
@@ -985,7 +985,7 @@ pub fn checkAllAllocationFailures(backing_allocator: std.mem.Allocator, comptime
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1002,7 +1002,7 @@ pub fn checkAllAllocationFailures(backing_allocator: std.mem.Allocator, comptime
 
 an allocation failure being induced, then \`error.NondeterministicMemoryUsage\` Here's an example using a simple test case that will cause a leak when the.
 
-\`\`\`zig
+```zig
 test {
 const length: usize = 10;
 const allocator = std.testing.allocator;
@@ -1012,13 +1012,13 @@ var bar = try allocator.alloc(u8, length);
 allocator.free(foo);
 allocator.free(bar);
 }
-\`\`\`
+```
 
 #### Example 2: Calling `checkAllAllocationFailures`
 
 This example demonstrates how to call `checkAllAllocationFailures`.
 
-\`\`\`zig
+```zig
 fn testImpl(allocator: std.mem.Allocator, length: usize) !void {
 var foo = try allocator.alloc(u8, length);
 var bar = try allocator.alloc(u8, length);
@@ -1032,20 +1032,20 @@ const length: usize = 10;
 const allocator = std.testing.allocator;
 try std.testing.checkAllAllocationFailures(allocator, testImpl, .{length});
 }
-\`\`\`
+```
 
 #### Example 3: Calling `checkAllAllocationFailures`
 
 This example demonstrates how to call `checkAllAllocationFailures`.
 
-\`\`\`zig
+```zig
 fn testImpl(allocator: std.mem.Allocator, length: usize) !void {
 var foo = try allocator.alloc(u8, length);
 defer allocator.free(foo);
 var bar = try allocator.alloc(u8, length);
 defer allocator.free(bar);
 }
-\`\`\`
+```
 
 </details>
 
@@ -1058,14 +1058,14 @@ defer allocator.free(bar);
 
 Given a type, references all the declarations inside, so that the semantic analyzer sees them.
 
-\`\`\`zig
+```zig
 pub fn refAllDecls(comptime T: type) void {
     if (!builtin.is_test) return;
     inline for (comptime std.meta.declarations(T)) |decl| {
         _ = &@field(T, decl.name);
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1086,7 +1086,7 @@ pub fn refAllDecls(comptime T: type) void {
 Given a type, recursively references all the declarations inside, so that the semantic analyzer sees them.
 For deep types, you may use `@setEvalBranchQuota`.
 
-\`\`\`zig
+```zig
 pub fn refAllDeclsRecursive(comptime T: type) void {
     if (!builtin.is_test) return;
     inline for (comptime std.meta.declarations(T)) |decl| {
@@ -1099,7 +1099,7 @@ pub fn refAllDeclsRecursive(comptime T: type) void {
         _ = &@field(T, decl.name);
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1119,7 +1119,7 @@ pub fn refAllDeclsRecursive(comptime T: type) void {
 
 Inline to avoid coverage instrumentation.
 
-\`\`\`zig
+```zig
 pub inline fn fuzz(
     context: anytype,
     comptime testOne: fn (context: @TypeOf(context), input: []const u8) anyerror!void,
@@ -1127,7 +1127,7 @@ pub inline fn fuzz(
 ) anyerror!void {
     return @import("root").fuzz(context, testOne, options);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1142,10 +1142,12 @@ pub inline fn fuzz(
 [^fn-fuzz-testone-type-0]:
     Type for parameter `testOne` of `fuzz`:
 
-    \`\`\`zig
+    ```zig
     fn (context: @TypeOf(context), input: []const u8) anyerror!void
-    \`\`\`
+    ```
 
 </details>
 
 ---
+
+

@@ -174,9 +174,9 @@
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const Sign = enum(u1) { positive, negative }
-\`\`\`
+```
 
 **Fields:**
 
@@ -196,7 +196,7 @@ pub const Sign = enum(u1) { positive, negative }
 
 See also `CompareOperator`.
 
-\`\`\`zig
+```zig
 pub const Order = enum {
     /// Greater than (`>`)
     gt,
@@ -287,7 +287,7 @@ pub const Order = enum {
         try testing.expect(order(1, 0).compare(.neq));
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -308,7 +308,7 @@ pub const Order = enum {
 
 See also `Order`.
 
-\`\`\`zig
+```zig
 pub const CompareOperator = enum {
     /// Less than (`<`)
     lt,
@@ -345,7 +345,7 @@ pub const CompareOperator = enum {
         }
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -367,7 +367,7 @@ pub const CompareOperator = enum {
 <details class="declaration-card" open>
 <summary>Container – Expand to inspect fields and related documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const F80 = struct {
     fraction: u64,
     exp: u16,
@@ -385,7 +385,7 @@ pub const F80 = struct {
         };
     }
 }
-\`\`\`
+```
 
 **Fields:**
 
@@ -405,9 +405,9 @@ pub const F80 = struct {
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const complex = @import("math/complex.zig")
-\`\`\`
+```
 
 > **Module:** `math/complex.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/math/complex.zig)
 
@@ -420,9 +420,9 @@ pub const complex = @import("math/complex.zig")
 <details class="declaration-card" open>
 <summary>Module – Expand to view import information and documentation.</summary>
 
-\`\`\`zig
+```zig
 pub const big = @import("math/big.zig")
-\`\`\`
+```
 
 > **Module:** `math/big.zig` → See [source](https://raw.githubusercontent.com/ziglang/zig/refs/heads/master/lib/std/math/big.zig)
 
@@ -439,9 +439,9 @@ pub const big = @import("math/big.zig")
 
 Euler's number (e)
 
-\`\`\`zig
+```zig
 pub const e = 2.71828182845904523536028747135266249775724709369995
-\`\`\`
+```
 
 </details>
 
@@ -454,9 +454,9 @@ pub const e = 2.71828182845904523536028747135266249775724709369995
 
 Archimedes' constant (π)
 
-\`\`\`zig
+```zig
 pub const pi = 3.14159265358979323846264338327950288419716939937510
-\`\`\`
+```
 
 </details>
 
@@ -469,9 +469,9 @@ pub const pi = 3.14159265358979323846264338327950288419716939937510
 
 Phi or Golden ratio constant (Φ) = (1 + sqrt(5))/2
 
-\`\`\`zig
+```zig
 pub const phi = 1.6180339887498948482045868343656381177203091798057628621
-\`\`\`
+```
 
 </details>
 
@@ -484,9 +484,9 @@ pub const phi = 1.6180339887498948482045868343656381177203091798057628621
 
 Circle constant (τ)
 
-\`\`\`zig
+```zig
 pub const tau = 2 * pi
-\`\`\`
+```
 
 </details>
 
@@ -499,9 +499,9 @@ pub const tau = 2 * pi
 
 log2(e)
 
-\`\`\`zig
+```zig
 pub const log2e = 1.442695040888963407359924681001892137
-\`\`\`
+```
 
 </details>
 
@@ -514,9 +514,9 @@ pub const log2e = 1.442695040888963407359924681001892137
 
 log10(e)
 
-\`\`\`zig
+```zig
 pub const log10e = 0.434294481903251827651128918916605082
-\`\`\`
+```
 
 </details>
 
@@ -529,9 +529,9 @@ pub const log10e = 0.434294481903251827651128918916605082
 
 ln(2)
 
-\`\`\`zig
+```zig
 pub const ln2 = 0.693147180559945309417232121458176568
-\`\`\`
+```
 
 </details>
 
@@ -544,9 +544,9 @@ pub const ln2 = 0.693147180559945309417232121458176568
 
 ln(10)
 
-\`\`\`zig
+```zig
 pub const ln10 = 2.302585092994045684017991454684364208
-\`\`\`
+```
 
 </details>
 
@@ -559,9 +559,9 @@ pub const ln10 = 2.302585092994045684017991454684364208
 
 2/sqrt(π)
 
-\`\`\`zig
+```zig
 pub const two_sqrtpi = 1.128379167095512573896158903121545172
-\`\`\`
+```
 
 </details>
 
@@ -574,9 +574,9 @@ pub const two_sqrtpi = 1.128379167095512573896158903121545172
 
 sqrt(2)
 
-\`\`\`zig
+```zig
 pub const sqrt2 = 1.414213562373095048801688724209698079
-\`\`\`
+```
 
 </details>
 
@@ -589,9 +589,9 @@ pub const sqrt2 = 1.414213562373095048801688724209698079
 
 1/sqrt(2)
 
-\`\`\`zig
+```zig
 pub const sqrt1_2 = 0.707106781186547524400844362104849039
-\`\`\`
+```
 
 </details>
 
@@ -604,9 +604,9 @@ pub const sqrt1_2 = 0.707106781186547524400844362104849039
 
 pi/180.0
 
-\`\`\`zig
+```zig
 pub const rad_per_deg = 0.0174532925199432957692369076848861271344287188854172545609719144
-\`\`\`
+```
 
 </details>
 
@@ -619,9 +619,9 @@ pub const rad_per_deg = 0.017453292519943295769236907684886127134428718885417254
 
 180.0/pi
 
-\`\`\`zig
+```zig
 pub const deg_per_rad = 57.295779513082320876798154814105170332405472466564321549160243861
-\`\`\`
+```
 
 </details>
 
@@ -632,9 +632,9 @@ pub const deg_per_rad = 57.29577951308232087679815481410517033240547246656432154
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const FloatRepr = float.FloatRepr
-\`\`\`
+```
 
 </details>
 
@@ -645,9 +645,9 @@ pub const FloatRepr = float.FloatRepr
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const floatExponentBits = float.floatExponentBits
-\`\`\`
+```
 
 </details>
 
@@ -658,9 +658,9 @@ pub const floatExponentBits = float.floatExponentBits
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const floatMantissaBits = float.floatMantissaBits
-\`\`\`
+```
 
 </details>
 
@@ -671,9 +671,9 @@ pub const floatMantissaBits = float.floatMantissaBits
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const floatFractionalBits = float.floatFractionalBits
-\`\`\`
+```
 
 </details>
 
@@ -684,9 +684,9 @@ pub const floatFractionalBits = float.floatFractionalBits
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const floatExponentMin = float.floatExponentMin
-\`\`\`
+```
 
 </details>
 
@@ -697,9 +697,9 @@ pub const floatExponentMin = float.floatExponentMin
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const floatExponentMax = float.floatExponentMax
-\`\`\`
+```
 
 </details>
 
@@ -710,9 +710,9 @@ pub const floatExponentMax = float.floatExponentMax
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const floatTrueMin = float.floatTrueMin
-\`\`\`
+```
 
 </details>
 
@@ -723,9 +723,9 @@ pub const floatTrueMin = float.floatTrueMin
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const floatMin = float.floatMin
-\`\`\`
+```
 
 </details>
 
@@ -736,9 +736,9 @@ pub const floatMin = float.floatMin
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const floatMax = float.floatMax
-\`\`\`
+```
 
 </details>
 
@@ -749,9 +749,9 @@ pub const floatMax = float.floatMax
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const floatEps = float.floatEps
-\`\`\`
+```
 
 </details>
 
@@ -762,9 +762,9 @@ pub const floatEps = float.floatEps
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const floatEpsAt = float.floatEpsAt
-\`\`\`
+```
 
 </details>
 
@@ -775,9 +775,9 @@ pub const floatEpsAt = float.floatEpsAt
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const inf = float.inf
-\`\`\`
+```
 
 </details>
 
@@ -788,9 +788,9 @@ pub const inf = float.inf
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const nan = float.nan
-\`\`\`
+```
 
 </details>
 
@@ -801,9 +801,9 @@ pub const nan = float.nan
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const snan = float.snan
-\`\`\`
+```
 
 </details>
 
@@ -814,9 +814,9 @@ pub const snan = float.snan
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const isNan = @import("math/isnan.zig").isNan
-\`\`\`
+```
 
 </details>
 
@@ -827,9 +827,9 @@ pub const isNan = @import("math/isnan.zig").isNan
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const isSignalNan = @import("math/isnan.zig").isSignalNan
-\`\`\`
+```
 
 </details>
 
@@ -840,9 +840,9 @@ pub const isSignalNan = @import("math/isnan.zig").isSignalNan
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const frexp = @import("math/frexp.zig").frexp
-\`\`\`
+```
 
 </details>
 
@@ -853,9 +853,9 @@ pub const frexp = @import("math/frexp.zig").frexp
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Frexp = @import("math/frexp.zig").Frexp
-\`\`\`
+```
 
 </details>
 
@@ -866,9 +866,9 @@ pub const Frexp = @import("math/frexp.zig").Frexp
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const modf = @import("math/modf.zig").modf
-\`\`\`
+```
 
 </details>
 
@@ -879,9 +879,9 @@ pub const modf = @import("math/modf.zig").modf
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Modf = @import("math/modf.zig").Modf
-\`\`\`
+```
 
 </details>
 
@@ -892,9 +892,9 @@ pub const Modf = @import("math/modf.zig").Modf
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const copysign = @import("math/copysign.zig").copysign
-\`\`\`
+```
 
 </details>
 
@@ -905,9 +905,9 @@ pub const copysign = @import("math/copysign.zig").copysign
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const isFinite = @import("math/isfinite.zig").isFinite
-\`\`\`
+```
 
 </details>
 
@@ -918,9 +918,9 @@ pub const isFinite = @import("math/isfinite.zig").isFinite
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const isInf = @import("math/isinf.zig").isInf
-\`\`\`
+```
 
 </details>
 
@@ -931,9 +931,9 @@ pub const isInf = @import("math/isinf.zig").isInf
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const isPositiveInf = @import("math/isinf.zig").isPositiveInf
-\`\`\`
+```
 
 </details>
 
@@ -944,9 +944,9 @@ pub const isPositiveInf = @import("math/isinf.zig").isPositiveInf
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const isNegativeInf = @import("math/isinf.zig").isNegativeInf
-\`\`\`
+```
 
 </details>
 
@@ -957,9 +957,9 @@ pub const isNegativeInf = @import("math/isinf.zig").isNegativeInf
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const isPositiveZero = @import("math/iszero.zig").isPositiveZero
-\`\`\`
+```
 
 </details>
 
@@ -970,9 +970,9 @@ pub const isPositiveZero = @import("math/iszero.zig").isPositiveZero
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const isNegativeZero = @import("math/iszero.zig").isNegativeZero
-\`\`\`
+```
 
 </details>
 
@@ -983,9 +983,9 @@ pub const isNegativeZero = @import("math/iszero.zig").isNegativeZero
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const isNormal = @import("math/isnormal.zig").isNormal
-\`\`\`
+```
 
 </details>
 
@@ -996,9 +996,9 @@ pub const isNormal = @import("math/isnormal.zig").isNormal
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const nextAfter = @import("math/nextafter.zig").nextAfter
-\`\`\`
+```
 
 </details>
 
@@ -1009,9 +1009,9 @@ pub const nextAfter = @import("math/nextafter.zig").nextAfter
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const signbit = @import("math/signbit.zig").signbit
-\`\`\`
+```
 
 </details>
 
@@ -1022,9 +1022,9 @@ pub const signbit = @import("math/signbit.zig").signbit
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const scalbn = @import("math/scalbn.zig").scalbn
-\`\`\`
+```
 
 </details>
 
@@ -1035,9 +1035,9 @@ pub const scalbn = @import("math/scalbn.zig").scalbn
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ldexp = @import("math/ldexp.zig").ldexp
-\`\`\`
+```
 
 </details>
 
@@ -1048,9 +1048,9 @@ pub const ldexp = @import("math/ldexp.zig").ldexp
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const pow = @import("math/pow.zig").pow
-\`\`\`
+```
 
 </details>
 
@@ -1061,9 +1061,9 @@ pub const pow = @import("math/pow.zig").pow
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const powi = @import("math/powi.zig").powi
-\`\`\`
+```
 
 </details>
 
@@ -1074,9 +1074,9 @@ pub const powi = @import("math/powi.zig").powi
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sqrt = @import("math/sqrt.zig").sqrt
-\`\`\`
+```
 
 </details>
 
@@ -1087,9 +1087,9 @@ pub const sqrt = @import("math/sqrt.zig").sqrt
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const cbrt = @import("math/cbrt.zig").cbrt
-\`\`\`
+```
 
 </details>
 
@@ -1100,9 +1100,9 @@ pub const cbrt = @import("math/cbrt.zig").cbrt
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const acos = @import("math/acos.zig").acos
-\`\`\`
+```
 
 </details>
 
@@ -1113,9 +1113,9 @@ pub const acos = @import("math/acos.zig").acos
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const asin = @import("math/asin.zig").asin
-\`\`\`
+```
 
 </details>
 
@@ -1126,9 +1126,9 @@ pub const asin = @import("math/asin.zig").asin
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const atan = @import("math/atan.zig").atan
-\`\`\`
+```
 
 </details>
 
@@ -1139,9 +1139,9 @@ pub const atan = @import("math/atan.zig").atan
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const atan2 = @import("math/atan2.zig").atan2
-\`\`\`
+```
 
 </details>
 
@@ -1152,9 +1152,9 @@ pub const atan2 = @import("math/atan2.zig").atan2
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const hypot = @import("math/hypot.zig").hypot
-\`\`\`
+```
 
 </details>
 
@@ -1165,9 +1165,9 @@ pub const hypot = @import("math/hypot.zig").hypot
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const expm1 = @import("math/expm1.zig").expm1
-\`\`\`
+```
 
 </details>
 
@@ -1178,9 +1178,9 @@ pub const expm1 = @import("math/expm1.zig").expm1
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const ilogb = @import("math/ilogb.zig").ilogb
-\`\`\`
+```
 
 </details>
 
@@ -1191,9 +1191,9 @@ pub const ilogb = @import("math/ilogb.zig").ilogb
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const log = @import("math/log.zig").log
-\`\`\`
+```
 
 </details>
 
@@ -1204,9 +1204,9 @@ pub const log = @import("math/log.zig").log
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const log2 = @import("math/log2.zig").log2
-\`\`\`
+```
 
 </details>
 
@@ -1217,9 +1217,9 @@ pub const log2 = @import("math/log2.zig").log2
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const log10 = @import("math/log10.zig").log10
-\`\`\`
+```
 
 </details>
 
@@ -1230,9 +1230,9 @@ pub const log10 = @import("math/log10.zig").log10
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const log10_int = @import("math/log10.zig").log10_int
-\`\`\`
+```
 
 </details>
 
@@ -1243,9 +1243,9 @@ pub const log10_int = @import("math/log10.zig").log10_int
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const log_int = @import("math/log_int.zig").log_int
-\`\`\`
+```
 
 </details>
 
@@ -1256,9 +1256,9 @@ pub const log_int = @import("math/log_int.zig").log_int
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const log1p = @import("math/log1p.zig").log1p
-\`\`\`
+```
 
 </details>
 
@@ -1269,9 +1269,9 @@ pub const log1p = @import("math/log1p.zig").log1p
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const asinh = @import("math/asinh.zig").asinh
-\`\`\`
+```
 
 </details>
 
@@ -1282,9 +1282,9 @@ pub const asinh = @import("math/asinh.zig").asinh
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const acosh = @import("math/acosh.zig").acosh
-\`\`\`
+```
 
 </details>
 
@@ -1295,9 +1295,9 @@ pub const acosh = @import("math/acosh.zig").acosh
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const atanh = @import("math/atanh.zig").atanh
-\`\`\`
+```
 
 </details>
 
@@ -1308,9 +1308,9 @@ pub const atanh = @import("math/atanh.zig").atanh
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const sinh = @import("math/sinh.zig").sinh
-\`\`\`
+```
 
 </details>
 
@@ -1321,9 +1321,9 @@ pub const sinh = @import("math/sinh.zig").sinh
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const cosh = @import("math/cosh.zig").cosh
-\`\`\`
+```
 
 </details>
 
@@ -1334,9 +1334,9 @@ pub const cosh = @import("math/cosh.zig").cosh
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const tanh = @import("math/tanh.zig").tanh
-\`\`\`
+```
 
 </details>
 
@@ -1347,9 +1347,9 @@ pub const tanh = @import("math/tanh.zig").tanh
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const gcd = @import("math/gcd.zig").gcd
-\`\`\`
+```
 
 </details>
 
@@ -1360,9 +1360,9 @@ pub const gcd = @import("math/gcd.zig").gcd
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const lcm = @import("math/lcm.zig").lcm
-\`\`\`
+```
 
 </details>
 
@@ -1373,9 +1373,9 @@ pub const lcm = @import("math/lcm.zig").lcm
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const gamma = @import("math/gamma.zig").gamma
-\`\`\`
+```
 
 </details>
 
@@ -1386,9 +1386,9 @@ pub const gamma = @import("math/gamma.zig").gamma
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const lgamma = @import("math/gamma.zig").lgamma
-\`\`\`
+```
 
 </details>
 
@@ -1399,9 +1399,9 @@ pub const lgamma = @import("math/gamma.zig").lgamma
 <details class="declaration-card" open>
 <summary>Constant – Expand to review the definition and notes.</summary>
 
-\`\`\`zig
+```zig
 pub const Complex = complex.Complex
-\`\`\`
+```
 
 </details>
 
@@ -1427,7 +1427,7 @@ around zero; using `approxEqRel` is suggested otherwise.
 
 NaN values are never considered equal to any value.
 
-\`\`\`zig
+```zig
 pub fn approxEqAbs(comptime T: type, x: T, y: T, tolerance: T) bool {
     assert(@typeInfo(T) == .float or @typeInfo(T) == .comptime_float);
     assert(tolerance >= 0);
@@ -1441,7 +1441,7 @@ pub fn approxEqAbs(comptime T: type, x: T, y: T, tolerance: T) bool {
 
     return @abs(x - y) <= tolerance;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1477,7 +1477,7 @@ give meaningful results, use `approxEqAbs` instead.
 
 NaN values are never considered equal to any value.
 
-\`\`\`zig
+```zig
 pub fn approxEqRel(comptime T: type, x: T, y: T, tolerance: T) bool {
     assert(@typeInfo(T) == .float or @typeInfo(T) == .comptime_float);
     assert(tolerance > 0);
@@ -1491,7 +1491,7 @@ pub fn approxEqRel(comptime T: type, x: T, y: T, tolerance: T) bool {
 
     return @abs(x - y) <= @max(@abs(x), @abs(y)) * tolerance;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1512,11 +1512,11 @@ pub fn approxEqRel(comptime T: type, x: T, y: T, tolerance: T) bool {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn raiseInvalid() void {
     // Raise INVALID fpu exception
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1533,11 +1533,11 @@ pub fn raiseInvalid() void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn raiseUnderflow() void {
     // Raise UNDERFLOW fpu exception
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1554,11 +1554,11 @@ pub fn raiseUnderflow() void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn raiseOverflow() void {
     // Raise OVERFLOW fpu exception
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1575,11 +1575,11 @@ pub fn raiseOverflow() void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn raiseInexact() void {
     // Raise INEXACT fpu exception
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1596,11 +1596,11 @@ pub fn raiseInexact() void {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn raiseDivByZero() void {
     // Raise INEXACT fpu exception
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1621,11 +1621,11 @@ Sine trigonometric function on a floating point number.
 Uses a dedicated hardware instruction when available.
 This is the same as calling the builtin @sin
 
-\`\`\`zig
+```zig
 pub inline fn sin(value: anytype) @TypeOf(value) {
     return @sin(value);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1647,11 +1647,11 @@ Cosine trigonometric function on a floating point number.
 Uses a dedicated hardware instruction when available.
 This is the same as calling the builtin @cos
 
-\`\`\`zig
+```zig
 pub inline fn cos(value: anytype) @TypeOf(value) {
     return @cos(value);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1673,11 +1673,11 @@ Tangent trigonometric function on a floating point number.
 Uses a dedicated hardware instruction when available.
 This is the same as calling the builtin @tan
 
-\`\`\`zig
+```zig
 pub inline fn tan(value: anytype) @TypeOf(value) {
     return @tan(value);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1697,7 +1697,7 @@ pub inline fn tan(value: anytype) @TypeOf(value) {
 
 Converts an angle in radians to degrees. T must be a float or comptime number or a vector of floats.
 
-\`\`\`zig
+```zig
 pub fn radiansToDegrees(ang: anytype) if (@TypeOf(ang) == comptime_int) comptime_float else @TypeOf(ang) {
     const T = @TypeOf(ang);
     switch (@typeInfo(T)) {
@@ -1707,7 +1707,7 @@ pub fn radiansToDegrees(ang: anytype) if (@TypeOf(ang) == comptime_int) comptime
     }
     @compileError("Input must be float or a comptime number, or a vector of floats.");
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1720,9 +1720,9 @@ pub fn radiansToDegrees(ang: anytype) if (@TypeOf(ang) == comptime_int) comptime
 [^fn-radianstodegrees-return-0]:
     Return type for `radiansToDegrees`:
 
-    \`\`\`zig
+    ```zig
     if (@TypeOf(ang) == comptime_int) comptime_float else @TypeOf(ang)
-    \`\`\`
+    ```
 
 </details>
 
@@ -1735,7 +1735,7 @@ pub fn radiansToDegrees(ang: anytype) if (@TypeOf(ang) == comptime_int) comptime
 
 Converts an angle in degrees to radians. T must be a float or comptime number or a vector of floats.
 
-\`\`\`zig
+```zig
 pub fn degreesToRadians(ang: anytype) if (@TypeOf(ang) == comptime_int) comptime_float else @TypeOf(ang) {
     const T = @TypeOf(ang);
     switch (@typeInfo(T)) {
@@ -1745,7 +1745,7 @@ pub fn degreesToRadians(ang: anytype) if (@TypeOf(ang) == comptime_int) comptime
     }
     @compileError("Input must be float or a comptime number, or a vector of floats.");
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1758,9 +1758,9 @@ pub fn degreesToRadians(ang: anytype) if (@TypeOf(ang) == comptime_int) comptime
 [^fn-degreestoradians-return-0]:
     Return type for `degreesToRadians`:
 
-    \`\`\`zig
+    ```zig
     if (@TypeOf(ang) == comptime_int) comptime_float else @TypeOf(ang)
-    \`\`\`
+    ```
 
 </details>
 
@@ -1775,11 +1775,11 @@ Base-e exponential function on a floating point number.
 Uses a dedicated hardware instruction when available.
 This is the same as calling the builtin @exp
 
-\`\`\`zig
+```zig
 pub inline fn exp(value: anytype) @TypeOf(value) {
     return @exp(value);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1801,11 +1801,11 @@ Base-2 exponential function on a floating point number.
 Uses a dedicated hardware instruction when available.
 This is the same as calling the builtin @exp2
 
-\`\`\`zig
+```zig
 pub inline fn exp2(value: anytype) @TypeOf(value) {
     return @exp2(value);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1826,7 +1826,7 @@ pub inline fn exp2(value: anytype) @TypeOf(value) {
 Given two types, returns the smallest one which is capable of holding the
 full range of the minimum value.
 
-\`\`\`zig
+```zig
 pub fn Min(comptime A: type, comptime B: type) type {
     switch (@typeInfo(A)) {
         .int => |a_info| switch (@typeInfo(B)) {
@@ -1843,7 +1843,7 @@ pub fn Min(comptime A: type, comptime B: type) type {
     }
     return @TypeOf(@as(A, 0) + @as(B, 0));
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1863,7 +1863,7 @@ pub fn Min(comptime A: type, comptime B: type) type {
 <summary>Function – Odd sawtooth function</summary>
 
 Odd sawtooth function
-\`\`\`
+```
         |
      /  | /    /
     /   |/    /
@@ -1871,10 +1871,10 @@ Odd sawtooth function
   /    /|   /
  /    / |  /
         |
-\`\`\`
+```
 Limit x to the half-open interval [-r, r).
 
-\`\`\`zig
+```zig
 pub fn wrap(x: anytype, r: anytype) @TypeOf(x) {
     const info_x = @typeInfo(@TypeOf(x));
     const info_r = @typeInfo(@TypeOf(r));
@@ -1900,7 +1900,7 @@ pub fn wrap(x: anytype, r: anytype) @TypeOf(x) {
         },
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1916,7 +1916,7 @@ pub fn wrap(x: anytype, r: anytype) @TypeOf(x) {
 
 This example demonstrates how to call `wrap`.
 
-\`\`\`zig
+```zig
 |
 /  | /    /
 /   |/    /
@@ -1924,7 +1924,7 @@ This example demonstrates how to call `wrap`.
 /    /|   /
 /    / |  /
 |
-\`\`\`
+```
 
 </details>
 
@@ -1936,7 +1936,7 @@ This example demonstrates how to call `wrap`.
 <summary>Function – Odd ramp function</summary>
 
 Odd ramp function
-\`\`\`
+```
         |  _____
         | /
         |/
@@ -1944,10 +1944,10 @@ Odd ramp function
        /|
  _____/ |
         |
-\`\`\`
+```
 Limit val to the inclusive range [lower, upper].
 
-\`\`\`zig
+```zig
 pub fn clamp(val: anytype, lower: anytype, upper: anytype) @TypeOf(val, lower, upper) {
     const T = @TypeOf(val, lower, upper);
     switch (@typeInfo(T)) {
@@ -1960,7 +1960,7 @@ pub fn clamp(val: anytype, lower: anytype, upper: anytype) @TypeOf(val, lower, u
     }
     return @max(lower, @min(val, upper));
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -1977,7 +1977,7 @@ pub fn clamp(val: anytype, lower: anytype, upper: anytype) @TypeOf(val, lower, u
 
 This example demonstrates how to call `clamp`.
 
-\`\`\`zig
+```zig
 |  _____
 | /
 |/
@@ -1985,7 +1985,7 @@ This example demonstrates how to call `clamp`.
 /|
 _____/ |
 |
-\`\`\`
+```
 
 </details>
 
@@ -1998,14 +1998,14 @@ _____/ |
 
 Returns the product of a and b. Returns an error on overflow.
 
-\`\`\`zig
+```zig
 pub fn mul(comptime T: type, a: T, b: T) (error{Overflow}!T) {
     if (T == comptime_int) return a * b;
     const ov = @mulWithOverflow(a, b);
     if (ov[1] != 0) return error.Overflow;
     return ov[0];
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2031,14 +2031,14 @@ pub fn mul(comptime T: type, a: T, b: T) (error{Overflow}!T) {
 
 Returns the sum of a and b. Returns an error on overflow.
 
-\`\`\`zig
+```zig
 pub fn add(comptime T: type, a: T, b: T) (error{Overflow}!T) {
     if (T == comptime_int) return a + b;
     const ov = @addWithOverflow(a, b);
     if (ov[1] != 0) return error.Overflow;
     return ov[0];
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2064,14 +2064,14 @@ pub fn add(comptime T: type, a: T, b: T) (error{Overflow}!T) {
 
 Returns a - b, or an error on overflow.
 
-\`\`\`zig
+```zig
 pub fn sub(comptime T: type, a: T, b: T) (error{Overflow}!T) {
     if (T == comptime_int) return a - b;
     const ov = @subWithOverflow(a, b);
     if (ov[1] != 0) return error.Overflow;
     return ov[0];
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2095,11 +2095,11 @@ pub fn sub(comptime T: type, a: T, b: T) (error{Overflow}!T) {
 <details class="declaration-card" open>
 <summary>Function – Expand to view signature, parameters, and examples.</summary>
 
-\`\`\`zig
+```zig
 pub fn negate(x: anytype) !@TypeOf(x) {
     return sub(@TypeOf(x), 0, x);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2120,14 +2120,14 @@ pub fn negate(x: anytype) !@TypeOf(x) {
 Shifts a left by shift_amt. Returns an error on overflow. shift_amt
 is unsigned.
 
-\`\`\`zig
+```zig
 pub fn shlExact(comptime T: type, a: T, shift_amt: Log2Int(T)) !T {
     if (T == comptime_int) return a << shift_amt;
     const ov = @shlWithOverflow(a, shift_amt);
     if (ov[1] != 0) return error.Overflow;
     return ov[0];
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2150,7 +2150,7 @@ pub fn shlExact(comptime T: type, a: T, shift_amt: Log2Int(T)) !T {
 Shifts left. Overflowed bits are truncated.
 A negative shift amount results in a right shift.
 
-\`\`\`zig
+```zig
 pub fn shl(comptime T: type, a: T, shift_amt: anytype) T {
     const is_shl = shift_amt >= 0;
     const abs_shift_amt = @abs(shift_amt);
@@ -2177,7 +2177,7 @@ pub fn shl(comptime T: type, a: T, shift_amt: anytype) T {
     };
     return if (is_shl) a << casted_shift_amt else a >> casted_shift_amt;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2200,7 +2200,7 @@ pub fn shl(comptime T: type, a: T, shift_amt: anytype) T {
 Shifts right. Overflowed bits are truncated.
 A negative shift amount results in a left shift.
 
-\`\`\`zig
+```zig
 pub fn shr(comptime T: type, a: T, shift_amt: anytype) T {
     const is_shl = shift_amt < 0;
     const abs_shift_amt = @abs(shift_amt);
@@ -2227,7 +2227,7 @@ pub fn shr(comptime T: type, a: T, shift_amt: anytype) T {
     };
     return if (is_shl) a << casted_shift_amt else a >> casted_shift_amt;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2250,7 +2250,7 @@ pub fn shr(comptime T: type, a: T, shift_amt: anytype) T {
 Rotates right. Only unsigned values can be rotated.  Negative shift
 values result in shift modulo the bit count.
 
-\`\`\`zig
+```zig
 pub fn rotr(comptime T: type, x: T, r: anytype) T {
     if (@typeInfo(T) == .vector) {
         const C = @typeInfo(T).vector.child;
@@ -2275,7 +2275,7 @@ pub fn rotr(comptime T: type, x: T, r: anytype) T {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2298,7 +2298,7 @@ pub fn rotr(comptime T: type, x: T, r: anytype) T {
 Rotates left. Only unsigned values can be rotated.  Negative shift
 values result in shift modulo the bit count.
 
-\`\`\`zig
+```zig
 pub fn rotl(comptime T: type, x: T, r: anytype) T {
     if (@typeInfo(T) == .vector) {
         const C = @typeInfo(T).vector.child;
@@ -2323,7 +2323,7 @@ pub fn rotl(comptime T: type, x: T, r: anytype) T {
         }
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2346,7 +2346,7 @@ pub fn rotl(comptime T: type, x: T, r: anytype) T {
 Returns an unsigned int type that can hold the number of bits in T - 1.
 Suitable for 0-based bit indices of T.
 
-\`\`\`zig
+```zig
 pub fn Log2Int(comptime T: type) type {
     // comptime ceil log2
     if (T == comptime_int) return comptime_int;
@@ -2354,7 +2354,7 @@ pub fn Log2Int(comptime T: type) type {
     const log2_bits = 16 - @clz(bits - 1);
     return std.meta.Int(.unsigned, log2_bits);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2374,7 +2374,7 @@ pub fn Log2Int(comptime T: type) type {
 
 Returns an unsigned int type that can hold the number of bits in T.
 
-\`\`\`zig
+```zig
 pub fn Log2IntCeil(comptime T: type) type {
     // comptime ceil log2
     if (T == comptime_int) return comptime_int;
@@ -2382,7 +2382,7 @@ pub fn Log2IntCeil(comptime T: type) type {
     const log2_bits = 16 - @clz(bits);
     return std.meta.Int(.unsigned, log2_bits);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2402,7 +2402,7 @@ pub fn Log2IntCeil(comptime T: type) type {
 
 Returns the smallest integer type that can hold both from and to.
 
-\`\`\`zig
+```zig
 pub fn IntFittingRange(comptime from: comptime_int, comptime to: comptime_int) type {
     assert(from <= to);
     const signedness: std.builtin.Signedness = if (from < 0) .signed else .unsigned;
@@ -2415,7 +2415,7 @@ pub fn IntFittingRange(comptime from: comptime_int, comptime to: comptime_int) t
             },
     } });
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2437,14 +2437,14 @@ pub fn IntFittingRange(comptime from: comptime_int, comptime to: comptime_int) t
 Divide numerator by denominator, rounding toward zero. Returns an
 error on overflow or when denominator is zero.
 
-\`\`\`zig
+```zig
 pub fn divTrunc(comptime T: type, numerator: T, denominator: T) !T {
     @setRuntimeSafety(false);
     if (denominator == 0) return error.DivisionByZero;
     if (@typeInfo(T) == .int and @typeInfo(T).int.signedness == .signed and numerator == minInt(T) and denominator == -1) return error.Overflow;
     return @divTrunc(numerator, denominator);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2468,14 +2468,14 @@ Divide numerator by denominator, rounding toward negative
 infinity. Returns an error on overflow or when denominator is
 zero.
 
-\`\`\`zig
+```zig
 pub fn divFloor(comptime T: type, numerator: T, denominator: T) !T {
     @setRuntimeSafety(false);
     if (denominator == 0) return error.DivisionByZero;
     if (@typeInfo(T) == .int and @typeInfo(T).int.signedness == .signed and numerator == minInt(T) and denominator == -1) return error.Overflow;
     return @divFloor(numerator, denominator);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2499,7 +2499,7 @@ Divide numerator by denominator, rounding toward positive
 infinity. Returns an error on overflow or when denominator is
 zero.
 
-\`\`\`zig
+```zig
 pub fn divCeil(comptime T: type, numerator: T, denominator: T) !T {
     @setRuntimeSafety(false);
     if (denominator == 0) return error.DivisionByZero;
@@ -2519,7 +2519,7 @@ pub fn divCeil(comptime T: type, numerator: T, denominator: T) !T {
         else => @compileError("divCeil unsupported on " ++ @typeName(T)),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2542,7 +2542,7 @@ pub fn divCeil(comptime T: type, numerator: T, denominator: T) !T {
 Divide numerator by denominator. Return an error if quotient is
 not an integer, denominator is zero, or on overflow.
 
-\`\`\`zig
+```zig
 pub fn divExact(comptime T: type, numerator: T, denominator: T) !T {
     @setRuntimeSafety(false);
     if (denominator == 0) return error.DivisionByZero;
@@ -2551,7 +2551,7 @@ pub fn divExact(comptime T: type, numerator: T, denominator: T) !T {
     if (result * denominator != numerator) return error.UnexpectedRemainder;
     return result;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2575,14 +2575,14 @@ Returns numerator modulo denominator, or an error if denominator is
 zero or negative. Negative numerators never result in negative
 return values.
 
-\`\`\`zig
+```zig
 pub fn mod(comptime T: type, numerator: T, denominator: T) !T {
     @setRuntimeSafety(false);
     if (denominator == 0) return error.DivisionByZero;
     if (denominator < 0) return error.NegativeDenominator;
     return @mod(numerator, denominator);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2606,14 +2606,14 @@ Returns the remainder when numerator is divided by denominator, or
 an error if denominator is zero or negative. Negative numerators
 can give negative results.
 
-\`\`\`zig
+```zig
 pub fn rem(comptime T: type, numerator: T, denominator: T) !T {
     @setRuntimeSafety(false);
     if (denominator == 0) return error.DivisionByZero;
     if (denominator < 0) return error.NegativeDenominator;
     return @rem(numerator, denominator);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2636,7 +2636,7 @@ pub fn rem(comptime T: type, numerator: T, denominator: T) !T {
 Returns the negation of the integer parameter.
 Result is a signed integer.
 
-\`\`\`zig
+```zig
 pub fn negateCast(x: anytype) !std.meta.Int(.signed, @bitSizeOf(@TypeOf(x))) {
     if (@typeInfo(@TypeOf(x)).int.signedness == .signed) return negate(x);
 
@@ -2647,7 +2647,7 @@ pub fn negateCast(x: anytype) !std.meta.Int(.signed, @bitSizeOf(@TypeOf(x))) {
 
     return -@as(int, @intCast(x));
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2668,7 +2668,7 @@ pub fn negateCast(x: anytype) !std.meta.Int(.signed, @bitSizeOf(@TypeOf(x))) {
 Cast an integer to a different integer type. If the value doesn't fit,
 return null.
 
-\`\`\`zig
+```zig
 pub fn cast(comptime T: type, x: anytype) ?T {
     comptime assert(@typeInfo(T) == .int); // must pass an integer
     const is_comptime = @TypeOf(x) == comptime_int;
@@ -2681,7 +2681,7 @@ pub fn cast(comptime T: type, x: anytype) ?T {
         return @as(T, @intCast(x));
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2702,12 +2702,12 @@ pub fn cast(comptime T: type, x: anytype) ?T {
 
 Align cast a pointer but return an error if it's the wrong alignment
 
-\`\`\`zig
+```zig
 pub fn alignCast(comptime alignment: Alignment, ptr: anytype) AlignCastError!AlignCastResult(alignment, @TypeOf(ptr)) {
     if (alignment.check(@intFromPtr(ptr))) return @alignCast(ptr);
     return error.UnalignedMemory;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2728,12 +2728,12 @@ pub fn alignCast(comptime alignment: Alignment, ptr: anytype) AlignCastError!Ali
 
 Asserts `int > 0`.
 
-\`\`\`zig
+```zig
 pub fn isPowerOfTwo(int: anytype) bool {
     assert(int > 0);
     return (int & (int - 1)) == 0;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2753,14 +2753,14 @@ pub fn isPowerOfTwo(int: anytype) bool {
 
 Aligns the given integer type bit width to a width divisible by 8.
 
-\`\`\`zig
+```zig
 pub fn ByteAlignedInt(comptime T: type) type {
     const info = @typeInfo(T).int;
     const bits = (info.bits + 7) / 8 * 8;
     const extended_type = std.meta.Int(info.signedness, bits);
     return extended_type;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2783,11 +2783,11 @@ If two integers are equally close, rounds away from zero.
 Uses a dedicated hardware instruction when available.
 This is the same as calling the builtin @round
 
-\`\`\`zig
+```zig
 pub inline fn round(value: anytype) @TypeOf(value) {
     return @round(value);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2809,11 +2809,11 @@ Rounds the given floating point number to an integer, towards zero.
 Uses a dedicated hardware instruction when available.
 This is the same as calling the builtin @trunc
 
-\`\`\`zig
+```zig
 pub inline fn trunc(value: anytype) @TypeOf(value) {
     return @trunc(value);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2835,11 +2835,11 @@ Returns the largest integral value not greater than the given floating point num
 Uses a dedicated hardware instruction when available.
 This is the same as calling the builtin @floor
 
-\`\`\`zig
+```zig
 pub inline fn floor(value: anytype) @TypeOf(value) {
     return @floor(value);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2860,13 +2860,13 @@ pub inline fn floor(value: anytype) @TypeOf(value) {
 Returns the nearest power of two less than or equal to value, or
 zero if value is less than or equal to zero.
 
-\`\`\`zig
+```zig
 pub fn floorPowerOfTwo(comptime T: type, value: T) T {
     const uT = std.meta.Int(.unsigned, @typeInfo(T).int.bits);
     if (value <= 0) return 0;
     return @as(T, 1) << log2_int(uT, @as(uT, @intCast(value)));
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2889,11 +2889,11 @@ Returns the smallest integral value not less than the given floating point numbe
 Uses a dedicated hardware instruction when available.
 This is the same as calling the builtin @ceil
 
-\`\`\`zig
+```zig
 pub inline fn ceil(value: anytype) @TypeOf(value) {
     return @ceil(value);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2915,7 +2915,7 @@ Returns the next power of two (if the value is not already a power of two).
 Only unsigned integers can be used. Zero is not an allowed input.
 Result is a type with 1 more bit than the input type.
 
-\`\`\`zig
+```zig
 pub fn ceilPowerOfTwoPromote(comptime T: type, value: T) std.meta.Int(@typeInfo(T).int.signedness, @typeInfo(T).int.bits + 1) {
     comptime assert(@typeInfo(T) == .int);
     comptime assert(@typeInfo(T).int.signedness == .unsigned);
@@ -2924,7 +2924,7 @@ pub fn ceilPowerOfTwoPromote(comptime T: type, value: T) std.meta.Int(@typeInfo(
     const ShiftType = std.math.Log2Int(PromotedType);
     return @as(PromotedType, 1) << @as(ShiftType, @intCast(@typeInfo(T).int.bits - @clz(value - 1)));
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2938,9 +2938,9 @@ pub fn ceilPowerOfTwoPromote(comptime T: type, value: T) std.meta.Int(@typeInfo(
 [^fn-ceilpoweroftwopromote-return-0]:
     Return type for `ceilPowerOfTwoPromote`:
 
-    \`\`\`zig
+    ```zig
     std.meta.Int(@typeInfo(T).int.signedness, @typeInfo(T).int.bits + 1)
-    \`\`\`
+    ```
 
 </details>
 
@@ -2955,7 +2955,7 @@ Returns the next power of two (if the value is not already a power of two).
 Only unsigned integers can be used. Zero is not an allowed input.
 If the value doesn't fit, returns an error.
 
-\`\`\`zig
+```zig
 pub fn ceilPowerOfTwo(comptime T: type, value: T) (error{Overflow}!T) {
     comptime assert(@typeInfo(T) == .int);
     const info = @typeInfo(T).int;
@@ -2968,7 +2968,7 @@ pub fn ceilPowerOfTwo(comptime T: type, value: T) (error{Overflow}!T) {
     }
     return @as(T, @intCast(x));
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -2995,11 +2995,11 @@ Returns the next power of two (if the value is not already a power
 of two). Only unsigned integers can be used. Zero is not an
 allowed input. Asserts that the value fits.
 
-\`\`\`zig
+```zig
 pub fn ceilPowerOfTwoAssert(comptime T: type, value: T) T {
     return ceilPowerOfTwo(T, value) catch unreachable;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3021,14 +3021,14 @@ pub fn ceilPowerOfTwoAssert(comptime T: type, value: T) T {
 Return the log base 2 of integer value x, rounding down to the
 nearest integer.
 
-\`\`\`zig
+```zig
 pub fn log2_int(comptime T: type, x: T) Log2Int(T) {
     if (@typeInfo(T) != .int or @typeInfo(T).int.signedness != .unsigned)
         @compileError("log2_int requires an unsigned integer, found " ++ @typeName(T));
     assert(x != 0);
     return @as(Log2Int(T), @intCast(@typeInfo(T).int.bits - 1 - @clz(x)));
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3050,7 +3050,7 @@ pub fn log2_int(comptime T: type, x: T) Log2Int(T) {
 Return the log base 2 of integer value x, rounding up to the
 nearest integer.
 
-\`\`\`zig
+```zig
 pub fn log2_int_ceil(comptime T: type, x: T) Log2IntCeil(T) {
     if (@typeInfo(T) != .int or @typeInfo(T).int.signedness != .unsigned)
         @compileError("log2_int_ceil requires an unsigned integer, found " ++ @typeName(T));
@@ -3059,7 +3059,7 @@ pub fn log2_int_ceil(comptime T: type, x: T) Log2IntCeil(T) {
     const log2_val: Log2IntCeil(T) = log2_int(T, x - 1);
     return log2_val + 1;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3082,7 +3082,7 @@ Cast a value to a different type. If the value doesn't fit in, or
 can't be perfectly represented by, the new type, it will be
 converted to the closest possible representation.
 
-\`\`\`zig
+```zig
 pub fn lossyCast(comptime T: type, value: anytype) T {
     switch (@typeInfo(T)) {
         .float => {
@@ -3126,7 +3126,7 @@ pub fn lossyCast(comptime T: type, value: anytype) T {
         else => @compileError("bad result type"),
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3152,12 +3152,12 @@ Supports floats and vectors of floats.
 This does not guarantee returning *b* if *t* is 1 due to floating-point errors.
 This is monotonic.
 
-\`\`\`zig
+```zig
 pub fn lerp(a: anytype, b: anytype, t: anytype) @TypeOf(a, b, t) {
     const Type = @TypeOf(a, b, t);
     return @mulAdd(Type, b - a, t, a);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3179,14 +3179,14 @@ pub fn lerp(a: anytype, b: anytype, t: anytype) @TypeOf(a, b, t) {
 
 Returns the maximum value of integer type T.
 
-\`\`\`zig
+```zig
 pub fn maxInt(comptime T: type) comptime_int {
     const info = @typeInfo(T);
     const bit_count = info.int.bits;
     if (bit_count == 0) return 0;
     return (1 << (bit_count - @intFromBool(info.int.signedness == .signed))) - 1;
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3206,7 +3206,7 @@ pub fn maxInt(comptime T: type) comptime_int {
 
 Returns the minimum value of integer type T.
 
-\`\`\`zig
+```zig
 pub fn minInt(comptime T: type) comptime_int {
     const info = @typeInfo(T);
     const bit_count = info.int.bits;
@@ -3214,7 +3214,7 @@ pub fn minInt(comptime T: type) comptime_int {
     if (bit_count == 0) return 0;
     return -(1 << (bit_count - 1));
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3235,7 +3235,7 @@ pub fn minInt(comptime T: type) comptime_int {
 Multiply a and b. Return type is wide enough to guarantee no
 overflow.
 
-\`\`\`zig
+```zig
 pub fn mulWide(comptime T: type, a: T, b: T) std.meta.Int(
     @typeInfo(T).int.signedness,
     @typeInfo(T).int.bits * 2,
@@ -3246,7 +3246,7 @@ pub fn mulWide(comptime T: type, a: T, b: T) std.meta.Int(
     );
     return @as(ResultInt, a) * @as(ResultInt, b);
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3261,12 +3261,12 @@ pub fn mulWide(comptime T: type, a: T, b: T) std.meta.Int(
 [^fn-mulwide-return-0]:
     Return type for `mulWide`:
 
-    \`\`\`zig
+    ```zig
     std.meta.Int(
         @typeInfo(T).int.signedness,
         @typeInfo(T).int.bits * 2,
     )
-    \`\`\`
+    ```
 
 </details>
 
@@ -3279,7 +3279,7 @@ pub fn mulWide(comptime T: type, a: T, b: T) std.meta.Int(
 
 Given two numbers, this function returns the order they are with respect to each other.
 
-\`\`\`zig
+```zig
 pub fn order(a: anytype, b: anytype) Order {
     if (a == b) {
         return .eq;
@@ -3291,7 +3291,7 @@ pub fn order(a: anytype, b: anytype) Order {
         unreachable;
     }
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3314,7 +3314,7 @@ This function does the same thing as comparison operators, however the
 operator is a runtime-known enum value. Works on any operands that
 support comparison operators.
 
-\`\`\`zig
+```zig
 pub fn compare(a: anytype, op: CompareOperator, b: anytype) bool {
     return switch (op) {
         .lt => a < b,
@@ -3325,7 +3325,7 @@ pub fn compare(a: anytype, op: CompareOperator, b: anytype) bool {
         .gte => a >= b,
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3349,7 +3349,7 @@ Returns a mask of all ones if value is true,
 and a mask of all zeroes if value is false.
 Compiles to one instruction for register sized integers.
 
-\`\`\`zig
+```zig
 pub inline fn boolMask(comptime MaskInt: type, value: bool) MaskInt {
     if (@typeInfo(MaskInt) != .int)
         @compileError("boolMask requires an integer mask type.");
@@ -3367,7 +3367,7 @@ pub inline fn boolMask(comptime MaskInt: type, value: bool) MaskInt {
 
     return -%@as(MaskInt, @intCast(@intFromBool(value)));
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3388,11 +3388,11 @@ pub inline fn boolMask(comptime MaskInt: type, value: bool) MaskInt {
 
 Return the mod of `num` with the smallest integer type
 
-\`\`\`zig
+```zig
 pub fn comptimeMod(num: anytype, comptime denom: comptime_int) IntFittingRange(0, denom - 1) {
     return @as(IntFittingRange(0, denom - 1), @intCast(@mod(num, denom)));
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3416,7 +3416,7 @@ Supports integer and float types and vectors of integer and float types.
 Unsigned integer types will always return 0 or 1.
 Branchless.
 
-\`\`\`zig
+```zig
 pub inline fn sign(i: anytype) @TypeOf(i) {
     const T = @TypeOf(i);
     return switch (@typeInfo(T)) {
@@ -3435,7 +3435,7 @@ pub inline fn sign(i: anytype) @TypeOf(i) {
         else => @compileError("Expected an int, float or vector of one, found " ++ @typeName(T)),
     };
 }
-\`\`\`
+```
 
 **Parameters & Return:**
 
@@ -3455,9 +3455,9 @@ pub inline fn sign(i: anytype) @TypeOf(i) {
 <details class="declaration-card" open>
 <summary>Error Set – Expand to view the error members and guidance.</summary>
 
-\`\`\`zig
+```zig
 pub const AlignCastError = error{UnalignedMemory}
-\`\`\`
+```
 
 **Errors:**
 
@@ -3466,3 +3466,4 @@ pub const AlignCastError = error{UnalignedMemory}
 </details>
 
 ---
+

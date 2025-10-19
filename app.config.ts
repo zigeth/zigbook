@@ -2,6 +2,23 @@ export default defineAppConfig({
   ui: {
     primary: 'emerald',
     gray: 'slate',
+    accents: {
+      default: 'medium',
+      routes: {
+        '/': 'high',
+        '/docs/std/collections': 'high',
+        '/docs/std/crypto': 'high',
+        '/docs/std/algorithms': 'medium',
+        '/docs/std/networking': 'medium',
+        '/docs/std/systems': 'medium',
+        '/docs/std/testing': 'medium',
+        '/docs/std/platform': 'low',
+        '/docs/std/toolchain': 'low',
+        '/docs/std/observability': 'low',
+        '/docs/std': 'medium',
+        '/docs': 'low'
+      }
+    },
     fonts: {
       sans: 'Inter, "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
       mono: '"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
